@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TokenService from '../services/TokenService'
+import AuthService from '../services/AuthService'
 
 
 export default class Login extends Component {
@@ -9,6 +10,8 @@ export default class Login extends Component {
       push: () => {},
     },
   }
+
+  state = {error: null}
   
   handleLogin = () => {
     const {location, history} = this.props
@@ -16,17 +19,28 @@ export default class Login extends Component {
     history.push(destination)
   }
 
-  handleSubmitAuth = e => {
-    e.preventDefault()
-    const {user_name, password} = e.target
+  handleSubmitJwtAuth = ev => {
+    console.log('submitting')
+    ev.preventDefault() 
+    this.setState({error: null})
+    const {user_name, password} = ev.target
+    console.log(`${user_name}, ${password}}`)
 
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(user_name.value, password.value)
-    )
-    user_name.value=''
-    password.value=''
-    this.handleLogin()
+    AuthService.postLogin({
+      user_name: user_name.value,
+      password: password.value,
+    })
+    .then(res => {
+      user_name.value = ''
+      password.value = ''
+      TokenService.saveAuthToken(res.authToken)
+      this.handleLogin()
+    })
+    .catch(res => {
+      this.setState({error:res.error})
+    })
   }
+
 
   render() {
     return (
