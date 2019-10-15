@@ -1,20 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service';
+import VenueContext from '../VenuesContext'
 
 export default class LandingPage extends React.Component {
+  static contextType = VenueContext
+
   handleSubmit = ev => {
     ev.preventDefault()
     const city = ev.target.city.value;
     const state = ev.target.state.value;
     const type = ev.target.type.value;
     console.log(city, state, type)
-    ApiService.getVenues(city, state, type).then(res => {
-      console.log(res);
-    });
+    ApiService.getVenues(city, state, type)
+    .then(this.context.setVenues)
+    .catch(this.context.setError)
+    console.log(this.context)
+    };
 
     //call for this.context.search 
-  }
 
   render() {
     return (
