@@ -12,13 +12,13 @@ export default class ResultsPage extends React.Component {
 
 render() {
   return (
-    <section class= "main" role='main'>
+    <section className= "main" role='main'>
 
       {/* Maybe split into another component?  */}
       <header>
         <h2>Results for Durham, NC</h2>
       </header>
-      <div class="addvenue">
+      <div className="addvenue">
         <p>Is something missing?</p>
         <a href="addvenue.html"><button>Suggest a new venue</button></a>
       </div>
@@ -26,21 +26,21 @@ render() {
         {/* Will need to map over the result component.  */}
         <Result></Result>
       <ul>
-        <li class="result compact">
+        <li className="result compact">
           <h2>HiWire Brewing</h2>
           <p>800 Taylor St. Durham, NC 27701</p>
           <p>Overall: 1/5</p>
           <p>Price: $$$$</p>
           <button>Expand</button>
         </li>
-        <li class="result expanded">
+        <li className="result expanded">
           <h2>Bull McCabe's</h2>
           <p>427 W Main St. Durham, NC 27704</p>
           <p>Overall: 5/5</p>
           <p>Price: $$</p>
           <p>Type: Bar/Brewery</p>
           <p>Volume Level: Restaurant</p>
-          <div class="amenities">
+          <div className="amenities">
             <h3>Amenities</h3>
             <ul>
               <li>Play Area</li>
@@ -52,15 +52,15 @@ render() {
             </ul>
           </div>
           <h3>What people are saying: </h3>
-          <div class="review">
+          <div className="review">
             <h4>One of the Bull City's Best!</h4>
             <p>Kelley Breeze - SuperUser</p>
             <p>Date visited: 1/28/2014</p>
-            <div class="reviewText">
+            <div className="reviewText">
             <p>We love Bull McCabes! This was a favorite before we had our little one and I can recommend it highly enough! We go every friday with some friends from work who also have kids, and it is always easy to get in and out of. They also have changing tables and the staff is super friendly (and quick!). They have a great outdoor area with a big connect-four game and a big fenced-in area for kids to play in, while still within sight of parents. Best way to wrap up a work week!</p>
             </div>
           </div>
-          <div class="votes">
+          <div className="votes">
             <p>Was this review helpful?</p>
             <button>Thumbs up <span>4010</span></button>
             <button>Thumbs down<span>1</span></button>

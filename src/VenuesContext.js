@@ -15,8 +15,8 @@ export class VenuesProvider extends Component {
     error: null,
   };
 
-  setVenues = venues => {
-    this.setState({ venues })
+  setVenues = Venues => {
+    this.setState({ Venues })
   }
 
   setError = error => {

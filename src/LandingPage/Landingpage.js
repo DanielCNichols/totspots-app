@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service';
 import VenueContext from '../VenuesContext'
+import {withRouter} from 'react-router-dom';
 
-export default class LandingPage extends React.Component {
+class LandingPage extends React.Component {
   static contextType = VenueContext
 
   handleSubmit = ev => {
@@ -15,7 +16,8 @@ export default class LandingPage extends React.Component {
     ApiService.getVenues(city, state, type)
     .then(this.context.setVenues)
     .catch(this.context.setError)
-    console.log(this.context)
+    this.props.history.push('/reviews')
+    console.log(this.context.state)
     };
 
     //call for this.context.search 
@@ -66,3 +68,5 @@ export default class LandingPage extends React.Component {
     );
   }
 }
+
+export default withRouter(LandingPage)

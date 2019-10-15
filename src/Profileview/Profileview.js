@@ -3,14 +3,14 @@ import React from 'react';
 export default function ProfileView() {
 
   return( 
-    <section class="filter-search">
+    <section className="filter-search">
     <header>
       <h2>Your Account</h2>
     </header>
-    <div class= "profile">      <div class="avatar">
+    <div className= "profile">      <div className="avatar">
         <img src='/' alt="placeholder"/>
       </div>
-      <div class="profile-info">
+      <div className="profile-info">
         <p>Name: Kelley Breeze</p>
         <p>Email: kbreezy354@gmail.com</p>
         <p>City: Durham</p>

@@ -3,7 +3,7 @@ import React from 'react'
 export default function ReviewForm() {
 
   return (
-    <section class="main">
+    <section className="main">
       <header>
         <h2>Add A Review</h2>
       </header>
@@ -12,7 +12,7 @@ export default function ReviewForm() {
       <form action="">
         <fieldset>
           <legend>
-            <label for="Price">Price
+            <label htmlFor="Price">Price
               <select name="Price" name="price" id="price">
                 <option value="">Please select</option>
                 <option value="1">$</option>
@@ -22,7 +22,7 @@ export default function ReviewForm() {
                 <option value="5">$$$$$</option>
               </select>
             </label>
-            <label for="Volume">Volume Level
+            <label htmlFor="Volume">Volume Level
               <select name="Volume" id="Volume">
                 <option value="">Please select</option>
                 <option value="1">Library</option>
@@ -32,7 +32,7 @@ export default function ReviewForm() {
                 <option value="5">Concert</option>
               </select>
             </label>
-            <label for="Rating"
+            <label htmlFor="Rating"
               >Overall Rating
               <select>
                 <option value="">Please select</option>
@@ -62,41 +62,41 @@ export default function ReviewForm() {
           </fieldset>
           <fieldset>
             <legend>Amenities
-            <div class="amenities">
-              <label for="StrollerAccessible">Stroller Accessible
+            <div className="amenities">
+              <label htmlFor="StrollerAccessible">Stroller Accessible
                 <input
                   type="checkbox"
                   name="StrollerAccessible"
                   value="StrollerAccessible"
                 />
               </label>
-              <label for="PlayArea">Play Area
+              <label htmlFor="PlayArea">Play Area
                 <input type="checkbox" name="PlayArea" value="PlayArea" />
               </label>
-              <label for="Changingtable"> Changing Table
+              <label htmlFor="Changingtable"> Changing Table
                 <input
                   type="checkbox"
                   name="Changingtable"
                   value="Changingtable"
                 />
                 </label>
-                <label for="Dogs">Dogs Welcome
+                <label htmlFor="Dogs">Dogs Welcome
                 <input type="checkbox" name="DogsWelcome" value="Dogs" />
               </label>
-              <label for="Fastcheckout"> Fast Checkout
+              <label htmlFor="Fastcheckout"> Fast Checkout
                 <input type="checkbox" name="Fastcheckout" value="Fast" />
               </label>
-              <label for="KidsNight"> Kids Night Deals
+              <label htmlFor="KidsNight"> Kids Night Deals
                 <input type="checkbox" name="KidsNight" value="KidsNight" />
               </label>
-              <label for="OutdoorSeating"> Outdoor Seating Available
+              <label htmlFor="OutdoorSeating"> Outdoor Seating Available
                 <input type="checkbox" name="OutdoorSeating" value="Outdoor" />
               </label>
             </div>  
             </legend>
           </fieldset>
-          <div class="review">
-            <label for="review">Write your review
+          <div className="review">
+            <label htmlFor="review">Write your review
               <input type="text" name="review" placeholder="Tell us about your visit"/>
             </label>
           </div>

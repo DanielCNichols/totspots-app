@@ -50,10 +50,10 @@ export default class Login extends Component {
       </header>
       <form action="" onSubmit={this.handleSubmitAuth}>
         <fieldset>
-          <label for="user_name">Username
+          <label htmlFor="user_name">Username
             <input type="text" name="user_name" id="user_name" placeholder="jonDoe82"/>
           </label>
-          <label for="password">Password
+          <label htmlFor="password">Password
             <input type="text" name="password" id="password"/>
           </label>
         </fieldset>

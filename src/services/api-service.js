@@ -11,6 +11,9 @@ const ApiService = {
       headers: {}
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+
+    
+    // .then(res => res.text()).then(text => JSON.parse(text))
     );
   },
 

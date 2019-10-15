@@ -7,7 +7,7 @@ export default function Result() {
   return(
     <div> 
       <ul>
-      <li class="result compact">
+      <li className="result compact">
         {/* in this li, map over data
         and then add reviews component which gets mapped. */}
         <h3>What people are saying: </h3>
