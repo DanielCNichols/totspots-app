@@ -39,6 +39,7 @@ export class VenuesProvider extends Component {
   render() {
     const value = {
       venues: this.state.venues,
+      reviews: this.state.reviews,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,

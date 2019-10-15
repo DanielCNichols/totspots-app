@@ -7,7 +7,7 @@ export default class VenuesPage extends Component {
   static contextType = VenuesContext;
  
   render() {
-    let {reviews} =this.props
+    let {reviews} =this.context
     return (
       <section>
         {/* <VenueProfile>

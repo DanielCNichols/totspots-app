@@ -12,7 +12,6 @@ class LandingPage extends React.Component {
     const city = ev.target.city.value;
     const state = ev.target.state.value;
     const type = ev.target.type.value;
-    console.log(city, state, type)
     ApiService.getVenues(city, state, type)
     .then(venues => {
     this.context.setVenues(venues);
