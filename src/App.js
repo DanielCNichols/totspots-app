@@ -11,6 +11,10 @@ import RefineSearch from './RefineSearch/RefineSearch';
 import ResultsPage from './resultsPage/ResultsPage';
 import Nav from './Nav/Nav';
 import ProfileView from './Profileview/Profileview';
+import AddVenue from './addvenue/addvenue'
+import ReviewForm from './ReviewForm/ReviewForm'
+import VenuesPage from './VenuesPage/VenuesPage'
+
 
 export default class App extends Component {
   static ContextType = VenuesContext;
@@ -32,6 +36,9 @@ export default class App extends Component {
               <Route exact path='/register' component={Registration} />
               <Route exact path='/reviews' component={ResultsPage} />
               <Route exact path='/account' component={ProfileView} />
+              <Route exact path='/addVenue' component={AddVenue} />
+              <Route exact path='/venue/:venue_id'  component={VenuesPage}/>
+              <Route exact path='/addReview' component={ReviewForm}/>
             </Switch>
           </Main>
         </ErrorBoundary>

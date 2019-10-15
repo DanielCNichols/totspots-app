@@ -8,21 +8,41 @@ const ApiService = {
   getVenues(city, state, type) {
     console.log(city, state, type)
     return fetch(`${config.API_ENDPOINT}/venues/${city}/${state}/${type}`, {
-      headers: {}
-    }).then(res =>
+      headers: {
+        'content-type': 'application/json',
+      }
+    }).then(res => 
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-
-    
-    // .then(res => res.text()).then(text => JSON.parse(text))
     );
   },
 
-  getReviews(Venue_id) {
-    return fetch(`${config.API_ENDPOINT}/venues/${Venue_id}/reviews`, {
-      headers: {}
+  getReviews(venue_id) {
+    return fetch(`${config.API_ENDPOINT}/venues/reviews/${venue_id}`, {
+      headers: {
+        'content-type': "application/json"
+      }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+
+  addVenue(venue_name, address, city, state, venue_type, zipcode) {
+    return fetch(`${config.API_ENDPOINT}/venues/`, {
+      method: 'Post',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        venue_name,
+        address,
+        city,
+        state,
+        venue_type,
+        zipcode
+      })
+    }).then(res =>
+      !res.ok ?  res.json().then(e => Promise.reject(e)) : res.json()
+      );
   },
 
   postReviews(venueId, content, price, volume, starRating) {

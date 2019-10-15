@@ -1,22 +1,30 @@
 import React, { Component } from 'react'
 
 const VenuesContext = React.createContext({
-  Venues: [],
+  venues: [],
+  reviews:[],
   error: null,
-  setError: () => {},
-  clearError: () => {},
   setVenues: () => {},
+  setError: () => {},
+  clearError: () => {}
 })
 export default VenuesContext;
 
 export class VenuesProvider extends Component {
   state = {
-    Venues: [],
+    venues: [],
+    reviews: [],
     error: null,
   };
 
-  setVenues = Venues => {
-    this.setState({ Venues })
+  setVenues = venues => {
+    console.log('setting state', venues)
+    this.setState({ venues })
+  }
+
+  setReviews = reviews => {
+    console.log('setting reviews', reviews)
+    this.setState({reviews})
   }
 
   setError = error => {
@@ -30,11 +38,12 @@ export class VenuesProvider extends Component {
 
   render() {
     const value = {
-      venues: this.state.thingList,
+      venues: this.state.venues,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setVenues: this.setThingList,
+      setVenues: this.setVenues,
+      setReviews: this.setReviews
     }
     return (
       <VenuesContext.Provider value={value}>

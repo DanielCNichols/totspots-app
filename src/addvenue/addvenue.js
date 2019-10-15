@@ -1,48 +1,94 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ApiService from '../services/api-service';
+import VenueContext from '../VenuesContext';
+import { withRouter } from 'react-router-dom';
 
+//ABER... Kann ich mit dieser Formen zusammen arbeiten?
 
-export default function AddVenue() {
-  return (
-    <section className="main">
-      <header>
-        <h2>Add A Venue</h2>
-      </header>
-      <form action="">
-        <fieldset>
-          <legend>
-            <label htmlFor="Venue">Venue/Event Name
-              <input type="text" name="Venue" id="Venue" placeholder="ex: Bull McCabe's"/>
-            </label>
-            
-            <label htmlFor="Address">Street Address
-              <input type="text" name="Address" placeholder="123 Main St."/>
-            </label>
-            <label htmlFor="City">City
-              <input type="text" name="City" placeholder="ex: Durham"/>
-            </label>
-            <label htmlFor="State">State
-              <input type="text" name="State" placeholder="ex: NC" maxlength="2"/>
-            </label>
-            <label htmlFor="Website">Website
-              <input type="text" name="Website" placeholder="www.reddit.com"/>
-            </label>
-            <label htmlFor="Phone">Phone
-              <input type="text" name="Phone" placeholder="(555) 245-3456"/>
-            </label>
+class AddVenue extends React.Component {
+  handleSubmit = ev => {
+    ev.preventDefault();
+    const venue = ev.target.venue.value;
+    const address = ev.target.address.value;
+    const city = ev.target.city.value;
+    const state = ev.target.state.value;
+    const type = ev.target.type.value;
+    const zipcode = ev.target.zipcode.value;
+    ApiService.addVenue(venue, address, city, state, type, zipcode)
+    .catch(this.context.setError)
+    this.props.history.push('/')
+  };
 
-            
-            <label htmlFor="type">Type of venue/event
-              <select name="type" id="type">
-                <option value="">Please select</option>
-                <option value="Restaurant">Restaurant</option>
-                <option value="Bar">Brewery/Bar</option>
-                <option value="Educational">Educational</option>
-                <option value="music">Music</option>
-                <option value="outdoor">Outdoor</option>
-              </select>
-            </label>
-            <label htmlFor="Price">Price
-              <select name="Price" name="price" id="price">
+  render() {
+    return (
+      <section className='main'>
+        <header>
+          <h2>Add A Venue</h2>
+        </header>
+        <form onSubmit={this.handleSubmit}>
+          <fieldset>
+            <legend>
+              <label htmlFor='venue'>
+                Venue/Event Name
+                <input
+                  type='text'
+                  name='venue'
+                  id='Venue'
+                  placeholder="ex: Bull McCabe's"
+                />
+              </label>
+
+              <label htmlFor='address'>
+                Street Address
+                <input type='text' name='address' placeholder='123 Main St.' />
+              </label>
+              <label htmlFor='city'>
+                City
+                <input type='text' name='city' placeholder='ex: Durham' />
+              </label>
+              <label htmlFor='state'>
+                State
+                <input
+                  type='text'
+                  name='state'
+                  placeholder='ex: NC'
+                  maxLength='2'
+                />
+              </label>
+              <label htmlFor='zipcode'>
+                Zipcode
+                <input
+                  type='text'
+                  name='zipcode'
+                  placeholder='ex: 27705'
+                />
+              </label>
+              <label htmlFor='Website'>
+                Website
+                <input
+                  type='text'
+                  name='Website'
+                  placeholder='www.reddit.com'
+                />
+              </label>
+              <label htmlFor='Phone'>
+                Phone
+                <input type='text' name='Phone' placeholder='(555) 245-3456' />
+              </label>
+              <label htmlFor='type'>
+                Type of venue/event
+                <select name='type' id='type'>
+                  <option value=''>Please select</option>
+                  <option value='Restaurant'>Restaurant</option>
+                  <option value='Bar'>Brewery/Bar</option>
+                  <option value='Educational'>Educational</option>
+                  <option value='music'>Music</option>
+                  <option value='outdoor'>Outdoor</option>
+                </select>
+              </label>
+              {/* <label htmlFor="Price">Price
+              <select name="price" id="price">
                 <option value="">Please select</option>
                 <option value="1">$</option>
                 <option value="2">$$</option>
@@ -128,10 +174,15 @@ export default function AddVenue() {
             <label htmlFor="review">Write your review
               <input type="text" name="review" placeholder="Tell us about your visit"/>
             </label>
-          </div>
-        <button type="submit">Submit</button>
-        <button>Cancel</button>
-      </form>
-    </section>
-  )
+          </div> */}
+            </legend>
+          </fieldset>
+          <button type='submit'>Submit</button>
+          <Link to='/'><button>Cancel</button></Link>
+        </form>
+      </section>
+    );
+  }
 }
+
+export default withRouter(AddVenue);

@@ -42,8 +42,8 @@ export class ReviewProvider extends Component {
     this.setState({ reviews })
   }
 
-  clearThing = () => {
-    this.setThing(noVenue)
+  clearVenue = () => {
+    this.setVenue(noVenue)
     this.setReviews([])
   }
 
@@ -56,14 +56,14 @@ export class ReviewProvider extends Component {
 
   render() {
     const value = {
-      venue: this.state.thing,
+      venue: this.state.venue,
       reviews: this.state.reviews,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setThing: this.setThing,
+      setVenue: this.setVenue,
       setReviews: this.setReviews,
-      clearVenue: this.clearThing,
+      clearVenue: this.clearVenue,
       addReview: this.addReview,
     }
     return (

@@ -13,7 +13,7 @@ export default function ReviewForm() {
         <fieldset>
           <legend>
             <label htmlFor="Price">Price
-              <select name="Price" name="price" id="price">
+              <select name="Price" id="price">
                 <option value="">Please select</option>
                 <option value="1">$</option>
                 <option value="2">$$</option>

@@ -14,10 +14,11 @@ class LandingPage extends React.Component {
     const type = ev.target.type.value;
     console.log(city, state, type)
     ApiService.getVenues(city, state, type)
-    .then(this.context.setVenues)
+    .then(venues => {
+    this.context.setVenues(venues);
+  })
     .catch(this.context.setError)
     this.props.history.push('/reviews')
-    console.log(this.context.state)
     };
 
     //call for this.context.search 
