@@ -7,6 +7,7 @@ export default class VenueProfile extends Component {
 
   render() {
     let venue = this.context.selectedVenue
+    console.log(venue)
     return(
       <section className='venueProfile'>
         <header>
@@ -22,7 +23,7 @@ export default class VenueProfile extends Component {
         <p>OVERALL AVERAGE PRICE</p>
         <p>OVERALL AVERAGE VOLUME</p>
       </div>
-      <button>ADD A REVIEW</button>
+      <Link to={`/addreview/${venue.id}`}><button>ADD A REVIEW</button></Link>
       <button>Add to Favorites</button> 
       </section>
     )

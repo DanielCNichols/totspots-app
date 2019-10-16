@@ -1,13 +1,28 @@
 import React from 'react';
+import ApiService from  '../services/api-service'
+import VenuesContext from '../VenuesContext'
 
+export default class Votes extends React.Component {
+  static contextType= VenuesContext
 
-export default function Votes() {
+  handleVote = ev => {
+    let vote = ev.target.value;
+    let id= this.props.review.id
+    ApiService.handleVotes(vote, id)
+  }
+  
 
-  return (
-    <div className="votes">
-          <p>Was this review helpful?</p>
-          <button>Thumbs up <span>4010</span></button>
-          <button>Thumbs down<span>1</span></button>
-        </div>
-  )
+  render() {
+    return (
+      <div className='votes'>
+        <p>Was this review helpful?</p>
+        <button value='-1' onClick={this.handleVote}>
+          Thumbs up <span>4010</span>
+        </button>
+        <button value='1' onClick={this.handleVote}>
+          Thumbs down<span>1</span>
+        </button>
+      </div>
+    );
+  }
 }

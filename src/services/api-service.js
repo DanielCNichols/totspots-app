@@ -6,20 +6,20 @@ import config from '../config';
 //Maybe use the city/state from the login form to narrow it down, and then use the req.params on the server side to only reply with the relavant info?
 const ApiService = {
   getVenues(city, state, type) {
-    console.log(city, state, type)
+    console.log(city, state, type);
     return fetch(`${config.API_ENDPOINT}/venues/${city}/${state}/${type}`, {
       headers: {
-        'content-type': 'application/json',
+        'content-type': 'application/json'
       }
-    }).then(res => 
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
 
   getReviews(venue_id) {
-    return fetch(`${config.API_ENDPOINT}/venues/reviews/${venue_id}`, {
+    return fetch(`${config.API_ENDPOINT}/venues/${venue_id}/reviews`, {
       headers: {
-        'content-type': "application/json"
+        'content-type': 'application/json'
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
@@ -27,7 +27,7 @@ const ApiService = {
   },
 
   addVenue(venue_name, address, city, state, venue_type, zipcode) {
-    return fetch(`${config.API_ENDPOINT}/venues/`, {
+    return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',
       headers: {
         'content-type': 'application/json'
@@ -41,22 +41,24 @@ const ApiService = {
         zipcode
       })
     }).then(res =>
-      !res.ok ?  res.json().then(e => Promise.reject(e)) : res.json()
-      );
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   },
 
-  postReviews(venueId, content, price, volume, starRating) {
-    return fetch(`${config.API_ENDPOINT}/reviews`, {
+  postReviews(venue_id, content, price, volume,  starrating, user_id) {
+    console.log(starrating)
+    return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        venue_id: venueId,
+        venue_id: venue_id,
         content,
         price,
         volume,
-        starRating
+        starrating,
+        user_id: 2
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
@@ -64,23 +66,40 @@ const ApiService = {
   },
 
   deleteReview(reviewId, callback) {
-    return fetch(`${config.API_ENDPOINT}/reviews/reviewId`, {
-      method: 'DELETE',
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
+      method: 'DELETE'
     })
-    .then((res) => {
-      if (!res.ok) {
-        return res.json().then((error) => {
-          throw error;
-        });
-      }
-      return res.json();
-    })
-    .then((resJson)=> {
-      callback(reviewId);
-    })
-    .catch((error) => {
-      console.error(error)
-    });
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then(resJson => {
+        callback(reviewId);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
+
+  handleVotes(votestatus, review_id) {
+    console.log('handling votes on the client')
+    return fetch(`${config.API_ENDPOINT}/reviews/${review_id}/votes`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        votestatus,
+        review_id,
+        user_id: 2
+      })
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 };
 

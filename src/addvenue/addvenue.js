@@ -4,8 +4,6 @@ import ApiService from '../services/api-service';
 import VenueContext from '../VenuesContext';
 import { withRouter } from 'react-router-dom';
 
-//ABER... Kann ich mit dieser Formen zusammen arbeiten?
-
 class AddVenue extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault();

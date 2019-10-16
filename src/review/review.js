@@ -17,7 +17,7 @@ export default class Review extends React.Component {
           <div>
             <p>{reviews.content}</p>
           </div>
-          <Votes></Votes>
+          <Votes review={reviews}></Votes>
         </li>
     );
   }

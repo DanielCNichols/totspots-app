@@ -14,12 +14,7 @@ export default class VenuesPage extends Component {
     return (
       <section>
         <VenueProfile></VenueProfile>
-          
-         
-          <Link to={`/addReview/${reviews.venue_id}`}><button>Add a review</button></Link>
-        {/* <VenueProfile>
 
-        </VenueProfile> */}
         <ul>
           {reviews.map((reviews =>(
               <Review reviews={reviews} key={reviews.id} />
