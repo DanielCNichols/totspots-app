@@ -8,7 +8,7 @@ export default function ReviewForm() {
         <h2>Add A Review</h2>
       </header>
 
-      <h3>Bull McCabe's</h3>
+      <h3>VENUE NAME</h3>
       <form action="">
         <fieldset>
           <legend>

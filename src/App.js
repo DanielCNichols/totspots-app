@@ -38,7 +38,7 @@ export default class App extends Component {
               <Route exact path='/account' component={ProfileView} />
               <Route exact path='/addVenue' component={AddVenue} />
               <Route exact path='/venue/:venue_id'  component={VenuesPage}/>
-              <Route exact path='/addReview' component={ReviewForm}/>
+              <Route exact path='/addReview/:venue_id' component={ReviewForm}/>
             </Switch>
           </Main>
         </ErrorBoundary>

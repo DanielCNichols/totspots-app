@@ -13,7 +13,7 @@ class Result extends React.Component {
     this.context.setReviews(reviews)
   })
     .catch(this.context.setError)
-    this.props.history.push('/venue/:venueId')
+    this.props.history.push(`/venue/${venueId}`)
     };
 
     //Make 'see more a seperate view"
