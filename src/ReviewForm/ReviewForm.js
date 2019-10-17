@@ -22,7 +22,6 @@ export default class ReviewForm extends React.Component {
     for (let i = 0; i < stateCheck.length; i++) {
       if (stateValues[i] === true) {
         amenities.push(stateCheck[i])
-        console.log(amenities)
       }
     }
     return amenities;
@@ -35,13 +34,15 @@ export default class ReviewForm extends React.Component {
   const volume = ev.target.volume.value;
   const starrating = ev.target.rating.value;
   const content = ev.target.content.value
+
   const stateCheck = Object.keys(this.state)
   const stateValues = Object.values(this.state)
+
   const amenities = this.getAmenities(stateCheck, stateValues)
-  ApiService.postReviews(venueId, content, price, volume, starrating )
+  console.log(amenities)
+  ApiService.postReviews(venueId, content, price, volume, starrating, amenities)
   .catch(this.context.setError)
   this.props.history.push('/venue/venueId')
-  
   }
 
 

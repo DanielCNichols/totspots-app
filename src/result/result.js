@@ -27,7 +27,7 @@ class Result extends React.Component {
       <p>{venue.type}</p>
       <p>{venue.address}</p>
       <span>{venue.city}</span>, <span>{venue.state}</span><span>{venue.zipcode}</span>
-      <p>Overall Rating</p> <span>{venue.avgRating}/5</span>
+      <p>Overall Rating</p> <span>{Math.round(venue.avgRating)}/5</span>
 
       <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>

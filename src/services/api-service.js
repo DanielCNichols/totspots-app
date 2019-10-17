@@ -44,7 +44,7 @@ const ApiService = {
     );
   },
 
-  postReviews(venue_id, content, price, volume,  starrating, user_id) {
+  postReviews(venue_id, content, price, volume,  starrating, user_id, amenities) {
     return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
       method: 'POST',
       headers: {
@@ -56,7 +56,9 @@ const ApiService = {
         price,
         volume,
         starrating,
-        user_id: 2
+        user_id: 2,
+        //What is going on here?
+        amenities: amenities.join()
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
