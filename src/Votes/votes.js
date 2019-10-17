@@ -17,11 +17,9 @@ export default class Votes extends React.Component {
       <div className='votes'>
         <p>Was this review helpful?</p>
         <button value='-1' onClick={this.handleVote}>
-          Thumbs up <span>4010</span>
-        </button>
+          Thumbs up</button>
         <button value='1' onClick={this.handleVote}>
-          Thumbs down<span>1</span>
-        </button>
+          Thumbs down</button>
       </div>
     );
   }

@@ -9,7 +9,6 @@ export default class ResultsPage extends React.Component {
 
 render() {
   let {venues} = this.context
-  console.log(venues)
   return (
     <section className="main" role='main'>
 

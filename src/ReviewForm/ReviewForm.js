@@ -15,13 +15,13 @@ export default class ReviewForm extends React.Component {
     outdoor: false, 
   }
 
-  
+  //Seems hackish...
  
   getAmenities(stateCheck, stateValues) {
     let amenities = [];
-    for (let i = 0; i < stateCheck.length; i++) {
+    for (let i = 1; i < stateCheck.length; i++) {
       if (stateValues[i] === true) {
-        amenities.push(stateCheck[i])
+        amenities.push(i)
       }
     }
     return amenities;
@@ -39,8 +39,13 @@ export default class ReviewForm extends React.Component {
   const stateValues = Object.values(this.state)
 
   const amenities = this.getAmenities(stateCheck, stateValues)
-  console.log(amenities)
-  ApiService.postReviews(venueId, content, price, volume, starrating, amenities)
+  const aObj = amenities.map(amenity => {
+       return {
+      amenity: amenity,
+      venue: this.context.selectedVenue.id
+    }
+  })
+  ApiService.postReviews(venueId, content, price, volume, starrating,  aObj)
   .catch(this.context.setError)
   this.props.history.push('/venue/venueId')
   }
@@ -104,7 +109,7 @@ export default class ReviewForm extends React.Component {
                     onChange={()=>{this.setState({stroller: !this.state.stroller})}}
                     type='checkbox'
                     name='amenities'
-                    value='StrollerAccessible'
+                    value='1'
                   />
                 </label>
                 <label htmlFor='PlayArea'>
@@ -113,7 +118,7 @@ export default class ReviewForm extends React.Component {
                   onChange={()=>{this.setState({playarea: !this.state.playarea})}}
                    type='checkbox' 
                    name='PlayArea' 
-                   value='PlayArea' />
+                   value='2' />
                 </label>
                 <label htmlFor='Changingtable'>
                   {' '}
@@ -122,7 +127,7 @@ export default class ReviewForm extends React.Component {
                   onChange={()=>{this.setState({changingtable: !this.state.changingtable})}}
                     type='checkbox'
                     name='amenities'
-                    value='Changingtable'
+                    value='3'
                   />
                 </label>
                 <label htmlFor='Dogs'>
@@ -131,7 +136,7 @@ export default class ReviewForm extends React.Component {
                   onChange={()=>{this.setState({dogs: !this.state.dogs})}}
                   type='checkbox' 
                   name='amenities' 
-                  value='Dogs' />
+                  value='4' />
                 </label>
                 <label htmlFor='Fastcheckout'>
                   {' '}
@@ -140,7 +145,7 @@ export default class ReviewForm extends React.Component {
                   onChange={()=>{this.setState({fastCheckout: !this.state.fastCheckout})}}
                   type='checkbox'
                    name='amenities' 
-                   value='Fast' />
+                   value='5' />
                 </label>
                 <label htmlFor='KidsNight'>
                   {' '}
@@ -149,7 +154,7 @@ export default class ReviewForm extends React.Component {
                   onChange={()=>{this.setState({KidsNight: !this.state.KidsNight})}}
                   type='checkbox' 
                   name='amenities' 
-                  value='KidsNight' />
+                  value='6' />
                 </label>
                 <label htmlFor='OutdoorSeating'>
                   {' '}
@@ -158,7 +163,7 @@ export default class ReviewForm extends React.Component {
                   onChange={()=>{this.setState({outdoor: !this.state.outdoor})}}
                     type='checkbox'
                     name='amenities'
-                    value='Outdoor'
+                    value='7'
                   />
                 </label>
               </div>
