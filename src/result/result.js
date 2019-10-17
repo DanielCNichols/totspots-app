@@ -7,7 +7,6 @@ class Result extends React.Component {
   static contextType = VenueContext
 
   handleExpanded(venueId) {
-    console.log(venueId)
     ApiService.getReviews(venueId)
     .then(reviews => { 
     this.context.setReviews(reviews)
@@ -22,13 +21,13 @@ class Result extends React.Component {
 
   render() {
     let {venue} = this.props
-    console.log(venue)
     return (
      <li key={venue.id}>
       <h3>{venue.venue_name}</h3>
       <p>{venue.type}</p>
       <p>{venue.address}</p>
       <span>{venue.city}</span>, <span>{venue.state}</span><span>{venue.zipcode}</span>
+      <p>Overall Rating</p> <span>{venue.avgRating}/5</span>
 
       <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>

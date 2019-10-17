@@ -21,7 +21,6 @@ export class VenuesProvider extends Component {
   };
 
   setVenues = venues => {
-    console.log('setting state', venues)
     this.setState({ venues })
   }
 
@@ -31,7 +30,6 @@ export class VenuesProvider extends Component {
   }
 
   setReviews = reviews => {
-    console.log('setting reviews', reviews)
     this.setState({reviews})
   }
 

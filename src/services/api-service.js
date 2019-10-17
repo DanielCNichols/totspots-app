@@ -6,7 +6,6 @@ import config from '../config';
 //Maybe use the city/state from the login form to narrow it down, and then use the req.params on the server side to only reply with the relavant info?
 const ApiService = {
   getVenues(city, state, type) {
-    console.log(city, state, type);
     return fetch(`${config.API_ENDPOINT}/venues/${city}/${state}/${type}`, {
       headers: {
         'content-type': 'application/json'
@@ -46,7 +45,6 @@ const ApiService = {
   },
 
   postReviews(venue_id, content, price, volume,  starrating, user_id) {
-    console.log(starrating)
     return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
       method: 'POST',
       headers: {
@@ -86,7 +84,6 @@ const ApiService = {
   },
 
   handleVotes(votestatus, review_id) {
-    console.log('handling votes on the client')
     return fetch(`${config.API_ENDPOINT}/reviews/${review_id}/votes`, {
       method: 'POST',
       headers: {

@@ -5,15 +5,39 @@ import ApiService from '../services/api-service'
 export default class ReviewForm extends React.Component {
   static contextType = VenuesContext;
 
+  state = {
+    stroller: false,
+    playarea: false,
+    changingtable: false,
+    dogs: false,
+    fastCheckout: false,
+    kidsNight: false, 
+    outdoor: false, 
+  }
+
+  
+ 
+  getAmenities(stateCheck, stateValues) {
+    let amenities = [];
+    for (let i = 0; i < stateCheck.length; i++) {
+      if (stateValues[i] === true) {
+        amenities.push(stateCheck[i])
+        console.log(amenities)
+      }
+    }
+    return amenities;
+  } 
+
   handleSubmit= ev => {
   ev.preventDefault();
   const venueId = this.context.selectedVenue.id
   const price = ev.target.price.value;
   const volume = ev.target.volume.value;
   const starrating = ev.target.rating.value;
-  // const amenities = ev.target.amenities.value;
-  const content = ev.target.review.value;
-  console.log(content)
+  const content = ev.target.content.value
+  const stateCheck = Object.keys(this.state)
+  const stateValues = Object.values(this.state)
+  const amenities = this.getAmenities(stateCheck, stateValues)
   ApiService.postReviews(venueId, content, price, volume, starrating )
   .catch(this.context.setError)
   this.props.history.push('/venue/venueId')
@@ -76,6 +100,7 @@ export default class ReviewForm extends React.Component {
                 <label htmlFor='StrollerAccessible'>
                   Stroller Accessible
                   <input
+                    onChange={()=>{this.setState({stroller: !this.state.stroller})}}
                     type='checkbox'
                     name='amenities'
                     value='StrollerAccessible'
@@ -83,12 +108,17 @@ export default class ReviewForm extends React.Component {
                 </label>
                 <label htmlFor='PlayArea'>
                   Play Area
-                  <input type='checkbox' name='PlayArea' value='PlayArea' />
+                  <input
+                  onChange={()=>{this.setState({playarea: !this.state.playarea})}}
+                   type='checkbox' 
+                   name='PlayArea' 
+                   value='PlayArea' />
                 </label>
                 <label htmlFor='Changingtable'>
                   {' '}
                   Changing Table
                   <input
+                  onChange={()=>{this.setState({changingtable: !this.state.changingtable})}}
                     type='checkbox'
                     name='amenities'
                     value='Changingtable'
@@ -96,22 +126,35 @@ export default class ReviewForm extends React.Component {
                 </label>
                 <label htmlFor='Dogs'>
                   Dogs Welcome
-                  <input type='checkbox' name='amenities' value='Dogs' />
+                  <input 
+                  onChange={()=>{this.setState({dogs: !this.state.dogs})}}
+                  type='checkbox' 
+                  name='amenities' 
+                  value='Dogs' />
                 </label>
                 <label htmlFor='Fastcheckout'>
                   {' '}
                   Fast Checkout
-                  <input type='checkbox' name='amenities' value='Fast' />
+                  <input 
+                  onChange={()=>{this.setState({fastCheckout: !this.state.fastCheckout})}}
+                  type='checkbox'
+                   name='amenities' 
+                   value='Fast' />
                 </label>
                 <label htmlFor='KidsNight'>
                   {' '}
                   Kids Night Deals
-                  <input type='checkbox' name='amenities' value='KidsNight' />
+                  <input 
+                  onChange={()=>{this.setState({KidsNight: !this.state.KidsNight})}}
+                  type='checkbox' 
+                  name='amenities' 
+                  value='KidsNight' />
                 </label>
                 <label htmlFor='OutdoorSeating'>
                   {' '}
                   Outdoor Seating Available
                   <input
+                  onChange={()=>{this.setState({outdoor: !this.state.outdoor})}}
                     type='checkbox'
                     name='amenities'
                     value='Outdoor'
@@ -125,7 +168,7 @@ export default class ReviewForm extends React.Component {
               Write your review
               <input
                 type='text'
-                name='review'
+                name='content'
                 placeholder='Tell us about your visit'
               />
             </label>
