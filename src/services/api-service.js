@@ -1,4 +1,5 @@
 import config from '../config';
+import TokenService from './TokenService'
 
 //need to grab the reviews by city/state from the search form.
 
@@ -25,6 +26,32 @@ const ApiService = {
     );
   },
 
+  getAmenities(venue_id) {
+    console.log('getting amenities')
+    console.log(venue_id)
+    return fetch(`${config.API_ENDPOINT}/venues/${venue_id}/amenities`, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
+  getProfile(){
+    return fetch(`${config.API_ENDPOINT}/venues/account`, {
+      //need to set bearer token
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    )
+  },
+
+
+  
   addVenue(venue_name, address, city, state, venue_type, zipcode) {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',

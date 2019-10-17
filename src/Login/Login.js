@@ -23,15 +23,15 @@ export default class Login extends Component {
     console.log('submitting')
     ev.preventDefault() 
     this.setState({error: null})
-    const {user_name, password} = ev.target
-    console.log(`${user_name}, ${password}}`)
+    const {username, password} = ev.target
+    console.log(`${username}, ${password}}`)
 
     AuthService.postLogin({
-      user_name: user_name.value,
+      username: username.value,
       password: password.value,
     })
     .then(res => {
-      user_name.value = ''
+      username.value = ''
       password.value = ''
       TokenService.saveAuthToken(res.authToken)
       this.handleLogin()
@@ -48,10 +48,10 @@ export default class Login extends Component {
       <header>
         <h2>Sign in</h2>
       </header>
-      <form action="" onSubmit={this.handleSubmitAuth}>
+      <form action="" onSubmit={this.handleSubmitJwtAuth}>
         <fieldset>
           <label htmlFor="user_name">Username
-            <input type="text" name="user_name" id="user_name" placeholder="jonDoe82"/>
+            <input type="text" name="username" id="username" placeholder="jonDoe82"/>
           </label>
           <label htmlFor="password">Password
             <input type="text" name="password" id="password"/>
