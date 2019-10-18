@@ -14,6 +14,7 @@ import ProfileView from './Profileview/Profileview';
 import AddVenue from './addvenue/addvenue'
 import ReviewForm from './ReviewForm/ReviewForm'
 import VenuesPage from './VenuesPage/VenuesPage'
+import FavoritesList from './FavoritesList/Favoriteslist'
 
 
 export default class App extends Component {
@@ -36,6 +37,7 @@ export default class App extends Component {
               <Route exact path='/register' component={Registration} />
               <Route exact path='/reviews' component={ResultsPage} />
               <Route exact path='/account' component={ProfileView} />
+              <Route exact path='/account' component={FavoritesList}/>
               <Route exact path='/addVenue' component={AddVenue} />
               <Route exact path='/venue/:venue_id'  component={VenuesPage}/>
               <Route exact path='/addReview/:venue_id' component={ReviewForm}/>

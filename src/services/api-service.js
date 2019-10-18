@@ -50,6 +50,31 @@ const ApiService = {
     )
   },
 
+  getFavorites(){
+    console.log('gettingFavorites')
+    return fetch(`${config.API_ENDPOINT}/venues/favorites`, {
+      //need to set bearer token
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    )
+  },
+
+  getUserReviews(){
+    console.log('getting User History')
+    return fetch(`${config.API_ENDPOINT}/venues/UserReviews`, {
+      //need to set bearer token
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    )
+  },
 
   
   addVenue(venue_name, address, city, state, venue_type, zipcode) {

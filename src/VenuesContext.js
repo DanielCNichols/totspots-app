@@ -4,13 +4,17 @@ const VenuesContext = React.createContext({
   venues: [],
   reviews:[],
   amenities:[],
-  selectedVenue: {}, 
+  favorites:[],
+  selectedVenue: {},
+  userReviews: [],
   profile: {},
   error: null,
   setVenues: () => {},
   setselectedVenue: () => {},
   setError: () => {},
+  setFavorites: () => {},
   setAmenities: () => {},
+  setUserReviews: () => {},
   setProfile: () => {},
   clearError: () => {}
 })
@@ -21,7 +25,9 @@ export class VenuesProvider extends Component {
     venues: [],
     reviews: [],
     amenities:[],
+    favorites: [],
     selectedVenue: {},
+    userReviews: [],
     profile: {},
     error: null,
   };
@@ -32,6 +38,14 @@ export class VenuesProvider extends Component {
 
   setProfile = profile => {
     this.setState({profile})
+  }
+
+  setUserReviews = userReviews => {
+    this.setState({userReviews})
+  }
+  
+  setFavorites = favorites => {
+    this.setState({favorites})
   }
 
   setSelectedVenue = (venueid) => {
@@ -62,13 +76,17 @@ export class VenuesProvider extends Component {
       venues: this.state.venues,
       reviews: this.state.reviews,
       amenities: this.state.amenities,
+      favorites: this.state.favorites,
       selectedVenue: this.state.selectedVenue,
+      userReviews: this.state.userReviews,
       profile: this.state.profile,
       error: this.state.error,
       setError: this.setError,
       setProfile: this.setProfile,
       clearError: this.clearError,
       setVenues: this.setVenues,
+      setFavorites: this.setFavorites,
+      setUserReviews: this.setUserReviews,
       setSelectedVenue: this.setSelectedVenue,
       setAmenities: this.setAmenities,
       setReviews: this.setReviews
