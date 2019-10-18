@@ -11,7 +11,6 @@ export default class Review extends React.Component {
     let {reviews} = this.props
     return (
         <li key={reviews.id}>
-          <h4></h4>
           <p>{moment(reviews.date_created).format('MMMM Do YYY, h:mm a')}</p>
           <p>{reviews.first_name} said: </p>
           <div>

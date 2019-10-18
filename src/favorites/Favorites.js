@@ -8,7 +8,6 @@ class Favorites extends React.Component {
 
   render() {
     let { favorites } = this.props;
-    console.log(favorites)
     return (
       <li key={favorites.id}>
         <h3>{favorites.venue_name}</h3>

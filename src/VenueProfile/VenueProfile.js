@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import VenuesContext from '../VenuesContext'
-import ApiService from '../services/api-service'
 
 export default class VenueProfile extends Component {
   static contextType =  VenuesContext

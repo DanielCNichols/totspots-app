@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import VenuesContext from '../VenuesContext';
 import Review from '../review/review'
-import { Link } from 'react-router-dom';
 import VenueProfile from '../VenueProfile/VenueProfile'
 
 export default class VenuesPage extends Component {

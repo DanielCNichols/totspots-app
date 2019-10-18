@@ -8,7 +8,6 @@ export default class FavoritesList extends Component  {
   static contextType = venuesContext
 
   componentDidMount() {
-    console.log('component mounted')
     ApiService.getFavorites()
     .then(favorites => {
       this.context.setFavorites(favorites)

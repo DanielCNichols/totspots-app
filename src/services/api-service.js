@@ -77,7 +77,7 @@ const ApiService = {
   },
 
   
-  addVenue(venue_name, address, city, state, venue_type, zipcode) {
+  addVenue(venue_name, address, city, state, venue_type, zipcode, price, volume, starrating, content, aObj) {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',
       headers: {
@@ -89,7 +89,12 @@ const ApiService = {
         city,
         state,
         venue_type,
-        zipcode
+        zipcode,
+        price, 
+        volume, 
+        starrating, 
+        content,
+        amenities: aObj
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
@@ -117,6 +122,8 @@ const ApiService = {
   },
 
   deleteReview(reviewId, callback) {
+    console.log('sending delete request')
+    console.log(reviewId)
     return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
       method: 'DELETE'
     })
@@ -150,6 +157,24 @@ const ApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  
+  editReview(reviewId, newReview) {
+    return fetch(`$config.API_ENDPOINT}/${reviewId}`, {
+      method: 'PATCH', 
+      body: JSON.stringify(newReview),
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+    .then(res => {
+      if (!res.ok)
+        return res.json().then(error => Promise.reject(error))
+    })
+    .catch(error => {
+      console.error(error)
+    })
   }
 };
 

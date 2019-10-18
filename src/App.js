@@ -7,7 +7,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Main from './Main/Main';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
-import RefineSearch from './RefineSearch/RefineSearch';
+// import RefineSearch from './RefineSearch/RefineSearch';
 import ResultsPage from './resultsPage/ResultsPage';
 import Nav from './Nav/Nav';
 import ProfileView from './Profileview/Profileview';
@@ -27,7 +27,7 @@ export default class App extends Component {
           <Route path='/reviews' component={Nav} />
           <Sidebar>
             <Switch>
-              <Route exact path='/reviews' component={RefineSearch} />
+              {/* <Route exact path='/reviews' component={RefineSearch} /> */}
             </Switch>
           </Sidebar>
           <Main>

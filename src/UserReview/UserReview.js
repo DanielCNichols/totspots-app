@@ -1,13 +1,24 @@
 import React from 'react';
 import VenueContext from '../VenuesContext'
 import moment from 'moment';
+import ApiService from '../services/api-service';
 
 export default class UserReview extends React.Component {
   static contextType = VenueContext;
 
+  deleteReviewRequest(reviewId, callback) {
+    console.log('deleting review')
+    ApiService.deleteReview(reviewId)
+    .then((reviews) => {
+      callback(reviewId);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
   render() {
     let {userReviews} = this.props
-    console.log(userReviews)
     return (
         <li key={userReviews.id}>
           <h4>{userReviews.venue_name}</h4>
@@ -20,7 +31,7 @@ export default class UserReview extends React.Component {
             <p>{userReviews.content}</p>
           </div>
           <button>Edit Review</button>
-          <button>DeleteReview</button>
+          <button onClick={()=> this.deleteReviewRequest(userReviews.id, this.context.deleteReview)}>DeleteReview</button>
         </li>
     );
   }

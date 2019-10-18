@@ -15,7 +15,6 @@ export default class ReviewForm extends React.Component {
     outdoor: false, 
   }
 
-  //Seems hackish...
  
   getAmenities(stateCheck, stateValues) {
     let amenities = [];

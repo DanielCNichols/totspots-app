@@ -10,11 +10,13 @@ class LandingPage extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const city = ev.target.city.value;
-    const state = ev.target.state.value;
+    const searchState = ev.target.state.value;
     const type = ev.target.type.value;
-    ApiService.getVenues(city, state, type)
+    ApiService.getVenues(city, searchState, type)
     .then(venues => {
     this.context.setVenues(venues);
+    this.context.setCity(city)
+    this.context.setType(type)
   })
     .catch(this.context.setError)
     this.props.history.push('/reviews')
