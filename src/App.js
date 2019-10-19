@@ -15,6 +15,7 @@ import AddVenue from './addvenue/addvenue'
 import ReviewForm from './ReviewForm/ReviewForm'
 import VenuesPage from './VenuesPage/VenuesPage'
 import FavoritesList from './FavoritesList/Favoriteslist'
+import editReview from './EditReview/EditReview';
 
 
 export default class App extends Component {
@@ -41,6 +42,7 @@ export default class App extends Component {
               <Route exact path='/addVenue' component={AddVenue} />
               <Route exact path='/venue/:venue_id'  component={VenuesPage}/>
               <Route exact path='/addReview/:venue_id' component={ReviewForm}/>
+              <Route exact path='/:review_id' component={editReview}/>
             </Switch>
           </Main>
         </ErrorBoundary>

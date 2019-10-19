@@ -2,6 +2,7 @@ import React from 'react';
 import VenueContext from '../VenuesContext'
 import moment from 'moment';
 import ApiService from '../services/api-service';
+import {Link} from 'react-router-dom'
 
 export default class UserReview extends React.Component {
   static contextType = VenueContext;
@@ -30,7 +31,7 @@ export default class UserReview extends React.Component {
           <p>Here's what you had to say</p>
             <p>{userReviews.content}</p>
           </div>
-          <button>Edit Review</button>
+          <Link to={`/${userReviews.id}`}><button>Edit Review</button></Link>
           <button onClick={()=> this.deleteReviewRequest(userReviews.id, this.context.deleteReview)}>DeleteReview</button>
         </li>
     );

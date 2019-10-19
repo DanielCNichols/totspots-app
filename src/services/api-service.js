@@ -26,6 +26,18 @@ const ApiService = {
     );
   },
 
+  getReview(reviewId) {
+    console.log('getting review')
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
+
   getAmenities(venue_id) {
     console.log('getting amenities')
     console.log(venue_id)
@@ -160,7 +172,9 @@ const ApiService = {
   },
   
   editReview(reviewId, newReview) {
-    return fetch(`$config.API_ENDPOINT}/${reviewId}`, {
+    console.log('sending edit')
+    console.log(newReview)
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
       method: 'PATCH', 
       body: JSON.stringify(newReview),
       headers: {

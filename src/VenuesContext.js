@@ -20,6 +20,7 @@ const VenuesContext = React.createContext({
   setSearchState: () => {},
   setCity: ()=> {},
   setType: () => {},
+  updateReview: () => {},
   setUserReviews: () => {},
   setProfile: () => {},
   deleteReview: () => {},
@@ -60,6 +61,14 @@ export class VenuesProvider extends Component {
     );
     this.setState({ userReviews: newReviews });
   };
+
+  updateReview = updatedReview => {
+    this.setState({
+      userReviews: this.state.userReviews.map(review => (
+        review.id !== updatedReview.id) ? review : updatedReview
+      )
+    })
+  }
 
   setFavorites = favorites => {
     this.setSearchState({ favorites });
@@ -121,6 +130,7 @@ export class VenuesProvider extends Component {
       setSearchState: this.setState,
       setType: this.setType,
       setFavorites: this.setFavorites,
+      updateReview: this.updateReview,
       setUserReviews: this.setUserReviews,
       deleteReview: this.deleteReview,
       setSelectedVenue: this.setSelectedVenue,
