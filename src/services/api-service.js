@@ -50,17 +50,6 @@ const ApiService = {
     );
   },
 
-  getProfile(){
-    return fetch(`${config.API_ENDPOINT}/venues/account`, {
-      //need to set bearer token
-      headers: {
-        'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
-      }
-    }).then(res => 
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    )
-  },
 
   getFavorites(){
     console.log('gettingFavorites')
@@ -73,6 +62,34 @@ const ApiService = {
     }).then(res => 
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     )
+  },
+
+  addFavorite(venue_id) {
+    return fetch(`${config.API_ENDPOINT}/venues/favorites`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        venue_id,
+      })
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
+  },
+
+  deleteFavorite(venue_id) {
+    return fetch(`${config.API_ENDPOINT}/venues/favorites`, {
+      method: 'DELETE', 
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        venue_id,
+      })
+    })
   },
 
   getUserReviews(){
@@ -93,7 +110,8 @@ const ApiService = {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         venue_name,
@@ -113,11 +131,12 @@ const ApiService = {
     );
   },
 
-  postReviews(venue_id, content, price, volume,  starrating, aObj, user_id) {
+  postReviews(venue_id, content, price, volume,  starrating, aObj) {
     return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         venue_id: venue_id,
@@ -125,7 +144,6 @@ const ApiService = {
         price,
         volume,
         starrating,
-        user_id: 2,
         amenities: aObj
       })
     }).then(res =>
@@ -137,7 +155,11 @@ const ApiService = {
     console.log('sending delete request')
     console.log(reviewId)
     return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
     })
       .then(res => {
         if (!res.ok) {
@@ -155,20 +177,36 @@ const ApiService = {
       });
   },
 
+
+  //CAN I REFACTOR THIS ENDPOINT??? SEEMS DUMB TO SEND ALL THE THINGS IN THE PARAMS...
   handleVotes(votestatus, review_id) {
     return fetch(`${config.API_ENDPOINT}/reviews/${review_id}/votes`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         votestatus,
         review_id,
-        user_id: 2
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+
+  editVote(votestatus, review_id) {
+    return fetch(`${config.API_ENDPOINT}/reviews/${review_id}/votes`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        votestatus,
+        review_id
+      })
+    })
   },
   
   editReview(reviewId, newReview) {
@@ -189,7 +227,20 @@ const ApiService = {
     .catch(error => {
       console.error(error)
     })
-  }
+  },
+
+
+  getProfile() { 
+    return fetch(`${config.API_ENDPOINT}/venues/account`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    )
+  },
 };
 
 export default ApiService;

@@ -13,9 +13,7 @@ export default class UserReview extends React.Component {
     .then((reviews) => {
       callback(reviewId);
     })
-    .catch((error) => {
-      console.error(error);
-    });
+    .catch((this.context.setError))
   }
 
   render() {

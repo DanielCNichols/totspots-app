@@ -7,7 +7,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Main from './Main/Main';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
-// import RefineSearch from './RefineSearch/RefineSearch';
+import RefineSearch from './RefineSearch/RefineSearch';
 import ResultsPage from './resultsPage/ResultsPage';
 import Nav from './Nav/Nav';
 import ProfileView from './Profileview/Profileview';
@@ -16,6 +16,8 @@ import ReviewForm from './ReviewForm/ReviewForm'
 import VenuesPage from './VenuesPage/VenuesPage'
 import FavoritesList from './FavoritesList/Favoriteslist'
 import editReview from './EditReview/EditReview';
+import PublicRoute from './utils/PublicRoute'
+import PrivateRoute from './utils/PrivateRoute'
 
 
 export default class App extends Component {
@@ -28,20 +30,20 @@ export default class App extends Component {
           <Route path='/reviews' component={Nav} />
           <Sidebar>
             <Switch>
-              {/* <Route exact path='/reviews' component={RefineSearch} /> */}
+              <Route exact path='/reviews' component={RefineSearch} />
             </Switch>
           </Sidebar>
           <Main>
             <Switch>
               <Route exact path='/' component={Landingpage} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/register' component={Registration} />
+              <PublicRoute exact path='/login' component={Login} />
+              <PublicRoute exact path='/register' component={Registration} />
               <Route exact path='/reviews' component={ResultsPage} />
-              <Route exact path='/account' component={ProfileView} />
-              <Route exact path='/account' component={FavoritesList}/>
-              <Route exact path='/addVenue' component={AddVenue} />
+              <PrivateRoute exact path='/account' component={ProfileView} />
+              <PrivateRoute exact path='/account' component={FavoritesList}/>
+              <PrivateRoute exact path='/addVenue' component={AddVenue} />
               <Route exact path='/venue/:venue_id'  component={VenuesPage}/>
-              <Route exact path='/addReview/:venue_id' component={ReviewForm}/>
+              <PrivateRoute exact path='/addReview/:venue_id' component={ReviewForm}/>
               <Route exact path='/:review_id' component={editReview}/>
             </Switch>
           </Main>

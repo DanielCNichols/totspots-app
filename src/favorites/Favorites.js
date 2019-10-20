@@ -1,9 +1,16 @@
 import React from 'react'
+import ApiService from '../services/api-service';
+import VenuesContext from '../VenuesContext'
 
 class Favorites extends React.Component {
+  static contextType = VenuesContext
 
-  handleRemove(id) {
-    //call api to remove
+  deleteFavorite(id, callback) {
+    ApiService.deleteFavorite(id)
+    .then((favorites) => {
+      callback(id);
+    })
+    .catch((this.context.setError))
   }
 
   render() {
@@ -15,8 +22,8 @@ class Favorites extends React.Component {
         <p>{favorites.address}</p>
         <span>{favorites.city}</span>, <span>{favorites.state}</span>
         <span>{favorites.zipcode}</span>
-        <button onClick={() => this.handleRemove(favorites.id)}>See More</button>
-        <button onClick={() => this.handleRemove(favorites.id)}>Remove from favorites</button>
+        {/* <button onClick={() => this.handleRemove(favorites.id)}>See More</button> */}
+        <button onClick={() => this.deleteFavorite(favorites.id, this.context.deleteFavorite)}>Remove from favorites</button>
       </li>
     );
   }
