@@ -18,6 +18,7 @@ import FavoritesList from './FavoritesList/Favoriteslist'
 import editReview from './EditReview/EditReview';
 import PublicRoute from './utils/PublicRoute'
 import PrivateRoute from './utils/PrivateRoute'
+import './app.css'
 
 
 export default class App extends Component {
@@ -27,7 +28,7 @@ export default class App extends Component {
     return (
       <div className='app'>
         <ErrorBoundary>
-          <Route path='/reviews' component={Nav} />
+          <Route path='/' component={Nav} />
           <Sidebar>
             <Switch>
               <Route exact path='/reviews' component={RefineSearch} />

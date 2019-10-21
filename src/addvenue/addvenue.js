@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
+import './Addvenue.css'
 
 class AddVenue extends React.Component {
   state = {
@@ -49,36 +50,16 @@ class AddVenue extends React.Component {
     this.props.history.push('/');
   };
 
-  //   ApiService.postReviews(
-  //     venueId,
-  //     content,
-  //     price,
-  //     volume,
-  //     starrating,
-  //     aObj
-  //   ).catch(this.context.setError);
-  //   this.props.history.push('/venue/venueId');
-  // };
-
-  // handleSubmit = ev => {
-  //   ev.preventDefault();
-  //   const venue = ev.target.venue.value;
-  //   const address = ev.target.address.value;
-  //   const city = ev.target.city.value;
-  //   const state = ev.target.state.value;
-  //   const type = ev.target.type.value;
-  //   const zipcode = ev.target.zipcode.value;
-
   render() {
     return (
       <section>
         <header>
           <h2>Add A Venue</h2>
         </header>
-        <form onSubmit={this.handleSubmit}>
-            <label htmlFor='venue'>
+        <form className="add_form" onSubmit={this.handleSubmit}>
+            <label className='add_form_label' htmlFor='venue'>
                 Venue/Event Name
-                <input
+                <input className= "add_form_text"
                   type='text'
                   name='venue'
                   id='Venue'
@@ -87,15 +68,19 @@ class AddVenue extends React.Component {
               </label>
               <label htmlFor='address'>
                 Street Address
-                <input type='text' name='address' placeholder='123 Main St.' />
+                <input className= "add_form_text"
+                 type='text' name='address' placeholder='123 Main St.' />
               </label>
               <label htmlFor='city'>
                 City
-                <input type='text' name='city' placeholder='ex: Durham' />
+                <input
+                className= "add_form_text"
+                type='text' name='city' placeholder='ex: Durham' />
               </label>
               <label htmlFor='state'>
                 State
                 <input
+                  className= "add_form_text"
                   type='text'
                   name='state'
                   placeholder='ex: NC'
@@ -104,11 +89,14 @@ class AddVenue extends React.Component {
               </label>
               <label htmlFor='zipcode'>
                 Zipcode
-                <input type='text' name='zipcode' placeholder='ex: 27705' />
+                <input 
+                className= "add_form_text"
+                type='text' name='zipcode' placeholder='ex: 27705' />
               </label>
               <label htmlFor='Website'>
                 Website
                 <input
+                className= "add_form_text"
                   type='text'
                   name='Website'
                   placeholder='www.reddit.com'
@@ -116,11 +104,15 @@ class AddVenue extends React.Component {
               </label>
               <label htmlFor='Phone'>
                 Phone
-                <input type='text' name='Phone' placeholder='(555) 245-3456' />
+                <input 
+                className= "add_form_text"
+                type='text' name='Phone' placeholder='(555) 245-3456' />
               </label>
               <label htmlFor='type'>
                 Type of venue/event
-                <select name='type' id='type'>
+                <select 
+                className="add_form_select"
+                name='type' id='type'>
                   <option value=''>Please select</option>
                   <option value='Restaurant'>Restaurant</option>
                   <option value='Bar'>Brewery/Bar</option>
@@ -129,10 +121,12 @@ class AddVenue extends React.Component {
                   <option value='outdoor'>Outdoor</option>
                 </select>
               </label>
-                    <legend>
+                    {/* <legend> */}
                       <label htmlFor='price'>
-                        price
-                        <select name='price' id='price'>
+                        Price
+                        <select 
+                         className="add_form_select"
+                        name='price' id='price'>
                           <option value=''>Please select</option>
                           <option value='1'>$</option>
                           <option value='2'>$$</option>
@@ -142,8 +136,10 @@ class AddVenue extends React.Component {
                         </select>
                       </label>
                       <label htmlFor='volume'>
-                        volume Level
-                        <select name='volume' id='volume'>
+                        Volume Level
+                        <select 
+                         className="add_form_select"
+                        name='volume' id='volume'>
                           <option value=''>Please select</option>
                           <option value='1'>Library</option>
                           <option value='2'>Coffee Shop</option>
@@ -152,9 +148,12 @@ class AddVenue extends React.Component {
                           <option value='5'>Concert</option>
                         </select>
                       </label>
-                      <label htmlFor='rating'>
+                      <label 
+                      htmlFor='rating'>
                         Overall rating
-                        <select name='rating' id='rating'>
+                        <select 
+                        className="add_form_select"
+                        name='rating' id='rating'>
                           <option value=''>Please select</option>
                           <option value='1'>&#x2605;</option>
                           <option value='2'>&#x2605; &#x2605;</option>
@@ -167,10 +166,10 @@ class AddVenue extends React.Component {
                           </option>
                         </select>
                       </label>
-                    </legend>
+                    {/* </legend> */}
                   <fieldset>
                     <legend>
-                      amenities
+                      Amenities
                       <div className='amenities'>
                         <label htmlFor='StrollerAccessible'>
                           Stroller Accessible
@@ -249,7 +248,7 @@ class AddVenue extends React.Component {
                         </label>
                         <label htmlFor='OutdoorSeating'>
                           {' '}
-                          Outdoor Seating Available
+                          Outdoor Seating
                           <input
                             onChange={() => {
                               this.setState({ outdoor: !this.state.outdoor });
@@ -264,18 +263,20 @@ class AddVenue extends React.Component {
                   </fieldset>
                   <div className='review'>
                     <label htmlFor='review'>
-                      Write your review
-                      <input
-                        type='text'
+                      Tell us about your visit
+                      <textarea
+                        type='textArea'
                         name='content'
                         placeholder='Tell us about your visit'
                       />
                     </label>
                   </div>
+                  <div className='add_form_controls'>
           <button type='submit'>Submit</button>
           <Link to='/'>
             <button>Cancel</button>
           </Link>
+          </div>
         </form>
       </section>
     );

@@ -1,18 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import TokenService from '../services/TokenService';
 
-export default function Nav() {
-  return (
-    <nav>
-      <div className="Nav_loggedin">
-      <Link to="/account">Profile</Link>
-      <Link to="/">Logout</Link>
+export default class Nav extends React.Component {
+  handleLogout = () => {
+    TokenService.clearToken();
+  };
+
+  renderLogout() {
+    return (
+      <div className='Nav_login'>
+        <Link onClick={this.handleLogout} to='/'>
+          Logout
+        </Link>
+        <Link to ='/account'>
+          Profile
+        </Link>
       </div>
-      <div className="Nav_notloggedin">
-        <Link to="/login">Log in</Link>
-        <Link to="/register">Sign up</Link>
-        <Link to="/">Home</Link>
-        </div>
+    );
+  }
+
+  renderLogin() {
+    return (
+      <div className='Nav_logout'>
+        <Link to='/login'>Log in</Link>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <nav>
+        <h1>
+          <Link to ='/'>
+            Home
+          </Link>
+          </h1>
+          {TokenService.hasToken() ? this.renderLogout() : this.renderLogin()}
       </nav>
-  )
+
+    ) 
+  }
 }
+

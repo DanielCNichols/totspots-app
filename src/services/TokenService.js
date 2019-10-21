@@ -7,10 +7,10 @@ const TokenService = {
   getAuthToken() {
     return window.localStorage.getItem(config.TOKEN_KEY)
   },
-  clearAuthToken() {
+  clearToken() {
     window.localStorage.removeItem(config.TOKEN_KEY)
   },
-  hasAuthToken() {
+  hasToken() {
     return !!TokenService.getAuthToken()
   },
   makeBasicAuthToken(userName, password) {

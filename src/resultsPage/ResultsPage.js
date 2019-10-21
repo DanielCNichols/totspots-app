@@ -2,6 +2,7 @@ import React from 'react'
 import Result from '../result/result'
 import VenueContext from '../VenuesContext'
 import {Link} from 'react-router-dom'
+import './Resultspage.css'
 
 
 export default class ResultsPage extends React.Component {
@@ -14,7 +15,7 @@ render() {
 
       {/* Maybe split into another component?  */}
       <header>
-        <h2>Results for Durham, NC</h2>
+        <h2>Showing results for {this.context.type} in {this.context.city}</h2>
       </header>
       <div className="addvenue">
         <p>Is something missing?</p>

@@ -2,39 +2,175 @@ import React from 'react';
 import VenueContext from '../VenuesContext';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
+import './result.css';
 
 class Result extends React.Component {
   static contextType = VenueContext;
 
   handleExpanded(venueId) {
-    ApiService.getReviews(venueId)
-      .then(reviews => {
-        this.context.setReviews(reviews);
-      })
-      ApiService.getAmenities(venueId).then(amenities => {
+    ApiService.getReviews(venueId).then(reviews => {
+      this.context.setReviews(reviews);
+    });
+    ApiService.getAmenities(venueId)
+      .then(amenities => {
         this.context.setAmenities(amenities);
-        console.log(this.context.amenities)
+        console.log(this.context.amenities);
       })
       .catch(this.context.setError);
     this.context.setSelectedVenue(venueId);
     this.props.history.push(`/venue/${venueId}`);
   }
 
-  //Make 'see more a seperate view"
-  //Make the request on the click.
+  renderRating() {
+    const avgRating = Math.round(this.props.venue.avgRating);
+    let stars;
+
+    switch (avgRating) {
+      case 1:
+        stars =
+        ( <span>&#x2605;</span>);
+        break;
+      case 2:
+        stars = (
+          <div>
+            <span>&#x2605;</span>
+            <span>&#x2605;</span>
+          </div>
+        );
+
+        break;
+
+      case 3:
+        stars = (
+          <div>
+            <span>&#x2605;</span>
+            <span>&#x2605;</span>
+            <span>&#x2605;</span>
+          </div>
+        );
+        break;
+
+      case 4:
+        stars = (
+          <div>
+            <span>&#x2605;</span>
+            <span>&#x2605;</span>
+            <span>&#x2605;</span>
+            <span>&#x2605;</span>
+          </div>
+        );
+        break;
+
+      case 5:
+        stars = (
+        <div>
+          <span>&#x2605;</span>
+          <span>&#x2605;</span>
+          <span>&#x2605;</span>
+          <span>&#x2605;</span>
+          <span>&#x2605;</span>
+        </div>
+        );
+        break;
+        
+        default: 
+        stars = (
+          <div>
+            <p>No reviews</p>
+          </div>
+        )
+    }
+
+    return (
+      stars
+    )
+  }
+
+  renderPrice() {
+    const avgPrice = Math.round(this.props.venue.avgPrice);
+    let price;
+
+    switch (avgPrice) {
+      case 1:
+        price =
+        ( <span>&#36;</span>);
+        break;
+      case 2:
+        price = (
+          <div>
+            <span>&#36;</span>
+            <span>&#36;</span>
+          </div>
+        );
+
+        break;
+
+      case 3:
+        price = (
+          <div>
+            <span>&#36;</span>
+            <span>&#36;</span>
+            <span>&#36;</span>
+          </div>
+        );
+        break;
+
+      case 4:
+        price = (
+          <div>
+            <span>&#36;</span>
+            <span>&#36;</span>
+            <span>&#36;</span>
+            <span>&#36;</span>
+          </div>
+        );
+        break;
+
+      case 5:
+        price = (
+        <div>
+          <span>&#36;</span>
+          <span>&#36;</span>
+          <span>&#36;</span>
+          <span>&#36;</span>
+          <span>&#36;</span>
+        </div>
+        );
+        break;
+        
+        default: 
+        price= (
+          <div>
+            <p>Price unavailable</p>
+          </div>
+        )
+    }
+
+    return (
+      price
+    )
+
+
+
+
+
+  }
 
   render() {
     let { venue } = this.props;
     return (
-      <li key={venue.id}>
-        <h3>{venue.venue_name}</h3>
-        <p>{venue.type}</p>
-        <p>{venue.address}</p>
-        <span>{venue.city}</span>, <span>{venue.state}</span>
-        <span>{venue.zipcode}</span>
-        <p>Overall Rating</p> <span>{Math.round(venue.avgRating)}/5</span>
-        <p>Price {Math.round(venue.avgPrice)}/5</p>
-        <p>Volume Level {Math.round(venue.avgVolume)}/5</p>
+      <li
+        className='result'
+        key={venue.id}
+        onClick={() => this.handleExpanded(venue.id)}
+      >
+        <div className='result_rating'>
+          <h3>{venue.venue_name}</h3>
+          {this.renderRating()}
+        </div>
+        {this.renderPrice()}
+        <span>{venue.address}</span> <span>{venue.city}</span>,{' '}
+        <span>{venue.state}</span>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>
     );
