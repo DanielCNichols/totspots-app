@@ -8,7 +8,6 @@ export default class ReviewsList extends Component  {
   static contextType = venuesContext
 
   componentDidMount() {
-    console.log('component mounted')
     ApiService.getUserReviews()
     .then(reviews => {
       this.context.setUserReviews(reviews)

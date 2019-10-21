@@ -1,0 +1,29 @@
+.refine_form {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.refine_form_label {
+  text-align: center;
+  display: block;
+  margin: 1.5em;
+}
+
+.refine_form_select {
+  display: block;
+  width: 80%;
+  padding: 5px 10px;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+.refine_form_button {
+  display: block; 
+  margin: 10px auto;
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+}

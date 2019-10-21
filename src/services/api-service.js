@@ -17,7 +17,7 @@ const ApiService = {
   },
 
   getReviews(venue_id) {
-    return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/venues/${venue_id}`, {
       headers: {
         'content-type': 'application/json'
       }
@@ -28,9 +28,9 @@ const ApiService = {
 
   getReview(reviewId) {
     console.log('getting review')
-    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       }
     }).then(res => 
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
@@ -39,8 +39,6 @@ const ApiService = {
 
 
   getAmenities(venue_id) {
-    console.log('getting amenities')
-    console.log(venue_id)
     return fetch(`${config.API_ENDPOINT}/venues/${venue_id}/amenities`, {
       headers: {
         'content-type': 'application/json'
@@ -52,7 +50,6 @@ const ApiService = {
 
 
   getFavorites(){
-    console.log('gettingFavorites')
     return fetch(`${config.API_ENDPOINT}/users/favorites`, {
       //need to set bearer token
       headers: {
@@ -154,7 +151,7 @@ const ApiService = {
   deleteReview(reviewId, callback) {
     console.log('sending delete request')
     console.log(reviewId)
-    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -167,7 +164,7 @@ const ApiService = {
             throw error;
           });
         }
-        return res.json();
+        return res.json()
       })
       .then(resJson => {
         callback(reviewId);
@@ -210,9 +207,7 @@ const ApiService = {
   },
   
   editReview(reviewId, newReview) {
-    console.log('sending edit')
-    console.log(newReview)
-    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
       method: 'PATCH', 
       body: JSON.stringify(newReview),
       headers: {

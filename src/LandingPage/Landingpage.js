@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service';
 import VenueContext from '../VenuesContext'
 import {withRouter} from 'react-router-dom';
+import './LandingPage.css'
 
 class LandingPage extends React.Component {
   static contextType = VenueContext
@@ -26,14 +27,16 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <section className='hero'>
-        <h1>Tot Spots</h1>
-        <p>For parents, by parents.</p>
-        <div className='form'>
+      <section className='landingpage'>
+        <div className="landingpage_hero">
+          <h1>Tot Spots</h1>
+          <p>For parents, by parents.</p>
+        </div>
+        <div className='search'>
           <p>I want to take my family to a...</p>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor='type'>
-              <select name='type' id='type'>
+          <form className="search_form" onSubmit={this.handleSubmit}>
+            <label className="search_form_label" htmlFor='type' required>
+              <select className="search_form_select" name='type' id='type'>
                 <option value=''>Select a type of venue/event</option>
                 <option value='Restaurant'>Restaurants</option>
                 <option value='Bar'>Brewery/Bar</option>
@@ -43,23 +46,29 @@ class LandingPage extends React.Component {
               </select>
             </label>
             <p>in...</p>
-            <label htmlFor='city'>
+            <label className= "search_form_label" htmlFor='city'> City
               <input
+                className="search_form_text"
                 type='text'
                 name='city'
                 id='city'
                 placeholder='Durham'
+                required
               />
             </label>
-            <label htmlFor='state'>
+            <label 
+            className="search_form_label"
+            htmlFor='state'> State
               <input
+              className="search_form_text"
                 type='text'
                 name='state'
                 max-length='2'
                 placeholder='NC'
+                required
               />
             </label>
-            <button type="submit">Go</button>
+            <button className="search_form_button" type="submit">Let's go!</button>
           </form>
         </div>
         <p>

@@ -20,6 +20,7 @@ const VenuesContext = React.createContext({
   setSearchState: () => {},
   setCity: ()=> {},
   setType: () => {},
+  addReview: () => {},
   updateReview: () => {},
   setUserReviews: () => {},
   setProfile: () => {},
