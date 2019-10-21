@@ -17,7 +17,7 @@ const ApiService = {
   },
 
   getReviews(venue_id) {
-    return fetch(`${config.API_ENDPOINT}/venues/${venue_id}/reviews`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
       headers: {
         'content-type': 'application/json'
       }
@@ -53,7 +53,7 @@ const ApiService = {
 
   getFavorites(){
     console.log('gettingFavorites')
-    return fetch(`${config.API_ENDPOINT}/venues/favorites`, {
+    return fetch(`${config.API_ENDPOINT}/users/favorites`, {
       //need to set bearer token
       headers: {
         'content-type': 'application/json',
@@ -65,7 +65,7 @@ const ApiService = {
   },
 
   addFavorite(venue_id) {
-    return fetch(`${config.API_ENDPOINT}/venues/favorites`, {
+    return fetch(`${config.API_ENDPOINT}/users/favorites`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -80,7 +80,7 @@ const ApiService = {
   },
 
   deleteFavorite(venue_id) {
-    return fetch(`${config.API_ENDPOINT}/venues/favorites`, {
+    return fetch(`${config.API_ENDPOINT}/users/favorites`, {
       method: 'DELETE', 
       headers: {
         'content-type': 'application/json',
@@ -94,7 +94,7 @@ const ApiService = {
 
   getUserReviews(){
     console.log('getting User History')
-    return fetch(`${config.API_ENDPOINT}/venues/UserReviews`, {
+    return fetch(`${config.API_ENDPOINT}/venues/userReviews`, {
       //need to set bearer token
       headers: {
         'content-type': 'application/json',
@@ -231,7 +231,7 @@ const ApiService = {
 
 
   getProfile() { 
-    return fetch(`${config.API_ENDPOINT}/venues/account`, {
+    return fetch(`${config.API_ENDPOINT}/users/account`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
