@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../services/TokenService';
-
+import './nav.css'
 export default class Nav extends React.Component {
   handleLogout = () => {
     TokenService.clearToken();
