@@ -20,11 +20,9 @@ export default class Login extends Component {
   }
 
   handleSubmitJwtAuth = ev => {
-    console.log('submitting')
     ev.preventDefault() 
     this.setState({error: null})
     const {username, password} = ev.target
-    console.log(`${username}, ${password}}`)
 
     AuthService.postLogin({
       username: username.value,

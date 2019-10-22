@@ -27,7 +27,6 @@ const ApiService = {
   },
 
   getReview(reviewId) {
-    console.log('getting review')
     return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
       headers: {
         'content-type': 'application/json',
@@ -90,7 +89,6 @@ const ApiService = {
   },
 
   getUserReviews(){
-    console.log('getting User History')
     return fetch(`${config.API_ENDPOINT}/venues/userReviews`, {
       //need to set bearer token
       headers: {
@@ -148,9 +146,7 @@ const ApiService = {
     );
   },
 
-  deleteReview(reviewId, callback) {
-    console.log('sending delete request')
-    console.log(reviewId)
+  deleteReview(reviewId) {
     return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
       method: 'DELETE',
       headers: {
@@ -159,15 +155,12 @@ const ApiService = {
       },
     })
       .then(res => {
+        console.log(res)
         if (!res.ok) {
           return res.json().then(error => {
             throw error;
           });
         }
-        return res.json()
-      })
-      .then(resJson => {
-        callback(reviewId);
       })
       .catch(error => {
         console.error(error);

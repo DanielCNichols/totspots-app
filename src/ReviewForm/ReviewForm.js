@@ -45,6 +45,7 @@ export default class ReviewForm extends React.Component {
     }
   })
   ApiService.postReviews(venueId, content, price, volume, starrating,  aObj)
+  .then(this.context.addReview)
   .catch(this.context.setError)
   this.props.history.push('/venue/venueId')
   }

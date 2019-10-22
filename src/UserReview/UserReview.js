@@ -10,7 +10,7 @@ export default class UserReview extends React.Component {
   deleteReviewRequest(reviewId, callback) {
     console.log('deleting review')
     ApiService.deleteReview(reviewId)
-    .then((reviews) => {
+    .then(() => {
       callback(reviewId);
     })
     .catch((this.context.setError))

@@ -31,7 +31,6 @@ class editReview extends Component {
 
   componentDidMount() {
     const reviewId = this.props.match.params.review_id;
-    console.log(reviewId);
     ApiService.getReview(reviewId).then(responseData => {
       this.setState({
         id: responseData.id,
@@ -94,7 +93,6 @@ class editReview extends Component {
   };
 
   render() {
-    console.log(this.state);
     const {error, id, venue_id, content, price, volume, starrating } = this.state
     return (
       <section>

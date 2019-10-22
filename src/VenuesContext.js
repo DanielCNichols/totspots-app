@@ -65,11 +65,9 @@ export class VenuesProvider extends Component {
   };
 
   deleteFavorite = venueId => {
-    console.log('deleting favorite')
     const newFavorites = this.state.favorites.filter(
       favorites => favorites.id !== venueId
     );
-    console.log(newFavorites)
     this.setState({ favorites: newFavorites });
   };
 
@@ -79,6 +77,12 @@ export class VenuesProvider extends Component {
         review.id !== updatedReview.id) ? review : updatedReview
       )
     })
+  }
+
+  addReview = newReview => {
+    this.setReviews([
+      ...this.state.reviews, newReview
+    ])
   }
 
   setFavorites = favorites => {
@@ -103,7 +107,6 @@ export class VenuesProvider extends Component {
   }
 
   setAmenities = amenities => {
-    console.log('setting amenities');
     this.setState({ amenities });
   };
 
@@ -141,6 +144,7 @@ export class VenuesProvider extends Component {
       setSearchState: this.setState,
       setType: this.setType,
       setFavorites: this.setFavorites,
+      addReview: this.addReview,
       updateReview: this.updateReview,
       setUserReviews: this.setUserReviews,
       deleteReview: this.deleteReview,
