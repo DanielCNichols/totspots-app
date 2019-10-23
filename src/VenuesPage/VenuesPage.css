@@ -1,6 +1,6 @@
 .VenuesPage {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 100px auto;
 }
 
 .VenuesPage header {
@@ -10,7 +10,7 @@
 @media screen and (min-width: 450px) {
   .VenuesPage {
     width: 75%;
-    margin: auto;
+    margin: 100px auto;
   }
 }
 

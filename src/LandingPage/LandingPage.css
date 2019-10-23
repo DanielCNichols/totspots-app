@@ -2,7 +2,12 @@
   background-color: lightblue;
   text-align: center;
   height: 150px;
-  margin: 0;
+  margin: 45px auto;
+  padding-top: 30px;
+}
+
+.landingpage {
+  margin-bottom: 100px;
 }
 
 header > h1 {
@@ -66,8 +71,16 @@ header > h1 {
 
 @media screen and (min-width: 450px) {
   .landingpage {
-    width: 75%;
     margin: auto;
+  }
+
+  .landingpage_hero {
+    margin-top: 45px;
+    height: 200px;
+  }
+  
+  .search_form {
+    width: 70%;
   }
 
   .search_form_button {

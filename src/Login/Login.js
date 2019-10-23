@@ -43,11 +43,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <section>
+      <section className="login">
       <header>
         <h2>Sign in</h2>
       </header>
-      <form className="login" onSubmit={this.handleSubmitJwtAuth}>
+      <form className="login_form" onSubmit={this.handleSubmitJwtAuth}>
         <fieldset>
           <label htmlFor="user_name">Username
             <input className="login_text" type="text" name="username" id="username" placeholder="jonDoe82"/>

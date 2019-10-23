@@ -37,7 +37,7 @@ nav {
   background-color: #064789;
   color: white;
   margin: 0;
-  padding: 0;
+  padding-bottom: 15px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -46,49 +46,23 @@ nav {
 }
 
 .app_main {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 45px;
+  margin-bottom: 60px;
 }
 
 
 
 
 @media screen and (min-width: 450px) {
-  /* .app_main {
-    width: 80%;
-    margin: auto; */
+  .app_main {
+    margin: 0;
   }
-
-
-
-
-
-
-
+}
 
 
 
 @media screen and (min-width: 800px) {
   .app_main {
-    margin-top: 30px;
-    margin-bottom: 62px;
-  }
-
-  .app_footer {
-    width: 100%;
-    position: relative;
-    left:0;
-    bottom:0;
-    right:0;
-    height: 70px;
-    background-color: #064789;
-    color: white;
     margin: 0;
-    padding: 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 }

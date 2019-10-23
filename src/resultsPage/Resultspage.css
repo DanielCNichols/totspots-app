@@ -3,6 +3,10 @@ ul {
   padding: 5px;
 }
 
+.results_page {
+  margin-bottom: 100px;
+}
+
 .results_header {
   text-align: left;
   margin: 10px;
@@ -21,7 +25,7 @@ ul {
   border-radius: 17px;
   border-color: #4392f1;
   background-color: transparent;
-  width: 50%;
+  min-width: 180px;
   height: 40px;
   font-size: 1.1em;
 }
@@ -29,7 +33,7 @@ ul {
 @media screen and (min-width: 450px) {
   .results_page {
     width: 75%;
-    margin: auto;
+    margin: 100px auto;
   }
 
   .addvenue button {

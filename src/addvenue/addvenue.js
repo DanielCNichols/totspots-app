@@ -52,7 +52,7 @@ class AddVenue extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="addVenue">
         <header>
           <h2>Add A Venue</h2>
         </header>

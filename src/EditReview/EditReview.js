@@ -39,7 +39,7 @@ class editReview extends Component {
         volume: responseData.volume,
         starrating: responseData.starrating
       })
-      .catch((this.context.setError))
+      // .catch((this.context.setError))
     })
   }
 
@@ -61,7 +61,6 @@ class editReview extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // const { reviewId } = this.props.match.params;
     const { id, venue_id, content, price, volume, starrating } = this.state;
     const newReview = { id, venue_id, content, price, volume, starrating };
     ApiService.editReview(id, newReview)
@@ -88,7 +87,7 @@ class editReview extends Component {
   };
 
   handleClickCancel = () => {
-    this.props.history.push('/');
+    this.props.history.push('/account');
   };
 
   render() {
@@ -99,7 +98,7 @@ class editReview extends Component {
       starrating
     } = this.state;
     return (
-      <section>
+      <section className="edit">
         <header>
           <h3>Edit Review</h3>
         </header>
