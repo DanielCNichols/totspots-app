@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Edit Review as expected 1`] = `
+<section>
+  <header>
+    <h3>
+      Edit Review
+    </h3>
+  </header>
+  <form
+    className="edit_form"
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <label
+        className="edit_form_label"
+        htmlFor="price"
+      >
+        Price
+        <select
+          className="edit_form_select"
+          id="price"
+          name="price"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            Please select
+          </option>
+          <option
+            value="1"
+          >
+            $
+          </option>
+          <option
+            value="2"
+          >
+            $$
+          </option>
+          <option
+            value="3"
+          >
+            $$$
+          </option>
+          <option
+            value="4"
+          >
+            $$$$
+          </option>
+          <option
+            value="5"
+          >
+            $$$$$
+          </option>
+        </select>
+      </label>
+      <label
+        className="edit_form_label"
+        htmlFor="volume"
+      >
+        Volume Level
+        <select
+          className="edit_form_select"
+          id="volume"
+          name="volume"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            Please select
+          </option>
+          <option
+            value="1"
+          >
+            Library
+          </option>
+          <option
+            value="2"
+          >
+            Coffee Shop
+          </option>
+          <option
+            value="3"
+          >
+            Restaurant
+          </option>
+          <option
+            value="4"
+          >
+            Bar/Brewery
+          </option>
+          <option
+            value="5"
+          >
+            Concert
+          </option>
+        </select>
+      </label>
+      <label
+        className="edit_form_label"
+        htmlFor="rating"
+      >
+        Overall rating
+        <select
+          className="edit_form_select"
+          id="rating"
+          name="rating"
+          onChange={[Function]}
+          value={1}
+        >
+          <option
+            value=""
+          >
+            Please select
+          </option>
+          <option
+            value="1"
+          >
+            ★
+          </option>
+          <option
+            value="2"
+          >
+            ★ ★
+          </option>
+          <option
+            value="3"
+          >
+            ★ ★ ★
+          </option>
+          <option
+            value="4"
+          >
+            ★ ★ ★ ★
+          </option>
+          <option
+            value="5"
+          >
+            ★ ★ ★ ★ ★
+          </option>
+        </select>
+      </label>
+    </fieldset>
+    <div
+      className="review"
+    >
+      <label
+        className="edit_form_label"
+        htmlFor="review"
+      >
+        What's changed at this spot?
+        <textarea
+          className="edit_form_text"
+          name="content"
+          onChange={[Function]}
+          placeholder="Tell us about your visit"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="edit_form_controls"
+    >
+      <button
+        className="edit_form_button"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        className="edit_form_cancel"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</section>
+`;

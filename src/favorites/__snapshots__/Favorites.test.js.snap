@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Favorites as expected 1`] = `
+<li
+  className="favorite"
+>
+  <h3>
+    Early Bird
+  </h3>
+  <p>
+    Restaurant
+  </p>
+  <p>
+    987 Erwin Rd.
+  </p>
+  <span>
+    Durham
+  </span>
+  , 
+  <span>
+    NC
+     
+  </span>
+  <span>
+    27705
+  </span>
+  <p />
+  <p>
+    9848880417
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+</li>
+`;

@@ -1,0 +1,384 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders AddVenue as expected 1`] = `
+<section>
+  <header>
+    <h2>
+      Add A Venue
+    </h2>
+  </header>
+  <form
+    className="add_form"
+    onSubmit={[Function]}
+  >
+    <label
+      className="add_form_label"
+      htmlFor="venue"
+    >
+      Venue/Event Name
+      <input
+        className="add_form_text"
+        id="Venue"
+        name="venue"
+        placeholder="ex: Bull McCabe's"
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="address"
+    >
+      Street Address
+      <input
+        className="add_form_text"
+        name="address"
+        placeholder="123 Main St."
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="city"
+    >
+      City
+      <input
+        className="add_form_text"
+        name="city"
+        placeholder="ex: Durham"
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="state"
+    >
+      State
+      <input
+        className="add_form_text"
+        maxLength="2"
+        name="state"
+        placeholder="ex: NC"
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="zipcode"
+    >
+      Zipcode
+      <input
+        className="add_form_text"
+        name="zipcode"
+        placeholder="ex: 27705"
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="Website"
+    >
+      Website
+      <input
+        className="add_form_text"
+        name="Website"
+        placeholder="www.reddit.com"
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="Phone"
+    >
+      Phone
+      <input
+        className="add_form_text"
+        name="Phone"
+        placeholder="(555) 245-3456"
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="type"
+    >
+      Type of venue/event
+      <select
+        className="add_form_select"
+        id="type"
+        name="type"
+      >
+        <option
+          value=""
+        >
+          Please select
+        </option>
+        <option
+          value="Restaurant"
+        >
+          Restaurant
+        </option>
+        <option
+          value="Bar"
+        >
+          Brewery/Bar
+        </option>
+        <option
+          value="Educational"
+        >
+          Educational
+        </option>
+        <option
+          value="music"
+        >
+          Music
+        </option>
+        <option
+          value="outdoor"
+        >
+          Outdoor
+        </option>
+      </select>
+    </label>
+    <label
+      htmlFor="price"
+    >
+      Price
+      <select
+        className="add_form_select"
+        id="price"
+        name="price"
+      >
+        <option
+          value=""
+        >
+          Please select
+        </option>
+        <option
+          value="1"
+        >
+          $
+        </option>
+        <option
+          value="2"
+        >
+          $$
+        </option>
+        <option
+          value="3"
+        >
+          $$$
+        </option>
+        <option
+          value="4"
+        >
+          $$$$
+        </option>
+        <option
+          value="5"
+        >
+          $$$$$
+        </option>
+      </select>
+    </label>
+    <label
+      htmlFor="volume"
+    >
+      Volume Level
+      <select
+        className="add_form_select"
+        id="volume"
+        name="volume"
+      >
+        <option
+          value=""
+        >
+          Please select
+        </option>
+        <option
+          value="1"
+        >
+          Library
+        </option>
+        <option
+          value="2"
+        >
+          Coffee Shop
+        </option>
+        <option
+          value="3"
+        >
+          Restaurant
+        </option>
+        <option
+          value="4"
+        >
+          Bar/Brewery
+        </option>
+        <option
+          value="5"
+        >
+          Concert
+        </option>
+      </select>
+    </label>
+    <label
+      htmlFor="rating"
+    >
+      Overall rating
+      <select
+        className="add_form_select"
+        id="rating"
+        name="rating"
+      >
+        <option
+          value=""
+        >
+          Please select
+        </option>
+        <option
+          value="1"
+        >
+          ★
+        </option>
+        <option
+          value="2"
+        >
+          ★ ★
+        </option>
+        <option
+          value="3"
+        >
+          ★ ★ ★
+        </option>
+        <option
+          value="4"
+        >
+          ★ ★ ★ ★
+        </option>
+        <option
+          value="5"
+        >
+          ★ ★ ★ ★ ★
+        </option>
+      </select>
+    </label>
+    <fieldset>
+      <legend>
+        Amenities
+        <div
+          className="amenities"
+        >
+          <label
+            htmlFor="StrollerAccessible"
+          >
+            Stroller Accessible
+            <input
+              name="amenities"
+              onChange={[Function]}
+              type="checkbox"
+              value="1"
+            />
+          </label>
+          <label
+            htmlFor="PlayArea"
+          >
+            Play Area
+            <input
+              name="PlayArea"
+              onChange={[Function]}
+              type="checkbox"
+              value="2"
+            />
+          </label>
+          <label
+            htmlFor="Changingtable"
+          >
+             
+            Changing Table
+            <input
+              name="amenities"
+              onChange={[Function]}
+              type="checkbox"
+              value="3"
+            />
+          </label>
+          <label
+            htmlFor="Dogs"
+          >
+            Dogs Welcome
+            <input
+              name="amenities"
+              onChange={[Function]}
+              type="checkbox"
+              value="4"
+            />
+          </label>
+          <label
+            htmlFor="Fastcheckout"
+          >
+             
+            Fast Checkout
+            <input
+              name="amenities"
+              onChange={[Function]}
+              type="checkbox"
+              value="5"
+            />
+          </label>
+          <label
+            htmlFor="KidsNight"
+          >
+             
+            Kids Night Deals
+            <input
+              name="amenities"
+              onChange={[Function]}
+              type="checkbox"
+              value="6"
+            />
+          </label>
+          <label
+            htmlFor="OutdoorSeating"
+          >
+             
+            Outdoor Seating
+            <input
+              name="amenities"
+              onChange={[Function]}
+              type="checkbox"
+              value="7"
+            />
+          </label>
+        </div>
+      </legend>
+    </fieldset>
+    <div
+      className="review"
+    >
+      <label
+        htmlFor="review"
+      >
+        Tell us about your visit
+        <textarea
+          name="content"
+          placeholder="Tell us about your visit"
+          type="textArea"
+        />
+      </label>
+    </div>
+    <div
+      className="add_form_controls"
+    >
+      <button
+        className="add"
+        type="submit"
+      >
+        Submit
+      </button>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <button
+          className="cancel"
+        >
+          Cancel
+        </button>
+      </a>
+    </div>
+  </form>
+</section>
+`;
