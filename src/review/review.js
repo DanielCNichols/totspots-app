@@ -1,9 +1,8 @@
 import React from 'react';
-import Votes from '../Votes/votes';
+import Votes from '../Votes/Votes';
 import VenueContext from '../VenuesContext'
 import moment from 'moment';
-import './review.css'
-import { userInfo } from 'os';
+import './Review.css'
 
 export default class Review extends React.Component {
   static contextType = VenueContext;
@@ -137,9 +136,6 @@ export default class Review extends React.Component {
     )
   }
 
-
-
-  
   renderVolume() {
     const reviewVolume = Math.round(this.props.reviews.volume);
     let volume;

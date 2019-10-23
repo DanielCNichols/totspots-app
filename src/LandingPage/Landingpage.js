@@ -35,7 +35,7 @@ class LandingPage extends React.Component {
         <div className='search'>
           <p>I want to take my family to a...</p>
           <form className="search_form" onSubmit={this.handleSubmit}>
-            <label className="search_form_label" htmlFor='type' required>
+            <label className="search_form_label" htmlFor='type' required>Venue or event...
               <select className="search_form_select" name='type' id='type'>
                 <option value=''>Select a type of venue/event</option>
                 <option value='Restaurant'>Restaurants</option>
@@ -68,7 +68,9 @@ class LandingPage extends React.Component {
                 required
               />
             </label>
+            <div className="search_form_control">
             <button className="search_form_button" type="submit">Let's go!</button>
+            </div>
           </form>
         </div>
         <p>

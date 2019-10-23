@@ -38,3 +38,22 @@
     width: 70%;
   }
 }
+
+
+@media screen and (min-width: 800px) {
+
+  .refine_form {
+    width: 100%;
+    float: left;
+    position: fixed;
+    list-style: none;
+    width: 25%;
+    height: 100vh;
+    text-align: center;
+    padding-top: 80px;
+    border-right: 3px solid #064789;
+    /* background-color: #064789; */
+    margin: 0;
+  }
+}
+

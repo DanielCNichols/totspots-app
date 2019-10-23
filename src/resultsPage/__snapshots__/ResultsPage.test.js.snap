@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ResultsPage as expected 1`] = `
+<section
+  className="results_page"
+>
+  <header
+    className="results_header"
+  >
+    <h2>
+      Showing results for "
+      " in 
+    </h2>
+  </header>
+  <ul />
+  <div
+    className="addvenue"
+  >
+    <p>
+      Is something missing?
+    </p>
+    <a
+      href="/addVenue"
+      onClick={[Function]}
+    >
+      <button>
+        Suggest a new venue
+      </button>
+    </a>
+  </div>
+</section>
+`;

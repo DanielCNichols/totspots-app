@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VenuesContext from '../VenuesContext';
-import config from '../config';
 import ApiService from '../services/api-service';
 import './editReview.css'
 
-const Required = () => <span className='EditBookmark__required'>*</span>;
 
 class editReview extends Component {
   static propTypes = {
@@ -40,8 +38,9 @@ class editReview extends Component {
         price: responseData.price,
         volume: responseData.volume,
         starrating: responseData.starrating
-      });
-    });
+      })
+      .catch((this.context.setError))
+    })
   }
 
   handleChangeContent = e => {
@@ -94,7 +93,6 @@ class editReview extends Component {
 
   render() {
     const {
-      error,
       content,
       price,
       volume,

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Votes as expected 1`] = `
+<div
+  className="votes"
+>
+  <p>
+    Was this review helpful?
+  </p>
+  <span>
+    (VoteCount) liked this
+  </span>
+  <button
+    onClick={[Function]}
+    value="true"
+  >
+    Like
+  </button>
+</div>
+`;

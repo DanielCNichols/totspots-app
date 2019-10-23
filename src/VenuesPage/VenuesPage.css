@@ -13,3 +13,17 @@
     margin: auto;
   }
 }
+
+
+
+@media screen and (min-width: 800px) {
+  .VenuesPage {
+    margin-top: 100px;
+    width: 50%;
+    float: right;
+    list-style: none;
+    margin-right: 350px;
+    margin-top: 80px;
+    padding-left: 30px;
+  }
+}

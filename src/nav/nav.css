@@ -27,3 +27,24 @@ nav li {
   display: inline-block;
 }
 
+
+@media screen and (min-width: 800px) {
+
+  nav ul { 
+    width: 30%;
+    margin-left: auto;
+  }
+
+  nav {
+    height: 50px;
+    position: fixed;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+
+
+}

@@ -5,22 +5,21 @@ import VenuesContext from './VenuesContext';
 import Landingpage from './LandingPage/Landingpage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Sidebar from './Sidebar/Sidebar';
-import Main from './Main/Main';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
 import RefineSearch from './RefineSearch/RefineSearch';
-import ResultsPage from './resultsPage/ResultsPage';
+import ResultsPage from './ResultsPage/ResultsPage';
 import Nav from './Nav/Nav';
 import ProfileView from './Profileview/Profileview';
-import AddVenue from './addvenue/addvenue'
+import AddVenue from './AddVenue/AddVenue'
 import ReviewForm from './ReviewForm/ReviewForm'
 import VenuesPage from './VenuesPage/VenuesPage'
 import FavoritesList from './FavoritesList/Favoriteslist'
 import editReview from './EditReview/EditReview';
 import PublicRoute from './utils/PublicRoute'
 import PrivateRoute from './utils/PrivateRoute'
-import FooterContainer from './Footer/FooterContainer'
 import Footer from './Footer/Footer'
+import ReviewSort from './ReviewSort/ReviewSort'
 
 
 export default class App extends Component {
@@ -33,7 +32,8 @@ export default class App extends Component {
           <Route path='/' component={Nav} />
           <Sidebar>
             <Switch>
-              <Route exact path='/reviews' component={RefineSearch} />
+              <Route exact path='/:reviews' component={RefineSearch} />
+              <Route exact path='/venue/:venue_id' component={ReviewSort}/>
             </Switch>
           </Sidebar>
           <main className='app_main'>

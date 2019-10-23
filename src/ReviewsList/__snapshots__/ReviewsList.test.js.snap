@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ReviewsList as expected 1`] = `
+<section
+  className="reviewslist"
+>
+  <header>
+    <h3>
+      Your Reviews
+    </h3>
+  </header>
+  <div>
+    <ul />
+  </div>
+</section>
+`;

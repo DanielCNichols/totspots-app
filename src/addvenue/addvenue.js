@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
-import './Addvenue.css'
+import './AddVenue.css'
 
 class AddVenue extends React.Component {
   state = {

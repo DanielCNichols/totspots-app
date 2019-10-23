@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Login as expected 1`] = `
+<section>
+  <header>
+    <h2>
+      Sign in
+    </h2>
+  </header>
+  <form
+    className="login"
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <label
+        htmlFor="user_name"
+      >
+        Username
+        <input
+          className="login_text"
+          id="username"
+          name="username"
+          placeholder="jonDoe82"
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="password"
+      >
+        Password
+        <input
+          className="login_text"
+          id="password"
+          name="password"
+          type="text"
+        />
+      </label>
+    </fieldset>
+    <button>
+      Log in
+    </button>
+    <p>
+      Forgot Password?
+    </p>
+  </form>
+</section>
+`;

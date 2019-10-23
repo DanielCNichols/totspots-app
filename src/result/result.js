@@ -2,7 +2,7 @@ import React from 'react';
 import VenueContext from '../VenuesContext';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
-import './result.css';
+import './Result.css';
 
 class Result extends React.Component {
   static contextType = VenueContext;

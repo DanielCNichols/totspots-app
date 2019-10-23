@@ -1,0 +1,59 @@
+.review_sort_form {
+  display: block;
+  width: 80%;
+  margin: 100px auto;
+}
+
+.review_sort_form_label {
+  text-align: center;
+  display: block;
+  margin: 1.5em;
+}
+
+.review_sort_form_select {
+  display: block;
+  width: 80%;
+  padding: 5px 10px;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+.review_sort_form_button {
+  display: block;
+  min-width: 140px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 17px;
+  border-color: blue;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+
+
+@media screen and (min-width: 450px) {
+  .review_sort_form {
+    width: 70%;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+
+  .review_sort_form {
+    width: 100%;
+    float: left;
+    position: fixed;
+    list-style: none;
+    width: 25%;
+    height: 100vh;
+    text-align: center;
+    padding-top: 80px;
+    border-right: 3px solid #064789;
+    /* background-color: #064789; */
+    margin: 0;
+  }
+}
+

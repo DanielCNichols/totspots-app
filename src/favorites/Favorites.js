@@ -2,7 +2,6 @@ import React from 'react'
 import ApiService from '../services/api-service';
 import VenuesContext from '../VenuesContext'
 import './Favorites.css'
-import {Link} from 'react-router-dom'
 
 class Favorites extends React.Component {
   static contextType = VenuesContext

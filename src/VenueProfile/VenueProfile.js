@@ -11,9 +11,6 @@ export default class VenueProfile extends Component {
     match: PropTypes.shape({
       params: PropTypes.object
     }),
-    history: PropTypes.shape({
-      push: PropTypes.func
-    }).isRequired
   };
 
   static contextType = VenuesContext;

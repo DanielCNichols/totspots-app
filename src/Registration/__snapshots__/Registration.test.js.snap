@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Registration as expected 1`] = `
+<section>
+  <header>
+    <h2>
+      Create New Account
+    </h2>
+  </header>
+  <form
+    action=""
+  >
+    <fieldset>
+      <label
+        htmlFor="Name"
+      >
+        Name
+        <input
+          placeholder="Jon Doe"
+          required={true}
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="email"
+      >
+        Email
+        <input
+          id="email"
+          name="email"
+          placeholder="jon.doe@mindspring.com"
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="City"
+      >
+        City
+        <input
+          placeholder="Durham"
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="state"
+      >
+        State
+        <input
+          id="state"
+          max-length="2"
+          name="state"
+          placeholder="NC"
+          required={true}
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="UserName"
+      >
+        User Name
+        <input
+          placeholder="jdoe1234!"
+          required={true}
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="password"
+      >
+        Password
+        <input
+          id="password"
+          name="password"
+          type="text"
+        />
+      </label>
+      <label
+        htmlFor="confirm"
+      >
+        Confirm Password
+        <input
+          id="confirm"
+          name="confirm"
+          type="text"
+        />
+      </label>
+    </fieldset>
+    <button>
+      Submit
+    </button>
+    <button>
+      Cancel
+    </button>
+  </form>
+</section>
+`;

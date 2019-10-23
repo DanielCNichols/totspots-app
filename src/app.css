@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap');
 
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -68,11 +69,26 @@ nav {
 
 
 @media screen and (min-width: 800px) {
-
-  body {
-    width: 85%;
-    margin: 0 auto;
+  .app_main {
+    margin-top: 30px;
+    margin-bottom: 62px;
   }
 
-
+  .app_footer {
+    width: 100%;
+    position: relative;
+    left:0;
+    bottom:0;
+    right:0;
+    height: 70px;
+    background-color: #064789;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

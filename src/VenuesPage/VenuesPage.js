@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VenuesContext from '../VenuesContext';
-import Review from '../review/review'
+import Review from '../Review/Review'
 import VenueProfile from '../VenueProfile/VenueProfile'
 import './VenuesPage.css'
 

@@ -8,7 +8,6 @@ ul {
   margin: 10px;
 }
 
-
 .addvenue {
   text-align: center;
   margin-top: 30px;
@@ -17,10 +16,10 @@ ul {
 }
 
 .addvenue button {
-  display: block; 
+  display: block;
   margin: 10px auto;
   border-radius: 17px;
-  border-color: #4392F1;
+  border-color: #4392f1;
   background-color: transparent;
   width: 50%;
   height: 40px;
@@ -35,5 +34,16 @@ ul {
 
   .addvenue button {
     width: 40%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .results_page {
+    width: 50%;
+    float: right;
+    list-style: none;
+    margin-right: 350px;
+    margin-top: 80px;
+    padding-left: 30px;
   }
 }

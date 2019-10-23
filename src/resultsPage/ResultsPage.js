@@ -1,5 +1,5 @@
 import React from 'react'
-import Result from '../result/result'
+import Result from '../Result/Result'
 import VenueContext from '../VenuesContext'
 import { Link } from 'react-router-dom'
 import './Resultspage.css'
