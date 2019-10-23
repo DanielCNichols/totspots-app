@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import VenuesContext from '../VenuesContext';
 import config from '../config';
 import ApiService from '../services/api-service';
+import './editReview.css'
 
 const Required = () => <span className='EditBookmark__required'>*</span>;
 
@@ -38,8 +39,7 @@ class editReview extends Component {
         content: responseData.content,
         price: responseData.price,
         volume: responseData.volume,
-        starrating: responseData.starrating,
-        user_id: responseData.user_id
+        starrating: responseData.starrating
       });
     });
   }
@@ -62,7 +62,7 @@ class editReview extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { reviewId } = this.props.match.params;
+    // const { reviewId } = this.props.match.params;
     const { id, venue_id, content, price, volume, starrating } = this.state;
     const newReview = { id, venue_id, content, price, volume, starrating };
     ApiService.editReview(id, newReview)
@@ -93,18 +93,29 @@ class editReview extends Component {
   };
 
   render() {
-    const {error, id, venue_id, content, price, volume, starrating } = this.state
+    const {
+      error,
+      content,
+      price,
+      volume,
+      starrating
+    } = this.state;
     return (
       <section>
         <header>
           <h3>Edit Review</h3>
         </header>
-        <form onSubmit={this.handleSubmit}>
+        <form className="edit_form" onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend>
-              <label htmlFor='price'>
-                price
-                <select name='price' id='price' onChange={this.handleChangePrice}>
+              <label className="edit_form_label" htmlFor='price'>
+                Price
+                <select
+                value= {price}
+                className="edit_form_select"
+                  name='price'
+                  id='price'
+                  onChange={this.handleChangePrice}
+                >
                   <option value=''>Please select</option>
                   <option value='1'>$</option>
                   <option value='2'>$$</option>
@@ -113,9 +124,17 @@ class editReview extends Component {
                   <option value='5'>$$$$$</option>
                 </select>
               </label>
-              <label htmlFor='volume'>
-                volume Level
-                <select name='volume' id='volume' onChange={this.handleChangeVolume}>
+              <label 
+              className="edit_form_label"
+              htmlFor='volume'>
+                Volume Level
+                <select
+                value = {volume}
+                 className="edit_form_select"
+                  name='volume'
+                  id='volume'
+                  onChange={this.handleChangeVolume}
+                >
                   <option value=''>Please select</option>
                   <option value='1'>Library</option>
                   <option value='2'>Coffee Shop</option>
@@ -124,9 +143,17 @@ class editReview extends Component {
                   <option value='5'>Concert</option>
                 </select>
               </label>
-              <label htmlFor='rating'>
+              <label 
+              className="edit_form_label"
+              htmlFor='rating'>
                 Overall rating
-                <select name='rating' id='rating' onChange={this.handleChangeRating}>
+                <select
+                value = {starrating}
+                  className="edit_form_select"
+                  name='rating'
+                  id='rating'
+                  onChange={this.handleChangeRating}
+                >
                   <option value=''>Please select</option>
                   <option value='1'>&#x2605;</option>
                   <option value='2'>&#x2605; &#x2605;</option>
@@ -137,105 +164,28 @@ class editReview extends Component {
                   </option>
                 </select>
               </label>
-            </legend>
           </fieldset>
           <div className='review'>
-            <label htmlFor='review'>
-              Write your review
-              <input
+            <label 
+            className="edit_form_label"
+            htmlFor='review'>
+              What's changed at this spot? 
+              <textarea
+              className="edit_form_text"
                 type='text'
                 name='content'
-                value = {content}
+                value={content}
                 placeholder='Tell us about your visit'
                 onChange={this.handleChangeContent}
               />
             </label>
           </div>
-          <button type='submit'>Submit</button>
-          <button onClick={this.handleClickCancel}>Cancel</button>
+          <div className="edit_form_controls">
+            <button className="edit_form_button" type='submit'>Submit</button>
+            <button className="edit_form_cancel" onClick={this.handleClickCancel}>Cancel</button>
+          </div>
         </form>
       </section>
-      //           className='EditBookmark__form'
-      //           onSubmit={this.handleSubmit}
-      //         >
-      //           <div className='EditBookmark__error' role='alert'>
-      //             {error && <p>{error.message}</p>}
-      //           </div>
-      //           <input
-      //             type='hidden'
-      //             name='id'
-      //           />
-      //           <div>
-      //             <label htmlFor='title'>
-      //               Title
-      //               {' '}
-      //               <Required />
-      //             </label>
-      //             <input
-      //               type='text'
-      //               name='title'
-      //               id='title'
-      //               placeholder='Great website!'
-      //               required
-      //               value={title}
-      //               onChange={this.handleChangeTitle}
-      //             />
-      //           </div>
-      //           <div>
-      //             <label htmlFor='url'>
-      //               URL
-      //               {' '}
-      //               <Required />
-      //             </label>
-      //             <input
-      //               type='url'
-      //               name='url'
-      //               id='url'
-      //               placeholder='https://www.great-website.com/'
-      //               required
-      //               value={url}
-      //               onChange={this.handleChangeUrl}
-      //             />
-      //           </div>
-      //           <div>
-      //             <label htmlFor='description'>
-      //               Description
-      //             </label>
-      //             <textarea
-      //               name='description'
-      //               id='description'
-      //               value={description}
-      //               onChange={this.handleChangeDescription}
-      //             />
-      //           </div>
-      //           <div>
-      //             <label htmlFor='rating'>
-      //               Rating
-      //               {' '}
-      //               <Required />
-      //             </label>
-      //             <input
-      //               type='number'
-      //               name='rating'
-      //               id='rating'
-      //               min='1'
-      //               max='5'
-      //               required
-      //               value={rating}
-      //               onChange={this.handleChangeRating}
-      //             />
-      //           </div>
-      //           <div className='EditBookmark__buttons'>
-      //             <button type='button' onClick={this.handleClickCancel}>
-      //               Cancel
-      //             </button>
-      //             {' '}
-      //             <button type='submit'>
-      //               Save
-      //             </button>
-      //           </div>
-      //         </form>
-      //       </section>
     );
   }
 }

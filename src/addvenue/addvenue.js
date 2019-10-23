@@ -272,9 +272,9 @@ class AddVenue extends React.Component {
                     </label>
                   </div>
                   <div className='add_form_controls'>
-          <button type='submit'>Submit</button>
+          <button className="add" type='submit'>Submit</button>
           <Link to='/'>
-            <button>Cancel</button>
+            <button className="cancel">Cancel</button>
           </Link>
           </div>
         </form>

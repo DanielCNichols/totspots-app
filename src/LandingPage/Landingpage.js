@@ -28,10 +28,10 @@ class LandingPage extends React.Component {
   render() {
     return (
       <section className='landingpage'>
-        <div className="landingpage_hero">
+        <header className="landingpage_hero">
           <h1>Tot Spots</h1>
           <p>For parents, by parents.</p>
-        </div>
+        </header>
         <div className='search'>
           <p>I want to take my family to a...</p>
           <form className="search_form" onSubmit={this.handleSubmit}>

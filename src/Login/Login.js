@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TokenService from '../services/TokenService'
 import AuthService from '../services/AuthService'
+import './Login.css'
 
 
 export default class Login extends Component {
@@ -46,13 +47,13 @@ export default class Login extends Component {
       <header>
         <h2>Sign in</h2>
       </header>
-      <form action="" onSubmit={this.handleSubmitJwtAuth}>
+      <form className="login" onSubmit={this.handleSubmitJwtAuth}>
         <fieldset>
           <label htmlFor="user_name">Username
-            <input type="text" name="username" id="username" placeholder="jonDoe82"/>
+            <input className="login_text" type="text" name="username" id="username" placeholder="jonDoe82"/>
           </label>
           <label htmlFor="password">Password
-            <input type="text" name="password" id="password"/>
+            <input className="login_text" type="text" name="password" id="password"/>
           </label>
         </fieldset>
       <button>Log in</button>

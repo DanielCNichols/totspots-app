@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import venuesContext from '../VenuesContext'
 import ApiService from '../services/api-service'
 import UserReview from '../UserReview/UserReview'
+import './ReviewsList.css'
 
 
 export default class ReviewsList extends Component  {
@@ -18,7 +19,7 @@ export default class ReviewsList extends Component  {
   render() {
     let {userReviews} = this.context
     return(
-      <section>
+      <section className='reviewslist'>
         <header>
           <h3>Your Reviews</h3>
         </header>

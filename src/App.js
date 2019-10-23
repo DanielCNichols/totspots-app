@@ -1,3 +1,4 @@
+import './app.css'
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import VenuesContext from './VenuesContext';
@@ -18,7 +19,8 @@ import FavoritesList from './FavoritesList/Favoriteslist'
 import editReview from './EditReview/EditReview';
 import PublicRoute from './utils/PublicRoute'
 import PrivateRoute from './utils/PrivateRoute'
-import './app.css'
+import FooterContainer from './Footer/FooterContainer'
+import Footer from './Footer/Footer'
 
 
 export default class App extends Component {
@@ -34,7 +36,7 @@ export default class App extends Component {
               <Route exact path='/reviews' component={RefineSearch} />
             </Switch>
           </Sidebar>
-          <Main>
+          <main className='app_main'>
             <Switch>
               <Route exact path='/' component={Landingpage} />
               <PublicRoute exact path='/login' component={Login} />
@@ -47,7 +49,12 @@ export default class App extends Component {
               <PrivateRoute exact path='/addReview/:venue_id' component={ReviewForm}/>
               <Route exact path='/:review_id' component={editReview}/>
             </Switch>
-          </Main>
+          </main>
+          <footer className="app_footer">
+              <Switch>
+                <Route path='/' component={Footer}/>
+              </Switch>
+          </footer>
         </ErrorBoundary>
       </div>
     );

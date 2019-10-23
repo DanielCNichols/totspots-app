@@ -1,6 +1,8 @@
 import React from 'react'
 import ApiService from '../services/api-service';
 import VenuesContext from '../VenuesContext'
+import './Favorites.css'
+import {Link} from 'react-router-dom'
 
 class Favorites extends React.Component {
   static contextType = VenuesContext
@@ -16,14 +18,15 @@ class Favorites extends React.Component {
   render() {
     let { favorites } = this.props;
     return (
-      <li key={favorites.id}>
+      <li className="favorite" key={favorites.id}>
         <h3>{favorites.venue_name}</h3>
-        <p>{favorites.type}</p>
+        <p>{favorites.venue_type}</p>
         <p>{favorites.address}</p>
-        <span>{favorites.city}</span>, <span>{favorites.state}</span>
+        <span>{favorites.city}</span>, <span>{favorites.state} </span> 
         <span>{favorites.zipcode}</span>
-        {/* <button onClick={() => this.handleRemove(favorites.id)}>See More</button> */}
-        <button onClick={() => this.deleteFavorite(favorites.id, this.context.deleteFavorite)}>Remove from favorites</button>
+        <p>{favorites.url}</p>
+        <p>{favorites.phone}</p>
+        <button onClick={() => this.deleteFavorite(favorites.id, this.context.deleteFavorite)}>Remove</button>
       </li>
     );
   }

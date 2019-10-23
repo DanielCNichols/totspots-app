@@ -1,0 +1,14 @@
+.favorite h3 {
+  text-align: center;
+}
+
+.favorite button {
+  display: block; 
+  margin: 30px auto;
+  border-radius: 17px;
+  border-color: #ED254E;
+  background-color: transparent;
+  width: 140px;
+  height: 40px;
+  font-size: 1.1em;
+}

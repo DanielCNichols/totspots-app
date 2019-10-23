@@ -1,25 +1,21 @@
-* {
-  box-sizing: border-box;
-}
-
-header {
+.review_form_component h3 {
   text-align: center;
   margin: 15px, auto;
 }
 
 
-.add_form {
+.review_form {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
-.add_form label {
+.review_form label {
   text-align: center;
   display: block;
   margin: 1.5em;
 }
 
-.add_form_text {
+.review_form_text {
   display: block;
   width: 80%;
   margin: 5px auto;
@@ -32,9 +28,9 @@ header {
   transition: border-color .5s ease-out;
 }
 
-.add_form_select {
+.review_form_select {
   display: block;
-  width: 80%;
+  width: 100%;
   padding: 5px 10px;
   height: 2.5rem;
   border-radius: 5px;
@@ -44,15 +40,13 @@ header {
 
 legend {
   text-align: center;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .amenities {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 0 auto;
 }
 
 .amenities label {
@@ -94,12 +88,12 @@ textarea {
 }
 
 
-.add_form_controls {
+.review_form_controls {
   width: 80%;
   margin: 0 auto;
 }
 
-.add_form_controls button {
+.review_form_controls button {
   display: block;
   min-width: 180px;
   height: 40px;
@@ -110,32 +104,28 @@ textarea {
   font-size: 1.1em;
 }
 
-.add {
-  border-color: #064789;
-}
-
 .cancel {
   border-color: #ED254E;
 }
 
+.submit {
+  border-color: #064789;
+}
+
 @media screen and (min-width: 450px) {
-  .add_form {
+  .review_form {
     width: 75%;
     margin: auto;
   }
 
-  .add_form_controls {
+  .review_form_controls {
     display: flex;
     justify-content: center;
   }
 
-  .add_form_controls button {
+  .review_form_controls button {
     display: inline-block;
+    width: 20px;
   }
 
-  .add_form_controls a {
-    display: block;
-    min-width: 180px;
-    margin: 0 auto;
-  }
 }

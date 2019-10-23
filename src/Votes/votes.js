@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiService from  '../services/api-service'
 import VenuesContext from '../VenuesContext'
+import './votes.css'
 
 export default class Votes extends React.Component {
   static contextType= VenuesContext
@@ -16,10 +17,9 @@ export default class Votes extends React.Component {
     return (
       <div className='votes'>
         <p>Was this review helpful?</p>
-        <button value='false' onClick={this.handleVote}>
-          Thumbs up</button>
+        <span>(VoteCount) liked this</span>
         <button value='true' onClick={this.handleVote}>
-          Thumbs down</button>
+        Like</button>
       </div>
     );
   }

@@ -14,6 +14,7 @@ class Result extends React.Component {
     ApiService.getAmenities(venueId)
       .then(amenities => {
         this.context.setAmenities(amenities);
+        console.log(this.context.amenities);
       })
       .catch(this.context.setError);
     this.context.setSelectedVenue(venueId);
@@ -75,7 +76,7 @@ class Result extends React.Component {
         default: 
         stars = (
           <div>
-            <p>No reviews</p>
+            <p className="NA">No reviews</p>
           </div>
         )
     }
@@ -140,7 +141,7 @@ class Result extends React.Component {
         default: 
         price= (
           <div>
-            <p>Price unavailable</p>
+            <p className="NA">Price unavailable</p>
           </div>
         )
     }
@@ -148,11 +149,6 @@ class Result extends React.Component {
     return (
       price
     )
-
-
-
-
-
   }
 
   render() {
@@ -165,9 +161,9 @@ class Result extends React.Component {
       >
         <div className='result_rating'>
           <h3>{venue.venue_name}</h3>
-          {this.renderRating()}
+          <span className="rating">{this.renderRating()}</span>
         </div>
-        {this.renderPrice()}
+        <span className="price">{this.renderPrice()}</span>
         <span>{venue.address}</span> <span>{venue.city}</span>,{' '}
         <span>{venue.state}</span>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>

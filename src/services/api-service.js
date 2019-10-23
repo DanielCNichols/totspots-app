@@ -47,6 +47,16 @@ const ApiService = {
     );
   },
 
+  getVotes(reviewId) {
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}/votes`, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      );
+  },
+
 
   getFavorites(){
     return fetch(`${config.API_ENDPOINT}/users/favorites`, {

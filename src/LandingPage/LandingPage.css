@@ -2,6 +2,11 @@
   background-color: lightblue;
   text-align: center;
   height: 150px;
+  margin: 0;
+}
+
+header > h1 {
+  margin: 0;
 }
 
 .landingpage p {
@@ -48,6 +53,30 @@
 .search_form_button {
   display: block; 
   margin: 10px auto;
-  width: 60%;
+  border-radius: 17px;
+  background-color: #4392F1;
+  width: 50%;
   height: 40px;
+  font-size: 1.1em;
+}
+
+.landingpage a:visited{
+  color: black;
+}
+
+@media screen and (min-width: 450px) {
+  .landingpage {
+    width: 75%;
+    margin: auto;
+  }
+
+  .search_form_button {
+    width: 30%;
+  }
+
+  .search_form_select, .search_form_text {
+    width: 70%;
+  }
+
+
 }

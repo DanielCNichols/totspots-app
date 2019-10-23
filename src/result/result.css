@@ -20,6 +20,14 @@
    font-size: 1.3em;
  }
 
+ .price {
+   color: green;
+ }
+
+ .rating {
+  color: gold;
+ }
+
  .result p {
    margin: 0;
  }
@@ -28,6 +36,9 @@
    display: none;
  }
 
+ .NA {
+   color: black;
+ }
 
 
 @media screen and (min-width: 800px) {

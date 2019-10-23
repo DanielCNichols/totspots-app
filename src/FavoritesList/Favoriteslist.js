@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import venuesContext from '../VenuesContext'
 import ApiService from '../services/api-service'
 import Favorites from '../favorites/Favorites'
+import './Favoriteslist.css'
 
 
 export default class FavoritesList extends Component  {

@@ -1,6 +1,7 @@
 import React from 'react';
 import VenuesContext from '../VenuesContext'
 import ApiService from '../services/api-service'
+import './ReviewForm.css'
 
 export default class ReviewForm extends React.Component {
   static contextType = VenuesContext;
@@ -53,18 +54,18 @@ export default class ReviewForm extends React.Component {
 
   render() {
     return (
-      <section className='main'>
+      <section className='review_form_component'>
         <header>
-          <h2>Add A review</h2>
+          <h2>Add a review</h2>
         </header>
-
-        <h3>VENUE NAME</h3>
-        <form onSubmit={this.handleSubmit}>
+        <h3>{this.context.selectedVenue.venue_name}</h3>
+        <form className="review_form" onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>
               <label htmlFor='price'>
-                price
-                <select name='price' id='price'>
+                Price
+                <select 
+                className="review_form_select" name='price' id='price'>
                   <option value=''>Please select</option>
                   <option value='1'>$</option>
                   <option value='2'>$$</option>
@@ -74,8 +75,10 @@ export default class ReviewForm extends React.Component {
                 </select>
               </label>
               <label htmlFor='volume'>
-                volume Level
-                <select name='volume' id='volume'>
+                Volume Level
+                <select
+                className="review_form_select" 
+                 name='volume' id='volume'>
                   <option value=''>Please select</option>
                   <option value='1'>Library</option>
                   <option value='2'>Coffee Shop</option>
@@ -86,7 +89,9 @@ export default class ReviewForm extends React.Component {
               </label>
               <label htmlFor='rating'>
                 Overall rating
-                <select name='rating' id='rating'>
+                <select 
+                className="review_form_select" 
+                name='rating' id='rating'>
                   <option value=''>Please select</option>
                   <option value='1'>&#x2605;</option>
                   <option value='2'>&#x2605; &#x2605;</option>
@@ -101,7 +106,7 @@ export default class ReviewForm extends React.Component {
           </fieldset>
           <fieldset>
             <legend>
-              amenities
+              Features
               <div className='amenities'>
                 <label htmlFor='StrollerAccessible'>
                   Stroller Accessible
@@ -171,16 +176,18 @@ export default class ReviewForm extends React.Component {
           </fieldset>
           <div className='review'>
             <label htmlFor='review'>
-              Write your review
-              <input
+              Tell us about your visit
+              <textarea
                 type='text'
                 name='content'
                 placeholder='Tell us about your visit'
               />
             </label>
           </div>
-          <button type='submit'>Submit</button>
-          <button>Cancel</button>
+          <div className='review_form_controls'>
+          <button className="submit" type='submit'>Submit</button>
+          <button className="cancel">Cancel</button>
+          </div>
         </form>
       </section>
     );

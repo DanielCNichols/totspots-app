@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "libphonenumber-js": "^1.7.26",
     "moment": "^2.24.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
