@@ -7,10 +7,26 @@ import './VenuesPage.css'
 export default class VenuesPage extends Component {
   static contextType = VenuesContext;
  
-  //hackish solution to getting the venueid. 
-  //How to be sure that the venue review form is targeting the appropriate venue? 
+  prerender() {
+    let {reviews} =this.context;
+    if (reviews.length === 0) {
+      return (
+        <div>
+          <p>Be the first to review this venue!</p>
+        </div>
+      )
+    } else {
+      return (
+        <ul>
+        {reviews.map((reviews =>(
+            <Review reviews={reviews} key={reviews.id} />
+        )))}
+    </ul>
+      )
+    }
+  }
+
   render() {
-    let {reviews} =this.context
     return (
       <section className="VenuesPage">
         <VenueProfile>
@@ -19,11 +35,7 @@ export default class VenuesPage extends Component {
         <header>
           <h3>Here's what people are saying: </h3>
         </header>
-        <ul>
-          {reviews.map((reviews =>(
-              <Review reviews={reviews} key={reviews.id} />
-          )))}
-      </ul>
+        {this.prerender()}
       </section>
     );
   }

@@ -32,8 +32,9 @@ export default class App extends Component {
           <Route path='/' component={Nav} />
           <Sidebar>
             <Switch>
-              <Route exact path='/:reviews' component={RefineSearch} />
+              <Route exact path='/reviews' component={RefineSearch} />
               <Route exact path='/venue/:venue_id' component={ReviewSort}/>
+    <Route render={() => <div>Hello World</div>}/>
             </Switch>
           </Sidebar>
           <main className='app_main'>
@@ -47,7 +48,7 @@ export default class App extends Component {
               <PrivateRoute exact path='/addVenue' component={AddVenue} />
               <Route exact path='/venue/:venue_id'  component={VenuesPage}/>
               <PrivateRoute exact path='/addReview/:venue_id' component={ReviewForm}/>
-              <Route exact path='/:review_id' component={editReview}/>
+              <Route exact path='/reviews/:review_id' component={editReview}/>
             </Switch>
           </main>
           <footer className="app_footer">

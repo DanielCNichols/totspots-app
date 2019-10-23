@@ -43,17 +43,21 @@
 @media screen and (min-width: 800px) {
 
   .review_sort_form {
-    width: 100%;
+    width: 80%;
     float: left;
     position: fixed;
     list-style: none;
-    width: 25%;
+    width: 20%;
     height: 100vh;
     text-align: center;
     padding-top: 80px;
     border-right: 3px solid #064789;
     /* background-color: #064789; */
     margin: 0;
+  }
+
+  .review_sort_form_button {
+    width: 20%;
   }
 }
 
