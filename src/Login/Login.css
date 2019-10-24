@@ -48,10 +48,21 @@
 @media screen and (min-width: 450px) {
   .login {
     width: 60%;
-    margin: auto;
+    margin: 100px auto;
   }
 
   .login button {
     width: 40%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .login {
+    width: 30%;
+    margin-top: 100px;
+  }
+
+  .login button {
+    width: 20%;
   }
 }

@@ -45,18 +45,18 @@ legend {
   margin: 0 auto;
 }
 
-.amenities {
+.review_amenities {
   display: flex;
   flex-direction: column;
 }
 
-.amenities label {
+.review_amenities label {
   display: flex;
   justify-content: space-between;
   margin: 10px, auto;
 }
 
-.amenities label > input {
+.review_amenities label > input {
   margin-left: 20px;
   cursor: pointer;
 }
@@ -126,7 +126,48 @@ textarea {
 
   .review_form_controls button {
     display: inline-block;
-    width: 20px;
+
   }
 
+}
+
+@media screen and (min-width: 800px) {
+  .review_form {
+    width: 60%;
+  }
+
+  .review_form_selects {
+    display: flex;
+    justify-content: center;
+  }
+
+  .review_amenities {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .left {
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  .right {
+    width: 40%;
+    margin: auto;
+  }
+
+  .review_form_textarea {
+    width: 60%;
+  }
+
+  .review_form_controls {
+    width: 50%
+  }
+
+  .review_form_controls button {
+    min-width: 100px;
+  }
 }

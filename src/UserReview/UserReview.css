@@ -41,6 +41,8 @@
   }
 
   .userReview_controls {
+    display: flex;
+    flex-direction: column;
     width: 80%;
     margin: 0 auto;
   }
@@ -49,7 +51,7 @@
     display: block;
     min-width: 180px;
     height: 40px;
-    margin: 20px auto;
+    margin: 10px auto;
     border-radius: 17px;
     cursor: pointer;
     background-color: transparent;
@@ -83,4 +85,28 @@
     }
   }
   
+
+@media screen and (min-width: 800px) {
+
+  .userReview_controls {
+    flex-direction: row;
+  }
+
+ .userReview_controls button {
+   display: inline-block;
+    min-width: 140px;
+    word-wrap: break-word;
+   font-size: 1em;
+ }
+
+ .userReview_controls .edit:hover {
+   color: white;
+   background-color: #064789;
+ }
+
+ .delete:hover {
+   color: white;
+   background-color: #ED254E;
+ }
+}
   

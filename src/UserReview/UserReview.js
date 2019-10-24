@@ -238,7 +238,7 @@ export default class UserReview extends React.Component {
         </div>
         <div className="userReview_controls">
           <Link to={`reviews/${userReviews.id}`}><button className="edit">Edit Review</button></Link>
-          <button className="delete" onClick={() => this.deleteReviewRequest(userReviews.id, this.context.deleteReview)}>DeleteReview</button>
+          <button className="delete" onClick={() => this.deleteReviewRequest(userReviews.id, this.context.deleteReview)}>Delete Review</button>
         </div>
       </li>
     );

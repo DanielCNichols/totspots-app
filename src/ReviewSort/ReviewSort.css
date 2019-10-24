@@ -43,11 +43,10 @@
 @media screen and (min-width: 800px) {
 
   .review_sort_form {
-    width: 80%;
+    max-width: 300px;
     float: left;
     position: fixed;
     list-style: none;
-    width: 20%;
     height: 100vh;
     text-align: center;
     padding-top: 80px;

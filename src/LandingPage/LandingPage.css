@@ -97,23 +97,36 @@ header > h1 {
 
 @media screen and (min-width: 800px) {
   .search {
-    width: 40%;
-    margin: 0 auto;
+    width: 50%;
+    margin: 0 auto 50px auto;
+  }
+
+  .search_form_select, .search_form_text {
+    min-width: 220px;
+  }
+
+  .search_form_button {
+    min-width: 180px;
   }
   
   .landingpage {
-    width: 100%
+    width: 100%;
+    font-size: 1.3em;
   }
 
 
 
   .landingpage_hero {
-    margin-top: 50px;
-    height: 200px;
+    margin-top: 20px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
+  }
+
+  .landingpage_hero h1 {
+    font-size: 2em;
   }
 }

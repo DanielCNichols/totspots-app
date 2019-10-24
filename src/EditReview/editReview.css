@@ -3,7 +3,7 @@
   margin: 15px, auto;
 }
 
-.edit {
+.edit_section {
   margin: 100px auto;
 }
 
@@ -81,7 +81,7 @@ fieldset {
   display: block;
   margin: 5px auto;
   padding: 5px 10px;
-  width: 100%;
+  width: 50%;
   height: 5rem;
   min-width: 125px;
   border: 1px solid black;
@@ -129,5 +129,24 @@ fieldset {
   .edit_form_controls button {
     display: inline-block;
     width: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .edit_section {
+    width: 60%;
+  }
+
+
+  .edit_form {
+    width: 50%;
+  }
+
+  .edit_form_text {
+    width: 80%;
+  }
+
+  .edit_form_label {
+    text-align: left;
   }
 }

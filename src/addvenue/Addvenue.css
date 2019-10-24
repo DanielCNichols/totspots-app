@@ -80,16 +80,16 @@ fieldset {
   margin: 0 auto;
 }
 
-.review label {
+.review_label {
   text-align: left;
   margin: 1.5em;
 }
 
-textarea { 
+.add_form_textarea { 
   display: block;
   margin: 5px auto;
   padding: 5px 10px;
-  width: 100%;
+  width: 50%;
   height: 5rem;
   min-width: 125px;
   border: 1px solid black;
@@ -142,5 +142,80 @@ textarea {
     display: block;
     min-width: 180px;
     margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .addVenue {
+    width: 100%;
+  }
+
+  .add_form select {
+   width: 250px;
+  }
+
+  .add_form_text {
+    width: 400px;
+  }
+/* 
+  .address {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 60%;
+    margin: auto;
+    justify-content: space-between;
+  }
+
+  .address label {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+  }
+
+  .add_form_selects {
+    display: flex;
+    justify-content:center;
+  }
+
+  .add_form_selects select {
+    min-width: 125px;
+  } */
+
+  .amenities {
+    width:30%;
+  }
+
+  .add_form_review textarea {
+    width: 40%;
+  }
+
+  .add_form_review label {
+    text-align: center;
+  }
+
+  .add_form_controls {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .add_form_controls button {
+    min-width: 120px;
+    cursor: pointer;
+  }
+
+  .add_form_controls a {
+    min-width: 120px;
+  }
+
+  .cancel:hover {
+    color: white;
+    background-color: #ED254E;
+  }
+
+  .add:hover {
+    color: white;
+    background-color: #064789
   }
 }

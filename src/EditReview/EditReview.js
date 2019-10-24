@@ -98,7 +98,7 @@ class editReview extends Component {
       starrating
     } = this.state;
     return (
-      <section className="edit">
+      <section className="edit_section">
         <header>
           <h3>Edit Review</h3>
         </header>
@@ -162,7 +162,7 @@ class editReview extends Component {
                 </select>
               </label>
           </fieldset>
-          <div className='review'>
+          <div className='edit_review'>
             <label 
             className="edit_form_label"
             htmlFor='review'>

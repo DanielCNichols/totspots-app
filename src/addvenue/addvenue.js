@@ -57,6 +57,8 @@ class AddVenue extends React.Component {
           <h2>Add A Venue</h2>
         </header>
         <form className="add_form" onSubmit={this.handleSubmit}>
+          <div className="address">
+
             <label className='add_form_label' htmlFor='venue'>
                 Venue/Event Name
                 <input className= "add_form_text"
@@ -64,7 +66,7 @@ class AddVenue extends React.Component {
                   name='venue'
                   id='Venue'
                   placeholder="ex: Bull McCabe's"
-                />
+                  />
               </label>
               <label htmlFor='address'>
                 Street Address
@@ -85,7 +87,7 @@ class AddVenue extends React.Component {
                   name='state'
                   placeholder='ex: NC'
                   maxLength='2'
-                />
+                  />
               </label>
               <label htmlFor='zipcode'>
                 Zipcode
@@ -97,9 +99,9 @@ class AddVenue extends React.Component {
                 Website
                 <input
                 className= "add_form_text"
-                  type='text'
-                  name='Website'
-                  placeholder='www.reddit.com'
+                type='text'
+                name='Website'
+                placeholder='www.reddit.com'
                 />
               </label>
               <label htmlFor='Phone'>
@@ -108,6 +110,8 @@ class AddVenue extends React.Component {
                 className= "add_form_text"
                 type='text' name='Phone' placeholder='(555) 245-3456' />
               </label>
+                </div>
+                <div className="add_form_selects">\
               <label htmlFor='type'>
                 Type of venue/event
                 <select 
@@ -139,7 +143,7 @@ class AddVenue extends React.Component {
                         Volume Level
                         <select 
                          className="add_form_select"
-                        name='volume' id='volume'>
+                         name='volume' id='volume'>
                           <option value=''>Please select</option>
                           <option value='1'>Library</option>
                           <option value='2'>Coffee Shop</option>
@@ -166,6 +170,7 @@ class AddVenue extends React.Component {
                           </option>
                         </select>
                       </label>
+                          </div>
                     {/* </legend> */}
                   <fieldset>
                     <legend>
@@ -261,7 +266,7 @@ class AddVenue extends React.Component {
                       </div>
                     </legend>
                   </fieldset>
-                  <div className='review'>
+                  <div className='add_form_review'>
                     <label htmlFor='review'>
                       Tell us about your visit
                       <textarea

@@ -43,7 +43,7 @@
 @media screen and (min-width: 800px) {
 
   .refine_form {
-    width: 100%;
+    max-width: 300px;
     float: left;
     position: fixed;
     list-style: none;
