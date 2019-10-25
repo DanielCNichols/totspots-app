@@ -10,6 +10,7 @@ import Registration from './Registration/Registration';
 import RefineSearch from './RefineSearch/RefineSearch';
 import ResultsPage from './ResultsPage/ResultsPage';
 import Nav from './Nav/Nav';
+import Main from './Main/Main'
 import ProfileView from './Profileview/Profileview';
 import AddVenue from './AddVenue/AddVenue'
 import ReviewForm from './ReviewForm/ReviewForm'
@@ -41,7 +42,7 @@ export default class App extends Component {
     <Route render={() => <div>Hello World</div>}/>
             </Switch>
           </Sidebar>
-          <main className='app_main'>
+          <Main className='app_main'>
             <Switch>
               <Route exact path='/' component={Landingpage} />
               <PublicRoute exact path='/login' component={Login} />
@@ -54,7 +55,7 @@ export default class App extends Component {
               <PrivateRoute exact path='/addReview/:venue_id' component={ReviewForm}/>
               <Route exact path='/reviews/:review_id' component={editReview}/>
             </Switch>
-          </main>
+          </Main>
           <footer className="app_footer">
               <Switch>
                 <Route path='/' component={Footer}/>
