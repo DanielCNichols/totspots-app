@@ -1,0 +1,177 @@
+.edit_form_component h3 {
+  text-align: center;
+  margin: 15px, auto;
+}
+
+.edit_section {
+  margin: 100px auto;
+}
+
+.edit_form {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.edit_form label {
+  text-align: center;
+  display: block;
+  margin: 1.5em;
+}
+
+.edit_form_text {
+  display: block;
+  width: 80%;
+  margin: 5px auto;
+  padding: 5px 10px;
+  height: 2.5rem;
+  min-width: 125px;
+  border: 1px solid black;
+  border-left: 3px solid;
+  border-radius: 5px; 
+  transition: border-color .5s ease-out;
+}
+
+.edit_form_select {
+  display: block;
+  width: 90%;
+  padding: 5px 10px;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+legend {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.amenities {
+  display: flex;
+  flex-direction: column;
+}
+
+.amenities label {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px, auto;
+}
+
+.amenities label > input {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+fieldset {
+  border: none;
+}
+
+.review {
+  width: 80%;  
+  margin: 0 auto;
+}
+
+.review label {
+  text-align: left;
+  margin: 1.5em;
+}
+
+.review textarea { 
+  display: block;
+  margin: 5px auto;
+  padding: 5px 10px;
+  width: 50%;
+  height: 5rem;
+  min-width: 125px;
+  border: 1px solid black;
+  border-left: 3px solid;
+  border-radius: 5px; 
+  transition: border-color .5s ease-out;
+}
+
+
+.edit_form_controls {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.edit_form_controls button {
+  display: block;
+  min-width: 180px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+
+.edit_form_button {
+  border-color: #064789;
+}
+
+.edit_form_cancel {
+  border-color: #ED254E;
+}
+
+@media screen and (min-width: 450px) {
+  .edit_form {
+    width: 75%;
+    margin: auto;
+  }
+
+  .edit_form_controls {
+    display: flex;
+    justify-content: center;
+  }
+
+  .edit_form_controls button {
+    display: inline-block;
+    width: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .edit_section {
+    width: 60%;
+  }
+
+
+  .edit_form {
+    width: 60%;
+  }
+
+  .edit_form_text {
+    width: 80%;
+  }
+
+  .edit_form_label {
+    text-align: left;
+  }
+
+  .edit_form_controls {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .edit_form_controls button {
+    min-width: 120px;
+    cursor: pointer;
+  }
+
+  .edit_form_controls a {
+    min-width: 120px;
+  }
+
+
+  .edit_form_cancel:hover {
+    color: white;
+    background-color: #ED254E;
+  }
+
+  .edit_form_button:hover {
+    color: white;
+    background-color: #064789
+  }
+}

@@ -1,30 +1,41 @@
 import React, { Component } from 'react';
 import VenuesContext from '../VenuesContext';
-import Review from '../review/review'
-import { Link } from 'react-router-dom';
+import Review from '../Review/Review'
 import VenueProfile from '../VenueProfile/VenueProfile'
+import './VenuesPage.css'
 
 export default class VenuesPage extends Component {
   static contextType = VenuesContext;
  
-  //hackish solution to getting the venueid. 
-  //How to be sure that the venue review form is targeting the appropriate venue? 
-  render() {
-    let {reviews} =this.context
-    return (
-      <section>
-        <VenueProfile></VenueProfile>
-          
-         
-          <Link to={`/addReview/${reviews.venue_id}`}><button>Add a review</button></Link>
-        {/* <VenueProfile>
-
-        </VenueProfile> */}
+  prerender() {
+    let {reviews} =this.context;
+    if (reviews.length === 0) {
+      return (
+        <div>
+          <p>Be the first to review this venue!</p>
+        </div>
+      )
+    } else {
+      return (
         <ul>
-          {reviews.map((reviews =>(
-              <Review reviews={reviews} key={reviews.id} />
-          )))}
-      </ul>
+        {reviews.map((reviews =>(
+            <Review reviews={reviews} key={reviews.id} />
+        )))}
+    </ul>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <section className="VenuesPage">
+        <VenueProfile>
+
+        </VenueProfile>
+        <header>
+          <h3>Here's what people are saying: </h3>
+        </header>
+        {this.prerender()}
       </section>
     );
   }

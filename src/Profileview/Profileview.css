@@ -1,0 +1,16 @@
+.profileview {
+  width: 90%;
+  margin: 100px auto;
+}
+
+@media screen and (min-width: 450px) {
+  .profileview {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .profileview {
+    width:35%;
+  }
+}

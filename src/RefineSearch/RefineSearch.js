@@ -1,30 +1,41 @@
 import React from 'react';
 import VenuesContext from '../VenuesContext';
+import './RefineSearch.css'
 
 export default class RefineSearch extends React.Component {
   static contextType = VenuesContext;
 
-  //Make a filter and sort function that calls to the server. 
+  handleSort = ev => {
+    ev.preventDefault();
+    let venues = [...this.context.venues];
+    let value = ev.target.sort.value;
+    if (value) {
+      if (value === 'avgPrice' || value === 'avgVolume') {
+        this.context.setVenues(
+          venues.sort((a, b) => a[`${value}`] - b[`${value}`])
+        );
+      } else if (value === 'avgRating') {
+        this.context.setVenues(
+          venues.sort((a, b) => b[`${value}`] - a[`${value}`])
+        );
+      }
+    }
+  };
 
   render() {
     return (
-      <section className='filter-search'>
-        {/* clicking here should show the refine search button. */}
-        <button>Refine search</button>
-        <form action=''>
-          <label htmlFor='Filter'>
-            Filter results by:
-            <select name='filter' id='filter'>
-              <option value=''>Select</option>
-              <option value='type'>type</option>
-              <option value=''>Minimum Rating</option>
-              <option value=''>Amenities</option>
-            </select>
-          </label>
-          <button>Search</button>
-          <button>Cancel</button>
-        </form>
-      </section>
+      <form className="refine_form" onSubmit={this.handleSort}>
+        <label className="refine_form_label" htmlFor='sort'>
+          Sort results by:
+          <select className="refine_form_select" name='sort'>
+            <option>Select</option>
+            <option value='avgPrice'>Price (low to high)</option>
+            <option value='avgRating'>Rating(high to low)</option>
+            <option value='avgVolume'>Volume Level (low to high)</option>
+          </select>
+          <button className="refine_form_button" type='submit'>Sort</button>
+        </label>
+      </form>
     );
   }
 }

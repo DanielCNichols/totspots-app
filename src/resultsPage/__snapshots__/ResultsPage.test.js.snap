@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ResultsPage as expected 1`] = `
+<div>
+  <div>
+    <p>
+      Sorry, no results found for that search
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders FavoritesList as as expected with no favorites 1`] = `
+<section>
+  <header>
+    <h3>
+      Your saved venues
+    </h3>
+  </header>
+  <div>
+    <ul />
+  </div>
+</section>
+`;
+
+exports[`renders FavoritesList as expected 1`] = `
+<section>
+  <header>
+    <h3>
+      Your saved venues
+    </h3>
+  </header>
+  <div>
+    <ul />
+  </div>
+</section>
+`;

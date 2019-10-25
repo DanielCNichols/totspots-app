@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ReviewForm as expected 1`] = `
+<section
+  className="review_form_component"
+>
+  <header>
+    <h2>
+      Add a review
+    </h2>
+  </header>
+  <h3 />
+  <form
+    className="review_form"
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <legend>
+        <div
+          className="review_form_selects"
+        >
+          <label
+            htmlFor="price"
+          >
+            Price
+            <select
+              className="review_form_select"
+              id="price"
+              name="price"
+            >
+              <option
+                value=""
+              >
+                Please select
+              </option>
+              <option
+                value="1"
+              >
+                $
+              </option>
+              <option
+                value="2"
+              >
+                $$
+              </option>
+              <option
+                value="3"
+              >
+                $$$
+              </option>
+              <option
+                value="4"
+              >
+                $$$$
+              </option>
+              <option
+                value="5"
+              >
+                $$$$$
+              </option>
+            </select>
+          </label>
+          <label
+            htmlFor="volume"
+          >
+            Volume Level
+            <select
+              className="review_form_select"
+              id="volume"
+              name="volume"
+            >
+              <option
+                value=""
+              >
+                Please select
+              </option>
+              <option
+                value="1"
+              >
+                Library
+              </option>
+              <option
+                value="2"
+              >
+                Coffee Shop
+              </option>
+              <option
+                value="3"
+              >
+                Restaurant
+              </option>
+              <option
+                value="4"
+              >
+                Bar/Brewery
+              </option>
+              <option
+                value="5"
+              >
+                Concert
+              </option>
+            </select>
+          </label>
+          <label
+            htmlFor="rating"
+          >
+            Overall rating
+            <select
+              className="review_form_select"
+              id="rating"
+              name="rating"
+            >
+              <option
+                value=""
+              >
+                Please select
+              </option>
+              <option
+                value="1"
+              >
+                ★
+              </option>
+              <option
+                value="2"
+              >
+                ★ ★
+              </option>
+              <option
+                value="3"
+              >
+                ★ ★ ★
+              </option>
+              <option
+                value="4"
+              >
+                ★ ★ ★ ★
+              </option>
+              <option
+                value="5"
+              >
+                ★ ★ ★ ★ ★
+              </option>
+            </select>
+          </label>
+        </div>
+      </legend>
+    </fieldset>
+    <fieldset>
+      <legend>
+        Features
+        <div
+          className="review_amenities"
+        >
+          <div
+            className="left"
+          >
+            <label
+              htmlFor="StrollerAccessible"
+            >
+              Stroller Accessible
+              <input
+                name="amenities"
+                onChange={[Function]}
+                type="checkbox"
+                value="1"
+              />
+            </label>
+            <label
+              htmlFor="PlayArea"
+            >
+              Play Area
+              <input
+                name="PlayArea"
+                onChange={[Function]}
+                type="checkbox"
+                value="2"
+              />
+            </label>
+            <label
+              htmlFor="Changingtable"
+            >
+               
+              Changing Table
+              <input
+                name="amenities"
+                onChange={[Function]}
+                type="checkbox"
+                value="3"
+              />
+            </label>
+          </div>
+          <div
+            className="right"
+          >
+            <label
+              htmlFor="Dogs"
+            >
+              Dogs Welcome
+              <input
+                name="amenities"
+                onChange={[Function]}
+                type="checkbox"
+                value="4"
+              />
+            </label>
+            <label
+              htmlFor="Fastcheckout"
+            >
+               
+              Fast Checkout
+              <input
+                name="amenities"
+                onChange={[Function]}
+                type="checkbox"
+                value="5"
+              />
+            </label>
+            <label
+              htmlFor="KidsNight"
+            >
+               
+              Kids Night Deals
+              <input
+                name="amenities"
+                onChange={[Function]}
+                type="checkbox"
+                value="6"
+              />
+            </label>
+            <label
+              htmlFor="OutdoorSeating"
+            >
+               
+              Outdoor Seating Available
+              <input
+                name="amenities"
+                onChange={[Function]}
+                type="checkbox"
+                value="7"
+              />
+            </label>
+          </div>
+        </div>
+      </legend>
+    </fieldset>
+    <div
+      className="review_form"
+    >
+      <label
+        htmlFor="review"
+      >
+        Tell us about your visit
+        <textarea
+          className="review_form_textarea"
+          name="content"
+          placeholder="Tell us about your visit"
+          type="text"
+        />
+      </label>
+    </div>
+    <div
+      className="review_form_controls"
+    >
+      <button
+        className="submit"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        className="cancel"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</section>
+`;

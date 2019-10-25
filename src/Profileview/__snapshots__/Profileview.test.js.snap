@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Profileview as expected 1`] = `
+<section
+  className="profileview"
+>
+  <header>
+    <h3>
+      Your profile
+    </h3>
+  </header>
+  <p>
+    Name: 
+     
+  </p>
+  <p>
+    Email: 
+  </p>
+  <p>
+    UserName: 
+  </p>
+  <div>
+    <div>
+      <div>
+        <p>
+          You haven't saved any venues!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <p>
+          Looks like you haven't posted any reviews... yet!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`renders Profileview as expected with no profile 1`] = `
+<section
+  className="profileview"
+>
+  <header>
+    <h3>
+      Your profile
+    </h3>
+  </header>
+  <p>
+    Name: 
+     
+  </p>
+  <p>
+    Email: 
+  </p>
+  <p>
+    UserName: 
+  </p>
+  <div>
+    <div>
+      <div>
+        <p>
+          You haven't saved any venues!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <p>
+          Looks like you haven't posted any reviews... yet!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+`;

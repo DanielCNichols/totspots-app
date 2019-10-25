@@ -1,0 +1,42 @@
+.reviewItem {
+margin: 20px 0;
+width: 100%;
+border-bottom: 2px solid #e7e7e7;
+}
+
+.review p {
+  margin: 5px 0;
+}
+
+.rating_break {
+  margin-bottom: 15px;
+}
+
+.userRating {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.rating {
+  color: gold;
+  font-size: 1.3rem;
+}
+
+.price {
+  color: green
+}
+
+.volume {
+  color: black;
+}
+
+.userReview {
+  margin: 20px 0;
+}
+
+.userReview p {
+  margin: 10px 0;
+}

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Review as expected 1`] = `
+<li
+  className="reviewItem"
+>
+  <h3>
+     
+  </h3>
+  <p>
+    Visited: 
+    October 25th, 2019
+  </p>
+  <div
+    className="rating_break"
+  >
+    <div
+      className="userRating"
+    >
+      Overall: 
+      <span
+        className="rating"
+      >
+        <div>
+          <p>
+            No reviews
+          </p>
+        </div>
+      </span>
+    </div>
+    <div
+      className="userRating"
+    >
+      Price: 
+      <span
+        className="price"
+      >
+        <p>
+          Price unavailable
+        </p>
+      </span>
+    </div>
+    <div
+      className="userRating"
+    >
+      Volume Level: 
+      <span
+        className="volume"
+      >
+        <p
+          className="NA"
+        >
+          volume unavailable
+        </p>
+      </span>
+    </div>
+  </div>
+  <div
+    className="userReview"
+  >
+    <p>
+       said: 
+    </p>
+    <p />
+  </div>
+  <div
+    className="votes"
+  >
+    <p>
+      Was this review helpful?
+    </p>
+    <span>
+       person liked this
+    </span>
+    <button
+      onClick={[Function]}
+      value="true"
+    >
+      Like
+    </button>
+  </div>
+</li>
+`;

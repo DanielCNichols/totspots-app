@@ -1,32 +1,45 @@
-import React from 'react'
-import Result from '../result/result'
-import VenueContext from '../VenuesContext'
-import {Link} from 'react-router-dom'
-
+import React from 'react';
+import Result from '../Result/Result';
+import VenueContext from '../VenuesContext';
+import { Link } from 'react-router-dom';
+import './Resultspage.css';
 
 export default class ResultsPage extends React.Component {
-  static contextType = VenueContext
+  static contextType = VenueContext;
 
-render() {
-  let {venues} = this.context
-  return (
-    <section className="main" role='main'>
-
-      {/* Maybe split into another component?  */}
-      <header>
-        <h2>Results for Durham, NC</h2>
-      </header>
-      <div className="addvenue">
-        <p>Is something missing?</p>
-        <Link to='/addVenue'><button>Suggest a new venue</button></Link>
-      </div>
-      <ul>
-          {venues.map((venue =>(
+  prerender() {
+    let { venues } = this.context;
+    if (venues.length === 0) {
+      return (
+        <div>
+          <p>Sorry, no results found for that search</p>
+        </div>
+      );
+    } else {
+      return (
+        <section className='results_page'>
+          <header className='results_header'>
+            <h2>
+              Showing results for "{this.context.type}" in {this.context.city}
+            </h2>
+          </header>
+          <ul>
+            {venues.map(venue => (
               <Result venue={venue} key={venue.id} />
-          )))}
-      </ul>
-      
-    </section>
-    )
+            ))}
+          </ul>
+          <div className='addvenue'>
+            <p>Is something missing?</p>
+            <Link to='/addVenue'>
+              <button>Suggest a new venue</button>
+            </Link>
+          </div>
+        </section>
+      );
+    }
+  }
+
+  render() {
+    return <div>{this.prerender()}</div>;
   }
 }

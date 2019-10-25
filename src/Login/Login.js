@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TokenService from '../services/TokenService'
 import AuthService from '../services/AuthService'
+import './Login.css'
 
 
 export default class Login extends Component {
@@ -20,18 +21,16 @@ export default class Login extends Component {
   }
 
   handleSubmitJwtAuth = ev => {
-    console.log('submitting')
     ev.preventDefault() 
     this.setState({error: null})
-    const {user_name, password} = ev.target
-    console.log(`${user_name}, ${password}}`)
+    const {username, password} = ev.target
 
     AuthService.postLogin({
-      user_name: user_name.value,
+      username: username.value,
       password: password.value,
     })
     .then(res => {
-      user_name.value = ''
+      username.value = ''
       password.value = ''
       TokenService.saveAuthToken(res.authToken)
       this.handleLogin()
@@ -44,17 +43,17 @@ export default class Login extends Component {
 
   render() {
     return (
-      <section>
+      <section className="login">
       <header>
         <h2>Sign in</h2>
       </header>
-      <form action="" onSubmit={this.handleSubmitAuth}>
+      <form className="login_form" onSubmit={this.handleSubmitJwtAuth}>
         <fieldset>
           <label htmlFor="user_name">Username
-            <input type="text" name="user_name" id="user_name" placeholder="jonDoe82"/>
+            <input className="login_text" type="text" name="username" id="username" placeholder="jonDoe82"/>
           </label>
           <label htmlFor="password">Password
-            <input type="text" name="password" id="password"/>
+            <input className="login_text" type="text" name="password" id="password"/>
           </label>
         </fieldset>
       <button>Log in</button>

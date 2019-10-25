@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders VenuesPage as expected 1`] = `
+<section
+  className="VenuesPage"
+>
+  <section
+    className="venueProfile"
+  >
+    <header>
+      <h2 />
+    </header>
+    <div
+      className="contact"
+    >
+      <p>
+        Type: 
+      </p>
+      <p />
+      <span />
+      , 
+      <span />
+       
+      <span />
+      <p />
+      <p />
+    </div>
+    <div
+      className="ratings"
+    >
+      <div
+        className="average"
+      >
+        Overall Rating: 
+        <span
+          className="rating"
+        >
+          <div>
+            <p
+              className="NA"
+            >
+              No reviews
+            </p>
+          </div>
+        </span>
+      </div>
+      <div
+        className="average"
+      >
+        Overall Price: 
+        <span
+          className="price"
+        >
+          <div>
+            <p
+              className="NA"
+            >
+              Price unavailable
+            </p>
+          </div>
+        </span>
+      </div>
+      <div
+        className="average"
+      >
+        Overall Volume Level: 
+        <span
+          className="volume"
+        >
+          <p
+            className="NA"
+          >
+            volume unavailable
+          </p>
+        </span>
+      </div>
+      <div
+        className="amenities"
+      >
+        <h3>
+          Features
+        </h3>
+      </div>
+    </div>
+    <div
+      className="venue_controls"
+    >
+      <a
+        href="/addreview/undefined"
+        onClick={[Function]}
+      >
+        <button>
+          Add a review
+        </button>
+      </a>
+      <button
+        onClick={[Function]}
+      >
+        Add to Favorites
+      </button>
+    </div>
+  </section>
+  <header>
+    <h3>
+      Here's what people are saying: 
+    </h3>
+  </header>
+  <div>
+    <p>
+      Be the first to review this venue!
+    </p>
+  </div>
+</section>
+`;

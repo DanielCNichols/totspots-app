@@ -1,0 +1,50 @@
+nav {
+  padding: 1% 0;
+  color: black;
+  display: inline-block;
+}
+
+nav {
+  height: 70px;
+  position: fixed;
+  padding: 0;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+}
+
+
+@media screen and (min-width: 800px) {
+
+  nav ul { 
+    width: 30%;
+    margin-left: auto;
+  }
+
+  nav {
+    height: 50px;
+    position: fixed;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+
+
+}

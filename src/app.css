@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+
+a:visited {
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  background-color: #f8f7f7;
+}
+
+body h1, h2, h3, h4 {
+  font-family: 'Merriweather', serif;
+}
+
+nav {
+  background-color: #064789;
+  color: white;
+}
+
+
+.app_footer {
+  width: 100%;
+  position: fixed;
+  left:0;
+  bottom:0;
+  right:0;
+  height: 70px;
+  background-color: #064789;
+  color: white;
+  margin: 0;
+  padding-bottom: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app_main {
+  margin-top: 45px;
+  margin-bottom: 60px;
+}
+
+
+
+
+@media screen and (min-width: 450px) {
+  .app_main {
+    margin: 0;
+  }
+}
+
+
+
+@media screen and (min-width: 800px) {
+  .app_main {
+    margin: 0;
+  }
+}

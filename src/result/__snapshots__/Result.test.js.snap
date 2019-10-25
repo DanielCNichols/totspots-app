@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Result as expected 1`] = `
+<li
+  className="result"
+  onClick={[Function]}
+>
+  <div
+    className="result_rating"
+  >
+    <h3>
+      Bull McCabes
+    </h3>
+    <span
+      className="rating"
+    >
+      <div>
+        <span>
+          ★
+        </span>
+        <span>
+          ★
+        </span>
+        <span>
+          ★
+        </span>
+      </div>
+    </span>
+  </div>
+  <span
+    className="price"
+  >
+    <div>
+      <span>
+        $
+      </span>
+      <span>
+        $
+      </span>
+    </div>
+  </span>
+  <span>
+    123 Main st.
+  </span>
+   
+  <span>
+    Durham
+  </span>
+  ,
+   
+  <span>
+    NC
+  </span>
+  <button
+    onClick={[Function]}
+  >
+    See more
+  </button>
+</li>
+`;

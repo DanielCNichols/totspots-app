@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders UserReview as expected 1`] = `
+<li
+  className="userReviewItem"
+>
+  <h4 />
+  <p>
+    Visited 
+    October 18th, 2019
+  </p>
+  <div
+    className="rating_info"
+  >
+    <div
+      className="user_rating"
+    >
+      Your Rating: 
+      <span
+        className="rating"
+      >
+        <div>
+          <span>
+            ★
+          </span>
+          <span>
+            ★
+          </span>
+          <span>
+            ★
+          </span>
+        </div>
+      </span>
+    </div>
+    <div
+      className="user_rating"
+    >
+      Your Price: 
+      <span
+        className="price"
+      >
+        <div>
+          <span>
+            $
+          </span>
+          <span>
+            $
+          </span>
+          <span>
+            $
+          </span>
+        </div>
+      </span>
+    </div>
+    <div
+      className="user_rating"
+    >
+      Your Volume Level: 
+      <span
+        className="volume"
+      >
+        <span
+          aria-label="volume level"
+          role="img"
+        >
+          📣
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    className="user_content"
+  >
+    <p>
+      Here's what you had to say
+    </p>
+    <p>
+      Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.
+    </p>
+  </div>
+  <div
+    className="userReview_controls"
+  >
+    <a
+      href="/reviews/27"
+      onClick={[Function]}
+    >
+      <button
+        className="edit"
+      >
+        Edit Review
+      </button>
+    </a>
+    <button
+      className="delete"
+      onClick={[Function]}
+    >
+      Delete Review
+    </button>
+  </div>
+</li>
+`;

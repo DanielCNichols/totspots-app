@@ -1,0 +1,17 @@
+.votes {
+  text-align: center;
+  margin: 20px 0  30px 0;
+}
+
+.votes button {
+  display: block;
+  min-width: 140px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 5px;
+  border-color: #ED254E;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+

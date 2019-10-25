@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service';
 import VenueContext from '../VenuesContext'
 import {withRouter} from 'react-router-dom';
+import './LandingPage.css'
 
 class LandingPage extends React.Component {
   static contextType = VenueContext
@@ -10,11 +11,13 @@ class LandingPage extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const city = ev.target.city.value;
-    const state = ev.target.state.value;
+    const searchState = ev.target.state.value;
     const type = ev.target.type.value;
-    ApiService.getVenues(city, state, type)
+    ApiService.getVenues(city, searchState, type)
     .then(venues => {
     this.context.setVenues(venues);
+    this.context.setCity(city)
+    this.context.setType(type)
   })
     .catch(this.context.setError)
     this.props.history.push('/reviews')
@@ -24,14 +27,16 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <section className='hero'>
-        <h1>Tot Spots</h1>
-        <p>For parents, by parents.</p>
-        <div className='form'>
+      <section className='landingpage'>
+        <header className="landingpage_hero">
+          <h1>Tot Spots</h1>
+          <p>For parents, by parents.</p>
+        </header>
+        <div className='search'>
           <p>I want to take my family to a...</p>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor='type'>
-              <select name='type' id='type'>
+          <form className="search_form" onSubmit={this.handleSubmit}>
+            <label className="search_form_label" htmlFor='type' required>Venue or event...
+              <select className="search_form_select" name='type' id='type'>
                 <option value=''>Select a type of venue/event</option>
                 <option value='Restaurant'>Restaurants</option>
                 <option value='Bar'>Brewery/Bar</option>
@@ -41,23 +46,31 @@ class LandingPage extends React.Component {
               </select>
             </label>
             <p>in...</p>
-            <label htmlFor='city'>
+            <label className= "search_form_label" htmlFor='city'> City
               <input
+                className="search_form_text"
                 type='text'
                 name='city'
                 id='city'
                 placeholder='Durham'
+                required
               />
             </label>
-            <label htmlFor='state'>
+            <label 
+            className="search_form_label"
+            htmlFor='state'> State
               <input
+              className="search_form_text"
                 type='text'
                 name='state'
                 max-length='2'
                 placeholder='NC'
+                required
               />
             </label>
-            <button type="submit">Go</button>
+            <div className="search_form_control">
+            <button className="search_form_button" type="submit">Let's go!</button>
+            </div>
           </form>
         </div>
         <p>

@@ -1,0 +1,105 @@
+
+
+.average {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.contact {
+  padding: 0 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.average div {
+  font-size: 1.3rem;
+}
+
+.venueProfile p {
+  margin: 5px 0;
+}
+
+.ratings {
+  margin-bottom: 25px;
+}
+
+.amenities h3 {
+  text-align: center;
+}
+
+.amenities li {
+  padding: 0 10px;
+  margin: 5px 0;
+  text-align: left;
+}
+
+
+.amenities li:before {
+  content: '✓';
+  margin-right: 5px;
+  font-size: 1.3rem;
+}
+
+
+.venue_controls {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+.venue_controls button {
+  display: block;
+  min-width: 180px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 17px;
+  border-color: blue;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+
+
+.rating {
+  color: gold;
+  font-size: 1.3rem;
+}
+
+.price {
+  color: green
+}
+
+.volume {
+  color: black;
+}
+
+.NA {
+  color: black;
+}
+
+
+@media screen and (min-width: 450px) {
+  .venue_controls {
+    display: flex;
+    justify-content: center;
+  }
+
+  .venue_controls a {
+    display: block;
+    min-width: 180px;
+    margin: 0 auto;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+  .venue_controls button {
+    min-width: 100px;
+    font-size: 1em;
+  }
+}
