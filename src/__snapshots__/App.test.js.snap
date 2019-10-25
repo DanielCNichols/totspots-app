@@ -16,7 +16,7 @@ exports[`renders App as expected 1`] = `
       </li>
       <li>
         <a
-          href="/AddVenue"
+          href="/addVenue"
           onClick={[Function]}
         >
           Add Venue
@@ -34,9 +34,13 @@ exports[`renders App as expected 1`] = `
       </li>
     </ul>
   </nav>
-  <ul
+  <div
     className="sidebar"
-  />
+  >
+    <div>
+      Hello World
+    </div>
+  </div>
   <main
     className="app_main"
   >
@@ -68,6 +72,7 @@ exports[`renders App as expected 1`] = `
             htmlFor="type"
             required={true}
           >
+            Venue or event...
             <select
               className="search_form_select"
               id="type"
@@ -136,12 +141,16 @@ exports[`renders App as expected 1`] = `
               type="text"
             />
           </label>
-          <button
-            className="search_form_button"
-            type="submit"
+          <div
+            className="search_form_control"
           >
-            Let's go!
-          </button>
+            <button
+              className="search_form_button"
+              type="submit"
+            >
+              Let's go!
+            </button>
+          </div>
         </form>
       </div>
       <p>

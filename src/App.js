@@ -25,6 +25,10 @@ import ReviewSort from './ReviewSort/ReviewSort'
 export default class App extends Component {
   static ContextType = VenuesContext;
 
+   componentDidMount() {
+     document.title = 'Totspots'
+   }
+
   render() {
     return (
       <div className='app'>

@@ -7,7 +7,7 @@ exports[`renders UserReview as expected 1`] = `
   <h4 />
   <p>
     Visited 
-    October 18th 192019
+    October 18th, 2019
   </p>
   <div
     className="rating_info"
@@ -82,7 +82,7 @@ exports[`renders UserReview as expected 1`] = `
     className="userReview_controls"
   >
     <a
-      href="/27"
+      href="/reviews/27"
       onClick={[Function]}
     >
       <button
@@ -95,7 +95,7 @@ exports[`renders UserReview as expected 1`] = `
       className="delete"
       onClick={[Function]}
     >
-      DeleteReview
+      Delete Review
     </button>
   </div>
 </li>

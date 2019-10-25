@@ -157,35 +157,11 @@ fieldset {
   .add_form_text {
     width: 400px;
   }
-/* 
-  .address {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 60%;
-    margin: auto;
-    justify-content: space-between;
-  }
-
-  .address label {
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-    width: auto;
-  }
-
-  .add_form_selects {
-    display: flex;
-    justify-content:center;
-  }
-
-  .add_form_selects select {
-    min-width: 125px;
-  } */
 
   .amenities {
-    width:30%;
+    width:40%;
   }
+
 
   .add_form_review textarea {
     width: 40%;

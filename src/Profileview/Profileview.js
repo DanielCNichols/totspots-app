@@ -27,7 +27,6 @@ export default class ProfileView extends React.Component {
         <p>Name: {profile.first_name} {profile.last_name}</p>
         <p>Email: {profile.email}</p>
         <p>UserName: {profile.username}</p>
-        <span>{profile.city}, {profile.state}</span>
         <div>
           <FavoritesList></FavoritesList>
         </div>

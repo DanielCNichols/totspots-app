@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders AddVenue as expected 1`] = `
-<section>
+<section
+  className="addVenue"
+>
   <header>
     <h2>
       Add A Venue
@@ -11,253 +13,280 @@ exports[`renders AddVenue as expected 1`] = `
     className="add_form"
     onSubmit={[Function]}
   >
-    <label
-      className="add_form_label"
-      htmlFor="venue"
-    >
-      Venue/Event Name
-      <input
-        className="add_form_text"
-        id="Venue"
-        name="venue"
-        placeholder="ex: Bull McCabe's"
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="address"
-    >
-      Street Address
-      <input
-        className="add_form_text"
-        name="address"
-        placeholder="123 Main St."
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="city"
-    >
-      City
-      <input
-        className="add_form_text"
-        name="city"
-        placeholder="ex: Durham"
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="state"
-    >
-      State
-      <input
-        className="add_form_text"
-        maxLength="2"
-        name="state"
-        placeholder="ex: NC"
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="zipcode"
-    >
-      Zipcode
-      <input
-        className="add_form_text"
-        name="zipcode"
-        placeholder="ex: 27705"
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="Website"
-    >
-      Website
-      <input
-        className="add_form_text"
-        name="Website"
-        placeholder="www.reddit.com"
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="Phone"
-    >
-      Phone
-      <input
-        className="add_form_text"
-        name="Phone"
-        placeholder="(555) 245-3456"
-        type="text"
-      />
-    </label>
-    <label
-      htmlFor="type"
-    >
-      Type of venue/event
-      <select
-        className="add_form_select"
-        id="type"
-        name="type"
-      >
-        <option
-          value=""
+    <fieldset>
+      +
+      <legend>
+        Venue Information
+        <div
+          className="address"
         >
-          Please select
-        </option>
-        <option
-          value="Restaurant"
-        >
-          Restaurant
-        </option>
-        <option
-          value="Bar"
-        >
-          Brewery/Bar
-        </option>
-        <option
-          value="Educational"
-        >
-          Educational
-        </option>
-        <option
-          value="music"
-        >
-          Music
-        </option>
-        <option
-          value="outdoor"
-        >
-          Outdoor
-        </option>
-      </select>
-    </label>
-    <label
-      htmlFor="price"
-    >
-      Price
-      <select
-        className="add_form_select"
-        id="price"
-        name="price"
-      >
-        <option
-          value=""
-        >
-          Please select
-        </option>
-        <option
-          value="1"
-        >
-          $
-        </option>
-        <option
-          value="2"
-        >
-          $$
-        </option>
-        <option
-          value="3"
-        >
-          $$$
-        </option>
-        <option
-          value="4"
-        >
-          $$$$
-        </option>
-        <option
-          value="5"
-        >
-          $$$$$
-        </option>
-      </select>
-    </label>
-    <label
-      htmlFor="volume"
-    >
-      Volume Level
-      <select
-        className="add_form_select"
-        id="volume"
-        name="volume"
-      >
-        <option
-          value=""
-        >
-          Please select
-        </option>
-        <option
-          value="1"
-        >
-          Library
-        </option>
-        <option
-          value="2"
-        >
-          Coffee Shop
-        </option>
-        <option
-          value="3"
-        >
-          Restaurant
-        </option>
-        <option
-          value="4"
-        >
-          Bar/Brewery
-        </option>
-        <option
-          value="5"
-        >
-          Concert
-        </option>
-      </select>
-    </label>
-    <label
-      htmlFor="rating"
-    >
-      Overall rating
-      <select
-        className="add_form_select"
-        id="rating"
-        name="rating"
-      >
-        <option
-          value=""
-        >
-          Please select
-        </option>
-        <option
-          value="1"
-        >
-          ★
-        </option>
-        <option
-          value="2"
-        >
-          ★ ★
-        </option>
-        <option
-          value="3"
-        >
-          ★ ★ ★
-        </option>
-        <option
-          value="4"
-        >
-          ★ ★ ★ ★
-        </option>
-        <option
-          value="5"
-        >
-          ★ ★ ★ ★ ★
-        </option>
-      </select>
-    </label>
+          <label
+            className="add_form_label"
+            htmlFor="venue"
+          >
+            Venue/Event Name
+            <input
+              className="add_form_text"
+              id="Venue"
+              name="venue"
+              placeholder="ex: Bull McCabe's"
+              required={true}
+              type="text"
+            />
+          </label>
+          <label
+            htmlFor="address"
+          >
+            Street Address
+            <input
+              className="add_form_text"
+              name="address"
+              placeholder="123 Main St."
+              required={true}
+              type="text"
+            />
+          </label>
+          <label
+            htmlFor="city"
+          >
+            City
+            <input
+              className="add_form_text"
+              name="city"
+              placeholder="ex: Durham"
+              required={true}
+              type="text"
+            />
+          </label>
+          <label
+            htmlFor="state"
+          >
+            State
+            <input
+              className="add_form_text"
+              maxLength="2"
+              name="state"
+              placeholder="ex: NC"
+              type="text"
+            />
+          </label>
+          <label
+            htmlFor="zipcode"
+          >
+            Zipcode
+            <input
+              className="add_form_text"
+              name="zipcode"
+              placeholder="ex: 27705"
+              type="text"
+            />
+          </label>
+          <label
+            htmlFor="url"
+          >
+            Website
+            <input
+              className="add_form_text"
+              name="url"
+              placeholder="www.reddit.com"
+              type="url"
+            />
+          </label>
+          <label
+            htmlFor="phone"
+          >
+            Phone
+            <input
+              className="add_form_text"
+              name="phone"
+              placeholder="(555) 245-3456"
+              type="text"
+            />
+          </label>
+          <div
+            className="add_form_selects"
+          >
+            <label
+              htmlFor="type"
+            >
+              Type of venue/event
+              <select
+                className="add_form_select"
+                id="type"
+                name="type"
+                required={true}
+              >
+                <option
+                  value=""
+                >
+                  Please select
+                </option>
+                <option
+                  value="Restaurant"
+                >
+                  Restaurant
+                </option>
+                <option
+                  value="Bar"
+                >
+                  Brewery/Bar
+                </option>
+                <option
+                  value="Educational"
+                >
+                  Educational
+                </option>
+                <option
+                  value="music"
+                >
+                  Music
+                </option>
+                <option
+                  value="outdoor"
+                >
+                  Outdoor
+                </option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </legend>
+    </fieldset>
     <fieldset>
       <legend>
-        Amenities
+        Your review
+        <label
+          htmlFor="price"
+          required={true}
+        >
+          Price
+          <select
+            className="add_form_select"
+            id="price"
+            name="price"
+            required={true}
+          >
+            <option
+              value=""
+            >
+              Please select
+            </option>
+            <option
+              value="1"
+            >
+              $
+            </option>
+            <option
+              value="2"
+            >
+              $$
+            </option>
+            <option
+              value="3"
+            >
+              $$$
+            </option>
+            <option
+              value="4"
+            >
+              $$$$
+            </option>
+            <option
+              value="5"
+            >
+              $$$$$
+            </option>
+          </select>
+        </label>
+        <label
+          htmlFor="volume"
+        >
+          Describe the volume Level
+          <select
+            className="add_form_select"
+            id="volume"
+            name="volume"
+            required={true}
+          >
+            <option
+              value=""
+            >
+              Please select
+            </option>
+            <option
+              value="1"
+            >
+              Library
+            </option>
+            <option
+              value="2"
+            >
+              Coffee Shop
+            </option>
+            <option
+              value="3"
+            >
+              Restaurant
+            </option>
+            <option
+              value="4"
+            >
+              Bar/Brewery
+            </option>
+            <option
+              value="5"
+            >
+              Concert
+            </option>
+          </select>
+        </label>
+        <label
+          htmlFor="rating"
+        >
+          Overall rating
+          <select
+            className="add_form_select"
+            id="rating"
+            name="rating"
+            required={true}
+          >
+            <option
+              value=""
+            >
+              Please select
+            </option>
+            <option
+              value="1"
+            >
+              ★
+            </option>
+            <option
+              value="2"
+            >
+              ★ ★
+            </option>
+            <option
+              value="3"
+            >
+              ★ ★ ★
+            </option>
+            <option
+              value="4"
+            >
+              ★ ★ ★ ★
+            </option>
+            <option
+              value="5"
+            >
+              ★ ★ ★ ★ ★
+            </option>
+          </select>
+        </label>
+      </legend>
+    </fieldset>
+    <fieldset>
+      <legend>
+        Features
         <div
           className="amenities"
         >
@@ -343,22 +372,22 @@ exports[`renders AddVenue as expected 1`] = `
             />
           </label>
         </div>
+        <div
+          className="add_form_review"
+        >
+          <label
+            htmlFor="review"
+          >
+            Tell us about your visit
+            <textarea
+              name="content"
+              placeholder="Tell us about your visit"
+              type="textArea"
+            />
+          </label>
+        </div>
       </legend>
     </fieldset>
-    <div
-      className="review"
-    >
-      <label
-        htmlFor="review"
-      >
-        Tell us about your visit
-        <textarea
-          name="content"
-          placeholder="Tell us about your visit"
-          type="textArea"
-        />
-      </label>
-    </div>
     <div
       className="add_form_controls"
     >

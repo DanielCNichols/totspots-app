@@ -19,34 +19,23 @@ exports[`renders Profileview as expected 1`] = `
   <p>
     UserName: 
   </p>
-  <span>
-    , 
-  </span>
   <div>
-    <section>
-      <header>
-        <h3>
-          Your saved venues
-        </h3>
-      </header>
+    <div>
       <div>
-        <ul />
+        <p>
+          You haven't saved any venues!
+        </p>
       </div>
-    </section>
+    </div>
   </div>
   <div>
-    <section
-      className="reviewslist"
-    >
-      <header>
-        <h3>
-          Your Reviews
-        </h3>
-      </header>
+    <div>
       <div>
-        <ul />
+        <p>
+          Looks like you haven't posted any reviews... yet!
+        </p>
       </div>
-    </section>
+    </div>
   </div>
 </section>
 `;
@@ -70,34 +59,23 @@ exports[`renders Profileview as expected with no profile 1`] = `
   <p>
     UserName: 
   </p>
-  <span>
-    , 
-  </span>
   <div>
-    <section>
-      <header>
-        <h3>
-          Your saved venues
-        </h3>
-      </header>
+    <div>
       <div>
-        <ul />
+        <p>
+          You haven't saved any venues!
+        </p>
       </div>
-    </section>
+    </div>
   </div>
   <div>
-    <section
-      className="reviewslist"
-    >
-      <header>
-        <h3>
-          Your Reviews
-        </h3>
-      </header>
+    <div>
       <div>
-        <ul />
+        <p>
+          Looks like you haven't posted any reviews... yet!
+        </p>
       </div>
-    </section>
+    </div>
   </div>
 </section>
 `;

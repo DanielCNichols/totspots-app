@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders Edit Review as expected 1`] = `
-<section>
+<section
+  className="edit_section"
+>
   <header>
     <h3>
       Edit Review
@@ -146,7 +148,7 @@ exports[`renders Edit Review as expected 1`] = `
       </label>
     </fieldset>
     <div
-      className="review"
+      className="edit_review"
     >
       <label
         className="edit_form_label"

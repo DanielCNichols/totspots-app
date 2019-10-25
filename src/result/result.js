@@ -14,7 +14,6 @@ class Result extends React.Component {
     ApiService.getAmenities(venueId)
       .then(amenities => {
         this.context.setAmenities(amenities);
-        console.log(this.context.amenities);
       })
       .catch(this.context.setError);
     this.context.setSelectedVenue(venueId);

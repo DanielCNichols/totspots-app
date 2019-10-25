@@ -99,8 +99,7 @@ const ApiService = {
   },
 
   getUserReviews(){
-    return fetch(`${config.API_ENDPOINT}/venues/userReviews`, {
-      //need to set bearer token
+    return fetch(`${config.API_ENDPOINT}/reviews/userReviews`, {
       headers: {
         'content-type': 'application/json',
         'Authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -111,7 +110,7 @@ const ApiService = {
   },
 
   
-  addVenue(venue_name, address, city, state, venue_type, zipcode, price, volume, starrating, content, aObj) {
+  addVenue(venue_name, address, city, state, venue_type, zipcode, price, volume, starrating, content, phone, url, aObj) {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',
       headers: {
@@ -129,6 +128,8 @@ const ApiService = {
         volume, 
         starrating, 
         content,
+        phone,
+        url,
         amenities: aObj
       })
     }).then(res =>
@@ -163,9 +164,8 @@ const ApiService = {
         'content-type': 'application/json',
         'Authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-    })
+    }) 
       .then(res => {
-        console.log(res)
         if (!res.ok) {
           return res.json().then(error => {
             throw error;

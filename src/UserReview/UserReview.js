@@ -207,7 +207,6 @@ export default class UserReview extends React.Component {
 
 
   deleteReviewRequest(reviewId, callback) {
-    console.log('deleting review')
     ApiService.deleteReview(reviewId)
       .then(() => {
         callback(reviewId);
@@ -220,7 +219,7 @@ export default class UserReview extends React.Component {
     return (
       <li className="userReviewItem" key={userReviews.id}>
         <h4>{userReviews.venue_name}</h4>
-        <p>Visited {moment(userReviews.date_created).format('MMMM Do YYY')}</p>
+        <p>Visited {moment(userReviews.date_created).format('MMMM Do, YYYY')}</p>
         <div className='rating_info'>
         <div className="user_rating">
           Your Rating: <span className="rating">{this.renderRating()}</span>

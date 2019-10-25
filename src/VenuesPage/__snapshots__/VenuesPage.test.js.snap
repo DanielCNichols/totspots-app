@@ -105,6 +105,10 @@ exports[`renders VenuesPage as expected 1`] = `
       Here's what people are saying: 
     </h3>
   </header>
-  <ul />
+  <div>
+    <p>
+      Be the first to review this venue!
+    </p>
+  </div>
 </section>
 `;

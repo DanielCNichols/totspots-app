@@ -139,7 +139,7 @@ fieldset {
 
 
   .edit_form {
-    width: 50%;
+    width: 60%;
   }
 
   .edit_form_text {
@@ -148,5 +148,30 @@ fieldset {
 
   .edit_form_label {
     text-align: left;
+  }
+
+  .edit_form_controls {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .edit_form_controls button {
+    min-width: 120px;
+    cursor: pointer;
+  }
+
+  .edit_form_controls a {
+    min-width: 120px;
+  }
+
+
+  .edit_form_cancel:hover {
+    color: white;
+    background-color: #ED254E;
+  }
+
+  .edit_form_button:hover {
+    color: white;
+    background-color: #064789
   }
 }
