@@ -59,7 +59,7 @@ export default class ReviewForm extends React.Component {
         <h3>{this.context.selectedVenue.venue_name}</h3>
         <form className='review_form' onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend>
+            <legend> Your Review
               <div className="review_form_selects">
                 <label htmlFor='price'>
                   Price
@@ -114,12 +114,8 @@ export default class ReviewForm extends React.Component {
             </legend>
           </fieldset>
           <fieldset>
-            <legend>
-              Features
-
-
+            <legend> Features
               <div className='review_amenities'>
-
                 <div className="left">
                 <label htmlFor='StrollerAccessible'>
                   Stroller Accessible
@@ -158,8 +154,6 @@ export default class ReviewForm extends React.Component {
                     />
                 </label>
                   </div>
-
-
                   <div className="right">
                 <label htmlFor='Dogs'>
                   Dogs Welcome
@@ -209,10 +203,7 @@ export default class ReviewForm extends React.Component {
                     />
                 </label>
                 </div>
-
               </div>
-
-
             </legend>
           </fieldset>
           <div className='review_form'>

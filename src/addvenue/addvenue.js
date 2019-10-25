@@ -96,6 +96,7 @@ class AddVenue extends React.Component {
                     name='state'
                     placeholder='ex: NC'
                     maxLength='2'
+                    required
                   />
                 </label>
                 <label htmlFor='zipcode'>
@@ -104,6 +105,7 @@ class AddVenue extends React.Component {
                     className="add_form_text"
                     type='text' name='zipcode' 
                     placeholder='ex: 27705'
+                    required
                   />
                 </label>
                 <label htmlFor='url'>
@@ -113,6 +115,7 @@ class AddVenue extends React.Component {
                     type='url'
                     name='url'
                     placeholder='www.reddit.com'
+                    required
                   />
                 </label>
                 <label htmlFor='phone'>
@@ -121,6 +124,7 @@ class AddVenue extends React.Component {
                     className="add_form_text"
                     type='text' name='phone'
                     placeholder='(555) 245-3456'
+                    required
                   />
                 </label>
                 <div className="add_form_selects">

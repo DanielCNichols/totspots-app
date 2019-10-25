@@ -178,7 +178,6 @@ const ApiService = {
   },
 
 
-  //CAN I REFACTOR THIS ENDPOINT??? SEEMS DUMB TO SEND ALL THE THINGS IN THE PARAMS...
   handleVotes(votestatus, review_id) {
     return fetch(`${config.API_ENDPOINT}/reviews/${review_id}/votes`, {
       method: 'POST',

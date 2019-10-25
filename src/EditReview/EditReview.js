@@ -104,14 +104,15 @@ class editReview extends Component {
         </header>
         <form className="edit_form" onSubmit={this.handleSubmit}>
           <fieldset>
+            <legend>
               <label className="edit_form_label" htmlFor='price'>
                 Price
                 <select
                 value= {price}
                 className="edit_form_select"
-                  name='price'
-                  id='price'
-                  onChange={this.handleChangePrice}
+                name='price'
+                id='price'
+                onChange={this.handleChangePrice}
                 >
                   <option value=''>Please select</option>
                   <option value='1'>$</option>
@@ -127,10 +128,10 @@ class editReview extends Component {
                 Volume Level
                 <select
                 value = {volume}
-                 className="edit_form_select"
-                  name='volume'
-                  id='volume'
-                  onChange={this.handleChangeVolume}
+                className="edit_form_select"
+                name='volume'
+                id='volume'
+                onChange={this.handleChangeVolume}
                 >
                   <option value=''>Please select</option>
                   <option value='1'>Library</option>
@@ -146,10 +147,10 @@ class editReview extends Component {
                 Overall rating
                 <select
                 value = {starrating}
-                  className="edit_form_select"
-                  name='rating'
-                  id='rating'
-                  onChange={this.handleChangeRating}
+                className="edit_form_select"
+                name='rating'
+                id='rating'
+                onChange={this.handleChangeRating}
                 >
                   <option value=''>Please select</option>
                   <option value='1'>&#x2605;</option>
@@ -161,6 +162,7 @@ class editReview extends Component {
                   </option>
                 </select>
               </label>
+            </legend>
           </fieldset>
           <div className='edit_review'>
             <label 
