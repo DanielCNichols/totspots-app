@@ -12,7 +12,7 @@ import ResultsPage from './ResultsPage/ResultsPage';
 import Nav from './Nav/Nav';
 import Main from './Main/Main'
 import ProfileView from './Profileview/Profileview';
-import AddVenue from './AddVenue/AddVenue'
+import AddVenue from './AddVenue/Addvenue'
 import ReviewForm from './ReviewForm/ReviewForm'
 import VenuesPage from './VenuesPage/VenuesPage'
 import FavoritesList from './FavoritesList/Favoriteslist'
