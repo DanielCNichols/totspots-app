@@ -16,6 +16,7 @@ exports[`renders ReviewForm as expected 1`] = `
   >
     <fieldset>
       <legend>
+         Your Review
         <div
           className="review_form_selects"
         >
@@ -27,6 +28,7 @@ exports[`renders ReviewForm as expected 1`] = `
               className="review_form_select"
               id="price"
               name="price"
+              required={true}
             >
               <option
                 value=""
@@ -68,6 +70,7 @@ exports[`renders ReviewForm as expected 1`] = `
               className="review_form_select"
               id="volume"
               name="volume"
+              required={true}
             >
               <option
                 value=""
@@ -109,6 +112,7 @@ exports[`renders ReviewForm as expected 1`] = `
               className="review_form_select"
               id="rating"
               name="rating"
+              required={true}
             >
               <option
                 value=""
@@ -147,7 +151,7 @@ exports[`renders ReviewForm as expected 1`] = `
     </fieldset>
     <fieldset>
       <legend>
-        Features
+         Features
         <div
           className="review_amenities"
         >
@@ -262,15 +266,17 @@ exports[`renders ReviewForm as expected 1`] = `
       className="review_form_controls"
     >
       <button
+        className="cancel"
+        onClick={[Function]}
+        type="button"
+      >
+        Cancel
+      </button>
+      <button
         className="submit"
         type="submit"
       >
         Submit
-      </button>
-      <button
-        className="cancel"
-      >
-        Cancel
       </button>
     </div>
   </form>

@@ -25,7 +25,7 @@ export default class ReviewsList extends Component {
       );
     } else {
       return (
-        <section className='reviewslist'>
+        <section className="reviewslist">
           <header>
             <h3>Your Reviews</h3>
           </header>

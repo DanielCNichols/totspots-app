@@ -1,9 +1,10 @@
 import React from 'react';
 import VenuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
+import {withRouter} from 'react-router-dom'
 import './ReviewForm.css';
 
-export default class ReviewForm extends React.Component {
+class ReviewForm extends React.Component {
   static contextType = VenuesContext;
 
   state = {
@@ -45,67 +46,76 @@ export default class ReviewForm extends React.Component {
       };
     });
     ApiService.postReviews(venueId, content, price, volume, starrating, aObj)
-      .then(this.context.addReview)
+      .then(review => {
+        this.context.addReview(review)
+      })
       .catch(this.context.setError);
     this.props.history.push('/venue/venueId');
   };
 
+  handleCancel() {
+    this.props.history.goBack();
+  }
+
   render() {
     return (
-      <section className='review_form_component'>
+      <section className="review_form_component">
         <header>
           <h2>Add a review</h2>
         </header>
         <h3>{this.context.selectedVenue.venue_name}</h3>
-        <form className='review_form' onSubmit={this.handleSubmit}>
+        <form className="review_form" onSubmit={this.handleSubmit}>
           <fieldset>
             <legend> Your Review
               <div className="review_form_selects">
-                <label htmlFor='price'>
+                <label htmlFor="price">
                   Price
                   <select
-                    className='review_form_select'
-                    name='price'
-                    id='price'
+                    className="review_form_select"
+                    name="price"
+                    id="price"
+                    required
                   >
-                    <option value=''>Please select</option>
-                    <option value='1'>$</option>
-                    <option value='2'>$$</option>
-                    <option value='3'>$$$</option>
-                    <option value='4'>$$$$</option>
-                    <option value='5'>$$$$$</option>
+                    <option value="">Please select</option>
+                    <option value="1">$</option>
+                    <option value="2">$$</option>
+                    <option value="3">$$$</option>
+                    <option value="4">$$$$</option>
+                    <option value="5">$$$$$</option>
                   </select>
                 </label>
-                <label htmlFor='volume'>
+                <label htmlFor="volume">
                   Volume Level
                   <select
-                    className='review_form_select'
-                    name='volume'
-                    id='volume'
+                    className="review_form_select"
+                    name="volume"
+                    id="volume"
+                    required
                   >
-                    <option value=''>Please select</option>
-                    <option value='1'>Library</option>
-                    <option value='2'>Coffee Shop</option>
-                    <option value='3'>Restaurant</option>
-                    <option value='4'>Bar/Brewery</option>
-                    <option value='5'>Concert</option>
+                    <option value="">Please select</option>
+                    <option value="1">Library</option>
+                    <option value="2">Coffee Shop</option>
+                    <option value="3">Restaurant</option>
+                    <option value="4">Bar/Brewery</option>
+                    <option value="5">Concert</option>
                   </select>
                 </label>
-                <label htmlFor='rating'>
+                <label htmlFor="rating">
                   Overall rating
                   <select
-                    className='review_form_select'
-                    name='rating'
-                    id='rating'
+                    className="review_form_select"
+                    name="rating"
+                    id="rating"
+                    required
                   >
-                    <option value=''>Please select</option>
-                    <option value='1'>&#x2605;</option>
-                    <option value='2'>&#x2605; &#x2605;</option>
-                    <option value='3'>&#x2605; &#x2605; &#x2605;</option>
-                    <option value='4'>
+                    <option value="">Please select</option>
+                    <option value="1">&#x2605;</option>
+                    <option value="2">&#x2605; &#x2605;</option>
+                    <option value="3">&#x2605; &#x2605; &#x2605;</option>
+                    <option value="4">
                       &#x2605; &#x2605; &#x2605; &#x2605;
                     </option>
-                    <option value='5'>
+                    <option value="5">
                       &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
                     </option>
                   </select>
@@ -115,32 +125,32 @@ export default class ReviewForm extends React.Component {
           </fieldset>
           <fieldset>
             <legend> Features
-              <div className='review_amenities'>
+              <div className="review_amenities">
                 <div className="left">
-                <label htmlFor='StrollerAccessible'>
+                <label htmlFor="StrollerAccessible">
                   Stroller Accessible
                   <input
                     onChange={() => {
                       this.setState({ stroller: !this.state.stroller });
                     }}
-                    type='checkbox'
-                    name='amenities'
-                    value='1'
+                    type="checkbox"
+                    name="amenities"
+                    value="1"
                     />
                 </label>
-                <label htmlFor='PlayArea'>
+                <label htmlFor="PlayArea">
                   Play Area
                   <input
                     onChange={() => {
                       this.setState({ playarea: !this.state.playarea });
                     }}
-                    type='checkbox'
-                    name='PlayArea'
-                    value='2'
+                    type="checkbox"
+                    name="PlayArea"
+                    value="2"
                     />
                 </label>
-                <label htmlFor='Changingtable'>
-                  {' '}
+                <label htmlFor="Changingtable">
+                  {" "}
                   Changing Table
                   <input
                     onChange={() => {
@@ -148,83 +158,83 @@ export default class ReviewForm extends React.Component {
                         changingtable: !this.state.changingtable
                       });
                     }}
-                    type='checkbox'
-                    name='amenities'
-                    value='3'
+                    type="checkbox"
+                    name="amenities"
+                    value="3"
                     />
                 </label>
                   </div>
                   <div className="right">
-                <label htmlFor='Dogs'>
+                <label htmlFor="Dogs">
                   Dogs Welcome
                   <input
                     onChange={() => {
                       this.setState({ dogs: !this.state.dogs });
                     }}
-                    type='checkbox'
-                    name='amenities'
-                    value='4'
+                    type="checkbox"
+                    name="amenities"
+                    value="4"
                     />
                 </label>
-                <label htmlFor='Fastcheckout'>
-                  {' '}
+                <label htmlFor="Fastcheckout">
+                  {" "}
                   Fast Checkout
                   <input
                     onChange={() => {
                       this.setState({ fastCheckout: !this.state.fastCheckout });
                     }}
-                    type='checkbox'
-                    name='amenities'
-                    value='5'
+                    type="checkbox"
+                    name="amenities"
+                    value="5"
                     />
                 </label>
-                <label htmlFor='KidsNight'>
-                  {' '}
+                <label htmlFor="KidsNight">
+                  {" "}
                   Kids Night Deals
                   <input
                     onChange={() => {
                       this.setState({ KidsNight: !this.state.KidsNight });
                     }}
-                    type='checkbox'
-                    name='amenities'
-                    value='6'
+                    type="checkbox"
+                    name="amenities"
+                    value="6"
                     />
                 </label>
-                <label htmlFor='OutdoorSeating'>
-                  {' '}
+                <label htmlFor="OutdoorSeating">
+                  {" "}
                   Outdoor Seating Available
                   <input
                     onChange={() => {
                       this.setState({ outdoor: !this.state.outdoor });
                     }}
-                    type='checkbox'
-                    name='amenities'
-                    value='7'
+                    type="checkbox"
+                    name="amenities"
+                    value="7"
                     />
                 </label>
                 </div>
               </div>
             </legend>
           </fieldset>
-          <div className='review_form'>
-            <label htmlFor='review'>
+          <div className="review_form">
+            <label htmlFor="review">
               Tell us about your visit
               <textarea
               className="review_form_textarea"
-                type='text'
-                name='content'
-                placeholder='Tell us about your visit'
+                type="text"
+                name="content"
+                placeholder="Tell us about your visit"
               />
             </label>
           </div>
-          <div className='review_form_controls'>
-            <button className='submit' type='submit'>
-              Submit
-            </button>
-            <button className='cancel'>Cancel</button>
+          <div className="review_form_controls">
+            <button onClick={() => {this.handleCancel()}} type="button" className="cancel">Cancel</button>
+            <button className="submit" type="submit">Submit</button>
           </div>
         </form>
       </section>
     );
   }
 }
+
+export default withRouter(ReviewForm)

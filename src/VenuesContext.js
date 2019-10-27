@@ -72,13 +72,13 @@ export class VenuesProvider extends Component {
     this.setState({ favorites: newFavorites });
   };
 
-  // updateVote = reviewId => {
-  //   this.setState({
-  //     reviews: this.state.reviews.map(review => (
-  //       review.id !== reviewId) ? review : review.count + 1
-  //     )
-  //   })
-  // }
+  updateVote = reviewId => {
+    this.setState({
+      reviews: this.state.reviews.map(review => (
+        review.id !== reviewId) ? review : review.count +1
+      )
+    })
+  }
 
   updateReview = updatedReview => {
     this.setState({

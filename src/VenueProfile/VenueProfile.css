@@ -1,4 +1,14 @@
+.state {
+  text-transform: uppercase;
+}
 
+.city {
+  text-transform: capitalize;
+}
+
+.type {
+  text-transform: capitalize;
+}
 
 .average {
   width: 100%;

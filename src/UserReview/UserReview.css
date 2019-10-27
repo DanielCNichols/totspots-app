@@ -1,112 +1,109 @@
 .userReviewItem {
   margin: 20px 0;
   width: 100%;
-  border-bottom: 2px solid #e7e7e7;
-  }
-  
-  .review p {
-    margin: 5px 0;
-  }
-  
-  .rating_info {
-    margin-bottom: 15px;
-  }
-  
-  .user_rating {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    align-items: center;
-  }
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border: 2px solid #064789;
+}
 
-  .rating > span {
-    color: gold;
-    font-size: 1.3em;
-  }
-  
-  .price span {
-    color: green;
-  }
+.review p {
+  margin: 5px 0;
+}
 
-  .volume {
-    color: black;
-  }
-  .user_content {
-    margin: 20px 0;
-  }
-  
-  .user_content p {
-    margin: 10px 0;
-  }
+.rating_info {
+  margin-bottom: 15px;
+}
 
+.user_rating {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.rating > span {
+  color: gold;
+  font-size: 1.3em;
+}
+
+.price span {
+  color: green;
+}
+
+.volume {
+  color: black;
+}
+.user_content {
+  margin: 20px 0;
+}
+
+.user_content p {
+  margin: 10px 0;
+}
+
+.userReview_controls {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.userReview_controls button {
+  display: block;
+  min-width: 180px;
+  height: 40px;
+  margin: 10px auto;
+  border-radius: 17px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+
+.delete {
+  border-color: #ed254e;
+}
+
+.edit {
+  border-color: #064789;
+}
+
+@media screen and (min-width: 450px) {
   .userReview_controls {
     display: flex;
-    flex-direction: column;
-    width: 80%;
+    justify-content: center;
+  }
+
+  .userReview_controls button {
+    width: 30%;
+  }
+
+  .userReview_controls a {
+    display: block;
+    min-width: 30%;
     margin: 0 auto;
   }
-  
-  .userReview_controls button {
-    display: block;
-    min-width: 180px;
-    height: 40px;
-    margin: 10px auto;
-    border-radius: 17px;
-    cursor: pointer;
-    background-color: transparent;
-    font-size: 1.1em;
-  }
-
-  .delete {
-    border-color: #ED254E
-  }
-
-  .edit {
-    border-color: #064789;
-  }
-
-
-  @media screen and (min-width: 450px) {
-
-    .userReview_controls {
-      display: flex;
-      justify-content: center;
-    }
-
-    .userReview_controls button {
-      width: 30%;
-    }
-
-    .userReview_controls a {
-      display: block;
-      min-width: 30%;
-      margin: 0 auto;
-    }
-  }
-  
+}
 
 @media screen and (min-width: 800px) {
-
   .userReview_controls {
     flex-direction: row;
   }
 
- .userReview_controls button {
-   display: inline-block;
+  .userReview_controls button {
+    display: inline-block;
     min-width: 140px;
     word-wrap: break-word;
-   font-size: 1em;
- }
+    font-size: 1em;
+  }
 
- .userReview_controls .edit:hover {
-   color: white;
-   background-color: #064789;
- }
+  .userReview_controls .edit:hover {
+    color: white;
+    background-color: #064789;
+  }
 
- .delete:hover {
-   color: white;
-   background-color: #ED254E;
- }
+  .delete:hover {
+    color: white;
+    background-color: #ed254e;
+  }
 }
-  

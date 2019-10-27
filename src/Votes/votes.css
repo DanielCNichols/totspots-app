@@ -15,3 +15,10 @@
   font-size: 1.1em;
 }
 
+.votes button: hover {
+  background-color: #ED254E;
+  color: white;
+}
+.votes button:disabled {
+  border-color: #e7e7e7;
+}

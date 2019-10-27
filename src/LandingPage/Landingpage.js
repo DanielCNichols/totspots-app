@@ -10,9 +10,9 @@ class LandingPage extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const city = ev.target.city.value;
-    const searchState = ev.target.state.value;
-    const type = ev.target.type.value;
+    const city = ev.target.city.value.toLowerCase();
+    const searchState = ev.target.state.value.toLowerCase();
+    const type = ev.target.type.value.toLowerCase();
     ApiService.getVenues(city, searchState, type)
     .then(venues => {
     this.context.setVenues(venues);
@@ -27,44 +27,44 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <section className='landingpage'>
+      <section className="landingpage">
         <header className="landingpage_hero">
           <h1>Tot Spots</h1>
           <p>For parents, by parents.</p>
         </header>
-        <div className='search'>
+        <div className="search">
           <p>I want to take my family to a...</p>
           <form className="search_form" onSubmit={this.handleSubmit}>
-            <label className="search_form_label" htmlFor='type' required>Venue or event...
-              <select className="search_form_select" name='type' id='type'>
-                <option value=''>Select a type of venue/event</option>
-                <option value='Restaurant'>Restaurants</option>
-                <option value='Bar'>Brewery/Bar</option>
-                <option value='Educational'>Educational</option>
-                <option value='music'>Music</option>
-                <option value='outdoor'>Outdoor</option>
+            <label className="search_form_label" htmlFor="type" required>Venue or event...
+              <select className="search_form_select" name="type" id="type">
+                <option value="">Select a type of venue/event</option>
+                <option value="Restaurant">Restaurants</option>
+                <option value="Bar">Brewery/Bar</option>
+                <option value="Educational">Educational</option>
+                <option value="music">Music</option>
+                <option value="outdoor">Outdoor</option>
               </select>
             </label>
             <p>in...</p>
-            <label className= "search_form_label" htmlFor='city'> City
+            <label className= "search_form_label" htmlFor="city"> City
               <input
                 className="search_form_text"
-                type='text'
-                name='city'
-                id='city'
-                placeholder='Durham'
+                type="text"
+                name="city"
+                id="city"
+                placeholder="Durham"
                 required
               />
             </label>
             <label 
             className="search_form_label"
-            htmlFor='state'> State
+            htmlFor="state"> State
               <input
               className="search_form_text"
-                type='text'
-                name='state'
-                max-length='2'
-                placeholder='NC'
+                type="text"
+                name="state"
+                max-length="2"
+                placeholder="NC"
                 required
               />
             </label>
@@ -74,8 +74,8 @@ class LandingPage extends React.Component {
           </form>
         </div>
         <p>
-          Have an account? <Link to='/login'>Log in</Link> or{' '}
-          <Link to='/register'>sign up</Link>
+          Have an account? <Link to='/login'>Log in</Link> or 
+          <Link to='/register'> sign up</Link>
         </p>
       </section>
     );

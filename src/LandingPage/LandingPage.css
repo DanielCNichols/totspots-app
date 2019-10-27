@@ -53,6 +53,7 @@ header > h1 {
   border-radius: 5px;
   margin: 5px auto;
   cursor: pointer;
+  background-color: white;
 }
 
 .search_form_button {

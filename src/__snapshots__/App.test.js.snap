@@ -41,8 +41,8 @@ exports[`renders App as expected 1`] = `
       Hello World
     </div>
   </div>
-  <main
-    className="app_main"
+  <div
+    className="main"
   >
     <section
       className="landingpage"
@@ -162,16 +162,15 @@ exports[`renders App as expected 1`] = `
           Log in
         </a>
          or
-         
         <a
           href="/register"
           onClick={[Function]}
         >
-          sign up
+           sign up
         </a>
       </p>
     </section>
-  </main>
+  </div>
   <footer
     className="app_footer"
   >
@@ -181,9 +180,13 @@ exports[`renders App as expected 1`] = `
       <p>
         Daniel Nichols | 2019
       </p>
-      <p>
-        Want to see more? Find it on GitHub
-      </p>
+      <a
+        href="https://github.com/DanielCNichols"
+      >
+        <p>
+          Want to see more? Find it on GitHub
+        </p>
+      </a>
     </div>
   </footer>
 </div>

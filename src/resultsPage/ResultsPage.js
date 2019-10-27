@@ -1,11 +1,15 @@
 import React from 'react';
 import Result from '../Result/Result';
 import VenueContext from '../VenuesContext';
-import { Link } from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 import './Resultspage.css';
 
-export default class ResultsPage extends React.Component {
+class ResultsPage extends React.Component {
   static contextType = VenueContext;
+
+  handleAddClick() {
+    this.props.history.push('/addvenue')
+  }
 
   prerender() {
     let { venues } = this.context;
@@ -17,8 +21,8 @@ export default class ResultsPage extends React.Component {
       );
     } else {
       return (
-        <section className='results_page'>
-          <header className='results_header'>
+        <section className="results_page">
+          <header className="results_header">
             <h2>
               Showing results for "{this.context.type}" in {this.context.city}
             </h2>
@@ -28,11 +32,9 @@ export default class ResultsPage extends React.Component {
               <Result venue={venue} key={venue.id} />
             ))}
           </ul>
-          <div className='addvenue'>
+          <div className="addvenue">
             <p>Is something missing?</p>
-            <Link to='/addVenue'>
-              <button>Suggest a new venue</button>
-            </Link>
+              <button onClick={() => {this.handleAddClick()}}>Suggest a new venue</button>
           </div>
         </section>
       );
@@ -43,3 +45,5 @@ export default class ResultsPage extends React.Component {
     return <div>{this.prerender()}</div>;
   }
 }
+
+export default withRouter(ResultsPage)

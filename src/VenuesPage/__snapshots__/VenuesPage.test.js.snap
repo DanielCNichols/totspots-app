@@ -13,14 +13,19 @@ exports[`renders VenuesPage as expected 1`] = `
     <div
       className="contact"
     >
-      <p>
+      <p
+        className="type"
+      >
         Type: 
       </p>
       <p />
-      <span />
+      <span
+        className="city"
+      />
       , 
-      <span />
-       
+      <span
+        className="state"
+      />
       <span />
       <p />
       <p />
@@ -35,13 +40,11 @@ exports[`renders VenuesPage as expected 1`] = `
         <span
           className="rating"
         >
-          <div>
-            <p
-              className="NA"
-            >
-              No reviews
-            </p>
-          </div>
+          <span
+            className="NA"
+          >
+            No reviews
+          </span>
         </span>
       </div>
       <div
@@ -51,13 +54,11 @@ exports[`renders VenuesPage as expected 1`] = `
         <span
           className="price"
         >
-          <div>
-            <p
-              className="NA"
-            >
-              Price unavailable
-            </p>
-          </div>
+          <span
+            className="NA"
+          >
+            Price unavailable
+          </span>
         </span>
       </div>
       <div
@@ -67,11 +68,11 @@ exports[`renders VenuesPage as expected 1`] = `
         <span
           className="volume"
         >
-          <p
+          <span
             className="NA"
           >
             volume unavailable
-          </p>
+          </span>
         </span>
       </div>
       <div
@@ -85,18 +86,15 @@ exports[`renders VenuesPage as expected 1`] = `
     <div
       className="venue_controls"
     >
-      <a
-        href="/addreview/undefined"
-        onClick={[Function]}
-      >
-        <button>
-          Add a review
-        </button>
-      </a>
       <button
         onClick={[Function]}
       >
-        Add to Favorites
+        Add a review
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Add to Saved Venues
       </button>
     </div>
   </section>

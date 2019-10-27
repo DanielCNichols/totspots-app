@@ -14,138 +14,140 @@ exports[`renders Edit Review as expected 1`] = `
     onSubmit={[Function]}
   >
     <fieldset>
-      <label
-        className="edit_form_label"
-        htmlFor="price"
-      >
-        Price
-        <select
-          className="edit_form_select"
-          id="price"
-          name="price"
-          onChange={[Function]}
-          value=""
+      <legend>
+        <label
+          className="edit_form_label"
+          htmlFor="price"
         >
-          <option
+          Price
+          <select
+            className="edit_form_select"
+            id="price"
+            name="price"
+            onChange={[Function]}
             value=""
           >
-            Please select
-          </option>
-          <option
-            value="1"
-          >
-            $
-          </option>
-          <option
-            value="2"
-          >
-            $$
-          </option>
-          <option
-            value="3"
-          >
-            $$$
-          </option>
-          <option
-            value="4"
-          >
-            $$$$
-          </option>
-          <option
-            value="5"
-          >
-            $$$$$
-          </option>
-        </select>
-      </label>
-      <label
-        className="edit_form_label"
-        htmlFor="volume"
-      >
-        Volume Level
-        <select
-          className="edit_form_select"
-          id="volume"
-          name="volume"
-          onChange={[Function]}
-          value=""
+            <option
+              value=""
+            >
+              Please select
+            </option>
+            <option
+              value="1"
+            >
+              $
+            </option>
+            <option
+              value="2"
+            >
+              $$
+            </option>
+            <option
+              value="3"
+            >
+              $$$
+            </option>
+            <option
+              value="4"
+            >
+              $$$$
+            </option>
+            <option
+              value="5"
+            >
+              $$$$$
+            </option>
+          </select>
+        </label>
+        <label
+          className="edit_form_label"
+          htmlFor="volume"
         >
-          <option
+          Volume Level
+          <select
+            className="edit_form_select"
+            id="volume"
+            name="volume"
+            onChange={[Function]}
             value=""
           >
-            Please select
-          </option>
-          <option
-            value="1"
-          >
-            Library
-          </option>
-          <option
-            value="2"
-          >
-            Coffee Shop
-          </option>
-          <option
-            value="3"
-          >
-            Restaurant
-          </option>
-          <option
-            value="4"
-          >
-            Bar/Brewery
-          </option>
-          <option
-            value="5"
-          >
-            Concert
-          </option>
-        </select>
-      </label>
-      <label
-        className="edit_form_label"
-        htmlFor="rating"
-      >
-        Overall rating
-        <select
-          className="edit_form_select"
-          id="rating"
-          name="rating"
-          onChange={[Function]}
-          value={1}
+            <option
+              value=""
+            >
+              Please select
+            </option>
+            <option
+              value="1"
+            >
+              Library
+            </option>
+            <option
+              value="2"
+            >
+              Coffee Shop
+            </option>
+            <option
+              value="3"
+            >
+              Restaurant
+            </option>
+            <option
+              value="4"
+            >
+              Bar/Brewery
+            </option>
+            <option
+              value="5"
+            >
+              Concert
+            </option>
+          </select>
+        </label>
+        <label
+          className="edit_form_label"
+          htmlFor="rating"
         >
-          <option
-            value=""
+          Overall rating
+          <select
+            className="edit_form_select"
+            id="rating"
+            name="rating"
+            onChange={[Function]}
+            value={1}
           >
-            Please select
-          </option>
-          <option
-            value="1"
-          >
-            ★
-          </option>
-          <option
-            value="2"
-          >
-            ★ ★
-          </option>
-          <option
-            value="3"
-          >
-            ★ ★ ★
-          </option>
-          <option
-            value="4"
-          >
-            ★ ★ ★ ★
-          </option>
-          <option
-            value="5"
-          >
-            ★ ★ ★ ★ ★
-          </option>
-        </select>
-      </label>
+            <option
+              value=""
+            >
+              Please select
+            </option>
+            <option
+              value="1"
+            >
+              ★
+            </option>
+            <option
+              value="2"
+            >
+              ★ ★
+            </option>
+            <option
+              value="3"
+            >
+              ★ ★ ★
+            </option>
+            <option
+              value="4"
+            >
+              ★ ★ ★ ★
+            </option>
+            <option
+              value="5"
+            >
+              ★ ★ ★ ★ ★
+            </option>
+          </select>
+        </label>
+      </legend>
     </fieldset>
     <div
       className="edit_review"
@@ -169,16 +171,17 @@ exports[`renders Edit Review as expected 1`] = `
       className="edit_form_controls"
     >
       <button
+        className="edit_form_cancel"
+        onClick={[Function]}
+        type="button"
+      >
+        Cancel
+      </button>
+      <button
         className="edit_form_button"
         type="submit"
       >
         Submit
-      </button>
-      <button
-        className="edit_form_cancel"
-        onClick={[Function]}
-      >
-        Cancel
       </button>
     </div>
   </form>

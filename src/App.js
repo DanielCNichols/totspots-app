@@ -32,17 +32,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className='app'>
+      <div className="app">
         <ErrorBoundary>
           <Route path='/' component={Nav} />
           <Sidebar>
             <Switch>
-              <Route exact path='/reviews' component={RefineSearch} />
+              <Route exact path="/reviews" component={RefineSearch} />
               <Route exact path='/venue/:venue_id' component={ReviewSort}/>
     <Route render={() => <div>Hello World</div>}/>
             </Switch>
           </Sidebar>
-          <Main className='app_main'>
+          <Main className="app_main">
             <Switch>
               <Route exact path='/' component={Landingpage} />
               <PublicRoute exact path='/login' component={Login} />

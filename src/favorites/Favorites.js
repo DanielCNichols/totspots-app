@@ -19,9 +19,9 @@ class Favorites extends React.Component {
     return (
       <li className="favorite" key={favorites.id}>
         <h3>{favorites.venue_name}</h3>
-        <p>{favorites.venue_type}</p>
+        <p className="type">{favorites.venue_type}</p>
         <p>{favorites.address}</p>
-        <span>{favorites.city}</span>, <span>{favorites.state} </span> 
+        <span className="city">{favorites.city}</span>, <span className="state">{favorites.state} </span> 
         <span>{favorites.zipcode}</span>
         <p>{favorites.url}</p>
         <p>{favorites.phone}</p>

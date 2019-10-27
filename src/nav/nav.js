@@ -15,13 +15,13 @@ export default class Nav extends React.Component {
   renderLogout() {
     return (
       <>
-      <li className='Nav_login'>
-        <Link onClick={this.handleLogout} to='/'>
+      <li className="Nav_login">
+        <Link onClick={this.handleLogout} to="/">
           Logout
         </Link>
       </li>
       <li>
-        <Link to='/account'>
+        <Link to="/account">
           Profile</Link>
       </li>
       </>
@@ -30,8 +30,8 @@ export default class Nav extends React.Component {
 
   renderLogin() {
     return (
-      <li className='Nav_logout'>
-        <Link to='/login'>Log in</Link>
+      <li className="Nav_logout">
+        <Link to="/login">Log in</Link>
       </li>
     );
   }
@@ -41,12 +41,12 @@ export default class Nav extends React.Component {
       <nav>
         <ul>
           <li>
-            <Link to='/'>
+            <Link to="/">
               Home
             </Link>
           </li>
           <li>
-            <Link to='/addVenue'>Add Venue</Link>
+            <Link to="/addVenue">Add Venue</Link>
           </li>
           {TokenService.hasToken() ? this.renderLogout() : this.renderLogin()}
         </ul>

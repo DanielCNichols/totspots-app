@@ -6,22 +6,53 @@ import './Votes.css';
 export default class Votes extends React.Component {
   static contextType = VenuesContext;
 
+  state = {
+    count: parseInt(this.props.review.count),
+    clicked: false,
+  }
+
+  updateVoteCount() {
+    this.setState({
+      count: parseInt(this.state.count) +1,
+      clicked: true
+    })
+  }
+
   handleVote = ev => {
     let vote = ev.target.value;
     let id = this.props.review.id;
     ApiService.handleVotes(vote, id)
+    .then(() => {
+      this.updateVoteCount();
+    })
+    .catch(error => {
+      this.context.setError(error)
+      console.error(error)
+    })
   };
 
-  render() {
-    const { review } = this.props;
-
-    //Get an accurate vote count since DB defaults to true in order to return votes in query.
-    let votes = review.count - 1;
+  renderVote() {
+    const {count} = this.state
+    if (!count) {
+      return (
+        <span>0 people like this review</span>
+      )
+    } else if (count === '1') {
+      return (
+        <span>1 person likes this review</span>
+      )
+    }
     return (
-      <div className='votes'>
+      <span>{count} people like this review</span>
+    )
+  }
+
+  render() {
+    return (
+      <div className="votes">
         <p>Was this review helpful?</p>
-        <span>{votes} people liked this</span>
-        <button value='true' onClick={this.handleVote}>
+        {this.renderVote()}
+        <button  disabled={this.state.clicked} value="true" onClick={this.handleVote}>
           Like
         </button>
       </div>

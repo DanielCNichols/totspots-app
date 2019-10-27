@@ -7,17 +7,23 @@ exports[`renders Favorites as expected 1`] = `
   <h3>
     Early Bird
   </h3>
-  <p>
+  <p
+    className="type"
+  >
     Restaurant
   </p>
   <p>
     987 Erwin Rd.
   </p>
-  <span>
+  <span
+    className="city"
+  >
     Durham
   </span>
   , 
-  <span>
+  <span
+    className="state"
+  >
     NC
      
   </span>

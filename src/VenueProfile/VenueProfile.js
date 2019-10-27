@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import VenuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
 import PropTypes from 'prop-types'
+import {withRouter} from 'react-router-dom'
 import './VenueProfile.css'
 
-export default class VenueProfile extends Component {
+ class VenueProfile extends Component {
 
   static propTypes = {
     match: PropTypes.shape({
@@ -21,6 +21,9 @@ export default class VenueProfile extends Component {
     ApiService.addFavorite(venueId).catch(this.context.setError);
   }
 
+  handleAddReview(venueId) {
+    this.props.history.push('/addreview/venueId');
+  }
 
   renderRating() {
     const avgRating = Math.round(this.context.selectedVenue.avgRating);
@@ -33,52 +36,52 @@ export default class VenueProfile extends Component {
         break;
       case 2:
         stars = (
-          <div>
+          <>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         stars = (
-          <div>
+          <>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
-          </div>
+          </>
         );
         break;
 
       case 4:
         stars = (
-          <div>
+          <>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
-          </div>
+          </>
         );
         break;
 
       case 5:
         stars = (
-          <div>
+          <>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
-          </div>
+          </>
         );
         break;
 
       default:
         stars = (
-          <div>
-            <p  className="NA">No reviews</p>
-          </div>
+          <>
+            <span  className="NA">No reviews</span>
+          </>
         )
     }
 
@@ -98,52 +101,52 @@ export default class VenueProfile extends Component {
         break;
       case 2:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
       case 4:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
       case 5:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
       default:
         price = (
-          <div>
-            <p className="NA">Price unavailable</p>
-          </div>
+          <>
+            <span className="NA">Price unavailable</span>
+          </>
         )
     }
 
@@ -165,50 +168,50 @@ export default class VenueProfile extends Component {
         break;
       case 2:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
         break;
 
       case 4:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
         break;
 
       case 5:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
         break;
 
       default:
         volume = (
-            <p className="NA">volume unavailable</p>
+            <span className="NA">volume unavailable</span>
         )
     }
 
@@ -231,19 +234,19 @@ export default class VenueProfile extends Component {
   render() {
     let venue = this.context.selectedVenue;
     return (
-      <section className='venueProfile'>
+      <section className="venueProfile">
         <header>
           <h2>{venue.venue_name}</h2>
         </header>
         <div className="contact">
-          <p>Type: {venue.venue_type}</p>
+          <p className="type">Type: {venue.venue_type}</p>
           <p>{venue.address}</p>
-          <span>{venue.city}</span>, <span>{venue.state}</span>{' '}
+          <span className="city">{venue.city}</span>, <span className="state">{venue.state}</span>
           <span>{venue.zipcode}</span>
           <p>{venue.phone}</p>
           <p>{venue.url}</p>
           </div>
-        <div className='ratings'>
+        <div className="ratings">
           <div className="average">
             Overall Rating: <span className="rating">{this.renderRating()}</span>
           </div>
@@ -259,14 +262,15 @@ export default class VenueProfile extends Component {
           </div>
         </div>
         <div className="venue_controls">
-          <Link to={`/addreview/${venue.id}`}>
-            <button>Add a review</button>
-          </Link>
-          <button onClick={() => { this.handleAddFavorite(venue.id) }} >
-            Add to Favorites
+          <button onClick={() => {this.handleAddReview(venue.id)}}>Add a review</button>
+          <button onClick={() => {this.handleAddFavorite(venue.id)}} >
+            Add to Saved Venues
         </button>
         </div>
       </section>
     );
   }
 }
+
+
+export default withRouter(VenueProfile)

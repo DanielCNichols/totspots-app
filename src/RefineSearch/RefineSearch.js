@@ -25,15 +25,15 @@ export default class RefineSearch extends React.Component {
   render() {
     return (
       <form className="refine_form" onSubmit={this.handleSort}>
-        <label className="refine_form_label" htmlFor='sort'>
+        <label className="refine_form_label" htmlFor="sort">
           Sort results by:
-          <select className="refine_form_select" name='sort'>
+          <select className="refine_form_select" name="sort">
             <option>Select</option>
-            <option value='avgPrice'>Price (low to high)</option>
-            <option value='avgRating'>Rating(high to low)</option>
-            <option value='avgVolume'>Volume Level (low to high)</option>
+            <option value="avgPrice">Price (low to high)</option>
+            <option value="avgRating">Rating(high to low)</option>
+            <option value="avgVolume">Volume Level (low to high)</option>
           </select>
-          <button className="refine_form_button" type='submit'>Sort</button>
+          <button className="refine_form_button" type="submit">Sort</button>
         </label>
       </form>
     );

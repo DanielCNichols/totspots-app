@@ -9,7 +9,7 @@ exports[`renders Review as expected 1`] = `
   </h3>
   <p>
     Visited: 
-    October 25th, 2019
+    October 27th, 2019
   </p>
   <div
     className="rating_break"
@@ -47,11 +47,11 @@ exports[`renders Review as expected 1`] = `
       <span
         className="volume"
       >
-        <p
+        <span
           className="NA"
         >
           volume unavailable
-        </p>
+        </span>
       </span>
     </div>
   </div>
@@ -70,9 +70,10 @@ exports[`renders Review as expected 1`] = `
       Was this review helpful?
     </p>
     <span>
-       person liked this
+      0 people like this review
     </span>
     <button
+      disabled={false}
       onClick={[Function]}
       value="true"
     >

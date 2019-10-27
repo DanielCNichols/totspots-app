@@ -29,6 +29,7 @@ exports[`renders LandingPage as expected 1`] = `
         htmlFor="type"
         required={true}
       >
+        Venue or event...
         <select
           className="search_form_select"
           id="type"
@@ -97,12 +98,16 @@ exports[`renders LandingPage as expected 1`] = `
           type="text"
         />
       </label>
-      <button
-        className="search_form_button"
-        type="submit"
+      <div
+        className="search_form_control"
       >
-        Let's go!
-      </button>
+        <button
+          className="search_form_button"
+          type="submit"
+        >
+          Let's go!
+        </button>
+      </div>
     </form>
   </div>
   <p>
@@ -114,12 +119,11 @@ exports[`renders LandingPage as expected 1`] = `
       Log in
     </a>
      or
-     
     <a
       href="/register"
       onClick={[Function]}
     >
-      sign up
+       sign up
     </a>
   </p>
 </section>

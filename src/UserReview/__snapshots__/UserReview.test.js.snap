@@ -19,17 +19,15 @@ exports[`renders UserReview as expected 1`] = `
       <span
         className="rating"
       >
-        <div>
-          <span>
-            ★
-          </span>
-          <span>
-            ★
-          </span>
-          <span>
-            ★
-          </span>
-        </div>
+        <span>
+          ★
+        </span>
+        <span>
+          ★
+        </span>
+        <span>
+          ★
+        </span>
       </span>
     </div>
     <div
@@ -39,17 +37,15 @@ exports[`renders UserReview as expected 1`] = `
       <span
         className="price"
       >
-        <div>
-          <span>
-            $
-          </span>
-          <span>
-            $
-          </span>
-          <span>
-            $
-          </span>
-        </div>
+        <span>
+          $
+        </span>
+        <span>
+          $
+        </span>
+        <span>
+          $
+        </span>
       </span>
     </div>
     <div
@@ -81,16 +77,12 @@ exports[`renders UserReview as expected 1`] = `
   <div
     className="userReview_controls"
   >
-    <a
-      href="/reviews/27"
+    <button
+      className="edit"
       onClick={[Function]}
     >
-      <button
-        className="edit"
-      >
-        Edit Review
-      </button>
-    </a>
+      Edit Review
+    </button>
     <button
       className="delete"
       onClick={[Function]}

@@ -31,21 +31,21 @@ class Result extends React.Component {
         break;
       case 2:
         stars = (
-          <div>
+          <>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         stars = (
-          <div>
+          <>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
             <span>&#x2605;</span>
-          </div>
+          </>
         );
         break;
 
@@ -62,21 +62,21 @@ class Result extends React.Component {
 
       case 5:
         stars = (
-        <div>
+        <>
           <span>&#x2605;</span>
           <span>&#x2605;</span>
           <span>&#x2605;</span>
           <span>&#x2605;</span>
           <span>&#x2605;</span>
-        </div>
+        </>
         );
         break;
         
         default: 
         stars = (
-          <div>
+          <>
             <p className="NA">No reviews</p>
-          </div>
+          </>
         )
     }
 
@@ -96,32 +96,32 @@ class Result extends React.Component {
         break;
       case 2:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
       case 4:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
@@ -139,9 +139,9 @@ class Result extends React.Component {
         
         default: 
         price= (
-          <div>
-            <p className="NA">Price unavailable</p>
-          </div>
+          <>
+            <span className="NA">Price unavailable</span>
+          </>
         )
     }
 
@@ -154,17 +154,17 @@ class Result extends React.Component {
     let { venue } = this.props;
     return (
       <li
-        className='result'
+        className="result"
         key={venue.id}
         onClick={() => this.handleExpanded(venue.id)}
       >
-        <div className='result_rating'>
+        <div className="result_rating">
           <h3>{venue.venue_name}</h3>
           <span className="rating">{this.renderRating()}</span>
         </div>
-        <span className="price">{this.renderPrice()}</span>
-        <span>{venue.address}</span> <span>{venue.city}</span>,{' '}
-        <span>{venue.state}</span>
+        <p className="price">{this.renderPrice()}</p>
+        <span>{venue.address}</span> <span className="city">{venue.city}</span>,
+        <span className="state">{venue.state}</span>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>
     );

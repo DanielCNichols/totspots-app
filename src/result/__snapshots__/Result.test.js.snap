@@ -14,41 +14,40 @@ exports[`renders Result as expected 1`] = `
     <span
       className="rating"
     >
-      <div>
-        <span>
-          ★
-        </span>
-        <span>
-          ★
-        </span>
-        <span>
-          ★
-        </span>
-      </div>
+      <span>
+        ★
+      </span>
+      <span>
+        ★
+      </span>
+      <span>
+        ★
+      </span>
     </span>
   </div>
-  <span
+  <p
     className="price"
   >
-    <div>
-      <span>
-        $
-      </span>
-      <span>
-        $
-      </span>
-    </div>
-  </span>
+    <span>
+      $
+    </span>
+    <span>
+      $
+    </span>
+  </p>
   <span>
     123 Main st.
   </span>
    
-  <span>
+  <span
+    className="city"
+  >
     Durham
   </span>
   ,
-   
-  <span>
+  <span
+    className="state"
+  >
     NC
   </span>
   <button

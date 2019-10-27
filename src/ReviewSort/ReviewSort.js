@@ -25,14 +25,14 @@ export default class ReviewSort extends React.Component {
   render() {
     return (
       <form className="review_sort_form" onSubmit={this.handleSort}>
-        <label className="review_sort_form_label" htmlFor='sort'>
+        <label className="review_sort_form_label" htmlFor="sort">
           Sort reviews by:
-          <select className="review_sort_form_select" name='sort'>
+          <select className="review_sort_form_select" name="sort">
             <option>Select</option>
-            <option value='ascending'>Least liked</option>
-            <option value='descending'>Most liked</option>
+            <option value="ascending">Least liked</option>
+            <option value="descending">Most liked</option>
           </select>
-          <button className="review_sort_form_button" type='submit'>Sort</button>
+          <button className="review_sort_form_button" type="submit">Sort</button>
         </label>
       </form>
     );

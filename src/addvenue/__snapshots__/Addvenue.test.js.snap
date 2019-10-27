@@ -67,6 +67,7 @@ exports[`renders AddVenue as expected 1`] = `
               maxLength="2"
               name="state"
               placeholder="ex: NC"
+              required={true}
               type="text"
             />
           </label>
@@ -78,6 +79,7 @@ exports[`renders AddVenue as expected 1`] = `
               className="add_form_text"
               name="zipcode"
               placeholder="ex: 27705"
+              required={true}
               type="text"
             />
           </label>
@@ -89,6 +91,7 @@ exports[`renders AddVenue as expected 1`] = `
               className="add_form_text"
               name="url"
               placeholder="www.reddit.com"
+              required={true}
               type="url"
             />
           </label>
@@ -100,6 +103,7 @@ exports[`renders AddVenue as expected 1`] = `
               className="add_form_text"
               name="phone"
               placeholder="(555) 245-3456"
+              required={true}
               type="text"
             />
           </label>
@@ -392,21 +396,17 @@ exports[`renders AddVenue as expected 1`] = `
       className="add_form_controls"
     >
       <button
+        className="cancel"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+      <button
         className="add"
         type="submit"
       >
         Submit
       </button>
-      <a
-        href="/"
-        onClick={[Function]}
-      >
-        <button
-          className="cancel"
-        >
-          Cancel
-        </button>
-      </a>
     </div>
   </form>
 </section>

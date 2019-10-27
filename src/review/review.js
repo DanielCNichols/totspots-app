@@ -84,44 +84,44 @@ export default class Review extends React.Component {
         break;
       case 2:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
       case 4:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
       case 5:
         price = (
-          <div>
+          <>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
             <span>&#36;</span>
-          </div>
+          </>
         );
         break;
 
@@ -147,50 +147,50 @@ export default class Review extends React.Component {
         break;
       case 2:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
 
         break;
 
       case 3:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
         break;
 
       case 4:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
         break;
 
       case 5:
         volume = (
-          <div>
+          <>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
             <span role="img" aria-label="volume level">&#128227;</span>
-          </div>
+          </>
         );
         break;
 
       default:
         volume = (
-            <p className="NA">volume unavailable</p>
+            <span className="NA">volume unavailable</span>
         )
     }
 
@@ -223,7 +223,7 @@ export default class Review extends React.Component {
             <p>{reviews.first_name} said: </p>
             <p>{reviews.content}</p>
           </div>
-          <Votes review={reviews}></Votes>
+          <Votes key={reviews.id} review={reviews}></Votes>
         </li>
     );
   }

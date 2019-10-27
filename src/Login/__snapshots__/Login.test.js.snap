@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders Login as expected 1`] = `
-<section>
+<section
+  className="login"
+>
   <header>
     <h2>
       Sign in
     </h2>
   </header>
   <form
-    className="login"
+    className="login_form"
     onSubmit={[Function]}
   >
     <fieldset>

@@ -8,9 +8,11 @@ exports[`renders Votes as expected 1`] = `
     Was this review helpful?
   </p>
   <span>
-    (VoteCount) liked this
+    3
+     people like this review
   </span>
   <button
+    disabled={false}
     onClick={[Function]}
     value="true"
   >

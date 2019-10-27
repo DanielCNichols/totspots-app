@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VenuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
+import {withRouter} from 'react-router-dom'
 import './editReview.css'
 
 
@@ -105,87 +106,87 @@ class editReview extends Component {
         <form className="edit_form" onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>
-              <label className="edit_form_label" htmlFor='price'>
+              <label className="edit_form_label" htmlFor="price">
                 Price
                 <select
                 value= {price}
                 className="edit_form_select"
-                name='price'
-                id='price'
+                name="price"
+                id="price"
                 onChange={this.handleChangePrice}
                 >
-                  <option value=''>Please select</option>
-                  <option value='1'>$</option>
-                  <option value='2'>$$</option>
-                  <option value='3'>$$$</option>
-                  <option value='4'>$$$$</option>
-                  <option value='5'>$$$$$</option>
+                  <option value="">Please select</option>
+                  <option value="1">$</option>
+                  <option value="2">$$</option>
+                  <option value="3">$$$</option>
+                  <option value="4">$$$$</option>
+                  <option value="5">$$$$$</option>
                 </select>
               </label>
               <label 
               className="edit_form_label"
-              htmlFor='volume'>
+              htmlFor="volume">
                 Volume Level
                 <select
                 value = {volume}
                 className="edit_form_select"
-                name='volume'
-                id='volume'
+                name="volume"
+                id="volume"
                 onChange={this.handleChangeVolume}
                 >
-                  <option value=''>Please select</option>
-                  <option value='1'>Library</option>
-                  <option value='2'>Coffee Shop</option>
-                  <option value='3'>Restaurant</option>
-                  <option value='4'>Bar/Brewery</option>
-                  <option value='5'>Concert</option>
+                  <option value="">Please select</option>
+                  <option value="1">Library</option>
+                  <option value="2">Coffee Shop</option>
+                  <option value="3">Restaurant</option>
+                  <option value="4">Bar/Brewery</option>
+                  <option value="5">Concert</option>
                 </select>
               </label>
               <label 
               className="edit_form_label"
-              htmlFor='rating'>
+              htmlFor="rating">
                 Overall rating
                 <select
                 value = {starrating}
                 className="edit_form_select"
-                name='rating'
-                id='rating'
+                name="rating"
+                id="rating"
                 onChange={this.handleChangeRating}
                 >
-                  <option value=''>Please select</option>
-                  <option value='1'>&#x2605;</option>
-                  <option value='2'>&#x2605; &#x2605;</option>
-                  <option value='3'>&#x2605; &#x2605; &#x2605;</option>
-                  <option value='4'>&#x2605; &#x2605; &#x2605; &#x2605;</option>
-                  <option value='5'>
+                  <option value="">Please select</option>
+                  <option value="1">&#x2605;</option>
+                  <option value="2">&#x2605; &#x2605;</option>
+                  <option value="3">&#x2605; &#x2605; &#x2605;</option>
+                  <option value="4">&#x2605; &#x2605; &#x2605; &#x2605;</option>
+                  <option value="5">
                     &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
                   </option>
                 </select>
               </label>
             </legend>
           </fieldset>
-          <div className='edit_review'>
+          <div className="edit_review">
             <label 
             className="edit_form_label"
-            htmlFor='review'>
+            htmlFor="review">
               What's changed at this spot? 
               <textarea
               className="edit_form_text"
-                type='text'
-                name='content'
+                type="text"
+                name="content"
                 value={content}
-                placeholder='Tell us about your visit'
+                placeholder="Tell us about your visit"
                 onChange={this.handleChangeContent}
               />
             </label>
           </div>
           <div className="edit_form_controls">
-            <button className="edit_form_button" type='submit'>Submit</button>
-            <button className="edit_form_cancel" onClick={this.handleClickCancel}>Cancel</button>
+            <button className="edit_form_cancel" type="button" onClick={this.handleClickCancel}>Cancel</button>
+            <button className="edit_form_button" type="submit">Submit</button>
           </div>
         </form>
       </section>
     );
   }
 }
-export default editReview;
+export default withRouter(editReview);
