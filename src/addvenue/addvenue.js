@@ -160,6 +160,7 @@ class AddVenue extends React.Component {
                       name="type" id="type" required>
                       <option value="">Please select</option>
                       <option value="Restaurant">Restaurant</option>
+                      <option value="Coffee">Coffee Shop</option>
                       <option value="Bar">Brewery/Bar</option>
                       <option value="Educational">Educational</option>
                       <option value="music">Music</option>

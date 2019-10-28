@@ -44,6 +44,7 @@ class LandingPage extends React.Component {
                 <option value="">Select a type of venue/event</option>
                 <option value="Restaurant">Restaurants</option>
                 <option value="Bar">Brewery/Bar</option>
+                <option value="Coffee">Coffee Shop</option>
                 <option value="Educational">Educational</option>
                 <option value="music">Music</option>
                 <option value="outdoor">Outdoor</option>
