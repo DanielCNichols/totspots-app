@@ -17,7 +17,7 @@
 @media screen and (min-width: 800px) {
   .VenuesPage {
     min-width: 250px;
-    width : calc(50% - 220px); 
+    width: calc(50% - 220px);
     width: 50%;
     float: right;
     list-style: none;

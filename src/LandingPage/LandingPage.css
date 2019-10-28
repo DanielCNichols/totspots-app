@@ -41,11 +41,11 @@ header > h1 {
   min-width: 125px;
   border: 1px solid black;
   border-left: 3px solid;
-  border-radius: 5px; 
-  transition: border-color .5s ease-out;
+  border-radius: 5px;
+  transition: border-color 0.5s ease-out;
 }
 
-.search_form_select { 
+.search_form_select {
   display: block;
   width: 80%;
   padding: 5px 10px;
@@ -57,16 +57,16 @@ header > h1 {
 }
 
 .search_form_button {
-  display: block; 
+  display: block;
   margin: 10px auto;
   border-radius: 17px;
-  background-color: #4392F1;
+  background-color: #4392f1;
   width: 50%;
   height: 40px;
   font-size: 1.1em;
 }
 
-.landingpage a:visited{
+.landingpage a:visited {
   color: black;
 }
 
@@ -79,7 +79,7 @@ header > h1 {
     margin-top: 45px;
     height: 200px;
   }
-  
+
   .search_form {
     width: 70%;
   }
@@ -88,13 +88,11 @@ header > h1 {
     width: 30%;
   }
 
-  .search_form_select, .search_form_text {
+  .search_form_select,
+  .search_form_text {
     width: 70%;
   }
 }
-
-
-
 
 @media screen and (min-width: 800px) {
   .search {
@@ -102,20 +100,19 @@ header > h1 {
     margin: 0 auto 50px auto;
   }
 
-  .search_form_select, .search_form_text {
+  .search_form_select,
+  .search_form_text {
     min-width: 220px;
   }
 
   .search_form_button {
     min-width: 180px;
   }
-  
+
   .landingpage {
     width: 100%;
     font-size: 1.3em;
   }
-
-
 
   .landingpage_hero {
     margin-top: 20px;

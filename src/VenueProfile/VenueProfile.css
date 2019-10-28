@@ -46,13 +46,11 @@
   text-align: left;
 }
 
-
 .amenities li:before {
   content: '✓';
   margin-right: 5px;
   font-size: 1.3rem;
 }
-
 
 .venue_controls {
   width: 100%;
@@ -74,14 +72,13 @@
   font-size: 1.1em;
 }
 
-
 .rating {
   color: gold;
   font-size: 1.3rem;
 }
 
 .price {
-  color: green
+  color: green;
 }
 
 .volume {
@@ -91,7 +88,6 @@
 .NA {
   color: black;
 }
-
 
 @media screen and (min-width: 450px) {
   .venue_controls {
@@ -105,7 +101,6 @@
     margin: 0 auto;
   }
 }
-
 
 @media screen and (min-width: 800px) {
   .venue_controls button {

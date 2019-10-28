@@ -1,9 +1,9 @@
 .reviewItem {
-margin: 20px 0;
-width: 100%;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-padding: 5px 10px;
-border: 2px solid #064789;
+  margin: 20px 0;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border: 2px solid #064789;
 }
 
 .review p {
@@ -29,7 +29,7 @@ border: 2px solid #064789;
 }
 
 .price {
-  color: green
+  color: green;
 }
 
 .volume {

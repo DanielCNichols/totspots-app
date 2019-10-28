@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap');
 
-
 * {
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
 }
-
 
 a:visited {
   color: white;
@@ -18,7 +16,10 @@ body {
   background-color: #f8f7f7;
 }
 
-body h1, h2, h3, h4 {
+body h1,
+h2,
+h3,
+h4 {
   font-family: 'Merriweather', serif;
 }
 
@@ -27,13 +28,12 @@ nav {
   color: white;
 }
 
-
 .app_footer {
   width: 100%;
   position: fixed;
-  left:0;
-  bottom:0;
-  right:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   height: 70px;
   background-color: #064789;
   color: white;
@@ -51,16 +51,11 @@ nav {
   margin-bottom: 60px;
 }
 
-
-
-
 @media screen and (min-width: 450px) {
   .app_main {
     margin: 0;
   }
 }
-
-
 
 @media screen and (min-width: 800px) {
   .app_main {

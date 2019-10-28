@@ -3,7 +3,6 @@
   margin: 100px auto;
 }
 
-
 .review_form {
   width: 100%;
   margin-left: auto;
@@ -25,8 +24,8 @@
   min-width: 125px;
   border: 1px solid black;
   border-left: 3px solid;
-  border-radius: 5px; 
-  transition: border-color .5s ease-out;
+  border-radius: 5px;
+  transition: border-color 0.5s ease-out;
 }
 
 .review_form_select {
@@ -66,7 +65,7 @@ fieldset {
 }
 
 .review {
-  width: 80%;  
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -75,7 +74,7 @@ fieldset {
   margin: 1.5em;
 }
 
-textarea { 
+textarea {
   display: block;
   margin: 5px auto;
   padding: 5px 10px;
@@ -84,10 +83,9 @@ textarea {
   min-width: 125px;
   border: 1px solid black;
   border-left: 3px solid;
-  border-radius: 5px; 
-  transition: border-color .5s ease-out;
+  border-radius: 5px;
+  transition: border-color 0.5s ease-out;
 }
-
 
 .review_form_controls {
   width: 80%;
@@ -106,7 +104,7 @@ textarea {
 }
 
 .cancel {
-  border-color: #ED254E;
+  border-color: #ed254e;
 }
 
 .submit {
@@ -126,9 +124,7 @@ textarea {
 
   .review_form_controls button {
     display: inline-block;
-
   }
-
 }
 
 @media screen and (min-width: 800px) {
@@ -142,7 +138,7 @@ textarea {
   }
 
   .review_amenities {
-     width: 90%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,7 +160,7 @@ textarea {
   }
 
   .review_form_controls {
-    width: 50%
+    width: 50%;
   }
 
   .review_form_controls button {
