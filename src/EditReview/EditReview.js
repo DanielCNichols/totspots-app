@@ -97,7 +97,7 @@ class editReview extends Component {
     if(this.context.error) {
       return (
         <div className="error">
-          <p>Sorry something has gone wrong. Error: {error}</p>
+          <p>Sorry something has gone wrong. {error.error}</p>
         </div>
       )
     }

@@ -38,6 +38,7 @@ border: 2px solid #064789;
 
 .userReview {
   margin: 20px 0;
+  word-wrap: break-word;
 }
 
 .userReview p {

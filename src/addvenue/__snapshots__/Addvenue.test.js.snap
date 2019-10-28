@@ -9,6 +9,9 @@ exports[`renders AddVenue as expected 1`] = `
       Add A Venue
     </h2>
   </header>
+  <div
+    role="alert"
+  />
   <form
     className="add_form"
     onSubmit={[Function]}
