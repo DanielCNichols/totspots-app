@@ -4,6 +4,14 @@ nav {
   display: inline-block;
 }
 
+nav a {
+  color: white;
+}
+
+nav a:visited {
+  color: white;
+}
+
 nav {
   height: 70px;
   position: fixed;
