@@ -84,7 +84,7 @@ class AddVenue extends React.Component {
           {this.renderError()}
         </div>
         <form className="add_form" onSubmit={this.handleSubmit}>
-          <fieldset>+
+          <fieldset>
             <legend>Venue Information
 
               <div className="address">
