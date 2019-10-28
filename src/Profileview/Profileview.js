@@ -17,17 +17,29 @@ export default class ProfileView extends React.Component {
     .catch(this.context.setError)
   }
 
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
+    }
+  }
+
+
 
 
   render() {
-    const {profile, error} = this.context
+    const {profile} = this.context
     return (
       <section className="profileview">
         <header>
           <h3>Your profile</h3>
         </header>
         <div role='alert'>
-          {error && <p className='error'>{error}</p>}
+          {this.renderError()}
         </div>
         <p>Name: {profile.first_name} {profile.last_name}</p>
         <p>Email: {profile.email}</p>

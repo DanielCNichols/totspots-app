@@ -41,8 +41,8 @@ class editReview extends Component {
         volume: responseData.volume,
         starrating: responseData.starrating
       })
-      .catch(this.context.setError)
     })
+    .catch(this.context.setError)
   }
 
   handleChangeContent = e => {
@@ -92,6 +92,18 @@ class editReview extends Component {
     this.props.history.push('/account');
   };
 
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
+    }
+  }
+
+
   render() {
     const {
       content,
@@ -99,14 +111,13 @@ class editReview extends Component {
       volume,
       starrating
     } = this.state;
-    const {error} = this.context
     return (
       <section className="edit_section">
         <header>
           <h3>Edit Review</h3>
         </header>
         <div role='alert'>
-          {error && <p className='error'>{error}</p>}
+          {this.renderError()}
         </div>
         <form className="edit_form" onSubmit={this.handleSubmit}>
           <fieldset>

@@ -6,14 +6,15 @@ import './Votes.css';
 export default class Votes extends React.Component {
   static contextType = VenuesContext;
 
+  //Allows for accurate vote count with brand new reviews. 
   state = {
-    count: parseInt(this.props.review.count),
+    count: (!this.props.review.count) ? this.props.review.count= 0 : parseInt(this.props.review.count),
     clicked: false,
   }
 
   updateVoteCount() {
     this.setState({
-      count: parseInt(this.state.count) +1,
+      count: this.state.count +1,
       clicked: true
     })
   }
@@ -22,8 +23,8 @@ export default class Votes extends React.Component {
     let vote = ev.target.value;
     let id = this.props.review.id;
     ApiService.handleVotes(vote, id)
-    .then(() => {
-      this.updateVoteCount();
+    .then((vote) => {
+      this.updateVoteCount(vote);
     })
     .catch(error => {
       this.context.setError(error)

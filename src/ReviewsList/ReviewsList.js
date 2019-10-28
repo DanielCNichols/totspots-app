@@ -15,12 +15,26 @@ export default class ReviewsList extends Component {
       .catch(this.context.setError);
   }
 
+
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
+    }
+  }
+
   prerender() {
     let { userReviews, error } = this.context;
-    if (error) {
-     return ( <div role='alert'>
-        <p className='error'>{error}</p>
-        </div>)
+    if(error) {
+      return (
+       <div>
+         {this.renderError()}
+       </div>
+      )
     }
     if (userReviews.length === 0) {
       return (

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ApiService from '../services/api-service';
 import VenueContext from '../VenuesContext'
 import {withRouter} from 'react-router-dom';
 import './LandingPage.css'
@@ -19,9 +18,18 @@ class LandingPage extends React.Component {
     this.props.history.push('/reviews')
     };
 
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
+    }
+  }
 
   render() {
-    const {error} = this.context
     return (
       <section className="landingpage">
         <header className="landingpage_hero">
@@ -69,9 +77,7 @@ class LandingPage extends React.Component {
             </div>
           </form>
         </div>
-        <div role='alert'>
-          {error && <p className='error'>{error}</p>}
-        </div>
+        {this.renderError()}
         <p>
           Have an account? <Link to='/login'>Log in</Link> or 
           <Link to='/register'> sign up</Link>

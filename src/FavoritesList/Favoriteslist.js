@@ -15,6 +15,17 @@ export default class FavoritesList extends Component {
       .catch(this.context.setError);
   }
 
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
+    }
+  }
+
 
   prerender() {
     let { favorites, error } = this.context;
@@ -28,7 +39,7 @@ export default class FavoritesList extends Component {
     if (error) {
       return (
       <div role='alert'>
-          {error && <p className='error'>{error}</p>}
+          {this.renderError()}
         </div>)
     }  else {
       return (

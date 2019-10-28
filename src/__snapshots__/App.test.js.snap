@@ -153,9 +153,6 @@ exports[`renders App as expected 1`] = `
           </div>
         </form>
       </div>
-      <div
-        role="alert"
-      />
       <p>
         Have an account? 
         <a

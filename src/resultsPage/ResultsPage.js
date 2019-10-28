@@ -23,13 +23,20 @@ class ResultsPage extends React.Component {
   }
 
   prerender() {
-    let { venues } = this.context;
+    let { venues, error } = this.context;
     if (venues.length === 0) {
       return (
         <div>
           <p>Sorry, no results found for that search</p>
         </div>
       );
+    }
+    if(error) {
+      return (
+       <div>
+         {this.renderError()}
+       </div>
+      )
     } else {
       return (
         <section className="results_page">
@@ -49,6 +56,17 @@ class ResultsPage extends React.Component {
           </div>
         </section>
       );
+    }
+  }
+
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
     }
   }
 

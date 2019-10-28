@@ -19,14 +19,14 @@ const VenuesContext = React.createContext({
   setFavorites: () => {},
   setAmenities: () => {},
   setSearchState: () => {},
-  setCity: ()=> {},
+  setCity: () => {},
   setType: () => {},
   addReview: () => {},
   updateReview: () => {},
   setUserReviews: () => {},
   setProfile: () => {},
   deleteReview: () => {},
-  deleteFavorite:() => {},
+  deleteFavorite: () => {},
   updateVote: () => {},
   clearError: () => {}
 });
@@ -52,11 +52,8 @@ export class VenuesProvider extends Component {
   };
 
   addVenue = newVenue => {
-    this.setVenues([
-      ...this.state.venues,
-      newVenue
-    ])
-  }
+    this.setVenues([...this.state.venues, newVenue]);
+  };
 
   setProfile = profile => {
     this.setState({ profile });
@@ -88,19 +85,19 @@ export class VenuesProvider extends Component {
     })
   }
 
+
+
   updateReview = updatedReview => {
     this.setState({
-      userReviews: this.state.userReviews.map(review => (
-        review.id !== updatedReview.id) ? review : updatedReview
+      userReviews: this.state.userReviews.map(review =>
+        review.id !== updatedReview.id ? review : updatedReview
       )
-    })
-  }
+    });
+  };
 
   addReview = newReview => {
-    this.setReviews([
-      ...this.state.reviews, newReview
-    ])
-  }
+    this.setReviews([...this.state.reviews, newReview]);
+  };
 
   setFavorites = favorites => {
     this.setState({ favorites });
@@ -112,20 +109,20 @@ export class VenuesProvider extends Component {
   };
 
   clearSelectedVenue = () => {
-    this.setSelectedVenue(null)
-  }
+    this.setSelectedVenue(null);
+  };
 
   setCity = city => {
-    this.setState({city})
-  }
+    this.setState({ city });
+  };
 
   setSearchState = searchState => {
-    this.setState({searchState})
-  }
+    this.setState({ searchState });
+  };
 
   setType = type => {
-    this.setState({type})
-  }
+    this.setState({ type });
+  };
 
   setAmenities = amenities => {
     this.setState({ amenities });

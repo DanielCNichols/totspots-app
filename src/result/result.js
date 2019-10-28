@@ -1,6 +1,5 @@
 import React from 'react';
 import VenueContext from '../VenuesContext';
-import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
 import './Result.css';
 

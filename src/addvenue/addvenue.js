@@ -61,16 +61,27 @@ class AddVenue extends React.Component {
     .catch(this.context.setError);
   };
 
+  renderError() {
+    let error = this.context.error
+    if(this.context.error) {
+      return (
+        <div className="error">
+          <p>Sorry something has gone wrong. Error: {error}</p>
+        </div>
+      )
+    }
+  }
+
+
 
   render() {
-    const {error} = this.context
     return (
       <section className="addVenue">
         <header>
           <h2>Add A Venue</h2>
         </header>
         <div role='alert'>
-          {error && <p className='error'>{error}</p>}
+          {this.renderError()}
         </div>
         <form className="add_form" onSubmit={this.handleSubmit}>
           <fieldset>+
