@@ -15,15 +15,22 @@ export default class FavoritesList extends Component {
       .catch(this.context.setError);
   }
 
+
   prerender() {
-    let { favorites } = this.context;
+    let { favorites, error } = this.context;
     if (favorites.length === 0) {
       return (
         <div>
           <p>You haven't saved any venues!</p>
         </div>
       );
-    } else {
+    } 
+    if (error) {
+      return (
+      <div role='alert'>
+          {error && <p className='error'>{error}</p>}
+        </div>)
+    }  else {
       return (
         <section>
           <header>

@@ -2,8 +2,12 @@ import React from 'react';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
 import './Addvenue.css'
+import VenuesContext from '../VenuesContext'
 
 class AddVenue extends React.Component {
+
+  static contextType= VenuesContext
+
   state = {
     stroller: false,
     playarea: false,
@@ -11,7 +15,7 @@ class AddVenue extends React.Component {
     dogs: false,
     fastCheckout: false,
     kidsNight: false,
-    outdoor: false
+    outdoor: false,
   };
 
   handleCancel() {
@@ -51,16 +55,23 @@ class AddVenue extends React.Component {
       };
     });
     ApiService.addVenue(venue, address, city, state, type, zipcode, price, volume, starrating, content, phone, url, aObj)
-      .catch(this.context.setError);
-    this.props.history.push('/');
+    .then(this.context.addVenue)
+    .then(() => {this.props.history.goBack();
+    })
+    .catch(this.context.setError);
   };
 
+
   render() {
+    const {error} = this.context
     return (
       <section className="addVenue">
         <header>
           <h2>Add A Venue</h2>
         </header>
+        <div role='alert'>
+          {error && <p className='error'>{error}</p>}
+        </div>
         <form className="add_form" onSubmit={this.handleSubmit}>
           <fieldset>+
             <legend>Venue Information

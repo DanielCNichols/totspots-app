@@ -9,6 +9,9 @@ exports[`renders Edit Review as expected 1`] = `
       Edit Review
     </h3>
   </header>
+  <div
+    role="alert"
+  />
   <form
     className="edit_form"
     onSubmit={[Function]}

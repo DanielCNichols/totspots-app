@@ -8,14 +8,6 @@ class Result extends React.Component {
   static contextType = VenueContext;
 
   handleExpanded(venueId) {
-    ApiService.getReviews(venueId).then(reviews => {
-      this.context.setReviews(reviews);
-    });
-    ApiService.getAmenities(venueId)
-      .then(amenities => {
-        this.context.setAmenities(amenities);
-      })
-      .catch(this.context.setError);
     this.context.setSelectedVenue(venueId);
     this.props.history.push(`/venue/${venueId}`);
   }

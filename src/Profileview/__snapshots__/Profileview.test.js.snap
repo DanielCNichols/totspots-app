@@ -9,6 +9,9 @@ exports[`renders Profileview as expected 1`] = `
       Your profile
     </h3>
   </header>
+  <div
+    role="alert"
+  />
   <p>
     Name: 
      
@@ -49,6 +52,9 @@ exports[`renders Profileview as expected with no profile 1`] = `
       Your profile
     </h3>
   </header>
+  <div
+    role="alert"
+  />
   <p>
     Name: 
      

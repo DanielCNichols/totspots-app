@@ -16,7 +16,12 @@ export default class ReviewsList extends Component {
   }
 
   prerender() {
-    let { userReviews } = this.context;
+    let { userReviews, error } = this.context;
+    if (error) {
+     return ( <div role='alert'>
+        <p className='error'>{error}</p>
+        </div>)
+    }
     if (userReviews.length === 0) {
       return (
         <div>

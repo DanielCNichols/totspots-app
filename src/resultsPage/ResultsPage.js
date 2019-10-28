@@ -3,9 +3,20 @@ import Result from '../Result/Result';
 import VenueContext from '../VenuesContext';
 import {withRouter} from 'react-router-dom'
 import './Resultspage.css';
+import ApiService from '../services/api-service'
 
 class ResultsPage extends React.Component {
   static contextType = VenueContext;
+
+  componentDidMount() {
+    const {city, searchState, type} = this.context
+    this.context.clearError()
+    ApiService.getVenues(city, searchState, type)
+    .then(venues => {
+      this.context.setVenues(venues)
+    })
+    .catch(this.context.setError)
+  }
 
   handleAddClick() {
     this.props.history.push('/addvenue')

@@ -1,10 +1,7 @@
 import config from '../config';
 import TokenService from './TokenService'
 
-//need to grab the reviews by city/state from the search form.
 
-//How can I get the venues with it?
-//Maybe use the city/state from the login form to narrow it down, and then use the req.params on the server side to only reply with the relavant info?
 const ApiService = {
   getVenues(city, state, type) {
     return fetch(`${config.API_ENDPOINT}/venues/${city}/${state}/${type}`, {
@@ -60,7 +57,6 @@ const ApiService = {
 
   getFavorites(){
     return fetch(`${config.API_ENDPOINT}/users/favorites`, {
-      //need to set bearer token
       headers: {
         'content-type': 'application/json',
         'Authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -221,9 +217,9 @@ const ApiService = {
       if (!res.ok)
         return res.json().then(error => Promise.reject(error))
     })
-    .catch(error => {
-      console.error(error)
-    })
+    // .catch(error => {
+    //   console.error(error)
+    // })
   },
 
 

@@ -14,6 +14,7 @@ const VenuesContext = React.createContext({
   error: null,
   setVenues: () => {},
   setselectedVenue: () => {},
+  clearSelectedVenue: () => {},
   setError: () => {},
   setFavorites: () => {},
   setAmenities: () => {},
@@ -49,6 +50,13 @@ export class VenuesProvider extends Component {
   setVenues = venues => {
     this.setState({ venues });
   };
+
+  addVenue = newVenue => {
+    this.setVenues([
+      ...this.state.venues,
+      newVenue
+    ])
+  }
 
   setProfile = profile => {
     this.setState({ profile });
@@ -103,6 +111,10 @@ export class VenuesProvider extends Component {
     this.setState({ selectedVenue: selected });
   };
 
+  clearSelectedVenue = () => {
+    this.setSelectedVenue(null)
+  }
+
   setCity = city => {
     this.setState({city})
   }
@@ -142,6 +154,7 @@ export class VenuesProvider extends Component {
       searchState: this.state.searchState,
       type: this.state.type,
       selectedVenue: this.state.selectedVenue,
+      clearSelectedVenue: this.clearSelectedVenue,
       userReviews: this.state.userReviews,
       profile: this.state.profile,
       error: this.state.error,
@@ -150,7 +163,7 @@ export class VenuesProvider extends Component {
       clearError: this.clearError,
       setVenues: this.setVenues,
       setCity: this.setCity,
-      setSearchState: this.setState,
+      setSearchState: this.setSearchState,
       updateVote: this.updateVote,
       setType: this.setType,
       setFavorites: this.setFavorites,

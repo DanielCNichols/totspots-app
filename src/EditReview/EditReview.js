@@ -31,7 +31,8 @@ class editReview extends Component {
 
   componentDidMount() {
     const reviewId = this.props.match.params.review_id;
-    ApiService.getReview(reviewId).then(responseData => {
+    ApiService.getReview(reviewId)
+    .then(responseData => {
       this.setState({
         id: responseData.id,
         venue_id: responseData.venue_id,
@@ -40,7 +41,7 @@ class editReview extends Component {
         volume: responseData.volume,
         starrating: responseData.starrating
       })
-      // .catch((this.context.setError))
+      .catch(this.context.setError)
     })
   }
 
@@ -72,7 +73,7 @@ class editReview extends Component {
       })
       .catch(error => {
         console.error(error);
-        this.setState({ error });
+        this.context.setError(error);
       });
   };
 
@@ -98,11 +99,15 @@ class editReview extends Component {
       volume,
       starrating
     } = this.state;
+    const {error} = this.context
     return (
       <section className="edit_section">
         <header>
           <h3>Edit Review</h3>
         </header>
+        <div role='alert'>
+          {error && <p className='error'>{error}</p>}
+        </div>
         <form className="edit_form" onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>

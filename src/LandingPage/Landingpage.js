@@ -11,21 +11,17 @@ class LandingPage extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const city = ev.target.city.value.toLowerCase();
-    const searchState = ev.target.state.value.toLowerCase();
+    const queryState = ev.target.state.value.toLowerCase();
     const type = ev.target.type.value.toLowerCase();
-    ApiService.getVenues(city, searchState, type)
-    .then(venues => {
-    this.context.setVenues(venues);
     this.context.setCity(city)
+    this.context.setSearchState(queryState)
     this.context.setType(type)
-  })
-    .catch(this.context.setError)
     this.props.history.push('/reviews')
     };
 
-    //call for this.context.search 
 
   render() {
+    const {error} = this.context
     return (
       <section className="landingpage">
         <header className="landingpage_hero">
@@ -72,6 +68,9 @@ class LandingPage extends React.Component {
             <button className="search_form_button" type="submit">Let's go!</button>
             </div>
           </form>
+        </div>
+        <div role='alert'>
+          {error && <p className='error'>{error}</p>}
         </div>
         <p>
           Have an account? <Link to='/login'>Log in</Link> or 

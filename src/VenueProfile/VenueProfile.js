@@ -18,7 +18,8 @@ import './VenueProfile.css'
 
 
   handleAddFavorite(venueId) {
-    ApiService.addFavorite(venueId).catch(this.context.setError);
+    ApiService.addFavorite(venueId)
+    .catch(this.context.setError);
   }
 
   handleAddReview(venueId) {
