@@ -40,6 +40,16 @@ export default class Login extends Component {
     })
   }
 
+  renderError() {
+    if (this.state.error) {
+      return (
+        <div>
+          <p>Sorry, login incorrect. Please try again.</p>
+        </div>
+      )
+    }
+  }
+
 
   render() {
     return (
@@ -57,6 +67,7 @@ export default class Login extends Component {
           </label>
         </fieldset>
       <button>Log in</button>
+      {this.renderError()}
         <p>Forgot Password?</p>
       </form>
     </section>

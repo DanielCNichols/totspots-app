@@ -4,6 +4,7 @@ import ApiService from '../services/api-service';
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
 import './VenueProfile.css'
+import TokenService from '../services/TokenService'
 
  class VenueProfile extends Component {
 
@@ -18,8 +19,12 @@ import './VenueProfile.css'
 
 
   handleAddFavorite(venueId) {
+    if(!TokenService.hasToken()) {
+      this.props.history.push('/login')
+    } else{
     ApiService.addFavorite(venueId)
     .catch(this.context.setError);
+    }
   }
 
   handleAddReview(venueId) {

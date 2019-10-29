@@ -17,6 +17,10 @@ export default class ProfileView extends React.Component {
     .catch(this.context.setError)
   }
 
+  componentWillUnmount() {
+    this.context.clearError()
+  }
+
   renderError() {
     let error = this.context.error
     if(this.context.error) {

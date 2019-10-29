@@ -54,7 +54,7 @@ exports[`renders App as expected 1`] = `
           Tot Spots
         </h1>
         <p>
-          For parents, by parents.
+          For parents, by parents
         </p>
       </header>
       <div
@@ -92,6 +92,11 @@ exports[`renders App as expected 1`] = `
                 value="Bar"
               >
                 Brewery/Bar
+              </option>
+              <option
+                value="Coffee"
+              >
+                Coffee Shop
               </option>
               <option
                 value="Educational"

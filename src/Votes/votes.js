@@ -2,61 +2,69 @@ import React from 'react';
 import ApiService from '../services/api-service';
 import VenuesContext from '../VenuesContext';
 import './Votes.css';
+import TokenService from '../services/TokenService';
+import { withRouter } from 'react-router-dom';
 
-export default class Votes extends React.Component {
+class Votes extends React.Component {
   static contextType = VenuesContext;
 
-  //Allows for accurate vote count with brand new reviews. 
+  //Allows for accurate vote count with brand new reviews.
   state = {
-    count: (!this.props.review.count) ? this.props.review.count= 0 : parseInt(this.props.review.count),
-    clicked: false,
-  }
+    count: !this.props.review.count
+      ? (this.props.review.count = 0)
+      : parseInt(this.props.review.count),
+    clicked: false
+  };
 
   updateVoteCount() {
     this.setState({
-      count: this.state.count +1,
+      count: this.state.count + 1,
       clicked: true
-    })
+    });
   }
 
   handleVote = ev => {
-    let vote = ev.target.value;
-    let id = this.props.review.id;
-    ApiService.handleVotes(vote, id)
-    .then((vote) => {
-      this.updateVoteCount(vote);
-    })
-    .catch(error => {
-      this.context.setError(error)
-      console.error(error)
-    })
+    if (!TokenService.hasToken() === true) {
+      this.props.history.push('/login');
+    } else {
+      let vote = ev.target.value;
+      let id = this.props.review.id;
+      ApiService.handleVotes(vote, id)
+        .then(vote => {
+          this.updateVoteCount(vote);
+        })
+        .catch(error => {
+          this.context.setError(error);
+          console.error(error);
+        });
+    }
   };
 
   renderVote() {
-    const {count} = this.state
+    const { count } = this.state;
     if (!count) {
-      return (
-        <span>0 people like this review</span>
-      )
+      return <span>0 people like this review</span>;
     } else if (count === '1') {
-      return (
-        <span>1 person likes this review</span>
-      )
+      return <span>1 person likes this review</span>;
     }
-    return (
-      <span>{count} people like this review</span>
-    )
+    return <span>{count} people like this review</span>;
   }
 
   render() {
     return (
-      <div className="votes">
+      <div className='votes'>
         <p>Was this review helpful?</p>
         {this.renderVote()}
-        <button  disabled={this.state.clicked} value="true" onClick={this.handleVote}>
+        <button
+          disabled={this.state.clicked}
+          value='true'
+          onClick={this.handleVote}
+        >
           Like
         </button>
       </div>
     );
   }
 }
+
+export default withRouter(Votes);

@@ -66,7 +66,7 @@ exports[`renders Edit Review as expected 1`] = `
           className="edit_form_label"
           htmlFor="volume"
         >
-          Volume Level
+          Describe the volume level
           <select
             className="edit_form_select"
             id="volume"

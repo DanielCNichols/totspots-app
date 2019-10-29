@@ -142,7 +142,7 @@ class editReview extends Component {
               <label 
               className="edit_form_label"
               htmlFor="volume">
-                Volume Level
+                Describe the volume level
                 <select
                 value = {volume}
                 className="edit_form_select"

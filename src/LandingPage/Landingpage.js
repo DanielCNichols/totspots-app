@@ -7,6 +7,11 @@ import './LandingPage.css'
 class LandingPage extends React.Component {
   static contextType = VenueContext
 
+
+  componentDidMount() {
+    this.context.clearError();
+  }
+
   handleSubmit = ev => {
     ev.preventDefault()
     const city = ev.target.city.value.toLowerCase();
@@ -34,7 +39,7 @@ class LandingPage extends React.Component {
       <section className="landingpage">
         <header className="landingpage_hero">
           <h1>Tot Spots</h1>
-          <p>For parents, by parents.</p>
+          <p>For parents, by parents</p>
         </header>
         <div className="search">
           <p>I want to take my family to a...</p>

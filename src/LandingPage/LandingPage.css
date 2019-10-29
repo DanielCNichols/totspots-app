@@ -60,10 +60,16 @@ header > h1 {
   display: block;
   margin: 10px auto;
   border-radius: 17px;
-  background-color: #4392f1;
+  background-color: #064789;
+  color: white;
   width: 50%;
   height: 40px;
   font-size: 1.1em;
+}
+
+.search_form_button:hover {
+ cursor: pointer;
+ background-color: green;
 }
 
 .landingpage a:visited {

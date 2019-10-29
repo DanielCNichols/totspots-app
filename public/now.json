@@ -23,5 +23,8 @@
       "src": ".*",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "REACT_APP_API_ENDPOINT": "https://radiant-island-73758.herokuapp.com"
+  }
 }
