@@ -85,8 +85,7 @@ class LandingPage extends React.Component {
         </div>
         {this.renderError()}
         <p>
-          Have an account? <Link to='/login'>Log in</Link> or 
-          <Link to='/register'> sign up</Link>
+          Have an account? Go ahead and <Link to='/login'>Log in!</Link>
         </p>
       </section>
     );

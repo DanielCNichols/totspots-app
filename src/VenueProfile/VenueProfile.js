@@ -248,7 +248,7 @@ import TokenService from '../services/TokenService'
           <p className="type">Type: {venue.venue_type}</p>
           <p>{venue.address}</p>
           <span className="city">{venue.city}</span>, <span className="state">{venue.state}</span>
-          <span>{venue.zipcode}</span>
+          <span> {venue.zipcode}</span>
           <p>{venue.phone}</p>
           <p>{venue.url}</p>
           </div>

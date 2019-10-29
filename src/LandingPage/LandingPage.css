@@ -118,6 +118,7 @@ header > h1 {
   .landingpage {
     width: 100%;
     font-size: 1.3em;
+    margin-bottom: 100px;
   }
 
   .landingpage_hero {

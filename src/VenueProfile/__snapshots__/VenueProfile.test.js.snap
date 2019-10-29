@@ -23,7 +23,9 @@ exports[`renders VenueProfile as expected 1`] = `
     <span
       className="state"
     />
-    <span />
+    <span>
+       
+    </span>
     <p />
     <p />
   </div>

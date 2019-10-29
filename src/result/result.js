@@ -155,7 +155,7 @@ class Result extends React.Component {
         </div>
         <p className="price">{this.renderPrice()}</p>
         <span>{venue.address}</span> <span className="city">{venue.city}</span>,
-        <span className="state">{venue.state}</span>
+        <span className="state"> {venue.state}</span>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>
     );
