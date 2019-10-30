@@ -2,6 +2,14 @@
   text-transform: uppercase;
 }
 
+.link > a {
+  color: black;
+}
+
+.link > a:visited {
+  color: black;
+}
+
 .city {
   text-transform: capitalize;
 }

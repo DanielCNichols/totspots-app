@@ -30,7 +30,15 @@ exports[`renders Favorites as expected 1`] = `
   <span>
     27705
   </span>
-  <p />
+  <p
+    className="link"
+  >
+    <a
+      href={null}
+      rel="noopener noreferrer"
+      target="_blank"
+    />
+  </p>
   <p>
     9848880417
   </p>

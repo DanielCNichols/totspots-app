@@ -23,7 +23,7 @@ class Favorites extends React.Component {
         <p>{favorites.address}</p>
         <span className="city">{favorites.city}</span>, <span className="state">{favorites.state} </span> 
         <span>{favorites.zipcode}</span>
-        <p>{favorites.url}</p>
+        <p className="link"><a href={favorites.url} rel="noopener noreferrer" target="_blank">{favorites.url}</a></p>
         <p>{favorites.phone}</p>
         <button onClick={() => this.deleteFavorite(favorites.id, this.context.deleteFavorite)}>Remove</button>
       </li>

@@ -30,7 +30,14 @@ exports[`renders VenuesPage as expected 1`] = `
          
       </span>
       <p />
-      <p />
+      <p
+        className="link"
+      >
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+        />
+      </p>
     </div>
     <div
       className="ratings"

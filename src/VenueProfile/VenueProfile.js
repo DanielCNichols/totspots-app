@@ -250,7 +250,7 @@ import TokenService from '../services/TokenService'
           <span className="city">{venue.city}</span>, <span className="state">{venue.state}</span>
           <span> {venue.zipcode}</span>
           <p>{venue.phone}</p>
-          <p>{venue.url}</p>
+          <p className="link"><a href={venue.url}  rel="noopener noreferrer" target="_blank">{venue.url}</a></p>
           </div>
         <div className="ratings">
           <div className="average">
