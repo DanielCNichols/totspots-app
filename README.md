@@ -10,8 +10,8 @@ The app functions based on user submitted reviews and suggestions for establishm
 
 At present, this app features venues and events from Durham, NC (a lovely city full of great places to be) which can be accessed from the search form on the landing page. If you would like to sign in to demo adding venues, favorites, voting, and posting/editing reviews, the login is: 
 
-username: Daniel
-password: password (all lowercase)
+<p>username: Daniel</p>
+<p>password: password (all lowercase)</p>
 
 ## Tech stack: 
 
