@@ -37,7 +37,7 @@ The API was composed using Node.js and the Express Router framework.
 
 ## Coming Soon
 
-These features are cxurrently in backlog and will be added in future iterations:
+These features are currently in backlog and will be added in future iterations:
 
 1. Administrative tools, including the ability to verify suggested venues before they are published and the ability to delete reviews that might be false or misleading
 
