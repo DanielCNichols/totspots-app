@@ -17,7 +17,6 @@ exports[`renders AddVenue as expected 1`] = `
     onSubmit={[Function]}
   >
     <fieldset>
-      +
       <legend>
         Venue Information
         <div
@@ -29,6 +28,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Venue/Event Name
             <input
+              aria-label="Venue or event name"
+              aria-required="true"
               className="add_form_text"
               id="Venue"
               name="venue"
@@ -42,6 +43,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Street Address
             <input
+              aria-label="Street address"
+              aria-required="true"
               className="add_form_text"
               name="address"
               placeholder="123 Main St."
@@ -54,6 +57,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             City
             <input
+              aria-label="City"
+              aria-required="true"
               className="add_form_text"
               name="city"
               placeholder="ex: Durham"
@@ -66,6 +71,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             State
             <input
+              aria-label="State"
+              aria-required="true"
               className="add_form_text"
               maxLength="2"
               name="state"
@@ -79,6 +86,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Zipcode
             <input
+              aria-label="zipcode"
+              aria-required="true"
               className="add_form_text"
               name="zipcode"
               placeholder="ex: 27705"
@@ -91,6 +100,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Website
             <input
+              aria-label="Website"
+              aria-required="true"
               className="add_form_text"
               name="url"
               placeholder="www.reddit.com"
@@ -103,6 +114,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Phone
             <input
+              aria-label="Phone"
+              aria-required="true"
               className="add_form_text"
               name="phone"
               placeholder="(555) 245-3456"
@@ -118,6 +131,8 @@ exports[`renders AddVenue as expected 1`] = `
             >
               Type of venue/event
               <select
+                aria-label="Type of venue/event"
+                aria-required="true"
                 className="add_form_select"
                 id="type"
                 name="type"
@@ -132,6 +147,11 @@ exports[`renders AddVenue as expected 1`] = `
                   value="Restaurant"
                 >
                   Restaurant
+                </option>
+                <option
+                  value="Coffee"
+                >
+                  Coffee Shop
                 </option>
                 <option
                   value="Bar"
@@ -168,6 +188,8 @@ exports[`renders AddVenue as expected 1`] = `
         >
           Price
           <select
+            aria-label="price"
+            aria-required="true"
             className="add_form_select"
             id="price"
             name="price"
@@ -210,6 +232,8 @@ exports[`renders AddVenue as expected 1`] = `
         >
           Describe the volume Level
           <select
+            aria-label="describe the volume level"
+            aria-required="true"
             className="add_form_select"
             id="volume"
             name="volume"
@@ -252,6 +276,8 @@ exports[`renders AddVenue as expected 1`] = `
         >
           Overall rating
           <select
+            aria-label="Overall Rating"
+            aria-required="true"
             className="add_form_select"
             id="rating"
             name="rating"
@@ -302,6 +328,7 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Stroller Accessible
             <input
+              aria-label="Stroller Accessible"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -313,6 +340,7 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Play Area
             <input
+              aria-label="Play Area"
               name="PlayArea"
               onChange={[Function]}
               type="checkbox"
@@ -325,6 +353,7 @@ exports[`renders AddVenue as expected 1`] = `
              
             Changing Table
             <input
+              aria-label="Changing Table"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -336,6 +365,7 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Dogs Welcome
             <input
+              aria-label="Dogs welcome"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -348,6 +378,7 @@ exports[`renders AddVenue as expected 1`] = `
              
             Fast Checkout
             <input
+              aria-label="Fast Checkout"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -360,6 +391,7 @@ exports[`renders AddVenue as expected 1`] = `
              
             Kids Night Deals
             <input
+              aria-label="Kids night deals"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -372,6 +404,7 @@ exports[`renders AddVenue as expected 1`] = `
              
             Outdoor Seating
             <input
+              aria-label="outdoor seating"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -387,6 +420,8 @@ exports[`renders AddVenue as expected 1`] = `
           >
             Tell us about your visit
             <textarea
+              aria-label="Tell us about your visit"
+              aria-required="true"
               name="content"
               placeholder="Tell us about your visit"
               type="textArea"

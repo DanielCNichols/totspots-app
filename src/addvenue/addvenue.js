@@ -86,11 +86,12 @@ class AddVenue extends React.Component {
         <form className="add_form" onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Venue Information
-
               <div className="address">
                 <label className="add_form_label" htmlFor="venue">
                   Venue/Event Name
                     <input className="add_form_text"
+                    aria-required="true"
+                    aria-label="Venue or event name"
                     type="text"
                     name="venue"
                     id="Venue"
@@ -100,7 +101,10 @@ class AddVenue extends React.Component {
                 </label>
                 <label htmlFor="address">
                   Street Address
-                    <input className="add_form_text"
+                    <input 
+                    aria-label="Street address"
+                    aria-required="true"
+                    className="add_form_text"
                     type="text" name="address" placeholder="123 Main St."
                     required
                     />
@@ -108,6 +112,8 @@ class AddVenue extends React.Component {
                 <label htmlFor="city">
                   City
                     <input
+                    aria-required="true"
+                    aria-label="City"
                     className="add_form_text"
                     type="text" name="city" placeholder="ex: Durham" 
                     required
@@ -116,6 +122,8 @@ class AddVenue extends React.Component {
                 <label htmlFor="state">
                   State
                     <input
+                    aria-required="true"
+                    aria-label="State"
                     className="add_form_text"
                     type="text"
                     name="state"
@@ -127,6 +135,8 @@ class AddVenue extends React.Component {
                 <label htmlFor="zipcode">
                   Zipcode
                     <input
+                    aria-label="zipcode"
+                    aria-required="true"
                     className="add_form_text"
                     type="text" name="zipcode" 
                     placeholder="ex: 27705"
@@ -136,6 +146,8 @@ class AddVenue extends React.Component {
                 <label htmlFor="url">
                   Website
                   <input
+                    aria-label="Website"
+                    aria-required="true"
                     className="add_form_text"
                     type="url"
                     name="url"
@@ -146,6 +158,8 @@ class AddVenue extends React.Component {
                 <label htmlFor="phone">
                   Phone
                   <input
+                    aria-required="true"
+                    aria-label="Phone"
                     className="add_form_text"
                     type="text" name="phone"
                     placeholder="(555) 245-3456"
@@ -156,8 +170,12 @@ class AddVenue extends React.Component {
                 <label htmlFor="type">
                     Type of venue/event
                   <select
+                      aria-label="Type of venue/event"
+                      aria-required="true"
                       className="add_form_select"
-                      name="type" id="type" required>
+                      name="type" 
+                      id="type" 
+                      required>
                       <option value="">Please select</option>
                       <option value="Restaurant">Restaurant</option>
                       <option value="Coffee">Coffee Shop</option>
@@ -176,8 +194,12 @@ class AddVenue extends React.Component {
             <label htmlFor="price" required>
                 Price
                 <select
+                  aria-label="price"
+                  aria-required="true"
                   className="add_form_select"
-                  name="price" id="price" required>
+                  name="price"
+                   id="price" 
+                   required>
                   <option value="">Please select</option>
                   <option value="1">$</option>
                   <option value="2">$$</option>
@@ -188,9 +210,13 @@ class AddVenue extends React.Component {
               </label>
               <label htmlFor="volume">
                 Describe the volume Level
-                        <select
-                  className="add_form_select"
-                  name="volume" id="volume" required>
+                <select
+                    aria-required="true"
+                    aria-label="describe the volume level"
+                    className="add_form_select"
+                    name="volume"
+                    id="volume" 
+                    required>
                   <option value="">Please select</option>
                   <option value="1">Library</option>
                   <option value="2">Coffee Shop</option>
@@ -202,9 +228,13 @@ class AddVenue extends React.Component {
               <label
                 htmlFor="rating">
                 Overall rating
-                        <select
+                  <select
+                  aria-label="Overall Rating"
+                  aria-required="true"
                   className="add_form_select"
-                  name="rating" id="rating" required>
+                  name="rating" 
+                  id="rating" 
+                  required>
                   <option value="">Please select</option>
                   <option value="1">&#x2605;</option>
                   <option value="2">&#x2605; &#x2605;</option>
@@ -224,30 +254,32 @@ class AddVenue extends React.Component {
             <div className="amenities">
               <label htmlFor="StrollerAccessible">
                 Stroller Accessible
-                          <input
+                  <input
                   onChange={() => {
                     this.setState({ stroller: !this.state.stroller });
                   }}
                   type="checkbox"
                   name="amenities"
                   value="1"
+                  aria-label="Stroller Accessible"
                 />
               </label>
               <label htmlFor="PlayArea">
                 Play Area
-                          <input
+                  <input
                   onChange={() => {
                     this.setState({ playarea: !this.state.playarea });
                   }}
                   type="checkbox"
                   name="PlayArea"
                   value="2"
+                  aria-label="Play Area"
                 />
               </label>
               <label htmlFor="Changingtable">
                 {" "}
                 Changing Table
-                          <input
+                  <input
                   onChange={() => {
                     this.setState({
                       changingtable: !this.state.changingtable
@@ -256,23 +288,25 @@ class AddVenue extends React.Component {
                   type="checkbox"
                   name="amenities"
                   value="3"
+                  aria-label="Changing Table"
                 />
               </label>
               <label htmlFor="Dogs">
                 Dogs Welcome
-                          <input
+                  <input
                   onChange={() => {
                     this.setState({ dogs: !this.state.dogs });
                   }}
                   type="checkbox"
                   name="amenities"
                   value="4"
+                  aria-label="Dogs welcome"
                 />
               </label>
               <label htmlFor="Fastcheckout">
                 {" "}
                 Fast Checkout
-                          <input
+                  <input
                   onChange={() => {
                     this.setState({
                       fastCheckout: !this.state.fastCheckout
@@ -281,12 +315,13 @@ class AddVenue extends React.Component {
                   type="checkbox"
                   name="amenities"
                   value="5"
+                  aria-label="Fast Checkout"
                 />
               </label>
               <label htmlFor="KidsNight">
                 {" "}
                 Kids Night Deals
-                          <input
+                  <input
                   onChange={() => {
                     this.setState({
                       KidsNight: !this.state.KidsNight
@@ -295,25 +330,29 @@ class AddVenue extends React.Component {
                   type="checkbox"
                   name="amenities"
                   value="6"
+                  aria-label="Kids night deals"
                 />
               </label>
               <label htmlFor="OutdoorSeating">
                 {" "}
                 Outdoor Seating
-                          <input
+                   <input
                   onChange={() => {
                     this.setState({ outdoor: !this.state.outdoor });
                   }}
                   type="checkbox"
                   name="amenities"
                   value="7"
+                  aria-label="outdoor seating"
                 />
               </label>
             </div>
             <div className="add_form_review">
               <label htmlFor="review">
                 Tell us about your visit
-                      <textarea
+                  <textarea
+                  aria-label="Tell us about your visit"
+                  aria-required="true"
                   type="textArea"
                   name="content"
                   placeholder="Tell us about your visit"
@@ -327,12 +366,7 @@ class AddVenue extends React.Component {
           <button className="add" type="submit">Submit</button>
         </div>
         </form>
-      </section >
-
-        
-
-                    
-                     
+      </section >        
     );
   }
 }

@@ -25,6 +25,8 @@ exports[`renders ReviewForm as expected 1`] = `
           >
             Price
             <select
+              aria-label="Price"
+              aria-required="true"
               className="review_form_select"
               id="price"
               name="price"
@@ -65,8 +67,10 @@ exports[`renders ReviewForm as expected 1`] = `
           <label
             htmlFor="volume"
           >
-            Volume Level
+            Describe the volume level
             <select
+              aria-label="Describe the volume level"
+              aria-required="true"
               className="review_form_select"
               id="volume"
               name="volume"
@@ -109,6 +113,8 @@ exports[`renders ReviewForm as expected 1`] = `
           >
             Overall rating
             <select
+              aria-label="Overall Rating"
+              aria-required="true"
               className="review_form_select"
               id="rating"
               name="rating"
@@ -163,6 +169,7 @@ exports[`renders ReviewForm as expected 1`] = `
             >
               Stroller Accessible
               <input
+                aria-label="Stroller Accessible"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -174,6 +181,7 @@ exports[`renders ReviewForm as expected 1`] = `
             >
               Play Area
               <input
+                aria-label="Play area"
                 name="PlayArea"
                 onChange={[Function]}
                 type="checkbox"
@@ -186,6 +194,7 @@ exports[`renders ReviewForm as expected 1`] = `
                
               Changing Table
               <input
+                aria-label="Changing table"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -201,6 +210,7 @@ exports[`renders ReviewForm as expected 1`] = `
             >
               Dogs Welcome
               <input
+                aria-label="Dogs Welcome"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -213,6 +223,7 @@ exports[`renders ReviewForm as expected 1`] = `
                
               Fast Checkout
               <input
+                aria-label="Fast Checkout"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -225,6 +236,7 @@ exports[`renders ReviewForm as expected 1`] = `
                
               Kids Night Deals
               <input
+                aria-label="kids night deals"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -237,6 +249,7 @@ exports[`renders ReviewForm as expected 1`] = `
                
               Outdoor Seating Available
               <input
+                aria-label="outdoor seating"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -255,6 +268,8 @@ exports[`renders ReviewForm as expected 1`] = `
       >
         Tell us about your visit
         <textarea
+          aria-label="tell us about your visit"
+          aria-required="true"
           className="review_form_textarea"
           name="content"
           placeholder="Tell us about your visit"

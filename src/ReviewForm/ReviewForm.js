@@ -71,6 +71,8 @@ class ReviewForm extends React.Component {
                 <label htmlFor="price">
                   Price
                   <select
+                    aria-label="Price"
+                    aria-required="true"
                     className="review_form_select"
                     name="price"
                     id="price"
@@ -85,8 +87,10 @@ class ReviewForm extends React.Component {
                   </select>
                 </label>
                 <label htmlFor="volume">
-                  Volume Level
+                  Describe the volume level
                   <select
+                    aria-required="true"
+                    aria-label="Describe the volume level"
                     className="review_form_select"
                     name="volume"
                     id="volume"
@@ -103,6 +107,8 @@ class ReviewForm extends React.Component {
                 <label htmlFor="rating">
                   Overall rating
                   <select
+                    aria-required="true"
+                    aria-label="Overall Rating"
                     className="review_form_select"
                     name="rating"
                     id="rating"
@@ -136,6 +142,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="amenities"
                     value="1"
+                    aria-label="Stroller Accessible"
                     />
                 </label>
                 <label htmlFor="PlayArea">
@@ -147,6 +154,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="PlayArea"
                     value="2"
+                    aria-label="Play area"
                     />
                 </label>
                 <label htmlFor="Changingtable">
@@ -161,6 +169,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="amenities"
                     value="3"
+                    aria-label="Changing table"
                     />
                 </label>
                   </div>
@@ -174,6 +183,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="amenities"
                     value="4"
+                    aria-label="Dogs Welcome"
                     />
                 </label>
                 <label htmlFor="Fastcheckout">
@@ -186,6 +196,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="amenities"
                     value="5"
+                    aria-label="Fast Checkout"
                     />
                 </label>
                 <label htmlFor="KidsNight">
@@ -198,6 +209,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="amenities"
                     value="6"
+                    aria-label="kids night deals"
                     />
                 </label>
                 <label htmlFor="OutdoorSeating">
@@ -210,6 +222,7 @@ class ReviewForm extends React.Component {
                     type="checkbox"
                     name="amenities"
                     value="7"
+                    aria-label="outdoor seating"
                     />
                 </label>
                 </div>
@@ -220,6 +233,8 @@ class ReviewForm extends React.Component {
             <label htmlFor="review">
               Tell us about your visit
               <textarea
+              aria-required="true"
+              aria-label="tell us about your visit"
               className="review_form_textarea"
                 type="text"
                 name="content"

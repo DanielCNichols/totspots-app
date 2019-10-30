@@ -125,6 +125,7 @@ class editReview extends Component {
               <label className="edit_form_label" htmlFor="price">
                 Price
                 <select
+                aria-label="price"
                 value= {price}
                 className="edit_form_select"
                 name="price"
@@ -144,6 +145,7 @@ class editReview extends Component {
               htmlFor="volume">
                 Describe the volume level
                 <select
+                aria-label="Describe the volume level"
                 value = {volume}
                 className="edit_form_select"
                 name="volume"
@@ -163,6 +165,7 @@ class editReview extends Component {
               htmlFor="rating">
                 Overall rating
                 <select
+                aria-label="Overall Rating"
                 value = {starrating}
                 className="edit_form_select"
                 name="rating"
@@ -187,6 +190,7 @@ class editReview extends Component {
             htmlFor="review">
               What's changed at this spot? 
               <textarea
+              aria-label="What's changed? Leave a review."
               className="edit_form_text"
                 type="text"
                 name="content"

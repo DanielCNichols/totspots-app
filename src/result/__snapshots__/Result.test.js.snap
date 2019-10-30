@@ -48,6 +48,7 @@ exports[`renders Result as expected 1`] = `
   <span
     className="state"
   >
+     
     NC
   </span>
   <button

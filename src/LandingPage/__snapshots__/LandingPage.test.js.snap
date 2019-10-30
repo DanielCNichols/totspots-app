@@ -11,7 +11,7 @@ exports[`renders LandingPage as expected 1`] = `
       Tot Spots
     </h1>
     <p>
-      For parents, by parents.
+      For parents, by parents
     </p>
   </header>
   <div
@@ -31,6 +31,8 @@ exports[`renders LandingPage as expected 1`] = `
       >
         Venue or event...
         <select
+          aria-label="choose Venue or event"
+          aria-required="true"
           className="search_form_select"
           id="type"
           name="type"
@@ -49,6 +51,11 @@ exports[`renders LandingPage as expected 1`] = `
             value="Bar"
           >
             Brewery/Bar
+          </option>
+          <option
+            value="Coffee"
+          >
+            Coffee Shop
           </option>
           <option
             value="Educational"
@@ -76,6 +83,8 @@ exports[`renders LandingPage as expected 1`] = `
       >
          City
         <input
+          aria-label="choose city"
+          aria-required="true"
           className="search_form_text"
           id="city"
           name="city"
@@ -90,6 +99,8 @@ exports[`renders LandingPage as expected 1`] = `
       >
          State
         <input
+          aria-label="Choose state"
+          aria-required="true"
           className="search_form_text"
           max-length="2"
           name="state"
@@ -111,19 +122,12 @@ exports[`renders LandingPage as expected 1`] = `
     </form>
   </div>
   <p>
-    Have an account? 
+    Have an account? Go ahead and 
     <a
       href="/login"
       onClick={[Function]}
     >
-      Log in
-    </a>
-     or
-    <a
-      href="/register"
-      onClick={[Function]}
-    >
-       sign up
+      Log in!
     </a>
   </p>
 </section>

@@ -44,8 +44,8 @@ class LandingPage extends React.Component {
         <div className="search">
           <p>I want to take my family to a...</p>
           <form className="search_form" onSubmit={this.handleSubmit}>
-            <label className="search_form_label" htmlFor="type" required>Venue or event...
-              <select className="search_form_select" name="type" id="type">
+            <label  className="search_form_label" htmlFor="type" required>Venue or event...
+              <select className="search_form_select" name="type" id="type" aria-label="choose Venue or event" aria-required="true">
                 <option value="">Select a type of venue/event</option>
                 <option value="Restaurant">Restaurants</option>
                 <option value="Bar">Brewery/Bar</option>
@@ -58,6 +58,8 @@ class LandingPage extends React.Component {
             <p>in...</p>
             <label className= "search_form_label" htmlFor="city"> City
               <input
+                aria-required="true"
+                aria-label="choose city"
                 className="search_form_text"
                 type="text"
                 name="city"
@@ -70,6 +72,8 @@ class LandingPage extends React.Component {
             className="search_form_label"
             htmlFor="state"> State
               <input
+              aria-required="true"
+              aria-label="Choose state"
               className="search_form_text"
                 type="text"
                 name="state"

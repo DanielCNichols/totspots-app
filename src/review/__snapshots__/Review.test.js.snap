@@ -9,7 +9,7 @@ exports[`renders Review as expected 1`] = `
   </h3>
   <p>
     Visited: 
-    October 29th, 2019
+    October 30th, 2019
   </p>
   <div
     className="rating_break"

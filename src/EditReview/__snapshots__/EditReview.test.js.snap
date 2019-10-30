@@ -24,6 +24,7 @@ exports[`renders Edit Review as expected 1`] = `
         >
           Price
           <select
+            aria-label="price"
             className="edit_form_select"
             id="price"
             name="price"
@@ -68,6 +69,7 @@ exports[`renders Edit Review as expected 1`] = `
         >
           Describe the volume level
           <select
+            aria-label="Describe the volume level"
             className="edit_form_select"
             id="volume"
             name="volume"
@@ -112,6 +114,7 @@ exports[`renders Edit Review as expected 1`] = `
         >
           Overall rating
           <select
+            aria-label="Overall Rating"
             className="edit_form_select"
             id="rating"
             name="rating"
@@ -161,6 +164,7 @@ exports[`renders Edit Review as expected 1`] = `
       >
         What's changed at this spot?
         <textarea
+          aria-label="What's changed? Leave a review."
           className="edit_form_text"
           name="content"
           onChange={[Function]}
