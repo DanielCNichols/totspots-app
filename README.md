@@ -2,9 +2,13 @@
 
 Hi! My name is Daniel. Thank you for dropping by the Totspots repo.
 
-Totspots is a trip-planning and reviews application built with the needs of parents in mind. The goal of this project is to provide parents of small children with need-to-know information about venues and events in their town, answering questions such as "Can I get a stroller in there?", "Do they have changing tables?" and "If my child has a meltdown, how long will it take us to get the check?"
-
-The app functions based on user submitted reviews and suggestions for establishments in their town. All reviews are public and can be upvoted by other users. The venue/event's overall ratings are based on the average of these collected reviews.  Other features include the ability for users to save their favorite venues to their account as well as viewing and updating their previous reviews. 
+Totspots is a trip-planning and reviews application built with the needs of parents in mind. The goal of this project is to provide parents of small children with need-to-know information about venues and events in their town, answering questions such as:
+<ul>
+<li>"Can I get a stroller in there?"</li>
+<li>"Do they have changing tables?"</li>
+<li>"If my child has a meltdown, how long will it take us to get the check?"</li>
+</ul>
+<p>The app functions based on user submitted reviews and suggestions for establishments in their town. All reviews are public and can be upvoted by other users. The venue/event's overall ratings are based on the average of these collected reviews.  Other features include the ability for users to save their favorite venues to their account as well as viewing and updating their previous reviews.</p>
 
 ## Using the client
 
