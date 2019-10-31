@@ -217,9 +217,6 @@ const ApiService = {
       if (!res.ok)
         return res.json().then(error => Promise.reject(error))
     })
-    // .catch(error => {
-    //   console.error(error)
-    // })
   },
 
 
