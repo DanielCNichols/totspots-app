@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
 import './VenueProfile.css'
 import TokenService from '../services/TokenService'
-import VenuesPage from '../VenuesPage/VenuesPage'
+import Rating from '../Rating/Rating'
 
  class VenueProfile extends Component {
 
@@ -29,204 +29,8 @@ import VenuesPage from '../VenuesPage/VenuesPage'
   }
 
   handleAddReview(venueId) {
-    this.props.history.push('/addreview/venueId');
+    this.props.history.push(`/addreview/${venueId}`);
   }
-
-  renderRating() {
-    const avgRating = Math.round(this.context.selectedVenue.avgRating);
-    let stars;
-
-    switch (avgRating) {
-      case 1:
-        stars =
-          (<span>&#x2605;</span>);
-        break;
-      case 2:
-        stars = (
-          <>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </>
-        );
-
-        break;
-
-      case 3:
-        stars = (
-          <>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </>
-        );
-        break;
-
-      case 4:
-        stars = (
-          <>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </>
-        );
-        break;
-
-      case 5:
-        stars = (
-          <>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </>
-        );
-        break;
-
-      default:
-        stars = (
-          <>
-            <span  className="NA">No reviews</span>
-          </>
-        )
-    }
-
-    return (
-      stars
-    )
-  }
-
-  renderPrice() {
-    const avgPrice = Math.round(this.context.selectedVenue.avgPrice);
-    let price;
-
-    switch (avgPrice) {
-      case 1:
-        price =
-          (<span>&#36;</span>);
-        break;
-      case 2:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-
-        break;
-
-      case 3:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-        break;
-
-      case 4:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-        break;
-
-      case 5:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-        break;
-
-      default:
-        price = (
-          <>
-            <span className="NA">Price unavailable</span>
-          </>
-        )
-    }
-
-    return (
-      price
-    )
-  }
-
-
-    
-  renderVolume() {
-    const reviewVolume = Math.round(this.context.selectedVenue.avgVolume);
-    let volume;
-
-    switch (reviewVolume) {
-      case 1:
-         volume = 
-          (<span role="img" aria-label="volume level">&#128227;</span>);
-        break;
-      case 2:
-        volume = (
-          <>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-          </>
-        );
-
-        break;
-
-      case 3:
-        volume = (
-          <>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-          </>
-        );
-        break;
-
-      case 4:
-        volume = (
-          <>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-          </>
-        );
-        break;
-
-      case 5:
-        volume = (
-          <>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-            <span role="img" aria-label="volume level">&#128227;</span>
-          </>
-        );
-        break;
-
-      default:
-        volume = (
-            <span className="NA">volume unavailable</span>
-        )
-    }
-
-    return (
-      volume
-    )
-  }
-
 
 
 
@@ -255,13 +59,13 @@ import VenuesPage from '../VenuesPage/VenuesPage'
           </div>
         <div className="ratings">
           <div className="average">
-            Overall Rating: <span className="rating">{this.renderRating()}</span>
+            Overall Rating: <span className="rating"><Rating value={venue.avgRating} symbol="&#x2605;"/></span>
           </div>
           <div className="average">
-            Overall Price: <span className="price">{this.renderPrice()}</span>
+            Overall Price: <span className="price"><Rating value={venue.avgPrice} symbol="&#36;"/></span>
           </div>
           <div className="average">
-            Overall Volume Level: <span className="volume">{this.renderVolume()}</span>
+            Overall Volume Level: <span className="volume"><Rating value={venue.avgVolume} symbol="&#128227;"/></span>
           </div>
           <div className="amenities">
             <h3>Features</h3>

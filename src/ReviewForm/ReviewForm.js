@@ -7,6 +7,7 @@ import './ReviewForm.css';
 class ReviewForm extends React.Component {
   static contextType = VenuesContext;
 
+
   state = {
     stroller: false,
     playarea: false,
@@ -29,7 +30,7 @@ class ReviewForm extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const venueId = this.context.selectedVenue.id;
+    const venueId = this.props.match.params.venue_id
     const price = ev.target.price.value;
     const volume = ev.target.volume.value;
     const starrating = ev.target.rating.value;
@@ -50,7 +51,7 @@ class ReviewForm extends React.Component {
         this.context.addReview(review)
       })
       .catch(this.context.setError);
-    this.props.history.push('/venue/venueId');
+    this.props.history.push(`/venue/${venueId}`);
   };
 
   handleCancel() {

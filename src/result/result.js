@@ -2,6 +2,7 @@ import React from 'react';
 import VenueContext from '../VenuesContext';
 import { withRouter } from 'react-router-dom';
 import './Result.css';
+import Rating from '../Rating/Rating'
 
 class Result extends React.Component {
   static contextType = VenueContext;
@@ -9,136 +10,6 @@ class Result extends React.Component {
   handleExpanded(venueId) {
     this.context.setSelectedVenue(venueId);
     this.props.history.push(`/venue/${venueId}`);
-  }
-
-  renderRating() {
-    const avgRating = Math.round(this.props.venue.avgRating);
-    let stars;
-
-    switch (avgRating) {
-      case 1:
-        stars =
-        ( <span>&#x2605;</span>);
-        break;
-      case 2:
-        stars = (
-          <>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </>
-        );
-
-        break;
-
-      case 3:
-        stars = (
-          <>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </>
-        );
-        break;
-
-      case 4:
-        stars = (
-          <div>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-            <span>&#x2605;</span>
-          </div>
-        );
-        break;
-
-      case 5:
-        stars = (
-        <>
-          <span>&#x2605;</span>
-          <span>&#x2605;</span>
-          <span>&#x2605;</span>
-          <span>&#x2605;</span>
-          <span>&#x2605;</span>
-        </>
-        );
-        break;
-        
-        default: 
-        stars = (
-          <>
-            <p className="NA">No reviews</p>
-          </>
-        )
-    }
-
-    return (
-      stars
-    )
-  }
-
-  renderPrice() {
-    const avgPrice = Math.round(this.props.venue.avgPrice);
-    let price;
-
-    switch (avgPrice) {
-      case 1:
-        price =
-        ( <span>&#36;</span>);
-        break;
-      case 2:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-
-        break;
-
-      case 3:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-        break;
-
-      case 4:
-        price = (
-          <>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-            <span>&#36;</span>
-          </>
-        );
-        break;
-
-      case 5:
-        price = (
-        <div>
-          <span>&#36;</span>
-          <span>&#36;</span>
-          <span>&#36;</span>
-          <span>&#36;</span>
-          <span>&#36;</span>
-        </div>
-        );
-        break;
-        
-        default: 
-        price= (
-          <>
-            <span className="NA">Price unavailable</span>
-          </>
-        )
-    }
-
-    return (
-      price
-    )
   }
 
   render() {
@@ -151,9 +22,9 @@ class Result extends React.Component {
       >
         <div className="result_rating">
           <h3>{venue.venue_name}</h3>
-          <span className="rating">{this.renderRating()}</span>
+          <span className="rating"><Rating value={venue.avgRating} symbol="&#x2605;"/></span>
         </div>
-        <p className="price">{this.renderPrice()}</p>
+        <p className="price"><Rating value={venue.avgPrice} symbol="&#36;"/></p>
         <span>{venue.address}</span> <span className="city">{venue.city}</span>,
         <span className="state"> {venue.state}</span>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>

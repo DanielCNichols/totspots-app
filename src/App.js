@@ -53,7 +53,7 @@ export default class App extends Component {
               />
               <PrivateRoute exact path="/account" component={ProfileView} />
               <PrivateRoute exact path="/account" component={FavoritesList} />
-              <PrivateRoute exact path="/addVenue" component={AddVenue} />
+              <PrivateRoute exact path="/addVenue/:venueId" component={AddVenue} />
               <Route exact path="/venue/:venue_id" component={VenuesPage} />
               <PrivateRoute
                 exact
