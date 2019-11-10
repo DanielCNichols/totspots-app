@@ -103,9 +103,8 @@ export class VenuesProvider extends Component {
     this.setState({ favorites });
   };
 
-  setSelectedVenue = venueid => {
-    let selected = this.state.venues.find(venue => venue.id === venueid);
-    this.setState({ selectedVenue: selected });
+  setSelectedVenue = venue => {
+    this.setState({selectedVenue: venue})
   };
 
   clearSelectedVenue = () => {

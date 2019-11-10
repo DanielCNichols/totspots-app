@@ -1,25 +1,25 @@
 import React from 'react';
 import Result from '../Result/Result';
 import VenueContext from '../VenuesContext';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import './Resultspage.css';
-import ApiService from '../services/api-service'
+import ApiService from '../services/api-service';
 
 class ResultsPage extends React.Component {
   static contextType = VenueContext;
 
   componentDidMount() {
-    const {city, searchState, type} = this.context
-    this.context.clearError()
-    ApiService.getVenues(city, searchState, type)
-    .then(venues => {
-      this.context.setVenues(venues)
-    })
-    .catch(this.context.setError)
+    const { city, queryState, type } = this.props.match.params;
+    this.context.clearError();
+    ApiService.getVenues(city, queryState, type)
+      .then(venues => {
+        this.context.setVenues(venues);
+      })
+      .catch(this.context.setError);
   }
 
   handleAddClick() {
-    this.props.history.push('/addvenue')
+    this.props.history.push('/addvenue');
   }
 
   prerender() {
@@ -31,12 +31,8 @@ class ResultsPage extends React.Component {
         </div>
       );
     }
-    if(error) {
-      return (
-       <div>
-         {this.renderError()}
-       </div>
-      )
+    if (error) {
+      return <div>{this.renderError()}</div>;
     } else {
       return (
         <section className="results_page">
@@ -52,7 +48,13 @@ class ResultsPage extends React.Component {
           </ul>
           <div className="addvenue">
             <p>Is something missing?</p>
-              <button onClick={() => {this.handleAddClick()}}>Suggest a new venue</button>
+            <button
+              onClick={() => {
+                this.handleAddClick();
+              }}
+            >
+              Suggest a new venue
+            </button>
           </div>
         </section>
       );
@@ -60,13 +62,13 @@ class ResultsPage extends React.Component {
   }
 
   renderError() {
-    let error = this.context.error
-    if(this.context.error) {
+    let error = this.context.error;
+    if (this.context.error) {
       return (
         <div className="error">
           <p>Sorry, something has gone wrong. {error.error}</p>
         </div>
-      )
+      );
     }
   }
 
@@ -75,4 +77,4 @@ class ResultsPage extends React.Component {
   }
 }
 
-export default withRouter(ResultsPage)
+export default withRouter(ResultsPage);

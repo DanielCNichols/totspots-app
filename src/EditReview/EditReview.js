@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VenuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
-import {withRouter} from 'react-router-dom'
-import './editReview.css'
-
+import { withRouter } from 'react-router-dom';
+import './editReview.css';
 
 class editReview extends Component {
   static propTypes = {
     match: PropTypes.shape({
-      params: PropTypes.object
+      params: PropTypes.object,
     }),
     history: PropTypes.shape({
-      push: PropTypes.func
-    }).isRequired
+      push: PropTypes.func,
+    }).isRequired,
   };
 
   static contextType = VenuesContext;
@@ -26,23 +25,23 @@ class editReview extends Component {
     price: '',
     volume: '',
     starrating: 1,
-    user_id: ''
+    user_id: '',
   };
 
   componentDidMount() {
     const reviewId = this.props.match.params.review_id;
     ApiService.getReview(reviewId)
-    .then(responseData => {
-      this.setState({
-        id: responseData.id,
-        venue_id: responseData.venue_id,
-        content: responseData.content,
-        price: responseData.price,
-        volume: responseData.volume,
-        starrating: responseData.starrating
+      .then(responseData => {
+        this.setState({
+          id: responseData.id,
+          venue_id: responseData.venue_id,
+          content: responseData.content,
+          price: responseData.price,
+          volume: responseData.volume,
+          starrating: responseData.starrating,
+        });
       })
-    })
-    .catch(this.context.setError)
+      .catch(this.context.setError);
   }
 
   handleChangeContent = e => {
@@ -84,7 +83,7 @@ class editReview extends Component {
       content: newReview.url || '',
       price: newReview.description || '',
       volume: newReview.rating || '',
-      starrating: newReview.starrating || ''
+      starrating: newReview.starrating || '',
     });
   };
 
@@ -93,44 +92,36 @@ class editReview extends Component {
   };
 
   renderError() {
-    let error = this.context.error
-    if(this.context.error) {
+    let error = this.context.error;
+    if (this.context.error) {
       return (
         <div className="error">
           <p>Sorry something has gone wrong. {error.error}</p>
         </div>
-      )
+      );
     }
   }
 
-
   render() {
-    const {
-      content,
-      price,
-      volume,
-      starrating
-    } = this.state;
+    const { content, price, volume, starrating } = this.state;
     return (
       <section className="edit_section">
         <header>
           <h3>Edit Review</h3>
         </header>
-        <div role='alert'>
-          {this.renderError()}
-        </div>
+        <div role="alert">{this.renderError()}</div>
         <form className="edit_form" onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>
               <label className="edit_form_label" htmlFor="price">
                 Price
                 <select
-                aria-label="price"
-                value= {price}
-                className="edit_form_select"
-                name="price"
-                id="price"
-                onChange={this.handleChangePrice}
+                  aria-label="price"
+                  value={price}
+                  className="edit_form_select"
+                  name="price"
+                  id="price"
+                  onChange={this.handleChangePrice}
                 >
                   <option value="">Please select</option>
                   <option value="1">$</option>
@@ -140,17 +131,15 @@ class editReview extends Component {
                   <option value="5">$$$$$</option>
                 </select>
               </label>
-              <label 
-              className="edit_form_label"
-              htmlFor="volume">
+              <label className="edit_form_label" htmlFor="volume">
                 Describe the volume level
                 <select
-                aria-label="Describe the volume level"
-                value = {volume}
-                className="edit_form_select"
-                name="volume"
-                id="volume"
-                onChange={this.handleChangeVolume}
+                  aria-label="Describe the volume level"
+                  value={volume}
+                  className="edit_form_select"
+                  name="volume"
+                  id="volume"
+                  onChange={this.handleChangeVolume}
                 >
                   <option value="">Please select</option>
                   <option value="1">Library</option>
@@ -160,17 +149,15 @@ class editReview extends Component {
                   <option value="5">Concert</option>
                 </select>
               </label>
-              <label 
-              className="edit_form_label"
-              htmlFor="rating">
+              <label className="edit_form_label" htmlFor="rating">
                 Overall rating
                 <select
-                aria-label="Overall Rating"
-                value = {starrating}
-                className="edit_form_select"
-                name="rating"
-                id="rating"
-                onChange={this.handleChangeRating}
+                  aria-label="Overall Rating"
+                  value={starrating}
+                  className="edit_form_select"
+                  name="rating"
+                  id="rating"
+                  onChange={this.handleChangeRating}
                 >
                   <option value="">Please select</option>
                   <option value="1">&#x2605;</option>
@@ -185,13 +172,11 @@ class editReview extends Component {
             </legend>
           </fieldset>
           <div className="edit_review">
-            <label 
-            className="edit_form_label"
-            htmlFor="review">
-              What's changed at this spot? 
+            <label className="edit_form_label" htmlFor="review">
+              What's changed at this spot?
               <textarea
-              aria-label="What's changed? Leave a review."
-              className="edit_form_text"
+                aria-label="What's changed? Leave a review."
+                className="edit_form_text"
                 type="text"
                 name="content"
                 value={content}
@@ -201,8 +186,16 @@ class editReview extends Component {
             </label>
           </div>
           <div className="edit_form_controls">
-            <button className="edit_form_cancel" type="button" onClick={this.handleClickCancel}>Cancel</button>
-            <button className="edit_form_button" type="submit">Submit</button>
+            <button
+              className="edit_form_cancel"
+              type="button"
+              onClick={this.handleClickCancel}
+            >
+              Cancel
+            </button>
+            <button className="edit_form_button" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </section>

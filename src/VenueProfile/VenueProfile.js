@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
 import './VenueProfile.css'
 import TokenService from '../services/TokenService'
+import VenuesPage from '../VenuesPage/VenuesPage'
 
  class VenueProfile extends Component {
 

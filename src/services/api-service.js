@@ -13,6 +13,16 @@ const ApiService = {
     );
   },
 
+  getVenueProfile(id) {
+    return fetch(`${config.API_ENDPOINT}/venues/${id}`, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
   getReviews(venue_id) {
     return fetch(`${config.API_ENDPOINT}/reviews/venues/${venue_id}`, {
       headers: {
