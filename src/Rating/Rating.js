@@ -3,62 +3,18 @@ import React from 'react';
 export default function Rating(props) {
   let value = Math.round(props.value);
   let symbol = props.symbol;
-  let rateVal;
-console.log(props)
-  switch (value) {
-    case 1:
-      rateVal = <span>{`${symbol}`}</span>;
-      break;
-    case 2:
-      rateVal = (
-        <>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-        </>
-      );
+  let rateVal = [];
 
-      break;
-
-    case 3:
-      rateVal = (
-        <>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-        </>
-      );
-      break;
-
-    case 4:
-      rateVal = (
-        <>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-        </>
-      );
-      break;
-
-    case 5:
-      rateVal = (
-        <>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-          <span>{`${symbol}`}</span>
-        </>
-      );
-      break;
-
-    default:
-      rateVal = (
-        <>
-          <span className="NA">No reviews</span>
-        </>
-      );
+  if (!value) {
+    return <span className="NA">Not Rated</span>;
+  }
+  
+  for (let i = 0; i < value; i++) {
+    rateVal.push(symbol);
   }
 
-  return rateVal;
+  //Index is used for the key in the interest of avoiding redundancy and because these spans are not intended to be reordered at any time. Per reactjs.org/docs/lists-and-keys.
+  return rateVal.map(idx => {
+    return <span key={idx}>{`${symbol}`}</span>;
+  });
 }

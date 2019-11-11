@@ -30,11 +30,12 @@ class ReviewForm extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
+    let target = ev.target
     const venueId = this.props.match.params.venue_id
-    const price = ev.target.price.value;
-    const volume = ev.target.volume.value;
-    const starrating = ev.target.rating.value;
-    const content = ev.target.content.value;
+    const price = target.price.value;
+    const volume = target.volume.value;
+    const starrating = target.rating.value;
+    const content = target.content.value;
 
     const stateCheck = Object.keys(this.state);
     const stateValues = Object.values(this.state);
