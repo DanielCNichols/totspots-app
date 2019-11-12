@@ -14,7 +14,7 @@ const ApiService = {
   },
 
   getVenueProfile(id) {
-    return fetch(`${config.API_ENDPOINT}/venues/${id}`, {
+    return fetch(`${config.API_ENDPOINT}/venues/profile/${id}`, {
       headers: {
         'content-type': 'application/json'
       }
@@ -115,7 +115,6 @@ const ApiService = {
     )
   },
 
-  
   addVenue(venue_name, address, city, state, venue_type, zipcode, price, volume, starrating, content, phone, url, aObj) {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',

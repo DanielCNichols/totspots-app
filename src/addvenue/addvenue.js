@@ -34,20 +34,18 @@ class AddVenue extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-
-    let target = ev.target
-    const venue = target.venue.value;
-    const address = target.address.value;
-    const city = target.city.value.toLowerCase();
-    const state = target.state.value.toLowerCase();
-    const type = target.type.value.toLowerCase();
-    const zipcode = target.zipcode.value;
-    const url = target.url.value;
-    const phone = target.phone.value;
-    const price = target.price.value;
-    const volume = target.volume.value;
-    const starrating = target.rating.value;
-    const content = target.content.value;
+    const venue = ev.target.venue.value;
+    const address = ev.target.address.value;
+    const city = ev.target.city.value.toLowerCase();
+    const state = ev.target.state.value.toLowerCase();
+    const type = ev.target.type.value.toLowerCase();
+    const zipcode = ev.target.zipcode.value;
+    const url = ev.target.url.value;
+    const phone = ev.target.phone.value;
+    const price = ev.target.price.value;
+    const volume = ev.target.volume.value;
+    const starrating = ev.target.rating.value;
+    const content = ev.target.content.value;
     const stateCheck = Object.keys(this.state);
     const stateValues = Object.values(this.state);
     const amenities = this.getAmenities(stateCheck, stateValues);
@@ -75,7 +73,6 @@ class AddVenue extends React.Component {
   }
 
 
-
   render() {
     return (
       <section className="addVenue">
@@ -83,7 +80,6 @@ class AddVenue extends React.Component {
           <h2>Add A Venue</h2>
         </header>
         <div role='alert'>
-          {this.renderError()}
         </div>
         <form className="add_form" onSubmit={this.handleSubmit}>
           <fieldset>

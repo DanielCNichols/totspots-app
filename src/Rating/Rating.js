@@ -14,7 +14,7 @@ export default function Rating(props) {
   }
 
   //Index is used for the key in the interest of avoiding redundancy and because these spans are not intended to be reordered at any time. Per reactjs.org/docs/lists-and-keys.
-  return rateVal.map(idx => {
+  return rateVal.map((val, idx) => {
     return <span key={idx}>{`${symbol}`}</span>;
   });
 }
