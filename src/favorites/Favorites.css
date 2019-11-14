@@ -20,12 +20,20 @@
 
 .favorite {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
   border: 2px solid #064789;
 }
 
 .favorite h3 {
+	 margin: 0;
+	 padding: 5%;
   text-align: center;
+	background-color: #017ec1;
+	font-size: 1.2em;
+}
+
+.favorite_info {
+	 width: 80%;
+	 margin: auto;
 }
 
 .favorite button {

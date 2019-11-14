@@ -38,7 +38,6 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/reviews/:city/:queryState/:type" component={RefineSearch} />
               <Route exact path="/venue/:venue_id" component={ReviewSort} />
-              <Route render={() => <div>Hello World</div>} />
             </Switch>
           </Sidebar>
           <Main className="app_main">

@@ -16,9 +16,6 @@ class LandingPage extends React.Component {
     const city = ev.target.city.value.toLowerCase();
     const queryState = ev.target.state.value.toLowerCase();
     const type = ev.target.type.value.toLowerCase();
-    this.context.setCity(city);
-    this.context.setSearchState(queryState);
-    this.context.setType(type);
     this.props.history.push(`/reviews/${city}/${queryState}/${type}`);
   };
 

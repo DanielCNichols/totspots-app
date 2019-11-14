@@ -3,6 +3,7 @@ import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
 import './Addvenue.css'
 import VenuesContext from '../VenuesContext'
+import FormSelect from '../Select/Select'
 
 class AddVenue extends React.Component {
 
@@ -191,20 +192,7 @@ class AddVenue extends React.Component {
             <legend>Your review
             <label htmlFor="price" required>
                 Price
-                <select
-                  aria-label="price"
-                  aria-required="true"
-                  className="add_form_select"
-                  name="price"
-                   id="price" 
-                   required>
-                  <option value="">Please select</option>
-                  <option value="1">$</option>
-                  <option value="2">$$</option>
-                  <option value="3">$$$</option>
-                  <option value="4">$$$$</option>
-                  <option value="5">$$$$$</option>
-                </select>
+                     <FormSelect className="add_form_select" name="price" id="price" value={5}/>
               </label>
               <label htmlFor="volume">
                 Describe the volume Level

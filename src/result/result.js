@@ -2,7 +2,7 @@ import React from 'react';
 import VenueContext from '../VenuesContext';
 import { withRouter } from 'react-router-dom';
 import './Result.css';
-import Rating from '../Rating/Rating'
+import Rating from '../Rating/Rating';
 
 class Result extends React.Component {
   static contextType = VenueContext;
@@ -22,11 +22,18 @@ class Result extends React.Component {
       >
         <div className="result_rating">
           <h3>{venue.venue_name}</h3>
-          <span className="rating"><Rating value={venue.avgRating} symbol="&#x2605;"/></span>
+          <span className="rating">
+            <Rating value={venue.avgRating} symbol="&#x2605;" />
+          </span>
         </div>
-        <p className="price"><Rating value={venue.avgPrice} symbol="&#36;"/></p>
-        <span>{venue.address}</span> <span className="city">{venue.city}</span>,
-        <span className="state"> {venue.state}</span>
+        <p className="price">
+          <Rating value={venue.avgPrice} symbol="&#36;" />
+        </p>
+        <div className="result_address">
+          <span>{venue.address}</span>{' '}
+          <span className="city">{venue.city}</span>,
+          <span className="state"> {venue.state}</span>
+        </div>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>
     );

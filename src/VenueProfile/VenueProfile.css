@@ -2,6 +2,13 @@
   text-transform: uppercase;
 }
 
+.venueProfile > header {
+	 background-color: #f14038;
+	 padding: 5px;
+	 margin: 0;
+	 color: white;
+}
+
 .link > a {
   color: black;
 }
@@ -19,8 +26,8 @@
 }
 
 .average {
-  width: 100%;
-  margin: 10px 0;
+  width: 80%;
+  margin: 10px auto;
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
@@ -35,6 +42,13 @@
 .average div {
   font-size: 1.3rem;
 }
+ 
+.venueProfile {
+	border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	padding-bottom: 5px;
+}
+
 
 .venueProfile p {
   margin: 5px 0;
@@ -48,13 +62,21 @@
   text-align: center;
 }
 
+.amenities {
+	 margin-top: 15px;
+	 width: 100%;
+}
+
 .amenities li {
   padding: 0 10px;
-  margin: 5px 0;
+	width: 60%;
+  margin: 5px auto;
   text-align: left;
 }
 
 .amenities li:before {
+	 color: green;
+	 font-weight: 800;
   content: '✓';
   margin-right: 5px;
   font-size: 1.3rem;

@@ -18,10 +18,11 @@ header {
   margin-bottom: 100px;
 }
 
-.add_form label {
+ label {
   text-align: center;
   display: block;
   margin: 1.5em;
+	font-size: 1em;
 }
 
 .add_form_text {
@@ -51,6 +52,7 @@ legend {
   text-align: center;
   width: 80%;
   margin: 0 auto;
+	font-size: 1.1em;
 }
 
 .amenities {
@@ -62,13 +64,18 @@ legend {
 
 .amenities label {
   display: flex;
+	width: 70%;
   justify-content: space-between;
-  margin: 10px, auto;
+  margin: 20px auto;
 }
 
 .amenities label > input {
   margin-left: 20px;
   cursor: pointer;
+}
+
+.add_form_review label {
+  text-align: center;
 }
 
 fieldset {
@@ -83,19 +90,6 @@ fieldset {
 .review_label {
   text-align: left;
   margin: 1.5em;
-}
-
-.add_form_textarea {
-  display: block;
-  margin: 5px auto;
-  padding: 5px 10px;
-  width: 50%;
-  height: 5rem;
-  min-width: 125px;
-  border: 1px solid black;
-  border-left: 3px solid;
-  border-radius: 5px;
-  transition: border-color 0.5s ease-out;
 }
 
 .add_form_controls {
@@ -165,9 +159,6 @@ fieldset {
     width: 40%;
   }
 
-  .add_form_review label {
-    text-align: center;
-  }
 
   .add_form_controls {
     width: 50%;

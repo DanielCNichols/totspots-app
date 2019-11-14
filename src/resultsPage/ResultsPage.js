@@ -23,6 +23,7 @@ class ResultsPage extends React.Component {
   }
 
   prerender() {
+    let { city, type } = this.props.match.params;
     let { venues, error } = this.context;
     if (venues.length === 0) {
       return (
@@ -38,7 +39,7 @@ class ResultsPage extends React.Component {
         <section className="results_page">
           <header className="results_header">
             <h2>
-              Showing results for "{this.context.type}" in {this.context.city}
+              Showing results for {type} in <span>{city}</span>
             </h2>
           </header>
           <ul>

@@ -2,13 +2,19 @@
   margin: 20px 0;
   width: 100%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
   border: 2px solid #064789;
 }
 
-.review p {
-  margin: 5px 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+.reviewItem > h3 {
+	 width: 100%;
+	 margin: 0;
+	 padding: 10px;
+	 background-color: #017ec1;
+}
+
+.reviewItem p {
+  margin: 10px auto;
+	width: 80%;
 }
 
 .rating_break {
@@ -16,10 +22,10 @@
 }
 
 .userRating {
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 10px auto;
   align-items: center;
 }
 
@@ -37,7 +43,8 @@
 }
 
 .userReview {
-  margin: 20px 0;
+  margin: 20px auto;
+	width: 80%;
   word-wrap: break-word;
 }
 
