@@ -27,9 +27,11 @@ class ResultsPage extends React.Component {
     let { venues, error } = this.context;
     if (venues.length === 0) {
       return (
-        <div>
-          <p>Sorry, no results found for that search</p>
-        </div>
+        <section className="results_page">
+          <div>
+            <p>Sorry, no results found for that search</p>
+          </div>
+        </section>
       );
     }
     if (error) {

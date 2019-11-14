@@ -36,7 +36,11 @@ export default class App extends Component {
           <Route path="/" component={Nav} />
           <Sidebar>
             <Switch>
-              <Route exact path="/reviews/:city/:queryState/:type" component={RefineSearch} />
+              <Route
+                exact
+                path="/reviews/:city/:queryState/:type"
+                component={RefineSearch}
+              />
               <Route exact path="/venue/:venue_id" component={ReviewSort} />
             </Switch>
           </Sidebar>
@@ -59,7 +63,11 @@ export default class App extends Component {
                 path="/addReview/:venue_id"
                 component={ReviewForm}
               />
-              <Route exact path="/reviews/:review_id" component={editReview} />
+              <PrivateRoute
+                exact
+                path="/reviews/:review_id"
+                component={editReview}
+              />
             </Switch>
           </Main>
           <footer className="app_footer">

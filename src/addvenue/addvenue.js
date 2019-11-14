@@ -1,13 +1,12 @@
 import React from 'react';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
-import './Addvenue.css'
-import VenuesContext from '../VenuesContext'
-import FormSelect from '../Select/Select'
+import './Addvenue.css';
+import VenuesContext from '../VenuesContext';
+import FormSelect from '../Select/Select';
 
 class AddVenue extends React.Component {
-
-  static contextType= VenuesContext
+  static contextType = VenuesContext;
 
   state = {
     stroller: false,
@@ -52,27 +51,41 @@ class AddVenue extends React.Component {
     const amenities = this.getAmenities(stateCheck, stateValues);
     const aObj = amenities.map(amenity => {
       return {
-        amenity: amenity
+        amenity: amenity,
       };
     });
-    ApiService.addVenue(venue, address, city, state, type, zipcode, price, volume, starrating, content, phone, url, aObj)
-    .then(this.context.addVenue)
-    .then(() => {this.props.history.goBack();
-    })
-    .catch(this.context.setError);
+    ApiService.addVenue(
+      venue,
+      address,
+      city,
+      state,
+      type,
+      zipcode,
+      price,
+      volume,
+      starrating,
+      content,
+      phone,
+      url,
+      aObj
+    )
+      .then(this.context.addVenue)
+      .then(() => {
+        this.props.history.goBack();
+      })
+      .catch(this.context.setError);
   };
 
   renderError() {
-    let error = this.context.error
-    if(this.context.error) {
+    let error = this.context.error;
+    if (this.context.error) {
       return (
         <div className="error">
           <p>Sorry something has gone wrong.{error.error}</p>
         </div>
-      )
+      );
     }
   }
-
 
   render() {
     return (
@@ -80,15 +93,16 @@ class AddVenue extends React.Component {
         <header>
           <h2>Add A Venue</h2>
         </header>
-        <div role='alert'>
-        </div>
+        <div role="alert"></div>
         <form className="add_form" onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend>Venue Information
+            <legend>
+              Venue Information
               <div className="address">
                 <label className="add_form_label" htmlFor="venue">
                   Venue/Event Name
-                    <input className="add_form_text"
+                  <input
+                    className="add_form_text"
                     aria-required="true"
                     aria-label="Venue or event name"
                     type="text"
@@ -100,27 +114,31 @@ class AddVenue extends React.Component {
                 </label>
                 <label htmlFor="address">
                   Street Address
-                    <input 
+                  <input
                     aria-label="Street address"
                     aria-required="true"
                     className="add_form_text"
-                    type="text" name="address" placeholder="123 Main St."
+                    type="text"
+                    name="address"
+                    placeholder="123 Main St."
                     required
-                    />
+                  />
                 </label>
                 <label htmlFor="city">
                   City
-                    <input
+                  <input
                     aria-required="true"
                     aria-label="City"
                     className="add_form_text"
-                    type="text" name="city" placeholder="ex: Durham" 
+                    type="text"
+                    name="city"
+                    placeholder="ex: Durham"
                     required
-                    />
+                  />
                 </label>
                 <label htmlFor="state">
                   State
-                    <input
+                  <input
                     aria-required="true"
                     aria-label="State"
                     className="add_form_text"
@@ -133,11 +151,12 @@ class AddVenue extends React.Component {
                 </label>
                 <label htmlFor="zipcode">
                   Zipcode
-                    <input
+                  <input
                     aria-label="zipcode"
                     aria-required="true"
                     className="add_form_text"
-                    type="text" name="zipcode" 
+                    type="text"
+                    name="zipcode"
                     placeholder="ex: 27705"
                     required
                   />
@@ -160,21 +179,23 @@ class AddVenue extends React.Component {
                     aria-required="true"
                     aria-label="Phone"
                     className="add_form_text"
-                    type="text" name="phone"
+                    type="text"
+                    name="phone"
                     placeholder="(555) 245-3456"
                     required
                   />
                 </label>
                 <div className="add_form_selects">
-                <label htmlFor="type">
+                  <label htmlFor="type">
                     Type of venue/event
-                  <select
+                    <select
                       aria-label="Type of venue/event"
                       aria-required="true"
                       className="add_form_select"
-                      name="type" 
-                      id="type" 
-                      required>
+                      name="type"
+                      id="type"
+                      required
+                    >
                       <option value="">Please select</option>
                       <option value="Restaurant">Restaurant</option>
                       <option value="Coffee">Coffee Shop</option>
@@ -189,20 +210,27 @@ class AddVenue extends React.Component {
             </legend>
           </fieldset>
           <fieldset>
-            <legend>Your review
-            <label htmlFor="price" required>
+            <legend>
+              Your review
+              <label htmlFor="price" required>
                 Price
-                     <FormSelect className="add_form_select" name="price" id="price" value={5}/>
+                <FormSelect
+                  className="add_form_select"
+                  name="price"
+                  id="price"
+                  value={5}
+                />
               </label>
               <label htmlFor="volume">
                 Describe the volume Level
                 <select
-                    aria-required="true"
-                    aria-label="describe the volume level"
-                    className="add_form_select"
-                    name="volume"
-                    id="volume" 
-                    required>
+                  aria-required="true"
+                  aria-label="describe the volume level"
+                  className="add_form_select"
+                  name="volume"
+                  id="volume"
+                  required
+                >
                   <option value="">Please select</option>
                   <option value="1">Library</option>
                   <option value="2">Coffee Shop</option>
@@ -211,148 +239,163 @@ class AddVenue extends React.Component {
                   <option value="5">Concert</option>
                 </select>
               </label>
-              <label
-                htmlFor="rating">
+              <label htmlFor="rating">
                 Overall rating
-                  <select
+                <select
                   aria-label="Overall Rating"
                   aria-required="true"
                   className="add_form_select"
-                  name="rating" 
-                  id="rating" 
-                  required>
+                  name="rating"
+                  id="rating"
+                  required
+                >
                   <option value="">Please select</option>
                   <option value="1">&#x2605;</option>
                   <option value="2">&#x2605; &#x2605;</option>
                   <option value="3">&#x2605; &#x2605; &#x2605;</option>
-                  <option value="4">
-                    &#x2605; &#x2605; &#x2605; &#x2605;
-                          </option>
+                  <option value="4">&#x2605; &#x2605; &#x2605; &#x2605;</option>
                   <option value="5">
                     &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
-                          </option>
+                  </option>
                 </select>
               </label>
             </legend>
           </fieldset>
           <fieldset>
-            <legend>Features  
-            <div className="amenities">
-              <label htmlFor="StrollerAccessible">
-                Stroller Accessible
+            <legend>
+              Features
+              <div className="amenities">
+                <label htmlFor="StrollerAccessible">
+                  Stroller Accessible
                   <input
-                  onChange={() => {
-                    this.setState({ stroller: !this.state.stroller });
-                  }}
-                  type="checkbox"
-                  name="amenities"
-                  value="1"
-                  aria-label="Stroller Accessible"
-                />
-              </label>
-              <label htmlFor="PlayArea">
-                Play Area
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({ stroller: !this.state.stroller });
+                    }}
+                    type="checkbox"
+                    name="amenities"
+                    value="1"
+                    aria-label="Stroller Accessible"
+                  />
+                </label>
+                <label htmlFor="PlayArea">
+                  Play Area
                   <input
-                  onChange={() => {
-                    this.setState({ playarea: !this.state.playarea });
-                  }}
-                  type="checkbox"
-                  name="PlayArea"
-                  value="2"
-                  aria-label="Play Area"
-                />
-              </label>
-              <label htmlFor="Changingtable">
-                {" "}
-                Changing Table
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({ playarea: !this.state.playarea });
+                    }}
+                    type="checkbox"
+                    name="PlayArea"
+                    value="2"
+                    aria-label="Play Area"
+                  />
+                </label>
+                <label htmlFor="Changingtable">
+                  {' '}
+                  Changing Table
                   <input
-                  onChange={() => {
-                    this.setState({
-                      changingtable: !this.state.changingtable
-                    });
-                  }}
-                  type="checkbox"
-                  name="amenities"
-                  value="3"
-                  aria-label="Changing Table"
-                />
-              </label>
-              <label htmlFor="Dogs">
-                Dogs Welcome
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({
+                        changingtable: !this.state.changingtable,
+                      });
+                    }}
+                    type="checkbox"
+                    name="amenities"
+                    value="3"
+                    aria-label="Changing Table"
+                  />
+                </label>
+                <label htmlFor="Dogs">
+                  Dogs Welcome
                   <input
-                  onChange={() => {
-                    this.setState({ dogs: !this.state.dogs });
-                  }}
-                  type="checkbox"
-                  name="amenities"
-                  value="4"
-                  aria-label="Dogs welcome"
-                />
-              </label>
-              <label htmlFor="Fastcheckout">
-                {" "}
-                Fast Checkout
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({ dogs: !this.state.dogs });
+                    }}
+                    type="checkbox"
+                    name="amenities"
+                    value="4"
+                    aria-label="Dogs welcome"
+                  />
+                </label>
+                <label htmlFor="Fastcheckout">
+                  {' '}
+                  Fast Checkout
                   <input
-                  onChange={() => {
-                    this.setState({
-                      fastCheckout: !this.state.fastCheckout
-                    });
-                  }}
-                  type="checkbox"
-                  name="amenities"
-                  value="5"
-                  aria-label="Fast Checkout"
-                />
-              </label>
-              <label htmlFor="KidsNight">
-                {" "}
-                Kids Night Deals
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({
+                        fastCheckout: !this.state.fastCheckout,
+                      });
+                    }}
+                    type="checkbox"
+                    name="amenities"
+                    value="5"
+                    aria-label="Fast Checkout"
+                  />
+                </label>
+                <label htmlFor="KidsNight">
+                  {' '}
+                  Kids Night Deals
                   <input
-                  onChange={() => {
-                    this.setState({
-                      KidsNight: !this.state.KidsNight
-                    });
-                  }}
-                  type="checkbox"
-                  name="amenities"
-                  value="6"
-                  aria-label="Kids night deals"
-                />
-              </label>
-              <label htmlFor="OutdoorSeating">
-                {" "}
-                Outdoor Seating
-                   <input
-                  onChange={() => {
-                    this.setState({ outdoor: !this.state.outdoor });
-                  }}
-                  type="checkbox"
-                  name="amenities"
-                  value="7"
-                  aria-label="outdoor seating"
-                />
-              </label>
-            </div>
-            <div className="add_form_review">
-              <label htmlFor="review">
-                Tell us about your visit
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({
+                        KidsNight: !this.state.KidsNight,
+                      });
+                    }}
+                    type="checkbox"
+                    name="amenities"
+                    value="6"
+                    aria-label="Kids night deals"
+                  />
+                </label>
+                <label htmlFor="OutdoorSeating">
+                  {' '}
+                  Outdoor Seating
+                  <input
+                    className="checkBox"
+                    onChange={() => {
+                      this.setState({ outdoor: !this.state.outdoor });
+                    }}
+                    type="checkbox"
+                    name="amenities"
+                    value="7"
+                    aria-label="outdoor seating"
+                  />
+                </label>
+              </div>
+              <div className="add_form_review">
+                <label htmlFor="review">
+                  Tell us about your visit
                   <textarea
-                  aria-label="Tell us about your visit"
-                  aria-required="true"
-                  type="textArea"
-                  name="content"
-                  placeholder="Tell us about your visit"
-                />
-              </label>
+                    aria-label="Tell us about your visit"
+                    aria-required="true"
+                    type="textArea"
+                    name="content"
+                    placeholder="Tell us about your visit"
+                  />
+                </label>
               </div>
             </legend>
           </fieldset>
-        <div className="add_form_controls">
-          <button onClick={() => {this.handleCancel()}} className="cancel">Cancel</button>
-          <button className="add" type="submit">Submit</button>
-        </div>
+          <div className="add_form_controls">
+            <button
+              onClick={() => {
+                this.handleCancel();
+              }}
+              className="cancel"
+            >
+              Cancel
+            </button>
+            <button className="add" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
-      </section >        
+      </section>
     );
   }
 }

@@ -1,12 +1,11 @@
 import React from 'react';
 import VenuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import './ReviewForm.css';
 
 class ReviewForm extends React.Component {
   static contextType = VenuesContext;
-
 
   state = {
     stroller: false,
@@ -15,7 +14,7 @@ class ReviewForm extends React.Component {
     dogs: false,
     fastCheckout: false,
     kidsNight: false,
-    outdoor: false
+    outdoor: false,
   };
 
   getAmenities(stateCheck, stateValues) {
@@ -30,8 +29,8 @@ class ReviewForm extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    let target = ev.target
-    const venueId = this.props.match.params.venue_id
+    let target = ev.target;
+    const venueId = this.props.match.params.venue_id;
     const price = target.price.value;
     const volume = target.volume.value;
     const starrating = target.rating.value;
@@ -44,12 +43,12 @@ class ReviewForm extends React.Component {
     const aObj = amenities.map(amenity => {
       return {
         amenity: amenity,
-        venue: this.context.selectedVenue.id
+        venue: this.context.selectedVenue.id,
       };
     });
     ApiService.postReviews(venueId, content, price, volume, starrating, aObj)
       .then(review => {
-        this.context.addReview(review)
+        this.context.addReview(review);
       })
       .catch(this.context.setError);
     this.props.history.push(`/venue/${venueId}`);
@@ -68,7 +67,9 @@ class ReviewForm extends React.Component {
         <h3>{this.context.selectedVenue.venue_name}</h3>
         <form className="review_form" onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend> Your Review
+            <legend>
+              {' '}
+              Your Review
               <div className="review_form_selects">
                 <label htmlFor="price">
                   Price
@@ -132,101 +133,112 @@ class ReviewForm extends React.Component {
             </legend>
           </fieldset>
           <fieldset>
-            <legend> Features
+            <legend>
+              {' '}
+              Features
               <div className="review_amenities">
                 <div className="left">
-                <label htmlFor="StrollerAccessible">
-                  Stroller Accessible
-                  <input
-                    onChange={() => {
-                      this.setState({ stroller: !this.state.stroller });
-                    }}
-                    type="checkbox"
-                    name="amenities"
-                    value="1"
-                    aria-label="Stroller Accessible"
+                  <label htmlFor="StrollerAccessible">
+                    Stroller Accessible
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({ stroller: !this.state.stroller });
+                      }}
+                      type="checkbox"
+                      name="amenities"
+                      value="1"
+                      aria-label="Stroller Accessible"
                     />
-                </label>
-                <label htmlFor="PlayArea">
-                  Play Area
-                  <input
-                    onChange={() => {
-                      this.setState({ playarea: !this.state.playarea });
-                    }}
-                    type="checkbox"
-                    name="PlayArea"
-                    value="2"
-                    aria-label="Play area"
+                  </label>
+                  <label htmlFor="PlayArea">
+                    Play Area
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({ playarea: !this.state.playarea });
+                      }}
+                      type="checkbox"
+                      name="PlayArea"
+                      value="2"
+                      aria-label="Play area"
                     />
-                </label>
-                <label htmlFor="Changingtable">
-                  {" "}
-                  Changing Table
-                  <input
-                    onChange={() => {
-                      this.setState({
-                        changingtable: !this.state.changingtable
-                      });
-                    }}
-                    type="checkbox"
-                    name="amenities"
-                    value="3"
-                    aria-label="Changing table"
+                  </label>
+                  <label htmlFor="Changingtable">
+                    {' '}
+                    Changing Table
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({
+                          changingtable: !this.state.changingtable,
+                        });
+                      }}
+                      type="checkbox"
+                      name="amenities"
+                      value="3"
+                      aria-label="Changing table"
                     />
-                </label>
-                  </div>
-                  <div className="right">
-                <label htmlFor="Dogs">
-                  Dogs Welcome
-                  <input
-                    onChange={() => {
-                      this.setState({ dogs: !this.state.dogs });
-                    }}
-                    type="checkbox"
-                    name="amenities"
-                    value="4"
-                    aria-label="Dogs Welcome"
+                  </label>
+                </div>
+                <div className="right">
+                  <label htmlFor="Dogs">
+                    Dogs Welcome
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({ dogs: !this.state.dogs });
+                      }}
+                      type="checkbox"
+                      name="amenities"
+                      value="4"
+                      aria-label="Dogs Welcome"
                     />
-                </label>
-                <label htmlFor="Fastcheckout">
-                  {" "}
-                  Fast Checkout
-                  <input
-                    onChange={() => {
-                      this.setState({ fastCheckout: !this.state.fastCheckout });
-                    }}
-                    type="checkbox"
-                    name="amenities"
-                    value="5"
-                    aria-label="Fast Checkout"
+                  </label>
+                  <label htmlFor="Fastcheckout">
+                    {' '}
+                    Fast Checkout
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({
+                          fastCheckout: !this.state.fastCheckout,
+                        });
+                      }}
+                      type="checkbox"
+                      name="amenities"
+                      value="5"
+                      aria-label="Fast Checkout"
                     />
-                </label>
-                <label htmlFor="KidsNight">
-                  {" "}
-                  Kids Night Deals
-                  <input
-                    onChange={() => {
-                      this.setState({ KidsNight: !this.state.KidsNight });
-                    }}
-                    type="checkbox"
-                    name="amenities"
-                    value="6"
-                    aria-label="kids night deals"
+                  </label>
+                  <label htmlFor="KidsNight">
+                    {' '}
+                    Kids Night Deals
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({ KidsNight: !this.state.KidsNight });
+                      }}
+                      type="checkbox"
+                      name="amenities"
+                      value="6"
+                      aria-label="kids night deals"
                     />
-                </label>
-                <label htmlFor="OutdoorSeating">
-                  {" "}
-                  Outdoor Seating Available
-                  <input
-                    onChange={() => {
-                      this.setState({ outdoor: !this.state.outdoor });
-                    }}
-                    type="checkbox"
-                    name="amenities"
-                    value="7"
-                    aria-label="outdoor seating"
+                  </label>
+                  <label htmlFor="OutdoorSeating">
+                    {' '}
+                    Outdoor Seating Available
+                    <input
+                      className="checkBox"
+                      onChange={() => {
+                        this.setState({ outdoor: !this.state.outdoor });
+                      }}
+                      type="checkbox"
+                      name="amenities"
+                      value="7"
+                      aria-label="outdoor seating"
                     />
-                </label>
+                  </label>
                 </div>
               </div>
             </legend>
@@ -235,9 +247,9 @@ class ReviewForm extends React.Component {
             <label htmlFor="review">
               Tell us about your visit
               <textarea
-              aria-required="true"
-              aria-label="tell us about your visit"
-              className="review_form_textarea"
+                aria-required="true"
+                aria-label="tell us about your visit"
+                className="review_form_textarea"
                 type="text"
                 name="content"
                 placeholder="Tell us about your visit"
@@ -245,8 +257,18 @@ class ReviewForm extends React.Component {
             </label>
           </div>
           <div className="review_form_controls">
-            <button onClick={() => {this.handleCancel()}} type="button" className="cancel">Cancel</button>
-            <button className="submit" type="submit">Submit</button>
+            <button
+              onClick={() => {
+                this.handleCancel();
+              }}
+              type="button"
+              className="cancel"
+            >
+              Cancel
+            </button>
+            <button className="submit" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </section>
@@ -254,4 +276,4 @@ class ReviewForm extends React.Component {
   }
 }
 
-export default withRouter(ReviewForm)
+export default withRouter(ReviewForm);

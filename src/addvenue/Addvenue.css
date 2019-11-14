@@ -144,16 +144,21 @@ fieldset {
   }
 
   .add_form select {
-    width: 250px;
+    width: 40%;
   }
 
   .add_form_text {
-    width: 400px;
-  }
-
-  .amenities {
     width: 40%;
   }
+
+  .amenities label {
+    width: 40%;
+  }
+
+	.checkBox {
+		 width: 20px;
+		 height: 20px;
+	}
 
   .add_form_review textarea {
     width: 40%;
