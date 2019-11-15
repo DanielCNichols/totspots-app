@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function FormSelect(props) {
-  let {value, name, id, className, option, arialabel} = props;
+export default function ControlSelect(props) {
+  let {choices, value, name, id, className, option, arialabel, onChange } = props;
 
   let dispOption = [];
 
-  for (let i = 0; i <= value; i++) {
+  for (let i = 0; i <= choices; i++) {
     if (i === 0) {
       dispOption.push('Please select');
     } else {
@@ -18,7 +18,7 @@ export default function FormSelect(props) {
   }
 
   return (
-    <select name={name} id={id} className={className} aria-label={arialabel} aria-required="true" required>
+    <select value={value} name={name} id={id} className={className} aria-label={arialabel} aria-required onChange={onChange} required>
       {dispOption.map((option, index) => {
         if (index === 0) {
           return (

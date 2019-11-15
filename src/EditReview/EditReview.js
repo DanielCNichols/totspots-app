@@ -4,6 +4,7 @@ import VenuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
 import './editReview.css';
+import ControlSelect from '../ControlSelect/ControlSelect'
 
 class editReview extends Component {
   static propTypes = {
@@ -115,59 +116,42 @@ class editReview extends Component {
             <legend>
               <label className="edit_form_label" htmlFor="price">
                 Price
-                <select
+                <ControlSelect
                   aria-label="price"
                   value={price}
                   className="edit_form_select"
                   name="price"
                   id="price"
+                  option="&#36;"
+                  choices={5}
                   onChange={this.handleChangePrice}
-                >
-                  <option value="">Please select</option>
-                  <option value="1">$</option>
-                  <option value="2">$$</option>
-                  <option value="3">$$$</option>
-                  <option value="4">$$$$</option>
-                  <option value="5">$$$$$</option>
-                </select>
+                />
               </label>
               <label className="edit_form_label" htmlFor="volume">
                 Describe the volume level
-                <select
+                <ControlSelect
                   aria-label="Describe the volume level"
                   value={volume}
                   className="edit_form_select"
                   name="volume"
                   id="volume"
+                  option="&#128227;"
+                  choices={5}
                   onChange={this.handleChangeVolume}
-                >
-                  <option value="">Please select</option>
-                  <option value="1">Library</option>
-                  <option value="2">Coffee Shop</option>
-                  <option value="3">Restaurant</option>
-                  <option value="4">Bar/Brewery</option>
-                  <option value="5">Concert</option>
-                </select>
+                />
               </label>
               <label className="edit_form_label" htmlFor="rating">
                 Overall rating
-                <select
+                <ControlSelect
                   aria-label="Overall Rating"
                   value={starrating}
                   className="edit_form_select"
                   name="rating"
                   id="rating"
+                  choices={5}
+                  option="&#x2605;"
                   onChange={this.handleChangeRating}
-                >
-                  <option value="">Please select</option>
-                  <option value="1">&#x2605;</option>
-                  <option value="2">&#x2605; &#x2605;</option>
-                  <option value="3">&#x2605; &#x2605; &#x2605;</option>
-                  <option value="4">&#x2605; &#x2605; &#x2605; &#x2605;</option>
-                  <option value="5">
-                    &#x2605; &#x2605; &#x2605; &#x2605; &#x2605;
-                  </option>
-                </select>
+                />
               </label>
             </legend>
           </fieldset>

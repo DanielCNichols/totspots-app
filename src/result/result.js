@@ -27,7 +27,7 @@ class Result extends React.Component {
           </span>
         </div>
         <p className="price">
-          <Rating value={venue.avgPrice} symbol="&#36;" />
+          <Rating value={venue.avgPrice} symbol="&#36;"/>
         </p>
         <div className="result_address">
           <span>{venue.address}</span>{' '}
