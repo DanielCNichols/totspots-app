@@ -26,13 +26,28 @@ class Result extends React.Component {
             <Rating value={venue.avgRating} symbol="&#x2605;" />
           </span>
         </div>
-        <p className="price">
-          <Rating value={venue.avgPrice} symbol="&#36;"/>
-        </p>
-        <div className="result_address">
-          <span>{venue.address}</span>{' '}
-          <span className="city">{venue.city}</span>,
-          <span className="state"> {venue.state}</span>
+        <div className="result_info">
+          <div className="result_address">
+            <span>{venue.venue_type}</span>
+            <Rating
+              className="price_span"
+              value={venue.avgPrice}
+              symbol="&#36;"
+            />
+            <p>Website: {venue.url ? venue.url : 'Not provided'}</p>
+            <p>Phone: {venue.phone ? venue.phone : 'Not provided'}</p>
+            <span>
+              Address: {venue.address ? venue.address : 'Not provided'}
+            </span>{' '}
+            <span className="city">
+              {venue.city ? venue.city : 'Not provided'}
+            </span>
+            ,
+            <span className="state">
+              {' '}
+              {venue.state ? venue.state : 'Not provided'}
+            </span>
+          </div>
         </div>
         <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
       </li>

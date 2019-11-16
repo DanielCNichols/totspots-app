@@ -25,7 +25,7 @@
   min-width: 140px;
   height: 40px;
   margin: 20px auto;
-  border-radius: 17px;
+  border-radius: 4px;
   border-color: blue;
   cursor: pointer;
   background-color: transparent;
@@ -35,11 +35,18 @@
 @media screen and (min-width: 450px) {
   .refine_form {
     width: 70%;
+	  background-color: #017ec1;
   }
+
+	.refine_form_label {
+		 margin: 0;
+		 
+	}
 }
 
 @media screen and (min-width: 800px) {
   .refine_form {
+		 background-color: #017ec1;
     max-width: 300px;
     float: left;
     position: fixed;
@@ -50,4 +57,18 @@
     border-right: 3px solid #064789;
     margin: 0;
   }
+
+	.refine_form_button {
+		 background-color: white;
+	}
+
+	.refine_form_button:hover {
+	 background-color: #F14038;
+	 color: white;
+	}
+
+	.refine_form_label {
+		 font-size: 1.2em;
+		 color: white;
+	}
 }

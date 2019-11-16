@@ -13,6 +13,7 @@
 
 
 .result {
+	 word-wrap: break-word;
 	 width: 90%;
   line-height: 1.5rem;
   border: 2px solid #064789;
@@ -39,11 +40,7 @@
 	 padding: 5px;
 }
 
-/* .result_rating { */
-/*   font-size: 1.1em; */
-/* } */
-
-.price {
+.price_span {
   color: green;
 	padding: 5px;
 }
@@ -64,12 +61,39 @@
 	 color: black;
 }
 @media screen and (min-width: 800px) {
+	 .result {
+			width: 80%;
+	 }
+
+	 .result_rating {
+			font-size: 1.3em;
+			padding: 10px;
+	 }
+
+	 /* .result_address { */
+			/* margin: 0 25px; */
+	 /* } */
+
+	 .result_info {
+			width: 90%;
+			margin: 10px auto;
+	 }
+	 
+	 .price_span, .NA {
+			min-width: 80%;
+			display: inline-block;
+			font-size: 1.3em;
+			text-align: right;
+			margin-left: auto;
+	 }
+
+
   .result button {
     display: block;
-    margin: 10px 0 10px auto;
+    margin: 20px auto;
     height: 35px;
-    width: 25%;
-    border-radius: 17px;
+    width: 40%;
+    border-radius: 3px;
     background-color: transparent;
     border-color: #064789;
   }
