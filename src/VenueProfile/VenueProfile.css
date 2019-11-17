@@ -124,17 +124,15 @@
 	 .venueProfile {
 			margin: 0 auto;
 			width: 80%;
+			font-size: 1.2em;
 	 }
 
+  .venue_controls button {
+    min-width: 200px;
+    font-size: 1em;
+  }
 
   .venue_controls {
     justify-content: center;
-  }
-}
-@media screen and (min-width: 800px) {
-
-  .venue_controls button {
-    min-width: 180px;
-    font-size: 1em;
   }
 }
