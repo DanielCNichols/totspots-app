@@ -15,7 +15,8 @@ a:visited {
 body {
   margin: 0;
   font-family: 'Oswald', sans-serif;
-  background-color: #f8f7f7;
+  /* background-color: #f8f7f7; */
+	background-color: #e9ebee;
 }
 
 h1 {
