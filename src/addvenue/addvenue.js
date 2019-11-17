@@ -44,11 +44,8 @@ class AddVenue extends React.Component {
     const url =  target.url.value;
     const phone =  target.phone.value;
     const price =  target.price.value;
-    console.log(price)
     const volume =  target.volume.value;
-    console.log(volume)
     const starrating =  target.rating.value;
-    console.log(starrating)
     const content =  target.content.value;
     const stateCheck = Object.keys(this.state);
     const stateValues = Object.values(this.state);
@@ -260,7 +257,7 @@ class AddVenue extends React.Component {
           <fieldset>
             <legend>
               Features
-              <div className="amenities">
+              <div className="form_amenities">
                 <label htmlFor="StrollerAccessible">
                   Stroller Accessible
                   <input

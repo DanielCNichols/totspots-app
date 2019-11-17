@@ -30,14 +30,16 @@
 .result_rating {
 	 background-color: #F14038; 
   width: 100%;
-	padding: 5px;
+	padding: 5px 15px;
   margin: 0;
   display: flex;
   justify-content: space-between;
 }
 
 .result_address {
-	 padding: 5px;
+   padding: 10px;
+   width: 90%;
+   margin: 0 auto;
 }
 
 .price_span {
@@ -53,6 +55,14 @@
   margin: 0;
 }
 
+.price_span, .NA {
+  min-width: 70%;
+  display: inline-block;
+  font-size: 1.2em;
+  text-align: right;
+  margin-left: auto;
+}
+
 .result button {
   display: none;
 }
@@ -60,37 +70,31 @@
 .NA > span {
 	 color: black;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 450px) {
 	 .result {
-			width: 80%;
-	 }
+      width: 70%;
+      font-size: 1.2em;
+   }
+   
 
 	 .result_rating {
-			font-size: 1.3em;
+			font-size: 1.1em;
 			padding: 10px;
-	 }
+   }
+   
+   .result p {
+     margin: 10px 0;
+   }
 
-	 /* .result_address { */
-			/* margin: 0 25px; */
-	 /* } */
 
-	 .result_info {
+	 .result_address {
 			width: 90%;
 			margin: 10px auto;
 	 }
-	 
-	 .price_span, .NA {
-			min-width: 80%;
-			display: inline-block;
-			font-size: 1.3em;
-			text-align: right;
-			margin-left: auto;
-	 }
-
 
   .result button {
     display: block;
-    margin: 20px auto;
+    margin: 10px auto;
     height: 35px;
     width: 40%;
     border-radius: 3px;

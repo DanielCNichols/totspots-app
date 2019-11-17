@@ -27,31 +27,31 @@ class UserReview extends React.Component {
       <li className="userReviewItem" key={userReviews.id}>
         <h3>{userReviews.venue_name}</h3>
         <div className="userReview_info">
-          <p>
+          <p className="review_date"> 
             Visited {moment(userReviews.date_created).format('MMMM Do, YYYY')}
           </p>
           <div className="rating_info">
             <div className="user_rating">
-              Your Rating:{' '}
+              Rating:{' '}
               <span className="rating">
                 <Rating value={userReviews.starrating} symbol="&#x2605;" />
               </span>
             </div>
             <div className="user_rating">
-              Your Price:{' '}
+              Price:{' '}
               <span className="price">
                 <Rating value={userReviews.price} symbol="&#36;" />
               </span>
             </div>
             <div className="user_rating">
-              Your Volume Level:{' '}
+              Volume Level:{' '}
               <span className="volume">
                 <Rating value={userReviews.volume} symbol="&#128227;" />
               </span>
             </div>
           </div>
           <div className="user_content">
-            <p>Here's what you had to say</p>
+            <p>Here's what you had to say:</p>
             <p>{userReviews.content}</p>
           </div>
         </div>

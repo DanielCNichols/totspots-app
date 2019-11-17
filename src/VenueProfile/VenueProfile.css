@@ -63,9 +63,10 @@
 }
 
  .amenities {
-			padding: 10px;
-			width: 80%;
-			border-top: 3px solid #064789;
+	padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+	border-top: 3px solid #064789;
  }
 
 .amenities li {
@@ -134,5 +135,12 @@
 
   .venue_controls {
     justify-content: center;
+  }
+}
+@media screen and (min-width: 800px) {
+
+  .venue_controls button {
+    min-width: 200px;
+    font-size: 1em;
   }
 }

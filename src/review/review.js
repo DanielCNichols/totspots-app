@@ -10,7 +10,6 @@ export default class Review extends React.Component {
 
   render() {
     let { reviews } = this.props;
-    console.log(reviews);
     return (
       <li className="reviewItem" key={reviews.id}>
         <h3>

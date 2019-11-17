@@ -55,21 +55,19 @@ legend {
 	font-size: 1.1em;
 }
 
-.amenities {
+.form_amenities {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 0 auto;
 }
 
-.amenities label {
+.form_amenities label {
   display: flex;
-	width: 70%;
+	width: 90%;
   justify-content: space-between;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
-.amenities label > input {
+.form_amenities label > input {
   margin-left: 20px;
   cursor: pointer;
 }
@@ -151,7 +149,7 @@ fieldset {
     width: 40%;
   }
 
-  .amenities label {
+  .form_amenities label {
     width: 40%;
   }
 
