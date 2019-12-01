@@ -9,7 +9,7 @@ export default class Modal extends React.Component {
         </header>
         <p>
           Totspots is a reviews app that helps parents to find kid-friendly
-          places to hang out in their town. Here you will find need-to-know
+          places to hang out in their town. Here parents can find need-to-know
           information like:
         </p>
         <ul>
@@ -17,6 +17,14 @@ export default class Modal extends React.Component {
           <li>Is it stroller accessible?</li>
           <li>Are there kid's specials?</li>
         </ul>
+
+        <p>If you would like to log in to demo adding a review or venue, voting on helpful reviews, and saving favorite venues please use the following login: 
+          <br />
+          username: Daniel
+          <br />
+          password: password
+
+        </p>
 
         <p>
           Please note that presently search results are limited to our pilot

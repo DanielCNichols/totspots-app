@@ -13,9 +13,10 @@ class LandingPage extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const city = ev.target.city.value.toLowerCase();
-    const queryState = ev.target.state.value.toLowerCase();
-    const type = ev.target.type.value.toLowerCase();
+    const target = ev.target
+    const city = target.city.value.toLowerCase();
+    const queryState = target.state.value.toLowerCase();
+    const type = target.type.value.toLowerCase();
     this.props.history.push(`/reviews/${city}/${queryState}/${type}`);
   };
 
@@ -96,7 +97,7 @@ class LandingPage extends React.Component {
         </div>
         {this.renderError()}
         <p>
-          Have an account? Go ahead and <Link to="/login">Log in!</Link>
+          Have an account? Go ahead and <Link to="/login">log in!</Link>
         </p>
       </section>
     );
