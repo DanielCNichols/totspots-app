@@ -68,11 +68,10 @@ class editReview extends Component {
     ApiService.editReview(id, newReview)
       .then(() => {
         this.resetFields(newReview);
-        this.context.updateReview(newReview);
+        // this.context.updateReview(newReview);
         this.props.history.goBack();
       })
       .catch(error => {
-        console.error(error);
         this.context.setError(error);
       });
   };

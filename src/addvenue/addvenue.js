@@ -70,7 +70,6 @@ class AddVenue extends React.Component {
       url,
       aObj
     )
-      .then(this.context.addVenue)
       .then(() => {
         this.props.history.goBack();
       })

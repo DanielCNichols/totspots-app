@@ -24,11 +24,12 @@ exports[`renders Edit Review as expected 1`] = `
         >
           Price
           <select
-            aria-label="price"
+            aria-required={true}
             className="edit_form_select"
             id="price"
             name="price"
             onChange={[Function]}
+            required={true}
             value=""
           >
             <option
@@ -37,27 +38,27 @@ exports[`renders Edit Review as expected 1`] = `
               Please select
             </option>
             <option
-              value="1"
+              value={1}
             >
               $
             </option>
             <option
-              value="2"
+              value={2}
             >
               $$
             </option>
             <option
-              value="3"
+              value={3}
             >
               $$$
             </option>
             <option
-              value="4"
+              value={4}
             >
               $$$$
             </option>
             <option
-              value="5"
+              value={5}
             >
               $$$$$
             </option>
@@ -69,11 +70,12 @@ exports[`renders Edit Review as expected 1`] = `
         >
           Describe the volume level
           <select
-            aria-label="Describe the volume level"
+            aria-required={true}
             className="edit_form_select"
             id="volume"
             name="volume"
             onChange={[Function]}
+            required={true}
             value=""
           >
             <option
@@ -82,29 +84,29 @@ exports[`renders Edit Review as expected 1`] = `
               Please select
             </option>
             <option
-              value="1"
+              value={1}
             >
-              Library
+              📣
             </option>
             <option
-              value="2"
+              value={2}
             >
-              Coffee Shop
+              📣📣
             </option>
             <option
-              value="3"
+              value={3}
             >
-              Restaurant
+              📣📣📣
             </option>
             <option
-              value="4"
+              value={4}
             >
-              Bar/Brewery
+              📣📣📣📣
             </option>
             <option
-              value="5"
+              value={5}
             >
-              Concert
+              📣📣📣📣📣
             </option>
           </select>
         </label>
@@ -114,11 +116,12 @@ exports[`renders Edit Review as expected 1`] = `
         >
           Overall rating
           <select
-            aria-label="Overall Rating"
+            aria-required={true}
             className="edit_form_select"
             id="rating"
             name="rating"
             onChange={[Function]}
+            required={true}
             value={1}
           >
             <option
@@ -127,29 +130,29 @@ exports[`renders Edit Review as expected 1`] = `
               Please select
             </option>
             <option
-              value="1"
+              value={1}
             >
               ★
             </option>
             <option
-              value="2"
+              value={2}
             >
-              ★ ★
+              ★★
             </option>
             <option
-              value="3"
+              value={3}
             >
-              ★ ★ ★
+              ★★★
             </option>
             <option
-              value="4"
+              value={4}
             >
-              ★ ★ ★ ★
+              ★★★★
             </option>
             <option
-              value="5"
+              value={5}
             >
-              ★ ★ ★ ★ ★
+              ★★★★★
             </option>
           </select>
         </label>

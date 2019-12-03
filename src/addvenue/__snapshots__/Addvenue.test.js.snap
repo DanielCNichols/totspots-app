@@ -9,9 +9,6 @@ exports[`renders AddVenue as expected 1`] = `
       Add A Venue
     </h2>
   </header>
-  <div
-    role="alert"
-  />
   <form
     className="add_form"
     onSubmit={[Function]}
@@ -188,7 +185,6 @@ exports[`renders AddVenue as expected 1`] = `
         >
           Price
           <select
-            aria-label="price"
             aria-required="true"
             className="add_form_select"
             id="price"
@@ -201,27 +197,27 @@ exports[`renders AddVenue as expected 1`] = `
               Please select
             </option>
             <option
-              value="1"
+              value={1}
             >
               $
             </option>
             <option
-              value="2"
+              value={2}
             >
               $$
             </option>
             <option
-              value="3"
+              value={3}
             >
               $$$
             </option>
             <option
-              value="4"
+              value={4}
             >
               $$$$
             </option>
             <option
-              value="5"
+              value={5}
             >
               $$$$$
             </option>
@@ -245,29 +241,29 @@ exports[`renders AddVenue as expected 1`] = `
               Please select
             </option>
             <option
-              value="1"
+              value={1}
             >
-              Library
+              📣
             </option>
             <option
-              value="2"
+              value={2}
             >
-              Coffee Shop
+              📣📣
             </option>
             <option
-              value="3"
+              value={3}
             >
-              Restaurant
+              📣📣📣
             </option>
             <option
-              value="4"
+              value={4}
             >
-              Bar/Brewery
+              📣📣📣📣
             </option>
             <option
-              value="5"
+              value={5}
             >
-              Concert
+              📣📣📣📣📣
             </option>
           </select>
         </label>
@@ -276,7 +272,6 @@ exports[`renders AddVenue as expected 1`] = `
         >
           Overall rating
           <select
-            aria-label="Overall Rating"
             aria-required="true"
             className="add_form_select"
             id="rating"
@@ -289,29 +284,29 @@ exports[`renders AddVenue as expected 1`] = `
               Please select
             </option>
             <option
-              value="1"
+              value={1}
             >
               ★
             </option>
             <option
-              value="2"
+              value={2}
             >
-              ★ ★
+              ★★
             </option>
             <option
-              value="3"
+              value={3}
             >
-              ★ ★ ★
+              ★★★
             </option>
             <option
-              value="4"
+              value={4}
             >
-              ★ ★ ★ ★
+              ★★★★
             </option>
             <option
-              value="5"
+              value={5}
             >
-              ★ ★ ★ ★ ★
+              ★★★★★
             </option>
           </select>
         </label>
@@ -321,7 +316,7 @@ exports[`renders AddVenue as expected 1`] = `
       <legend>
         Features
         <div
-          className="amenities"
+          className="form_amenities"
         >
           <label
             htmlFor="StrollerAccessible"
@@ -329,6 +324,7 @@ exports[`renders AddVenue as expected 1`] = `
             Stroller Accessible
             <input
               aria-label="Stroller Accessible"
+              className="checkBox"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -341,6 +337,7 @@ exports[`renders AddVenue as expected 1`] = `
             Play Area
             <input
               aria-label="Play Area"
+              className="checkBox"
               name="PlayArea"
               onChange={[Function]}
               type="checkbox"
@@ -354,6 +351,7 @@ exports[`renders AddVenue as expected 1`] = `
             Changing Table
             <input
               aria-label="Changing Table"
+              className="checkBox"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -366,6 +364,7 @@ exports[`renders AddVenue as expected 1`] = `
             Dogs Welcome
             <input
               aria-label="Dogs welcome"
+              className="checkBox"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -379,6 +378,7 @@ exports[`renders AddVenue as expected 1`] = `
             Fast Checkout
             <input
               aria-label="Fast Checkout"
+              className="checkBox"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -392,6 +392,7 @@ exports[`renders AddVenue as expected 1`] = `
             Kids Night Deals
             <input
               aria-label="Kids night deals"
+              className="checkBox"
               name="amenities"
               onChange={[Function]}
               type="checkbox"
@@ -405,6 +406,7 @@ exports[`renders AddVenue as expected 1`] = `
             Outdoor Seating
             <input
               aria-label="outdoor seating"
+              className="checkBox"
               name="amenities"
               onChange={[Function]}
               type="checkbox"

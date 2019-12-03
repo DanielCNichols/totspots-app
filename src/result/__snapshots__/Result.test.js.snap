@@ -14,43 +14,63 @@ exports[`renders Result as expected 1`] = `
     <span
       className="rating"
     >
-      <span>
-        ★
-      </span>
-      <span>
-        ★
-      </span>
-      <span>
-        ★
-      </span>
+      <div>
+        <span>
+          ★
+        </span>
+        <span>
+          ★
+        </span>
+        <span>
+          ★
+        </span>
+      </div>
     </span>
   </div>
-  <p
-    className="price"
+  <div
+    className="result_address"
   >
     <span>
-      $
+      Bar
     </span>
-    <span>
-      $
-    </span>
-  </p>
-  <span>
-    123 Main st.
-  </span>
-   
-  <span
-    className="city"
-  >
-    Durham
-  </span>
-  ,
-  <span
-    className="state"
-  >
-     
-    NC
-  </span>
+    <div
+      className="price_span"
+    >
+      <span>
+        $
+      </span>
+      <span>
+        $
+      </span>
+    </div>
+    <p>
+      Phone: 
+      Not provided
+    </p>
+    <p>
+      <span>
+        Address: 
+        123 Main st.
+      </span>
+       
+      <span
+        className="city"
+      >
+        Durham
+      </span>
+      ,
+      <span
+        className="state"
+      >
+         
+        NC
+      </span>
+    </p>
+    <p>
+      Website: 
+      Not provided
+    </p>
+  </div>
   <button
     onClick={[Function]}
   >

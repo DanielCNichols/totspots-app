@@ -2,10 +2,14 @@
 
 exports[`renders ResultsPage as expected 1`] = `
 <div>
-  <div>
-    <p>
-      Sorry, no results found for that search
-    </p>
-  </div>
+  <section
+    className="results_page"
+  >
+    <div>
+      <p>
+        Sorry, no results found for that search
+      </p>
+    </div>
+  </section>
 </div>
 `;
