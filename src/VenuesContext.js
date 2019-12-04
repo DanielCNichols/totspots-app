@@ -18,11 +18,6 @@ const VenuesContext = React.createContext({
   setError: () => {},
   setFavorites: () => {},
   setAmenities: () => {},
-  setSearchState: () => {},
-  setCity: () => {},
-  setType: () => {},
-  addReview: () => {},
-  updateReview: () => {},
   setUserReviews: () => {},
   setProfile: () => {},
   deleteReview: () => {},
@@ -51,9 +46,6 @@ export class VenuesProvider extends Component {
     this.setState({ venues });
   };
 
-  addVenue = newVenue => {
-    this.setVenues([...this.state.venues, newVenue]);
-  };
 
   setProfile = profile => {
     this.setState({ profile });
@@ -85,44 +77,18 @@ export class VenuesProvider extends Component {
     })
   }
 
-
-
-  updateReview = updatedReview => {
-    this.setState({
-      userReviews: this.state.userReviews.map(review =>
-        review.id !== updatedReview.id ? review : updatedReview
-      )
-    });
-  };
-
-  addReview = newReview => {
-    this.setReviews([...this.state.reviews, newReview]);
-  };
-
   setFavorites = favorites => {
     this.setState({ favorites });
   };
 
-  setSelectedVenue = venueid => {
-    let selected = this.state.venues.find(venue => venue.id === venueid);
-    this.setState({ selectedVenue: selected });
+  setSelectedVenue = venue => {
+    this.setState({selectedVenue: venue})
   };
 
   clearSelectedVenue = () => {
     this.setSelectedVenue(null);
   };
 
-  setCity = city => {
-    this.setState({ city });
-  };
-
-  setSearchState = searchState => {
-    this.setState({ searchState });
-  };
-
-  setType = type => {
-    this.setState({ type });
-  };
 
   setAmenities = amenities => {
     this.setState({ amenities });
@@ -159,13 +125,8 @@ export class VenuesProvider extends Component {
       setProfile: this.setProfile,
       clearError: this.clearError,
       setVenues: this.setVenues,
-      setCity: this.setCity,
-      setSearchState: this.setSearchState,
       updateVote: this.updateVote,
-      setType: this.setType,
       setFavorites: this.setFavorites,
-      addReview: this.addReview,
-      updateReview: this.updateReview,
       setUserReviews: this.setUserReviews,
       deleteReview: this.deleteReview,
       deleteFavorite: this.deleteFavorite,

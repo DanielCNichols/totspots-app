@@ -11,7 +11,7 @@ it('renders VenuesPage without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
   <MemoryRouter>
-    <VenuesPage />
+    <VenuesPage match={{params: {venue_id:3}}}/>
   </MemoryRouter>, div);
   ReactDOM.unmountComponentAtNode(div)
 })
@@ -20,7 +20,7 @@ it('renders VenuesPage as expected', () => {
   const tree = renderer
   .create(
   <MemoryRouter>
-    <VenuesPage name="VenuesPage"/>
+    <VenuesPage name="VenuesPage" match={{params: {venue_id:3}}}/>
   </MemoryRouter>
   )
   .toJSON();

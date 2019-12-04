@@ -41,9 +41,6 @@ exports[`renders Login as expected 1`] = `
     <button>
       Log in
     </button>
-    <p>
-      Forgot Password?
-    </p>
   </form>
 </section>
 `;

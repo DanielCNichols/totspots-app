@@ -16,7 +16,7 @@ exports[`renders ReviewForm as expected 1`] = `
   >
     <fieldset>
       <legend>
-         Your Review
+        Your Review
         <div
           className="review_form_selects"
         >
@@ -25,7 +25,6 @@ exports[`renders ReviewForm as expected 1`] = `
           >
             Price
             <select
-              aria-label="Price"
               aria-required="true"
               className="review_form_select"
               id="price"
@@ -38,27 +37,27 @@ exports[`renders ReviewForm as expected 1`] = `
                 Please select
               </option>
               <option
-                value="1"
+                value={1}
               >
                 $
               </option>
               <option
-                value="2"
+                value={2}
               >
                 $$
               </option>
               <option
-                value="3"
+                value={3}
               >
                 $$$
               </option>
               <option
-                value="4"
+                value={4}
               >
                 $$$$
               </option>
               <option
-                value="5"
+                value={5}
               >
                 $$$$$
               </option>
@@ -69,7 +68,6 @@ exports[`renders ReviewForm as expected 1`] = `
           >
             Describe the volume level
             <select
-              aria-label="Describe the volume level"
               aria-required="true"
               className="review_form_select"
               id="volume"
@@ -82,29 +80,29 @@ exports[`renders ReviewForm as expected 1`] = `
                 Please select
               </option>
               <option
-                value="1"
+                value={1}
               >
-                Library
+                📣
               </option>
               <option
-                value="2"
+                value={2}
               >
-                Coffee Shop
+                📣📣
               </option>
               <option
-                value="3"
+                value={3}
               >
-                Restaurant
+                📣📣📣
               </option>
               <option
-                value="4"
+                value={4}
               >
-                Bar/Brewery
+                📣📣📣📣
               </option>
               <option
-                value="5"
+                value={5}
               >
-                Concert
+                📣📣📣📣📣
               </option>
             </select>
           </label>
@@ -113,7 +111,6 @@ exports[`renders ReviewForm as expected 1`] = `
           >
             Overall rating
             <select
-              aria-label="Overall Rating"
               aria-required="true"
               className="review_form_select"
               id="rating"
@@ -126,29 +123,29 @@ exports[`renders ReviewForm as expected 1`] = `
                 Please select
               </option>
               <option
-                value="1"
+                value={1}
               >
                 ★
               </option>
               <option
-                value="2"
+                value={2}
               >
-                ★ ★
+                ★★
               </option>
               <option
-                value="3"
+                value={3}
               >
-                ★ ★ ★
+                ★★★
               </option>
               <option
-                value="4"
+                value={4}
               >
-                ★ ★ ★ ★
+                ★★★★
               </option>
               <option
-                value="5"
+                value={5}
               >
-                ★ ★ ★ ★ ★
+                ★★★★★
               </option>
             </select>
           </label>
@@ -157,7 +154,8 @@ exports[`renders ReviewForm as expected 1`] = `
     </fieldset>
     <fieldset>
       <legend>
-         Features
+         
+        Features
         <div
           className="review_amenities"
         >
@@ -170,6 +168,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Stroller Accessible
               <input
                 aria-label="Stroller Accessible"
+                className="checkBox"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -182,6 +181,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Play Area
               <input
                 aria-label="Play area"
+                className="checkBox"
                 name="PlayArea"
                 onChange={[Function]}
                 type="checkbox"
@@ -195,6 +195,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Changing Table
               <input
                 aria-label="Changing table"
+                className="checkBox"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -211,6 +212,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Dogs Welcome
               <input
                 aria-label="Dogs Welcome"
+                className="checkBox"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -224,6 +226,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Fast Checkout
               <input
                 aria-label="Fast Checkout"
+                className="checkBox"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -237,6 +240,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Kids Night Deals
               <input
                 aria-label="kids night deals"
+                className="checkBox"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"
@@ -250,6 +254,7 @@ exports[`renders ReviewForm as expected 1`] = `
               Outdoor Seating Available
               <input
                 aria-label="outdoor seating"
+                className="checkBox"
                 name="amenities"
                 onChange={[Function]}
                 type="checkbox"

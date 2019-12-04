@@ -68,7 +68,6 @@ export default class Login extends Component {
         </fieldset>
       <button>Log in</button>
       {this.renderError()}
-        <p>Forgot Password?</p>
       </form>
     </section>
     )

@@ -36,11 +36,7 @@ exports[`renders App as expected 1`] = `
   </nav>
   <div
     className="sidebar"
-  >
-    <div>
-      Hello World
-    </div>
-  </div>
+  />
   <div
     className="main"
   >
@@ -124,7 +120,8 @@ exports[`renders App as expected 1`] = `
             className="search_form_label"
             htmlFor="city"
           >
-             City
+             
+            City
             <input
               aria-label="choose city"
               aria-required="true"
@@ -140,7 +137,8 @@ exports[`renders App as expected 1`] = `
             className="search_form_label"
             htmlFor="state"
           >
-             State
+             
+            State
             <input
               aria-label="Choose state"
               aria-required="true"
@@ -170,7 +168,7 @@ exports[`renders App as expected 1`] = `
           href="/login"
           onClick={[Function]}
         >
-          Log in!
+          log in!
         </a>
       </p>
     </section>

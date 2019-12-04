@@ -13,6 +13,16 @@ const ApiService = {
     );
   },
 
+  getVenueProfile(id) {
+    return fetch(`${config.API_ENDPOINT}/venues/profile/${id}`, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
   getReviews(venue_id) {
     return fetch(`${config.API_ENDPOINT}/reviews/venues/${venue_id}`, {
       headers: {
@@ -105,7 +115,6 @@ const ApiService = {
     )
   },
 
-  
   addVenue(venue_name, address, city, state, venue_type, zipcode, price, volume, starrating, content, phone, url, aObj) {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',

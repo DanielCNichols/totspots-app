@@ -2,8 +2,20 @@
   margin: 20px 0;
   width: 100%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
   border: 2px solid #064789;
+	padding-bottom: 20px;
+}
+
+.userReview_info {
+	 width: 100%;
+	 margin: auto;
+}
+
+.userReviewItem h3 {
+	 width: 100%;
+	 text-align: center;
+	 padding: 20px;
+	 background-color: #017ec1;
 }
 
 .review p {
@@ -11,14 +23,18 @@
 }
 
 .rating_info {
-  margin-bottom: 15px;
+  margin: 15px auto;
+	width: 80%;	
+	border-bottom: 3px solid #064789;
+	border-top: 3px solid #064789;
+	/* padding: 10px 0; */
 }
 
 .user_rating {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 10px auto;
   align-items: center;
 }
 
@@ -36,11 +52,21 @@
 }
 .user_content {
   word-wrap: break-word;
-  margin: 20px 0;
+  margin: 20px auto;
+  width: 80%;
 }
 
 .user_content p {
   margin: 10px 0;
+}
+
+.user_content p:nth-child(1) {
+  font-style: oblique;
+}
+
+.user_content p:nth-child(2) {
+  margin: 10px auto;
+  width: 90%;
 }
 
 .userReview_controls {
@@ -52,10 +78,10 @@
 
 .userReview_controls button {
   display: block;
-  min-width: 180px;
+  min-width: 200px;
   height: 40px;
   margin: 10px auto;
-  border-radius: 17px;
+  border-radius: 5px;
   cursor: pointer;
   background-color: transparent;
   font-size: 1.1em;
@@ -70,9 +96,18 @@
 }
 
 @media screen and (min-width: 450px) {
+  .userReviewItem {
+    margin: 30px auto;
+    width: 100%;
+    font-size: 1.2em;
+  }
   .userReview_controls {
     display: flex;
     justify-content: center;
+  }
+
+  .user_rating {
+    width: 80%;
   }
 
   .userReview_controls button {

@@ -1,36 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import VenueContext from '../VenuesContext'
-import {withRouter} from 'react-router-dom';
-import './LandingPage.css'
+import VenueContext from '../VenuesContext';
+import { withRouter } from 'react-router-dom';
+import './LandingPage.css';
 
 class LandingPage extends React.Component {
-  static contextType = VenueContext
-
+  static contextType = VenueContext;
 
   componentDidMount() {
     this.context.clearError();
   }
 
   handleSubmit = ev => {
-    ev.preventDefault()
-    const city = ev.target.city.value.toLowerCase();
-    const queryState = ev.target.state.value.toLowerCase();
-    const type = ev.target.type.value.toLowerCase();
-    this.context.setCity(city)
-    this.context.setSearchState(queryState)
-    this.context.setType(type)
-    this.props.history.push('/reviews')
-    };
+    ev.preventDefault();
+    const target = ev.target
+    const city = target.city.value.toLowerCase();
+    const queryState = target.state.value.toLowerCase();
+    const type = target.type.value.toLowerCase();
+    this.props.history.push(`/reviews/${city}/${queryState}/${type}`);
+  };
 
   renderError() {
-    let error = this.context.error
-    if(this.context.error) {
+    let error = this.context.error;
+    if (this.context.error) {
       return (
         <div className="error">
           <p>Sorry something has gone wrong. {error.error}</p>
         </div>
-      )
+      );
     }
   }
 
@@ -44,8 +41,15 @@ class LandingPage extends React.Component {
         <div className="search">
           <p>I want to take my family to a...</p>
           <form className="search_form" onSubmit={this.handleSubmit}>
-            <label  className="search_form_label" htmlFor="type" required>Venue or event...
-              <select className="search_form_select" name="type" id="type" aria-label="choose Venue or event" aria-required="true">
+            <label className="search_form_label" htmlFor="type" required>
+              Venue or event...
+              <select
+                className="search_form_select"
+                name="type"
+                id="type"
+                aria-label="choose Venue or event"
+                aria-required="true"
+              >
                 <option value="">Select a type of venue/event</option>
                 <option value="Restaurant">Restaurants</option>
                 <option value="Bar">Brewery/Bar</option>
@@ -56,7 +60,9 @@ class LandingPage extends React.Component {
               </select>
             </label>
             <p>in...</p>
-            <label className= "search_form_label" htmlFor="city"> City
+            <label className="search_form_label" htmlFor="city">
+              {' '}
+              City
               <input
                 aria-required="true"
                 aria-label="choose city"
@@ -68,13 +74,13 @@ class LandingPage extends React.Component {
                 required
               />
             </label>
-            <label 
-            className="search_form_label"
-            htmlFor="state"> State
+            <label className="search_form_label" htmlFor="state">
+              {' '}
+              State
               <input
-              aria-required="true"
-              aria-label="Choose state"
-              className="search_form_text"
+                aria-required="true"
+                aria-label="Choose state"
+                className="search_form_text"
                 type="text"
                 name="state"
                 max-length="2"
@@ -83,17 +89,19 @@ class LandingPage extends React.Component {
               />
             </label>
             <div className="search_form_control">
-            <button className="search_form_button" type="submit">Let's go!</button>
+              <button className="search_form_button" type="submit">
+                Let's go!
+              </button>
             </div>
           </form>
         </div>
         {this.renderError()}
         <p>
-          Have an account? Go ahead and <Link to='/login'>Log in!</Link>
+          Have an account? Go ahead and <Link to="/login">log in!</Link>
         </p>
       </section>
     );
   }
 }
 
-export default withRouter(LandingPage)
+export default withRouter(LandingPage);

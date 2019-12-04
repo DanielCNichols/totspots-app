@@ -6,22 +6,26 @@ exports[`renders Profileview as expected 1`] = `
 >
   <header>
     <h3>
-      Your profile
+      Your Profile
     </h3>
   </header>
   <div
     role="alert"
   />
-  <p>
-    Name: 
-     
-  </p>
-  <p>
-    Email: 
-  </p>
-  <p>
-    UserName: 
-  </p>
+  <div
+    className="profile_info"
+  >
+    <p>
+      Name: 
+       
+    </p>
+    <p>
+      Email: 
+    </p>
+    <p>
+      UserName: 
+    </p>
+  </div>
   <div>
     <div>
       <div>
@@ -49,22 +53,26 @@ exports[`renders Profileview as expected with no profile 1`] = `
 >
   <header>
     <h3>
-      Your profile
+      Your Profile
     </h3>
   </header>
   <div
     role="alert"
   />
-  <p>
-    Name: 
-     
-  </p>
-  <p>
-    Email: 
-  </p>
-  <p>
-    UserName: 
-  </p>
+  <div
+    className="profile_info"
+  >
+    <p>
+      Name: 
+       
+    </p>
+    <p>
+      Email: 
+    </p>
+    <p>
+      UserName: 
+    </p>
+  </div>
   <div>
     <div>
       <div>

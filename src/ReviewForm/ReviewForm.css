@@ -129,12 +129,12 @@ textarea {
 
 @media screen and (min-width: 800px) {
   .review_form {
-    width: 60%;
+    width: 80%;
   }
 
   .review_form_selects {
-    display: flex;
-    justify-content: center;
+    width: 40%;
+		margin: auto;
   }
 
   .review_amenities {
@@ -156,7 +156,7 @@ textarea {
   }
 
   .review_form_textarea {
-    width: 60%;
+    width: 40%;
   }
 
   .review_form_controls {

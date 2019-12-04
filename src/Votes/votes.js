@@ -35,7 +35,6 @@ class Votes extends React.Component {
         })
         .catch(error => {
           this.context.setError(error);
-          console.error(error);
         });
     }
   };

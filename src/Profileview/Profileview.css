@@ -3,6 +3,16 @@
   margin: 100px auto;
 }
 
+.profileview h3 {
+	 font-size: 1.5em;
+}
+
+.profile_info {
+	 width: 70%;
+	 margin: 20px auto 50px auto;
+	 font-size: 1.3em;
+}
+
 @media screen and (min-width: 450px) {
   .profileview {
     width: 70%;

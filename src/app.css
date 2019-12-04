@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap');
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -13,10 +15,16 @@ a:visited {
 body {
   margin: 0;
   font-family: 'Oswald', sans-serif;
-  background-color: #f8f7f7;
+  /* background-color: #f8f7f7; */
+	background-color: #e9ebee;
 }
 
-body h1,
+h1 {
+	 font-family: 'Love Ya Like A Sister', cursive;
+	 font-size: 3em;
+	 margin: 0;
+}
+
 h2,
 h3,
 h4 {

@@ -7,9 +7,11 @@ exports[`renders Review as expected 1`] = `
   <h3>
      
   </h3>
-  <p>
-    Visited: 
-    October 30th, 2019
+  <p
+    className="review_date"
+  >
+    Visited 
+    December 4th, 2019
   </p>
   <div
     className="rating_break"
@@ -17,40 +19,45 @@ exports[`renders Review as expected 1`] = `
     <div
       className="userRating"
     >
-      Overall: 
+      Overall:
+       
       <span
         className="rating"
       >
-        <div>
-          <p>
-            No reviews
-          </p>
-        </div>
+        <span
+          className="NA"
+        >
+          Not Rated
+        </span>
       </span>
     </div>
     <div
       className="userRating"
     >
-      Price: 
+      Price:
+       
       <span
         className="price"
       >
-        <p>
-          Price unavailable
-        </p>
+        <span
+          className="NA"
+        >
+          Not Rated
+        </span>
       </span>
     </div>
     <div
       className="userRating"
     >
-      Volume Level: 
+      Volume Level:
+       
       <span
         className="volume"
       >
         <span
           className="NA"
         >
-          volume unavailable
+          Not Rated
         </span>
       </span>
     </div>

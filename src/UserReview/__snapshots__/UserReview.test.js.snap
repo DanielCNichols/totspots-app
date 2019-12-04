@@ -4,75 +4,87 @@ exports[`renders UserReview as expected 1`] = `
 <li
   className="userReviewItem"
 >
-  <h4 />
-  <p>
-    Visited 
-    October 18th, 2019
-  </p>
+  <h3 />
   <div
-    className="rating_info"
+    className="userReview_info"
   >
-    <div
-      className="user_rating"
+    <p
+      className="review_date"
     >
-      Your Rating: 
-      <span
-        className="rating"
-      >
-        <span>
-          ★
-        </span>
-        <span>
-          ★
-        </span>
-        <span>
-          ★
-        </span>
-      </span>
-    </div>
+      Visited 
+      October 18th, 2019
+    </p>
     <div
-      className="user_rating"
+      className="rating_info"
     >
-      Your Price: 
-      <span
-        className="price"
+      <div
+        className="user_rating"
       >
-        <span>
-          $
-        </span>
-        <span>
-          $
-        </span>
-        <span>
-          $
-        </span>
-      </span>
-    </div>
-    <div
-      className="user_rating"
-    >
-      Your Volume Level: 
-      <span
-        className="volume"
-      >
+        Rating:
+         
         <span
-          aria-label="volume level"
-          role="img"
+          className="rating"
         >
-          📣
+          <div>
+            <span>
+              ★
+            </span>
+            <span>
+              ★
+            </span>
+            <span>
+              ★
+            </span>
+          </div>
         </span>
-      </span>
+      </div>
+      <div
+        className="user_rating"
+      >
+        Price:
+         
+        <span
+          className="price"
+        >
+          <div>
+            <span>
+              $
+            </span>
+            <span>
+              $
+            </span>
+            <span>
+              $
+            </span>
+          </div>
+        </span>
+      </div>
+      <div
+        className="user_rating"
+      >
+        Volume Level:
+         
+        <span
+          className="volume"
+        >
+          <div>
+            <span>
+              📣
+            </span>
+          </div>
+        </span>
+      </div>
     </div>
-  </div>
-  <div
-    className="user_content"
-  >
-    <p>
-      Here's what you had to say
-    </p>
-    <p>
-      Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.
-    </p>
+    <div
+      className="user_content"
+    >
+      <p>
+        Here's what you had to say:
+      </p>
+      <p>
+        Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.
+      </p>
+    </div>
   </div>
   <div
     className="userReview_controls"
