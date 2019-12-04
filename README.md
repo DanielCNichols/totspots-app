@@ -25,12 +25,19 @@ The API was composed using Node.js and the Express Router framework.
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/52935999/67870862-e06a9380-fb05-11e9-9feb-7097e0a0b390.png" width="250"/>
+<img src="https://user-images.githubusercontent.com/52935999/70148705-ab0d1480-1674-11ea-800f-ee2bfbb657ec.png" width="250"/>
 
 
-<img src="https://user-images.githubusercontent.com/52935999/67870971-0859f700-fb06-11e9-874b-f66468ff2667.png" width="250"/>
+<img src="https://user-images.githubusercontent.com/52935999/70148706-ab0d1480-1674-11ea-8285-8cec5b33c0f9.png" width="250"/>
 
-<img src="https://user-images.githubusercontent.com/52935999/67871068-29224c80-fb06-11e9-9ee9-a2abaddb72dd.png" width="250"/>
+<img src="https://user-images.githubusercontent.com/52935999/70148707-ab0d1480-1674-11ea-86be-d6340b01cb0d.png" width="250"/>
+
+
+<img src="https://user-images.githubusercontent.com/52935999/70148708-ab0d1480-1674-11ea-8cd3-080830518246.png" width="250"/>
+
+<img src="https://user-images.githubusercontent.com/52935999/70148709-ab0d1480-1674-11ea-8a0b-5fe0d86b9546.png" width="250"/>
+
+<img src="https://user-images.githubusercontent.com/52935999/70148710-aba5ab00-1674-11ea-879c-63f845eff3d9.pngg" width="250"/>
 
 
 
