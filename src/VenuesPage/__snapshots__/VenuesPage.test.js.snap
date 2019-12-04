@@ -7,7 +7,9 @@ exports[`renders VenuesPage as expected 1`] = `
   <section
     className="venueProfile"
   >
-    <header>
+    <header
+      className="venueProfile_header"
+    >
       <h2 />
     </header>
     <div
@@ -22,7 +24,8 @@ exports[`renders VenuesPage as expected 1`] = `
       <span
         className="city"
       />
-      , 
+      ,
+       
       <span
         className="state"
       />
@@ -45,52 +48,55 @@ exports[`renders VenuesPage as expected 1`] = `
       <div
         className="average"
       >
-        Overall Rating: 
+        Overall Rating:
+         
         <span
           className="rating"
         >
           <span
             className="NA"
           >
-            No reviews
+            Not Rated
           </span>
         </span>
       </div>
       <div
         className="average"
       >
-        Overall Price: 
+        Overall Price:
+         
         <span
           className="price"
         >
           <span
             className="NA"
           >
-            Price unavailable
+            Not Rated
           </span>
         </span>
       </div>
       <div
         className="average"
       >
-        Overall Volume Level: 
+        Overall Volume Level:
+         
         <span
           className="volume"
         >
           <span
             className="NA"
           >
-            volume unavailable
+            Not Rated
           </span>
         </span>
       </div>
-      <div
-        className="amenities"
-      >
-        <h3>
-          Features
-        </h3>
-      </div>
+    </div>
+    <div
+      className="amenities"
+    >
+      <h3>
+        Features
+      </h3>
     </div>
     <div
       className="venue_controls"

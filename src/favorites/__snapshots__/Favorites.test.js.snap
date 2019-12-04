@@ -7,45 +7,69 @@ exports[`renders Favorites as expected 1`] = `
   <h3>
     Early Bird
   </h3>
-  <p
-    className="type"
+  <div
+    className="favorite_info"
   >
-    Restaurant
-  </p>
-  <p>
-    987 Erwin Rd.
-  </p>
-  <span
-    className="city"
+    <p
+      className="type"
+    >
+      Type: 
+      Restaurant
+    </p>
+    <p>
+      Address: 
+      987 Erwin Rd.
+      <span
+        className="city"
+      >
+        Durham
+      </span>
+      ,
+       
+      <span
+        className="state"
+      >
+        NC
+         
+      </span>
+      <span>
+        27705
+      </span>
+    </p>
+    <p
+      className="link"
+    >
+      Website:
+      <a
+        href={null}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span>
+            
+        </span>
+      </a>
+    </p>
+    <p>
+      Phone: 
+      9848880417
+    </p>
+  </div>
+  <div
+    className="favorites_controls"
   >
-    Durham
-  </span>
-  , 
-  <span
-    className="state"
-  >
-    NC
-     
-  </span>
-  <span>
-    27705
-  </span>
-  <p
-    className="link"
-  >
-    <a
-      href={null}
-      rel="noopener noreferrer"
-      target="_blank"
-    />
-  </p>
-  <p>
-    9848880417
-  </p>
-  <button
-    onClick={[Function]}
-  >
-    Remove
-  </button>
+    <button
+      className="visit"
+      onClick={[Function]}
+    >
+      See more
+    </button>
+    <button
+      className="delete_favorite"
+      onClick={[Function]}
+    >
+      Remove
+    </button>
+  </div>
 </li>
 `;

@@ -19,7 +19,10 @@ let favorite= {
 
 it('renders Favorites.js without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Favorites favorites={favorite}/>, div);
+  ReactDOM.render(
+  <MemoryRouter>
+    <Favorites favorites={favorite}/>, div);
+  </MemoryRouter>, div)
   ReactDOM.unmountComponentAtNode(div);
 });
 
@@ -27,8 +30,9 @@ it('renders Favorites.js without crashing', () => {
 it('renders Favorites as expected', () => {
   const tree = renderer
   .create(
-    <Favorites name="Favorites" favorites={favorite}/>
-  )
+    <MemoryRouter>
+      <Favorites name="Favorites" favorites={favorite}/>
+    </MemoryRouter>)
   .toJSON();
   expect(tree).toMatchSnapshot();
 })
