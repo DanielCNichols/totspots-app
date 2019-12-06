@@ -43,7 +43,7 @@ class Result extends React.Component {
           ,
           <span className='state'>
             {' '}
-            {venue.state ? venue.state : 'Not provided'}
+            {venue.state ? venue.state.toUpperCase() : 'Not provided'}
           </span>
           </p>
           <p>Website: {venue.url ? venue.url : 'Not provided'}</p>
