@@ -1,3 +1,9 @@
+#### Links 
+
+Live app: https://totspots.now.sh/
+
+API: https://github.com/DanielCNichols/totspots-server
+
 # Totspots
 
 Hi! My name is Daniel. Thank you for dropping by the Totspots repo.
@@ -32,10 +38,6 @@ The API was composed using Node.js and the Express Router framework.
 
 <img src="https://user-images.githubusercontent.com/52935999/70148707-ab0d1480-1674-11ea-86be-d6340b01cb0d.png" width="250"/>
 
-
-<img src="https://user-images.githubusercontent.com/52935999/70148708-ab0d1480-1674-11ea-8cd3-080830518246.png" width="250"/>
-
-<img src="https://user-images.githubusercontent.com/52935999/70148709-ab0d1480-1674-11ea-8a0b-5fe0d86b9546.png" width="250"/>
 
 <img src="https://user-images.githubusercontent.com/52935999/70148710-aba5ab00-1674-11ea-879c-63f845eff3d9.png" width="250"/>
 
