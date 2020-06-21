@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import VenueContext from '../VenuesContext';
 import { withRouter } from 'react-router-dom';
 import './LandingPage.css';
-
+import banner from '../assets/annie-spratt-WS2anBsrum0-unsplash.jpg';
 class LandingPage extends React.Component {
   static contextType = VenueContext;
 
@@ -13,7 +13,7 @@ class LandingPage extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    const target = ev.target
+    const target = ev.target;
     const city = target.city.value.toLowerCase();
     const queryState = target.state.value.toLowerCase();
     const type = target.type.value.toLowerCase();
@@ -33,73 +33,99 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <section className="landingpage">
-        <header className="landingpage_hero">
-          <h1>Tot Spots</h1>
-          <p>For parents, by parents</p>
-        </header>
-        <div className="search">
-          <p>I want to take my family to a...</p>
-          <form className="search_form" onSubmit={this.handleSubmit}>
-            <label className="search_form_label" htmlFor="type" required>
-              Venue or event...
-              <select
-                className="search_form_select"
-                name="type"
-                id="type"
-                aria-label="choose Venue or event"
-                aria-required="true"
+      <>
+        <div
+          className="wrapper"
+          style={{
+            width: '100%',
+            padding: '250px 0 10px 0',
+            margin: '0 0 50px 0',
+          }}
+        >
+          <img
+            className="pict"
+            src={banner}
+            alt="kids"
+            style={{
+              width: '100%',
+              height: '700px',
+              position: 'fixed',
+              top: 0,
+              zIndex: '-1',
+              backgroundPosition: 'center center',
+            }}
+          ></img>
+          <div
+            className="splash"
+            style={{ width: '50%', textAlign: 'center', margin: '0 auto' }}
+          >
+            <h1>This is the tagline</h1>
+            <p>This is some clever wording</p>
+          </div>
+          <form
+            style={{
+              display: 'flex',
+              width: '70%',
+              margin: '100px auto 10px auto',
+              justifyContent: 'space-evenly',
+              alignItems: 'flex-end',
+            }}
+          >
+            <div className="form-element">
+              <label
+                htmlFor="type"
+                style={{ margin: '0', textAlign: 'left', color: 'white' }}
               >
-                <option value="">Select a type of venue/event</option>
-                <option value="Restaurant">Restaurants</option>
-                <option value="Bar">Brewery/Bar</option>
-                <option value="Coffee">Coffee Shop</option>
-                <option value="Educational">Educational</option>
-                <option value="music">Music</option>
-                <option value="outdoor">Outdoor</option>
-              </select>
-            </label>
-            <p>in...</p>
-            <label className="search_form_label" htmlFor="city">
-              {' '}
-              City
+                Looking for
+              </label>
               <input
-                aria-required="true"
-                aria-label="choose city"
-                className="search_form_text"
                 type="text"
-                name="city"
-                id="city"
-                placeholder="Durham"
-                required
+                id="type"
+                style={{
+                  height: '45px',
+                  width: '250px',
+                  borderRadius: '5px',
+                  border: 'none',
+                }}
               />
-            </label>
-            <label className="search_form_label" htmlFor="state">
-              {' '}
-              State
-              <input
-                aria-required="true"
-                aria-label="Choose state"
-                className="search_form_text"
-                type="text"
-                name="state"
-                max-length="2"
-                placeholder="NC"
-                required
-              />
-            </label>
-            <div className="search_form_control">
-              <button className="search_form_button" type="submit">
-                Let's go!
-              </button>
             </div>
+            <div className="form-element">
+              <label
+                htmlFor="location"
+                style={{ margin: '0', textAlign: 'left', color: 'white' }}
+              >
+                Located in
+              </label>
+              <input
+                type="text"
+                id="location"
+                style={{
+                  height: '45px',
+                  width: '250px',
+                  borderRadius: '5px',
+                  border: 'none',
+                }}
+              />
+            </div>
+            <button
+              style={{
+                height: '45px',
+                width: '250px',
+                borderRadius: '5px',
+                backgroundColor: '#4db8ff',
+                fontSize: '1.3em',
+                border: 'none',
+              }}
+            >
+              Go!
+            </button>
           </form>
         </div>
-        {this.renderError()}
-        <p>
-          Have an account? Go ahead and <Link to="/login">log in!</Link>
-        </p>
-      </section>
+        <div
+          className="onboarding"
+          style={{ height: '400px', backgroundColor: 'lightBlue' }}
+        ></div>
+      </>
     );
   }
 }

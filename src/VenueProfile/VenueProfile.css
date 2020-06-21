@@ -3,10 +3,10 @@
 }
 
 .venueProfile_header {
-	 background-color: #f14038;
-	 padding: 5px;
-	 margin: 0;
-	 color: white;
+  background-color: #f14038;
+  padding: 5px;
+  margin: 0;
+  color: white;
 }
 
 .link > a {
@@ -27,7 +27,7 @@
 
 .average {
   width: 80%;
-  margin:  10px auto;
+  margin: 10px auto;
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
@@ -35,50 +35,48 @@
 }
 
 .contact {
-	 width: 80%;
+  width: 80%;
   padding: 0 10px 10px 10px;
   text-align: center;
   margin: 0 auto 0px auto;
-	border-bottom: 3px solid #064789;
+  border-bottom: 3px solid #064789;
 }
 
- 
 .venueProfile {
-	border-radius: 3px;
+  border-radius: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	padding-bottom: 5px;
+  padding-bottom: 5px;
 }
-
 
 .venueProfile p {
   margin: 5px 0;
 }
 
 .ratings {
-	margin: 15px auto; 
+  margin: 15px auto;
 }
 
 .amenities h3 {
   text-align: center;
 }
 
- .amenities {
-	padding: 10px;
+.amenities {
+  padding: 10px;
   width: 80%;
   margin: 0 auto;
-	border-top: 3px solid #064789;
- }
+  border-top: 3px solid #064789;
+}
 
 .amenities li {
   padding: 0 10px;
-	width: 60%;
+  width: 60%;
   margin: 5px auto;
   text-align: left;
 }
 
 .amenities li:before {
-	 color: green;
-	 font-weight: 800;
+  color: green;
+  font-weight: 800;
   content: '✓';
   margin-right: 5px;
   font-size: 1.3rem;
@@ -121,12 +119,11 @@
 }
 
 @media screen and (min-width: 450px) {
-
-	 .venueProfile {
-			margin: 0 auto;
-			width: 80%;
-			font-size: 1.2em;
-	 }
+  .venueProfile {
+    margin: 0 auto;
+    width: 80%;
+    font-size: 1.2em;
+  }
 
   .venue_controls button {
     min-width: 200px;
@@ -138,7 +135,6 @@
   }
 }
 @media screen and (min-width: 800px) {
-
   .venue_controls button {
     min-width: 200px;
     font-size: 1em;

@@ -22,6 +22,7 @@ import PrivateRoute from './utils/PrivateRoute';
 import Footer from './Footer/Footer';
 import ReviewSort from './ReviewSort/ReviewSort';
 import Modal from './Modal/Modal';
+import newLanding from './LandingPage/newLanding';
 
 export default class App extends Component {
   static ContextType = VenuesContext;
@@ -66,7 +67,7 @@ export default class App extends Component {
               {this.state.showModal === true ? (
                 <Modal close={this.closeModal} />
               ) : null}
-              <Route exact path="/" component={Landingpage} />
+              <Route exact path="/" component={newLanding} />
               <PublicRoute exact path="/login" component={Login} />
               <PublicRoute exact path="/register" component={Registration} />
               <Route
@@ -90,11 +91,6 @@ export default class App extends Component {
               />
             </Switch>
           </Main>
-          <footer className="app_footer">
-            <Switch>
-              <Route path="/" component={Footer} />
-            </Switch>
-          </footer>
         </ErrorBoundary>
       </div>
     );
