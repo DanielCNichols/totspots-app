@@ -12,9 +12,18 @@ export default function RegistrationForm() {
     handleTouched,
   } = CustomFormHook(async () => {
     try {
-      let res = await AuthService.postUser(inputs);
+      let user = {
+        email: inputs.email,
+        password: inputs.password,
+        username: inputs.username,
+        first_name: inputs.first_name,
+        last_name: inputs.last_name,
+        city: inputs.city,
+        state: inputs.state,
+      };
+      let res = await AuthService.postUser(user);
+
       console.log(res);
-      console.log('success');
     } catch (err) {
       setError(err);
     }
@@ -24,6 +33,42 @@ export default function RegistrationForm() {
     <form onSubmit={handleSubmit}>
       <fieldset>
         <legend>Sign Up</legend>
+        <label htmlFor="first_name">First Name</label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.first_name ? <p>First name is required</p> : null}
+        <label htmlFor="last_name">Last Name</label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.last_name ? <p>Last name is required</p> : null}
+        <label htmlFor="city">City</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.city ? <p>City is required</p> : null}
+        <label htmlFor="state">State</label>
+        <input
+          type="text"
+          id="state"
+          name="state"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.state ? <p>State is required</p> : null}
         <label htmlFor="email">Email</label>
         <input
           onBlur={handleTouched}
