@@ -1,40 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react';
+import CustomFormHook from '../Hooks/customHooks';
+import AuthService from '../services/AuthService';
 
-export default function Registration() {
+export default function RegistrationForm() {
+  let [error, setError] = useState(null);
+  const {
+    inputs,
+    handleInputChange,
+    handleSubmit,
+    touched,
+    handleTouched,
+  } = CustomFormHook(async () => {
+    try {
+      let res = await AuthService.postUser(inputs);
+      console.log(res);
+      console.log('success');
+    } catch (err) {
+      setError(err);
+    }
+  });
 
   return (
- <section>
-    <header>
-      <h2>Create New Account</h2>
-    </header>
-
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <fieldset>
-        <label htmlFor="Name">Name
-          <input type="text" placeholder="Jon Doe" required/>
-        </label>
-        <label htmlFor="email">Email
-          <input type="text" name="email" id="email" placeholder="jon.doe@mindspring.com"/>
-        </label>
-        <label htmlFor="City">City
-          <input type="text" placeholder="Durham"/>
-        </label>
-        <label htmlFor="state">State
-          <input type="text" name="state" id="state" placeholder="NC" required max-length="2"/>
-        </label>
-        <label htmlFor="UserName">User Name
-          <input type="text" placeholder="jdoe1234!" required/>
-        </label>
-        <label htmlFor="password">Password
-          <input type="text" name="password" id="password"/>
-        </label>
-        <label htmlFor="confirm">Confirm Password
-          <input type="text" name="confirm" id="confirm"/>
-        </label>
+        <legend>Sign Up</legend>
+        <label htmlFor="email">Email</label>
+        <input
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+          name="email"
+          type="text"
+          id="email"
+        />
+        {/* here we can put some custom validation */}
+        {touched.email ? <p>Been touched</p> : null}
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.username ? <p>Username is required</p> : null}
+        <label htmlFor="password">Password</label>
+        <input
+          type="text"
+          id="password"
+          name="password"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.password ? <p>Password is required</p> : null}
+        <button>Sign Upr</button>
+        {error ? <p>Error happened</p> : null}
       </fieldset>
-      <button>Submit</button>
-      <button>Cancel</button>
     </form>
-  </section>
-  )
+  );
 }

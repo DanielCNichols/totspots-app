@@ -6,7 +6,7 @@ import Landingpage from './LandingPage/Landingpage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Sidebar from './Sidebar/Sidebar';
 import Login from './Login/Login';
-import Registration from './Registration/Registration';
+import RegistrationForm from './Registration/Registration';
 import RefineSearch from './RefineSearch/RefineSearch';
 import ResultsPage from './ResultsPage/ResultsPage';
 import Nav from './Nav/Nav';
@@ -69,7 +69,11 @@ export default class App extends Component {
               ) : null}
               <Route exact path="/" component={newLanding} />
               <PublicRoute exact path="/login" component={Login} />
-              <PublicRoute exact path="/register" component={Registration} />
+              <PublicRoute
+                exact
+                path="/register"
+                component={RegistrationForm}
+              />
               <Route
                 exact
                 path="/reviews/:city/:queryState/:type"

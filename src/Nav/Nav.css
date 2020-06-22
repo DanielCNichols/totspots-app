@@ -43,7 +43,7 @@ nav li {
 
   nav {
     height: 50px;
-    position: fixed;
+    position: absolute;
     padding: 0;
     width: 100%;
     top: 0;
