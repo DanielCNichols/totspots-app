@@ -2,7 +2,12 @@ import React from 'react';
 import styles from './LandingPage.module.scss';
 import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
 import { GiKnifeFork } from 'react-icons/gi';
+import AutoCompleteInput from '../AutocompleteInput/AutocompleteInput';
 export default function newLanding() {
+  function handleSelect(place) {
+    console.log(place);
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.heroImage}>
@@ -18,7 +23,8 @@ export default function newLanding() {
             <option value="">coffee shop</option>
             <option value="">museum</option>
           </select>
-          <input type="text" placeholder="in..." />
+          {/* <input type="text" placeholder="in..." /> */}
+          <AutoCompleteInput onPlaceLoaded={handleSelect} />
           <button type="submit">Go!</button>
         </div>
       </div>
@@ -32,15 +38,7 @@ export default function newLanding() {
             Necessitatibus maxime eveniet laudant.
           </p>
         </div>
-        <div
-          className={styles.cardContainer}
-          // style={{
-          //   display: 'flex',
-          //   flexDirection: 'row',
-          //   width: '100%',
-          //   justifyContent: 'space-evenly',
-          // }}
-        >
+        <div className={styles.cardContainer}>
           <div className={styles.onboardingCard}>
             <FaGlassMartini
               className={styles.onboardingCardSvg}

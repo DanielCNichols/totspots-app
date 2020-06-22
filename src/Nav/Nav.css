@@ -14,7 +14,7 @@ nav a:visited {
 
 nav {
   height: 70px;
-  position: fixed;
+  position: absolute;
   padding: 0;
   width: 100%;
   top: 0;
@@ -43,7 +43,6 @@ nav li {
 
   nav {
     height: 50px;
-    position: absolute;
     padding: 0;
     width: 100%;
     top: 0;
