@@ -1,133 +1,83 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import VenueContext from '../VenuesContext';
-import { withRouter } from 'react-router-dom';
-import './LandingPage.css';
-import banner from '../assets/annie-spratt-WS2anBsrum0-unsplash.jpg';
-class LandingPage extends React.Component {
-  static contextType = VenueContext;
-
-  componentDidMount() {
-    this.context.clearError();
-  }
-
-  handleSubmit = ev => {
-    ev.preventDefault();
-    const target = ev.target;
-    const city = target.city.value.toLowerCase();
-    const queryState = target.state.value.toLowerCase();
-    const type = target.type.value.toLowerCase();
-    this.props.history.push(`/reviews/${city}/${queryState}/${type}`);
-  };
-
-  renderError() {
-    let error = this.context.error;
-    if (this.context.error) {
-      return (
-        <div className="error">
-          <p>Sorry something has gone wrong. {error.error}</p>
+import styles from './LandingPage.module.scss';
+import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
+import { GiKnifeFork } from 'react-icons/gi';
+export default function newLanding() {
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.heroImage}>
+        <div className={styles.heroText}>
+          <h1>For parents, by parents!</h1>
+          <p>Find!</p>
         </div>
-      );
-    }
-  }
-
-  render() {
-    return (
-      <>
+        <div className={styles.form}>
+          <select>
+            <option value="">Find a...</option>
+            <option value="">restaurant</option>
+            <option value="">bar</option>
+            <option value="">coffee shop</option>
+            <option value="">museum</option>
+          </select>
+          <input type="text" placeholder="in..." />
+          <button type="submit">Go!</button>
+        </div>
+      </div>
+      <div className={styles.onboarding}>
+        <div className={styles.onboardingHeader}>
+          <h3 style={{ fontSize: '2.0em' }}>
+            Finally, a review app for parents
+          </h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus maxime eveniet laudant.
+          </p>
+        </div>
         <div
-          className="wrapper"
-          style={{
-            width: '100%',
-            padding: '250px 0 10px 0',
-            margin: '0 0 50px 0',
-          }}
+          className={styles.cardContainer}
+          // style={{
+          //   display: 'flex',
+          //   flexDirection: 'row',
+          //   width: '100%',
+          //   justifyContent: 'space-evenly',
+          // }}
         >
-          <img
-            className="pict"
-            src={banner}
-            alt="kids"
-            style={{
-              width: '100%',
-              height: '700px',
-              position: 'fixed',
-              top: 0,
-              zIndex: '-1',
-              backgroundPosition: 'center center',
-            }}
-          ></img>
-          <div
-            className="splash"
-            style={{ width: '50%', textAlign: 'center', margin: '0 auto' }}
-          >
-            <h1>This is the tagline</h1>
-            <p>This is some clever wording</p>
+          <div className={styles.onboardingCard}>
+            <FaGlassMartini
+              className={styles.onboardingCardSvg}
+            ></FaGlassMartini>
+            <div className={styles.onboardingContent}>
+              <h4>Find!</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                laudantium delectus obcaecati deleniti quasi dolorum,
+                perferendis tempore
+              </p>
+            </div>
           </div>
-          <form
-            style={{
-              display: 'flex',
-              width: '70%',
-              margin: '100px auto 10px auto',
-              justifyContent: 'space-evenly',
-              alignItems: 'flex-end',
-            }}
-          >
-            <div className="form-element">
-              <label
-                htmlFor="type"
-                style={{ margin: '0', textAlign: 'left', color: 'white' }}
-              >
-                Looking for
-              </label>
-              <input
-                type="text"
-                id="type"
-                style={{
-                  height: '45px',
-                  width: '250px',
-                  borderRadius: '5px',
-                  border: 'none',
-                }}
-              />
+          <div className={styles.onboardingCard}>
+            <FaCoffee className={styles.onboardingCardSvg}></FaCoffee>
+            <div className={styles.onboardingContent}>
+              <h4>Review!</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                laudantium delectus obcaecati deleniti quasi dolorum,
+                perferendis tempore
+              </p>
             </div>
-            <div className="form-element">
-              <label
-                htmlFor="location"
-                style={{ margin: '0', textAlign: 'left', color: 'white' }}
-              >
-                Located in
-              </label>
-              <input
-                type="text"
-                id="location"
-                style={{
-                  height: '45px',
-                  width: '250px',
-                  borderRadius: '5px',
-                  border: 'none',
-                }}
-              />
+          </div>
+          <div className={styles.onboardingCard}>
+            <GiKnifeFork className={styles.onboardingCardSvg}></GiKnifeFork>
+            <div className={styles.onboardingContent}>
+              <h4>Enjoy!</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                laudantium delectus obcaecati deleniti quasi dolorum,
+                perferendis tempore
+              </p>
             </div>
-            <button
-              style={{
-                height: '45px',
-                width: '250px',
-                borderRadius: '5px',
-                backgroundColor: '#4db8ff',
-                fontSize: '1.3em',
-                border: 'none',
-              }}
-            >
-              Go!
-            </button>
-          </form>
+          </div>
         </div>
-        <div
-          className="onboarding"
-          style={{ height: '400px', backgroundColor: 'lightBlue' }}
-        ></div>
-      </>
-    );
-  }
+      </div>
+    </div>
+  );
 }
-
-export default withRouter(LandingPage);

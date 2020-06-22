@@ -2,7 +2,7 @@ import './app.css';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import VenuesContext from './VenuesContext';
-import Landingpage from './LandingPage/Landingpage';
+import LandingPage from './LandingPage/LandingPage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Sidebar from './Sidebar/Sidebar';
 import Login from './Login/Login';
@@ -19,10 +19,8 @@ import FavoritesList from './FavoritesList/Favoriteslist';
 import editReview from './EditReview/EditReview';
 import PublicRoute from './utils/PublicRoute';
 import PrivateRoute from './utils/PrivateRoute';
-import Footer from './Footer/Footer';
 import ReviewSort from './ReviewSort/ReviewSort';
 import Modal from './Modal/Modal';
-import newLanding from './LandingPage/newLanding';
 
 export default class App extends Component {
   static ContextType = VenuesContext;
@@ -67,7 +65,7 @@ export default class App extends Component {
               {this.state.showModal === true ? (
                 <Modal close={this.closeModal} />
               ) : null}
-              <Route exact path="/" component={newLanding} />
+              <Route exact path="/" component={LandingPage} />
               <PublicRoute exact path="/login" component={Login} />
               <PublicRoute
                 exact

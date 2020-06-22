@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CustomFormHook from '../Hooks/customHooks';
 import AuthService from '../services/AuthService';
+import States from './States';
 
 export default function RegistrationForm() {
   let [error, setError] = useState(null);
@@ -61,13 +62,15 @@ export default function RegistrationForm() {
         />
         {touched.city ? <p>City is required</p> : null}
         <label htmlFor="state">State</label>
-        <input
-          type="text"
+        <select
           id="state"
           name="state"
           onBlur={handleTouched}
           onChange={handleInputChange}
-        />
+        >
+          <States />
+        </select>
+        {inputs.state ? <p>{inputs.state}</p> : null}
         {touched.state ? <p>State is required</p> : null}
         <label htmlFor="email">Email</label>
         <input
@@ -98,7 +101,7 @@ export default function RegistrationForm() {
         />
         {touched.password ? <p>Password is required</p> : null}
         <button>Sign Upr</button>
-        {error ? <p>Error happened</p> : null}
+        {error ? <p>{error.error}</p> : null}
       </fieldset>
     </form>
   );
