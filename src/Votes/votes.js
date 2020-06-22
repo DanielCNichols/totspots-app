@@ -1,7 +1,7 @@
 import React from 'react';
 import ApiService from '../services/api-service';
 import VenuesContext from '../VenuesContext';
-import './Votes.css';
+import './votes.css';
 import TokenService from '../services/TokenService';
 import { withRouter } from 'react-router-dom';
 
@@ -13,27 +13,27 @@ class Votes extends React.Component {
     count: !this.props.review.count
       ? (this.props.review.count = 0)
       : parseInt(this.props.review.count),
-    clicked: false
+    clicked: false,
   };
 
   updateVoteCount() {
     this.setState({
       count: this.state.count + 1,
-      clicked: true
+      clicked: true,
     });
   }
 
-  handleVote = ev => {
+  handleVote = (ev) => {
     if (!TokenService.hasToken() === true) {
       this.props.history.push('/login');
     } else {
       let vote = ev.target.value;
       let id = this.props.review.id;
       ApiService.handleVotes(vote, id)
-        .then(vote => {
+        .then((vote) => {
           this.updateVoteCount(vote);
         })
-        .catch(error => {
+        .catch((error) => {
           this.context.setError(error);
         });
     }
