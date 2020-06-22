@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import venuesContext from '../VenuesContext';
 import ApiService from '../services/api-service';
-import Favorites from '../favorites/Favorites';
+import Favorites from '../Favorites/Favorites';
 import './Favoriteslist.css';
 
 export default class FavoritesList extends Component {
@@ -16,16 +16,15 @@ export default class FavoritesList extends Component {
   }
 
   renderError() {
-    let error = this.context.error
-    if(this.context.error) {
+    let error = this.context.error;
+    if (this.context.error) {
       return (
         <div className="error">
           <p>Sorry something has gone wrong.{error.error}</p>
         </div>
-      )
+      );
     }
   }
-
 
   prerender() {
     let { favorites, error } = this.context;
@@ -35,13 +34,10 @@ export default class FavoritesList extends Component {
           <p>You haven't saved any venues!</p>
         </div>
       );
-    } 
+    }
     if (error) {
-      return (
-      <div role='alert'>
-          {this.renderError()}
-        </div>)
-    }  else {
+      return <div role="alert">{this.renderError()}</div>;
+    } else {
       return (
         <section>
           <header>

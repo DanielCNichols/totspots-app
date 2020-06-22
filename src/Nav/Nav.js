@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../services/TokenService';
 import { ReactComponent as Logo } from '../assets/default-monochrome.svg';
-import './nav.css';
+import './Nav.css';
 
 export default class Nav extends React.Component {
   handleLogout = () => {
@@ -12,13 +12,13 @@ export default class Nav extends React.Component {
   renderLogout() {
     return (
       <>
-        <li className='Nav_login'>
-          <Link onClick={this.handleLogout} to='/'>
+        <li className="Nav_login">
+          <Link onClick={this.handleLogout} to="/">
             Logout
           </Link>
         </li>
         <li>
-          <Link to='/account'>Profile</Link>
+          <Link to="/account">Profile</Link>
         </li>
       </>
     );
@@ -26,8 +26,8 @@ export default class Nav extends React.Component {
 
   renderLogin() {
     return (
-      <li className='Nav_logout'>
-        <Link to='/login'>Log in</Link>
+      <li className="Nav_logout">
+        <Link to="/login">Log in</Link>
       </li>
     );
   }
@@ -45,10 +45,10 @@ export default class Nav extends React.Component {
         <ul>
           <li></li>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to='/addVenue'>Add Venue</Link>
+            <Link to="/addVenue">Add Venue</Link>
           </li>
           {TokenService.hasToken() ? this.renderLogout() : this.renderLogin()}
         </ul>

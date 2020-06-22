@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VenuesContext from '../VenuesContext';
-import Review from '../review/review';
+import Review from '../Review/Review';
 import VenueProfile from '../VenueProfile/VenueProfile';
 import './VenuesPage.css';
 import ApiService from '../services/api-service';
@@ -12,16 +12,16 @@ export default class VenuesPage extends Component {
     this.context.clearError();
     let venueId = this.props.match.params.venue_id;
     ApiService.getVenueProfile(venueId)
-      .then((venue) => {
+      .then(venue => {
         this.context.setSelectedVenue(venue);
       })
       .then(() => {
         ApiService.getReviews(venueId)
-          .then((reviews) => {
+          .then(reviews => {
             this.context.setReviews(reviews);
           })
           .then(() => {
-            ApiService.getAmenities(venueId).then((amenities) => {
+            ApiService.getAmenities(venueId).then(amenities => {
               this.context.setAmenities(amenities);
             });
           });
@@ -40,7 +40,7 @@ export default class VenuesPage extends Component {
     } else {
       return (
         <ul>
-          {reviews.map((reviews) => (
+          {reviews.map(reviews => (
             <Review reviews={reviews} key={reviews.id} />
           ))}
         </ul>
@@ -50,7 +50,7 @@ export default class VenuesPage extends Component {
 
   render() {
     return (
-      <section className='VenuesPage'>
+      <section className="VenuesPage">
         <VenueProfile></VenueProfile>
         <header>
           <h3>Here's what people are saying: </h3>
