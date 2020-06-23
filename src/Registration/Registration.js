@@ -1,40 +1,108 @@
-import React from 'react'
+import React, { useState } from 'react';
+import CustomFormHook from '../Hooks/customHooks';
+import AuthService from '../services/AuthService';
+import States from './States';
 
-export default function Registration() {
+export default function RegistrationForm() {
+  let [error, setError] = useState(null);
+  const {
+    inputs,
+    handleInputChange,
+    handleSubmit,
+    touched,
+    handleTouched,
+  } = CustomFormHook(async () => {
+    try {
+      let user = {
+        email: inputs.email,
+        password: inputs.password,
+        username: inputs.username,
+        first_name: inputs.first_name,
+        last_name: inputs.last_name,
+        city: inputs.city,
+        state: inputs.state,
+      };
+      let res = await AuthService.postUser(user);
+
+      console.log(res);
+    } catch (err) {
+      setError(err);
+    }
+  });
 
   return (
- <section>
-    <header>
-      <h2>Create New Account</h2>
-    </header>
-
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <fieldset>
-        <label htmlFor="Name">Name
-          <input type="text" placeholder="Jon Doe" required/>
-        </label>
-        <label htmlFor="email">Email
-          <input type="text" name="email" id="email" placeholder="jon.doe@mindspring.com"/>
-        </label>
-        <label htmlFor="City">City
-          <input type="text" placeholder="Durham"/>
-        </label>
-        <label htmlFor="state">State
-          <input type="text" name="state" id="state" placeholder="NC" required max-length="2"/>
-        </label>
-        <label htmlFor="UserName">User Name
-          <input type="text" placeholder="jdoe1234!" required/>
-        </label>
-        <label htmlFor="password">Password
-          <input type="text" name="password" id="password"/>
-        </label>
-        <label htmlFor="confirm">Confirm Password
-          <input type="text" name="confirm" id="confirm"/>
-        </label>
+        <legend>Sign Up</legend>
+        <label htmlFor="first_name">First Name</label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.first_name ? <p>First name is required</p> : null}
+        <label htmlFor="last_name">Last Name</label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.last_name ? <p>Last name is required</p> : null}
+        <label htmlFor="city">City</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.city ? <p>City is required</p> : null}
+        <label htmlFor="state">State</label>
+        <select
+          id="state"
+          name="state"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        >
+          <States />
+        </select>
+        {inputs.state ? <p>{inputs.state}</p> : null}
+        {touched.state ? <p>State is required</p> : null}
+        <label htmlFor="email">Email</label>
+        <input
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+          name="email"
+          type="text"
+          id="email"
+        />
+        {/* here we can put some custom validation */}
+        {touched.email ? <p>Been touched</p> : null}
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.username ? <p>Username is required</p> : null}
+        <label htmlFor="password">Password</label>
+        <input
+          type="text"
+          id="password"
+          name="password"
+          onBlur={handleTouched}
+          onChange={handleInputChange}
+        />
+        {touched.password ? <p>Password is required</p> : null}
+        <button>Sign Upr</button>
+        {error ? <p>{error.error}</p> : null}
       </fieldset>
-      <button>Submit</button>
-      <button>Cancel</button>
     </form>
-  </section>
-  )
+  );
 }

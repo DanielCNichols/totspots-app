@@ -13,13 +13,13 @@ class Votes extends React.Component {
     count: !this.props.review.count
       ? (this.props.review.count = 0)
       : parseInt(this.props.review.count),
-    clicked: false
+    clicked: false,
   };
 
   updateVoteCount() {
     this.setState({
       count: this.state.count + 1,
-      clicked: true
+      clicked: true,
     });
   }
 
@@ -51,12 +51,12 @@ class Votes extends React.Component {
 
   render() {
     return (
-      <div className='votes'>
+      <div className="votes">
         <p>Was this review helpful?</p>
         {this.renderVote()}
         <button
           disabled={this.state.clicked}
-          value='true'
+          value="true"
           onClick={this.handleVote}
         >
           Like

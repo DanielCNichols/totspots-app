@@ -1,13 +1,12 @@
 import config from '../config';
-import TokenService from './TokenService'
-
+import TokenService from './TokenService';
 
 const ApiService = {
   getVenues(city, state, type) {
     return fetch(`${config.API_ENDPOINT}/venues/${city}/${state}/${type}`, {
       headers: {
-        'content-type': 'application/json'
-      }
+        'content-type': 'application/json',
+      },
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -16,9 +15,9 @@ const ApiService = {
   getVenueProfile(id) {
     return fetch(`${config.API_ENDPOINT}/venues/profile/${id}`, {
       headers: {
-        'content-type': 'application/json'
-      }
-    }).then(res => 
+        'content-type': 'application/json',
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
@@ -26,8 +25,8 @@ const ApiService = {
   getReviews(venue_id) {
     return fetch(`${config.API_ENDPOINT}/reviews/venues/${venue_id}`, {
       headers: {
-        'content-type': 'application/json'
-      }
+        'content-type': 'application/json',
+      },
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -37,18 +36,17 @@ const ApiService = {
     return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
       headers: {
         'content-type': 'application/json',
-      }
-    }).then(res => 
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
 
-
   getAmenities(venue_id) {
     return fetch(`${config.API_ENDPOINT}/venues/${venue_id}/amenities`, {
       headers: {
-        'content-type': 'application/json'
-      }
+        'content-type': 'application/json',
+      },
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -57,23 +55,22 @@ const ApiService = {
   getVotes(reviewId) {
     return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}/votes`, {
       headers: {
-        'content-type': 'application/json'
-      }
-    }).then(res => 
+        'content-type': 'application/json',
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-      );
+    );
   },
 
-
-  getFavorites(){
+  getFavorites() {
     return fetch(`${config.API_ENDPOINT}/users/favorites`, {
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
-      }
-    }).then(res => 
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    )
+    );
   },
 
   addFavorite(venue_id) {
@@ -81,46 +78,60 @@ const ApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         venue_id,
-      })
-    }).then(res => 
+      }),
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
+    );
   },
 
   deleteFavorite(venue_id) {
     return fetch(`${config.API_ENDPOINT}/users/favorites`, {
-      method: 'DELETE', 
+      method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         venue_id,
-      })
-    })
+      }),
+    });
   },
 
-  getUserReviews(){
+  getUserReviews() {
     return fetch(`${config.API_ENDPOINT}/reviews/userReviews`, {
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
-      }
-    }).then(res => 
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    )
+    );
   },
 
-  addVenue(venue_name, address, city, state, venue_type, zipcode, price, volume, starrating, content, phone, url, aObj) {
+  addVenue(
+    venue_name,
+    address,
+    city,
+    state,
+    venue_type,
+    zipcode,
+    price,
+    volume,
+    starrating,
+    content,
+    phone,
+    url,
+    aObj
+  ) {
     return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
       method: 'Post',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         venue_name,
@@ -129,25 +140,25 @@ const ApiService = {
         state,
         venue_type,
         zipcode,
-        price, 
-        volume, 
-        starrating, 
+        price,
+        volume,
+        starrating,
         content,
         phone,
         url,
-        amenities: aObj
-      })
+        amenities: aObj,
+      }),
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
 
-  postReviews(venue_id, content, price, volume,  starrating, aObj) {
+  postReviews(venue_id, content, price, volume, starrating, aObj) {
     return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         venue_id: venue_id,
@@ -155,8 +166,8 @@ const ApiService = {
         price,
         volume,
         starrating,
-        amenities: aObj
-      })
+        amenities: aObj,
+      }),
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -167,9 +178,9 @@ const ApiService = {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-    }) 
+    })
       .then(res => {
         if (!res.ok) {
           return res.json().then(error => {
@@ -182,18 +193,17 @@ const ApiService = {
       });
   },
 
-
   handleVotes(votestatus, review_id) {
     return fetch(`${config.API_ENDPOINT}/reviews/${review_id}/votes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         votestatus,
         review_id,
-      })
+      }),
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -204,41 +214,59 @@ const ApiService = {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         votestatus,
-        review_id
-      })
-    })
+        review_id,
+      }),
+    });
   },
-  
+
   editReview(reviewId, newReview) {
     return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
-      method: 'PATCH', 
+      method: 'PATCH',
       body: JSON.stringify(newReview),
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-    })
-    .then(res => {
-      if (!res.ok)
-        return res.json().then(error => Promise.reject(error))
-    })
+    }).then(res => {
+      if (!res.ok) return res.json().then(error => Promise.reject(error));
+    });
   },
 
-
-  getProfile() { 
+  getProfile() {
     return fetch(`${config.API_ENDPOINT}/users/account`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
-      }
-    }).then(res => 
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    )
+    );
+  },
+
+  editUser(updatedInfo) {
+    return fetch(`${config.API_ENDPOINT}/user`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(updatedInfo),
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
+  deleteUser() {
+    return fetch(`${config.API_ENDPOINT}/user`, {
+      method: 'DELETE',
+      'content-type': 'application/json',
+      Authorization: `bearer ${TokenService.getAuthToken()}`,
+    }).then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : null));
   },
 };
 

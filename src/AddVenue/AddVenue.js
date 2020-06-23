@@ -1,7 +1,7 @@
 import React from 'react';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
-import './Addvenue.css';
+import './AddVenue.css';
 import VenuesContext from '../VenuesContext';
 import FormSelect from '../Select/Select';
 
@@ -34,19 +34,19 @@ class AddVenue extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    let target = ev.target
-    const venue =  target.venue.value;
-    const address =  target.address.value;
-    const city =  target.city.value.toLowerCase();
-    const state =  target.state.value.toLowerCase();
-    const type =  target.type.value.toLowerCase();
-    const zipcode =  target.zipcode.value;
-    const url =  target.url.value;
-    const phone =  target.phone.value;
-    const price =  target.price.value;
-    const volume =  target.volume.value;
-    const starrating =  target.rating.value;
-    const content =  target.content.value;
+    let target = ev.target;
+    const venue = target.venue.value;
+    const address = target.address.value;
+    const city = target.city.value.toLowerCase();
+    const state = target.state.value.toLowerCase();
+    const type = target.type.value.toLowerCase();
+    const zipcode = target.zipcode.value;
+    const url = target.url.value;
+    const phone = target.phone.value;
+    const price = target.price.value;
+    const volume = target.volume.value;
+    const starrating = target.rating.value;
+    const content = target.content.value;
     const stateCheck = Object.keys(this.state);
     const stateValues = Object.values(this.state);
     const amenities = this.getAmenities(stateCheck, stateValues);

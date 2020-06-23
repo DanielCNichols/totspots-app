@@ -2,11 +2,11 @@ import './app.css';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import VenuesContext from './VenuesContext';
-import Landingpage from './LandingPage/Landingpage';
+import LandingPage from './LandingPage/LandingPage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Sidebar from './Sidebar/Sidebar';
 import Login from './Login/Login';
-import Registration from './Registration/Registration';
+import RegistrationForm from './Registration/Registration';
 import RefineSearch from './RefineSearch/RefineSearch';
 import ResultsPage from './ResultsPage/ResultsPage';
 import Nav from './Nav/Nav';
@@ -19,7 +19,6 @@ import FavoritesList from './FavoritesList/Favoriteslist';
 import editReview from './EditReview/EditReview';
 import PublicRoute from './utils/PublicRoute';
 import PrivateRoute from './utils/PrivateRoute';
-import Footer from './Footer/Footer';
 import ReviewSort from './ReviewSort/ReviewSort';
 import Modal from './Modal/Modal';
 
@@ -66,9 +65,13 @@ export default class App extends Component {
               {this.state.showModal === true ? (
                 <Modal close={this.closeModal} />
               ) : null}
-              <Route exact path="/" component={Landingpage} />
+              <Route exact path="/" component={LandingPage} />
               <PublicRoute exact path="/login" component={Login} />
-              <PublicRoute exact path="/register" component={Registration} />
+              <PublicRoute
+                exact
+                path="/register"
+                component={RegistrationForm}
+              />
               <Route
                 exact
                 path="/reviews/:city/:queryState/:type"
@@ -90,11 +93,6 @@ export default class App extends Component {
               />
             </Switch>
           </Main>
-          <footer className="app_footer">
-            <Switch>
-              <Route path="/" component={Footer} />
-            </Switch>
-          </footer>
         </ErrorBoundary>
       </div>
     );

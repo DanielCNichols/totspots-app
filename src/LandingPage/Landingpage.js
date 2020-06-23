@@ -1,107 +1,81 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import VenueContext from '../VenuesContext';
-import { withRouter } from 'react-router-dom';
-import './LandingPage.css';
-
-class LandingPage extends React.Component {
-  static contextType = VenueContext;
-
-  componentDidMount() {
-    this.context.clearError();
+import styles from './LandingPage.module.scss';
+import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
+import { GiKnifeFork } from 'react-icons/gi';
+import AutoCompleteInput from '../AutocompleteInput/AutocompleteInput';
+export default function newLanding() {
+  function handleSelect(place) {
+    console.log(place);
   }
 
-  handleSubmit = ev => {
-    ev.preventDefault();
-    const target = ev.target
-    const city = target.city.value.toLowerCase();
-    const queryState = target.state.value.toLowerCase();
-    const type = target.type.value.toLowerCase();
-    this.props.history.push(`/reviews/${city}/${queryState}/${type}`);
-  };
-
-  renderError() {
-    let error = this.context.error;
-    if (this.context.error) {
-      return (
-        <div className="error">
-          <p>Sorry something has gone wrong. {error.error}</p>
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.heroImage}>
+        <div className={styles.heroText}>
+          <h1>For parents, by parents!</h1>
+          <p>Find!</p>
         </div>
-      );
-    }
-  }
-
-  render() {
-    return (
-      <section className="landingpage">
-        <header className="landingpage_hero">
-          <h1>Tot Spots</h1>
-          <p>For parents, by parents</p>
-        </header>
-        <div className="search">
-          <p>I want to take my family to a...</p>
-          <form className="search_form" onSubmit={this.handleSubmit}>
-            <label className="search_form_label" htmlFor="type" required>
-              Venue or event...
-              <select
-                className="search_form_select"
-                name="type"
-                id="type"
-                aria-label="choose Venue or event"
-                aria-required="true"
-              >
-                <option value="">Select a type of venue/event</option>
-                <option value="Restaurant">Restaurants</option>
-                <option value="Bar">Brewery/Bar</option>
-                <option value="Coffee">Coffee Shop</option>
-                <option value="Educational">Educational</option>
-                <option value="music">Music</option>
-                <option value="outdoor">Outdoor</option>
-              </select>
-            </label>
-            <p>in...</p>
-            <label className="search_form_label" htmlFor="city">
-              {' '}
-              City
-              <input
-                aria-required="true"
-                aria-label="choose city"
-                className="search_form_text"
-                type="text"
-                name="city"
-                id="city"
-                placeholder="Durham"
-                required
-              />
-            </label>
-            <label className="search_form_label" htmlFor="state">
-              {' '}
-              State
-              <input
-                aria-required="true"
-                aria-label="Choose state"
-                className="search_form_text"
-                type="text"
-                name="state"
-                max-length="2"
-                placeholder="NC"
-                required
-              />
-            </label>
-            <div className="search_form_control">
-              <button className="search_form_button" type="submit">
-                Let's go!
-              </button>
+        <div className={styles.form}>
+          <select>
+            <option value="">Find a...</option>
+            <option value="">restaurant</option>
+            <option value="">bar</option>
+            <option value="">coffee shop</option>
+            <option value="">museum</option>
+          </select>
+          {/* <input type="text" placeholder="in..." /> */}
+          <AutoCompleteInput onPlaceLoaded={handleSelect} />
+          <button type="submit">Go!</button>
+        </div>
+      </div>
+      <div className={styles.onboarding}>
+        <div className={styles.onboardingHeader}>
+          <h3 style={{ fontSize: '2.0em' }}>
+            Finally, a review app for parents
+          </h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus maxime eveniet laudant.
+          </p>
+        </div>
+        <div className={styles.cardContainer}>
+          <div className={styles.onboardingCard}>
+            <FaGlassMartini
+              className={styles.onboardingCardSvg}
+            ></FaGlassMartini>
+            <div className={styles.onboardingContent}>
+              <h4>Find!</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                laudantium delectus obcaecati deleniti quasi dolorum,
+                perferendis tempore
+              </p>
             </div>
-          </form>
+          </div>
+          <div className={styles.onboardingCard}>
+            <FaCoffee className={styles.onboardingCardSvg}></FaCoffee>
+            <div className={styles.onboardingContent}>
+              <h4>Review!</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                laudantium delectus obcaecati deleniti quasi dolorum,
+                perferendis tempore
+              </p>
+            </div>
+          </div>
+          <div className={styles.onboardingCard}>
+            <GiKnifeFork className={styles.onboardingCardSvg}></GiKnifeFork>
+            <div className={styles.onboardingContent}>
+              <h4>Enjoy!</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                laudantium delectus obcaecati deleniti quasi dolorum,
+                perferendis tempore
+              </p>
+            </div>
+          </div>
         </div>
-        {this.renderError()}
-        <p>
-          Have an account? Go ahead and <Link to="/login">log in!</Link>
-        </p>
-      </section>
-    );
-  }
+      </div>
+    </div>
+  );
 }
-
-export default withRouter(LandingPage);
