@@ -2,7 +2,7 @@ import './app.css';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import VenuesContext from './VenuesContext';
-import LandingPage from './LandingPage/LandingPage';
+import LandingPage from './LandingPage/Landingpage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Sidebar from './Sidebar/Sidebar';
 import Login from './Login/Login';

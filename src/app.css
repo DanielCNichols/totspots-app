@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap");
 
-@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,7 +14,7 @@ a:visited {
 
 body {
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   /* background-color: #f8f7f7; */
   background-color: #e9ebee;
 }

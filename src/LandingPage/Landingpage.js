@@ -31,7 +31,7 @@ export default function newLanding() {
       <div className={styles.onboarding}>
         <div className={styles.onboardingHeader}>
           <h3 style={{ fontSize: '2.0em' }}>
-            Finally, a review app for parents
+            SWEET! a review app for parents
           </h3>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
