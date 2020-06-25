@@ -1,12 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './LandingPage.module.scss';
 import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
 import { GiKnifeFork } from 'react-icons/gi';
 import AutoCompleteInput from '../AutocompleteInput/AutocompleteInput';
-export default function newLanding() {
+
+
+ function NewLanding(props) {
+
+  const [type, setType] = useState('');
+  const [loc, setLoc] = useState('');
+
   function handleSelect(place) {
     console.log(place);
+    setLoc(place)
   }
+
+
+   function handleSelectType(type) {
+     setType(type);
+   }
+
+   function handleSearch() {
+     props.history.push(`/reviews/${loc.place_id}/${type}`)
+   }
+
+  
+  //Store the values in the url
+  //Get the search values from the url when the next screen mounts
+
 
   return (
     <div className={styles.wrapper}>
@@ -16,16 +37,19 @@ export default function newLanding() {
           <p>Find!</p>
         </div>
         <div className={styles.form}>
-          <select>
+          <select onChange={e => handleSelectType(e.target.value)}>
             <option value="">Find a...</option>
-            <option value="">restaurant</option>
-            <option value="">bar</option>
-            <option value="">coffee shop</option>
-            <option value="">museum</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="bar">Bar</option>
+            <option value="cafe">Coffee Shop</option>
+            <option value="museum">Museum</option>
+            <option value="park">Park</option>
+            <option value="shopping_mall">Mall</option>
+            <option value="point_of_interest">Attractions</option>
           </select>
           {/* <input type="text" placeholder="in..." /> */}
           <AutoCompleteInput onPlaceLoaded={handleSelect} />
-          <button type="submit">Go!</button>
+          <button type="submit" onClick={handleSearch}>Go!</button>
         </div>
       </div>
       <div className={styles.onboarding}>
@@ -79,3 +103,4 @@ export default function newLanding() {
     </div>
   );
 }
+export default NewLanding;
