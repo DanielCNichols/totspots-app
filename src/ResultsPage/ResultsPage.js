@@ -5,24 +5,29 @@ import { withRouter } from 'react-router-dom';
 import './Resultspage.css';
 import ApiService from '../services/api-service';
 import Loading from '../Loading/Loading';
-
+import qs from 'qs';
+import dummyData from '../reference';
 class ResultsPage extends React.Component {
   static contextType = VenueContext;
 
   state = {
-    loading: true,
+    loading: false,
   };
 
   componentDidMount() {
-    const { city, queryState, type } = this.props.match.params;
+    //Get the query params for our fetch! this returns an object
+    let query = qs.parse(this.props.location.search, {
+      ignoreQueryPrefix: true,
+    });
     this.context.clearError();
-    ApiService.getVenues(city, queryState, type)
+    ApiService.getVenues(query)
       .then(venues => {
-        this.context.setVenues(venues);
+        console.log(venues);
+        this.context.setVenues(venues.results);
         this.setState({ loading: false });
       })
-      .catch(error => {
-        this.context.setError(error);
+      .catch(err => {
+        console.log(err);
         this.setState({ loading: false });
       });
   }

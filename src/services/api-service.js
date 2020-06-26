@@ -2,8 +2,8 @@ import config from '../config';
 import TokenService from './TokenService';
 
 const ApiService = {
-  getVenues(city, state, type) {
-    return fetch(`${config.API_ENDPOINT}/venues/${city}/${state}/${type}`, {
+  getVenues({ type, lat, lng }) {
+    return fetch(`${config.API_ENDPOINT}/venues/${type}/${lat}/${lng}`, {
       headers: {
         'content-type': 'application/json',
       },

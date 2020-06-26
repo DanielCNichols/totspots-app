@@ -73,8 +73,9 @@ export default class App extends Component {
                 component={RegistrationForm}
               />
               <Route
-                exact
-                path="/reviews/:city/:queryState/:type"
+                // exact
+                // path="/reviews/:city/:queryState/:type"
+                path="/:search"
                 component={ResultsPage}
               />
               <PrivateRoute exact path="/account" component={ProfileView} />

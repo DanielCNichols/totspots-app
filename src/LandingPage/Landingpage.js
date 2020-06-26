@@ -1,33 +1,35 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from './LandingPage.module.scss';
 import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
 import { GiKnifeFork } from 'react-icons/gi';
-import AutoCompleteInput from '../AutocompleteInput/AutocompleteInput';
+import Autocomplete from 'react-google-autocomplete';
 
-
- function NewLanding(props) {
+function NewLanding(props) {
+  console.log(props);
 
   const [type, setType] = useState('');
-  const [loc, setLoc] = useState('');
+  const [loc, setLoc] = useState({
+    lat: null,
+    lng: null,
+  });
 
   function handleSelect(place) {
     console.log(place);
-    setLoc(place)
+    setLoc({
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+    });
   }
 
+  function handleSelectType(type) {
+    setType(type);
+  }
 
-   function handleSelectType(type) {
-     setType(type);
-   }
-
-   function handleSearch() {
-     props.history.push(`/reviews/${loc.place_id}/${type}`)
-   }
-
-  
-  //Store the values in the url
-  //Get the search values from the url when the next screen mounts
-
+  function handleSearch() {
+    props.history.push(
+      `/results/search?type=${type}&lat=${loc.lat}&lng=${loc.lng}`
+    );
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -47,16 +49,16 @@ import AutoCompleteInput from '../AutocompleteInput/AutocompleteInput';
             <option value="shopping_mall">Mall</option>
             <option value="point_of_interest">Attractions</option>
           </select>
-          {/* <input type="text" placeholder="in..." /> */}
-          <AutoCompleteInput onPlaceLoaded={handleSelect} />
-          <button type="submit" onClick={handleSearch}>Go!</button>
+          {/* <AutoCompleteInput onPlaceLoaded={handleSelect} /> */}
+          <Autocomplete onPlaceSelected={place => handleSelect(place)} />
+          <button type="submit" onClick={handleSearch}>
+            Go!
+          </button>
         </div>
       </div>
       <div className={styles.onboarding}>
         <div className={styles.onboardingHeader}>
-          <h3 style={{ fontSize: '2.0em' }}>
-            SWEET! a review app for parents
-          </h3>
+          <h3 style={{ fontSize: '2.0em' }}>SWEET! a review app for parents</h3>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Necessitatibus maxime eveniet laudant.
