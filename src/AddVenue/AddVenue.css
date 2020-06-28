@@ -18,12 +18,12 @@ header {
   margin-bottom: 100px;
 }
 
- label {
+/* label {
   text-align: center;
   display: block;
   margin: 1.5em;
 	font-size: 1em;
-}
+} */
 
 .add_form_text {
   display: block;
@@ -48,12 +48,12 @@ header {
   cursor: pointer;
 }
 
-legend {
+/* legend {
   text-align: center;
   width: 80%;
   margin: 0 auto;
 	font-size: 1.1em;
-}
+} */
 
 .form_amenities {
   display: flex;
@@ -62,7 +62,7 @@ legend {
 
 .form_amenities label {
   display: flex;
-	width: 90%;
+  width: 90%;
   justify-content: space-between;
   margin: 10px auto;
 }
@@ -76,9 +76,9 @@ legend {
   text-align: center;
 }
 
-fieldset {
+/* fieldset {
   border: none;
-}
+} */
 
 .review {
   width: 80%;
@@ -153,15 +153,14 @@ fieldset {
     width: 40%;
   }
 
-	.checkBox {
-		 width: 20px;
-		 height: 20px;
-	}
+  .checkBox {
+    width: 20px;
+    height: 20px;
+  }
 
   .add_form_review textarea {
     width: 40%;
   }
-
 
   .add_form_controls {
     width: 50%;

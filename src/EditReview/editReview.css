@@ -12,11 +12,11 @@
   margin-left: auto;
   margin-right: auto;
 }
-.edit_form label {
+/* .edit_form label {
   text-align: center;
   display: block;
   margin: 1.5em;
-}
+} */
 
 .edit_form_text {
   display: block;
@@ -41,17 +41,17 @@
   cursor: pointer;
 }
 
-legend {
+/* legend {
   text-align: center;
   width: 100%;
   margin: 0 auto;
-}
+} */
 
 .amenities {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .amenities label {
   display: flex;
   justify-content: space-between;
@@ -65,13 +65,13 @@ legend {
 
 fieldset {
   border: none;
-}
+} */
 
 .review {
   width: 80%;
   margin: 0 auto;
 }
-
+/* 
 .review label {
   text-align: left;
   margin: 1.5em;
@@ -88,13 +88,13 @@ fieldset {
   border-left: 3px solid;
   border-radius: 5px;
   transition: border-color 0.5s ease-out;
-}
+} */
 
 .edit_form_controls {
   width: 80%;
   margin: 0 auto;
 }
-
+/* 
 .edit_form_controls button {
   display: block;
   min-width: 180px;
@@ -104,7 +104,7 @@ fieldset {
   cursor: pointer;
   background-color: transparent;
   font-size: 1.1em;
-}
+} */
 
 .edit_form_button {
   border-color: #064789;

@@ -13,10 +13,30 @@ class Result extends React.Component {
     this.props.history.push(`/venue/${venueId}`);
   }
 
+  renderTypes() {
+    let { types } = this.props.venue;
+
+    let formatted = types.map(t =>
+      t !== 'establishment' ? t.split('_').join(' ') : null
+    );
+    return formatted.map((t, idx) => {
+      return (
+        <p
+          style={{
+            display: 'inline-block',
+            margin: '5px',
+            textTransform: 'capitalize',
+          }}
+          key={idx}
+        >
+          {t}
+        </p>
+      );
+    });
+  }
+
   render() {
     let { venue } = this.props;
-    console.log('venue', venue);
-    console.log('venue photo', venue.photos[0].photo_reference);
     return (
       <li
         className="result"
@@ -35,7 +55,7 @@ class Result extends React.Component {
           </span>
         </div>
         <div className="result_address">
-          <span>{venue.types[0]}</span>
+          {this.renderTypes()}
           <Rating
             className="price_span"
             value={venue.price_level}

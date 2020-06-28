@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import CustomFormHook from '../Hooks/customHooks';
 import AuthService from '../services/AuthService';
-import States from './States';
+import { ReactComponent as RegistrationPic } from '../assets/family_.svg';
+import s from './Registration.module.css';
 
+//Let's simplify this and use just the F,L, EMail, passowrd, and zip
 export default function RegistrationForm() {
   let [error, setError] = useState(null);
   const {
@@ -16,11 +18,8 @@ export default function RegistrationForm() {
       let user = {
         email: inputs.email,
         password: inputs.password,
-        username: inputs.username,
         first_name: inputs.first_name,
         last_name: inputs.last_name,
-        city: inputs.city,
-        state: inputs.state,
       };
       let res = await AuthService.postUser(user);
 
@@ -31,78 +30,90 @@ export default function RegistrationForm() {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <fieldset>
+    <div className={s.wrapper}>
+      <form className={s.registration} onSubmit={handleSubmit} noValidate>
         <legend>Sign Up</legend>
-        <label htmlFor="first_name">First Name</label>
-        <input
-          type="text"
-          id="first_name"
-          name="first_name"
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-        />
-        {touched.first_name ? <p>First name is required</p> : null}
-        <label htmlFor="last_name">Last Name</label>
-        <input
-          type="text"
-          id="last_name"
-          name="last_name"
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-        />
-        {touched.last_name ? <p>Last name is required</p> : null}
-        <label htmlFor="city">City</label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-        />
-        {touched.city ? <p>City is required</p> : null}
-        <label htmlFor="state">State</label>
-        <select
-          id="state"
-          name="state"
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-        >
-          <States />
-        </select>
-        {inputs.state ? <p>{inputs.state}</p> : null}
-        {touched.state ? <p>State is required</p> : null}
-        <label htmlFor="email">Email</label>
-        <input
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-          name="email"
-          type="text"
-          id="email"
-        />
-        {/* here we can put some custom validation */}
-        {touched.email ? <p>Been touched</p> : null}
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-        />
-        {touched.username ? <p>Username is required</p> : null}
-        <label htmlFor="password">Password</label>
-        <input
-          type="text"
-          id="password"
-          name="password"
-          onBlur={handleTouched}
-          onChange={handleInputChange}
-        />
-        {touched.password ? <p>Password is required</p> : null}
-        <button>Sign Upr</button>
+        <div className={s.formElement}>
+          <input
+            className={s.regInput}
+            styles={{ position: 'absolute' }}
+            type="text"
+            id="first_name"
+            name="first_name"
+            onBlur={handleTouched}
+            onChange={handleInputChange}
+            required
+          />
+          <label className={s.regLabel} htmlFor="first_name">
+            First Name
+          </label>
+        </div>
+        <div className={s.validationError}>
+          {touched.first_name ? <p>First name is required</p> : null}
+        </div>
+        <div className={s.formElement}>
+          <input
+            className={s.regInput}
+            type="text"
+            id="last_name"
+            name="last_name"
+            onBlur={handleTouched}
+            onChange={handleInputChange}
+            required
+          />
+          <label className={s.regLabel} htmlFor="last_name">
+            Last Name
+          </label>
+        </div>
+        <div className={s.validationError}>
+          {touched.last_name ? <p>Last name is required</p> : null}
+        </div>
+        <div className={s.formElement}>
+          <input
+            className={s.regInput}
+            onBlur={handleTouched}
+            onChange={handleInputChange}
+            name="email"
+            type="text"
+            id="email"
+            required
+          />
+          <label className={s.regLabel} htmlFor="email">
+            Email
+          </label>
+          {/* here we can put some custom validation */}
+        </div>
+        <div className={s.validationError}>
+          {touched.email ? <p>Email is required</p> : null}
+        </div>
+        <div className={s.formElement}>
+          <input
+            className={s.regInput}
+            type="text"
+            id="password"
+            name="password"
+            onBlur={handleTouched}
+            onChange={handleInputChange}
+            required
+          />
+          <label className={s.regLabel} htmlFor="password">
+            Password
+          </label>
+        </div>
+        <div className={s.validationError}>
+          {touched.password ? <p>Password is required</p> : null}
+        </div>
+        <button>Sign Up</button>
         {error ? <p>{error.error}</p> : null}
-      </fieldset>
-    </form>
+      </form>
+      <div className={s.imageContainer}>
+        <div>
+          <h3>Almost There!</h3>
+          You are close to getting some things asbout stuff for restaurants. Get
+          money, take money.
+        </div>
+        <RegistrationPic />
+      </div>
+    </div>
   );
 }
