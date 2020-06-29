@@ -1,108 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Result from '../Result/Result';
 import VenueContext from '../VenuesContext';
 import { withRouter } from 'react-router-dom';
-import './Resultspage.css';
+import s from './Resultspage.module.css';
 import ApiService from '../services/api-service';
-import Loading from '../Loading/Loading';
 import qs from 'qs';
-import dummyData from '../reference';
-class ResultsPage extends React.Component {
-  static contextType = VenueContext;
 
-  state = {
-    loading: false,
-  };
+function ResultsPage(props) {
+  const context = useContext(VenueContext);
 
-  componentDidMount() {
-    //Get the query params for our fetch! this returns an object
-    let query = qs.parse(this.props.location.search, {
+  const [loading, setLoading] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
+  const [showMap, setShowMap] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [fetchError, setFetchError] = useState(null);
+
+  useEffect(() => {
+    let query = qs.parse(props.location.search, {
       ignoreQueryPrefix: true,
     });
-    this.context.clearError();
+    context.clearError();
     ApiService.getVenues(query)
       .then(venues => {
-        console.log(venues);
-        this.context.setVenues(venues.results);
-        this.setState({ loading: false });
+        console.log('heres the venues');
+        context.setVenues(venues.results);
+        setLoading(false);
       })
       .catch(err => {
-        console.log(err);
-        this.setState({ loading: false });
+        setFetchError(err);
       });
-  }
+  }, []);
 
-  handleAddClick() {
-    this.props.history.push('/addvenue');
-  }
+  //Handle loading more
 
-  prerender() {
-    let { city, type } = this.props.match.params;
-    let { venues, error } = this.context;
-    if (this.state.loading === true) {
-      return (
-        <section className="results_page">
-          <Loading />
-        </section>
-      );
-    }
-    if (venues.length === 0 && !error) {
-      return (
-        <section className="results_page">
-          <div>
-            <p>Sorry, no results found for that search</p>
-          </div>
-        </section>
-      );
-    }
-    if (error) {
-      return (
-        <section className="results_page">
-          <div>{this.renderError()}</div>
-        </section>
-      );
-    } else {
-      return (
-        <section className="results_page">
-          <header className="results_header">
-            <h2>
-              Showing results for {type} in <span>{city}</span>
-            </h2>
-          </header>
-          <ul>
-            {venues.map(venue => (
-              <Result venue={venue} key={venue.id} />
-            ))}
-          </ul>
-          <div className="addvenue">
-            <p>Is something missing?</p>
-            <button
-              onClick={() => {
-                this.handleAddClick();
-              }}
-            >
-              Suggest a new venue
-            </button>
-          </div>
-        </section>
-      );
-    }
-  }
+  //The resultPageControls handles the hide/show buttons for the map and
+  //filters in the mobile view. It should remain hidden until <450px
 
-  renderError() {
-    let error = this.context.error;
-    if (this.context.error) {
-      return (
-        <div className="error">
-          <p>Sorry, something has gone wrong. {error.error}</p>
+  return (
+    <section className={s.resultsPage}>
+      <div className={s.mobile}>
+        <div className={s.mobileControls}>
+          <button
+            className={s.showButton}
+            onClick={() => setShowFilter(!showFilter)}
+          >
+            Show filters
+          </button>
+          <button className={s.showMap} onClick={() => setShowMap(!showMap)}>
+            Show Map
+          </button>
         </div>
-      );
-    }
-  }
+        <div className={s.mobileFilter}>
+          {showFilter ? <p>These are the filters</p> : null}
+        </div>
+        <div className={s.mobileMap}>
+          {showMap ? <p>This is the map</p> : null}
+        </div>
+      </div>
 
-  render() {
-    return <div>{this.prerender()}</div>;
-  }
+      {/* <div className={s.resultsPage}> */}
+      <div className={s.resultsControls}>
+        <p>This should stay put</p>
+      </div>
+      <div className={s.resultsContainer}>
+        {context.venues.map(venue => {
+          return <Result venue={venue} key={venue.id} />;
+        })}
+        <button>See More</button>
+      </div>
+      <div className={s.mapContainer}>
+        <p>This should stay put</p>
+      </div>
+      {/* </div> */}
+    </section>
+  );
 }
 
 export default withRouter(ResultsPage);
