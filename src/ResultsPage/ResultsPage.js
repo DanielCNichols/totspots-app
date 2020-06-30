@@ -5,8 +5,7 @@ import { withRouter } from 'react-router-dom';
 import s from './Resultspage.module.css';
 import ApiService from '../services/api-service';
 import qs from 'qs';
-
-import dummyData from '../reference';
+import MapContainer from '../Map/Map';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -16,11 +15,17 @@ function ResultsPage(props) {
   const [showMap, setShowMap] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [fetchError, setFetchError] = useState(null);
+  // const [venues, setVenues] = useState({});
+
+  let query = {};
+
+  query = qs.parse(props.location.search, {
+    ignoreQueryPrefix: true,
+  });
+
+  console.log(query);
 
   useEffect(() => {
-    let query = qs.parse(props.location.search, {
-      ignoreQueryPrefix: true,
-    });
     context.clearError();
     ApiService.getVenues(query)
       .then(venues => {
@@ -71,7 +76,7 @@ function ResultsPage(props) {
         <button>See More</button>
       </div>
       <div className={s.mapContainer}>
-        <p>This is the map</p>
+        <MapContainer query={query} />
       </div>
       {/* </div> */}
     </section>
