@@ -42,6 +42,7 @@
   }
 
   .resultsControls {
+    display: grid;
     grid-column-start: auto;
     top: 0;
     width: 100%;
@@ -63,6 +64,7 @@
   }
 
   .mapContainer {
+    display: grid;
     grid-column-start: auto;
     width: 100%;
     border-left: 1px solid black;

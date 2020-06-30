@@ -1,7 +1,7 @@
 import React from 'react';
 import VenueContext from '../VenuesContext';
 import { withRouter } from 'react-router-dom';
-import './Result.css';
+import s from './Result.module.css';
 import Rating from '../Rating/Rating';
 import config from '../config';
 
@@ -17,20 +17,21 @@ class Result extends React.Component {
     let { types } = this.props.venue;
 
     let formatted = types.map(t =>
-      t !== 'establishment' ? t.split('_').join(' ') : null
+      t !== 'establishment' && t !== 'point_of_interest'
+        ? t.split('_').join(' ')
+        : ''
     );
     return formatted.map((t, idx) => {
       return (
-        <p
+        <span
           style={{
             display: 'inline-block',
-            margin: '5px',
             textTransform: 'capitalize',
           }}
           key={idx}
         >
           {t}
-        </p>
+        </span>
       );
     });
   }
@@ -39,35 +40,28 @@ class Result extends React.Component {
     let { venue } = this.props;
     return (
       <li
-        className="result"
+        className={s.result}
         key={venue.id}
         onClick={() => this.handleExpanded(venue.id)}
       >
-        <div className="resultPhoto">
-          <img
-            src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${venue.photos[0].photo_reference}&key=${config.GKEY}
+        <img
+          src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${venue.photos[0].photo_reference}&key=${config.GKEY}
 `}
-          />
-        </div>
-        <div className="result_rating">
-          <h3>{venue.name}</h3>
-
-          <span className="rating">
-            <Rating value={venue.rating} symbol="&#x2605;" />
-          </span>
-        </div>
-        <div className="result_address">
-          {this.renderTypes()}
+          alt="google"
+        />
+        <h4>{venue.name}</h4>
+        <div className={s.ratings}>
+          <Rating value={venue.rating} symbol="&#x2605;" />
           <Rating
             className="price_span"
             value={venue.price_level}
             symbol="&#36;"
           />
         </div>
-        <button onClick={() => this.handleExpanded(venue.id)}>See more</button>
+        <span className={s.address}>{venue.vicinity}</span>
+        <span className={s.types}>{this.renderTypes()}</span>
       </li>
     );
   }
 }
-
 export default withRouter(Result);

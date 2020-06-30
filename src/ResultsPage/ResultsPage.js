@@ -6,6 +6,8 @@ import s from './Resultspage.module.css';
 import ApiService from '../services/api-service';
 import qs from 'qs';
 
+import dummyData from '../reference';
+
 function ResultsPage(props) {
   const context = useContext(VenueContext);
 
