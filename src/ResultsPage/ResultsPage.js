@@ -62,7 +62,7 @@ function ResultsPage(props) {
 
       {/* <div className={s.resultsPage}> */}
       <div className={s.resultsControls}>
-        <p>This should stay put</p>
+        <p>These are the controls</p>
       </div>
       <div className={s.resultsContainer}>
         {context.venues.map(venue => {
@@ -71,7 +71,7 @@ function ResultsPage(props) {
         <button>See More</button>
       </div>
       <div className={s.mapContainer}>
-        <p>This should stay put</p>
+        <p>This is the map</p>
       </div>
       {/* </div> */}
     </section>
