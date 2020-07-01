@@ -7,7 +7,6 @@ const MapContainer = props => {
   const context = useContext(VenueContext);
 
   const onSelect = item => {
-    console.log(item);
     setSelected(item);
   };
 
@@ -22,13 +21,12 @@ const MapContainer = props => {
     margin: '0 auto',
   };
 
-  console.log('this is the props', props);
   const defaultCenter = {
     lat: parseFloat(props.query.lat),
     lng: parseFloat(props.query.lng),
   };
 
-  console.log('this is the center', defaultCenter);
+  console.log('map has been mounted');
   return (
     <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter}>
       {context.venues.map(r => {
