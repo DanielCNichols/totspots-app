@@ -10,7 +10,7 @@ import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Sizes from 'react-sizes';
 import displayRules from '../displayRules';
 import FilterBar from '../FilterBar/FilterBar';
-import { FaBeer, FaAccusoft } from 'react-icons/fa';
+import { MdAttachMoney } from 'react-icons/md';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -74,7 +74,7 @@ function ResultsPage(props) {
       <div className={s.resultsControls}>
         <FilterBar
           title="Filter by price"
-          symbol={FaAccusoft}
+          symbol={MdAttachMoney()}
           groupName="filterOpt"
           valueOptions={[0, 1, 2, 3]}
         />
