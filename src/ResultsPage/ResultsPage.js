@@ -9,6 +9,8 @@ import MapContainer from '../Map/Map';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Sizes from 'react-sizes';
 import displayRules from '../displayRules';
+import FilterBar from '../FilterBar/FilterBar';
+import { FaBeer, FaAccusoft } from 'react-icons/fa';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -48,7 +50,7 @@ function ResultsPage(props) {
 
   return (
     <section className={s.resultsPage}>
-      {props.isMobile ? (
+      {/* {props.isMobile ? (
         <div className={s.mobile}>
           {console.log('components mounted')}
           <div className={s.mobileControls}>
@@ -67,13 +69,17 @@ function ResultsPage(props) {
             {showMap ? <MapContainer query={query} /> : null}
           </div>
         </div>
-      ) : null}
+      ) : null} */}
 
-      {/* <div className={s.resultsPage}> */}
       <div className={s.resultsControls}>
-        <p>These are the controls</p>
+        <FilterBar
+          title="Filter by price"
+          symbol={FaAccusoft}
+          groupName="filterOpt"
+          valueOptions={[0, 1, 2, 3]}
+        />
       </div>
-      <div className={s.resultsContainer}>
+      {/* <div className={s.resultsContainer}>
         {context.venues.map(venue => {
           return <Result venue={venue} key={venue.id} />;
         })}
@@ -81,8 +87,7 @@ function ResultsPage(props) {
       </div>
       <div className={s.mapContainer}>
         <MapContainer query={query} />
-      </div>
-      {/* </div> */}
+      </div> */}
     </section>
   );
 }
