@@ -28,7 +28,7 @@ const MapContainer = props => {
 
   console.log('map has been mounted');
   return (
-    <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter}>
+    <GoogleMap mapContainerStyle={mapStyles} zoom={14} center={defaultCenter}>
       {context.venues.map(r => {
         return (
           <Marker

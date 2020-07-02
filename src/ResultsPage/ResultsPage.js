@@ -7,6 +7,8 @@ import ApiService from '../services/api-service';
 import qs from 'qs';
 import MapContainer from '../Map/Map';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
+import Sizes from 'react-sizes';
+import displayRules from '../displayRules';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -46,25 +48,26 @@ function ResultsPage(props) {
 
   return (
     <section className={s.resultsPage}>
-      <div className={s.mobile}>
-        <div className={s.mobileControls}>
-          <button
-            className={s.showButton}
-            onClick={() => setShowFilter(!showFilter)}
-          >
-            Show filters
-          </button>
-          <ToggleSwitch showMap={showMap} toggleMap={mobileMapToggle} />
-        </div>
-        <div className={s.mobileFilter}>
-          {showFilter ? <p>These are the filters</p> : null}
-        </div>
-        {showMap ? (
-          <div className={s.mobileMap}>
-            <MapContainer query={query} />
+      {props.isMobile ? (
+        <div className={s.mobile}>
+          {console.log('components mounted')}
+          <div className={s.mobileControls}>
+            <button
+              className={s.showButton}
+              onClick={() => setShowFilter(!showFilter)}
+            >
+              Show filters
+            </button>
+            <ToggleSwitch showMap={showMap} toggleMap={mobileMapToggle} />
           </div>
-        ) : null}
-      </div>
+          <div className={s.mobileFilter}>
+            {showFilter ? <p>These are the filters</p> : null}
+          </div>
+          <div className={s.mobileMap}>
+            {showMap ? <MapContainer query={query} /> : null}
+          </div>
+        </div>
+      ) : null}
 
       {/* <div className={s.resultsPage}> */}
       <div className={s.resultsControls}>
@@ -84,4 +87,4 @@ function ResultsPage(props) {
   );
 }
 
-export default withRouter(ResultsPage);
+export default withRouter(Sizes(displayRules)(ResultsPage));
