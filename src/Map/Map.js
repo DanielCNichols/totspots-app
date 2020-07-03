@@ -10,11 +10,6 @@ const MapContainer = props => {
     setSelected(item);
   };
 
-  // const [currPosition, setCurrentPosition] = useState({
-  //   lat: +null,
-  //   lng: +null,
-  // })
-
   const mapStyles = {
     height: '500px',
     width: '100%',

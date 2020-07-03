@@ -50,7 +50,7 @@ function ResultsPage(props) {
 
   return (
     <section className={s.resultsPage}>
-      {/* {props.isMobile ? (
+      {props.isMobile ? (
         <div className={s.mobile}>
           {console.log('components mounted')}
           <div className={s.mobileControls}>
@@ -69,17 +69,37 @@ function ResultsPage(props) {
             {showMap ? <MapContainer query={query} /> : null}
           </div>
         </div>
-      ) : null} */}
+      ) : null}
 
       <div className={s.resultsControls}>
-        <FilterBar
-          title="Filter by price"
-          symbol={MdAttachMoney()}
-          groupName="filterOpt"
-          valueOptions={[0, 1, 2, 3]}
-        />
+        <h3>Refine Search</h3>
+        <div className={s.filterElement}>
+          <FilterBar
+            title="Filter by price"
+            symbol="$"
+            groupName="priceOpt"
+            valueOptions={[0, 1, 2, 3]}
+          />
+        </div>
+        <div className={s.filterElement}>
+          <FilterBar
+            title="Filter by Rating"
+            symbol="$"
+            groupName="ratingOpt"
+            valueOptions={[0, 1, 2, 3]}
+          />
+        </div>
+        <div className={s.filterElement}>
+          <FilterBar
+            title="Filter by Totspots Rating"
+            symbol="$"
+            groupName="tsFilterOpt"
+            valueOptions={[0, 1, 2, 3]}
+          />
+        </div>
+        <h3>Find Amenities</h3>
       </div>
-      {/* <div className={s.resultsContainer}>
+      <div className={s.resultsContainer}>
         {context.venues.map(venue => {
           return <Result venue={venue} key={venue.id} />;
         })}
@@ -87,7 +107,7 @@ function ResultsPage(props) {
       </div>
       <div className={s.mapContainer}>
         <MapContainer query={query} />
-      </div> */}
+      </div>
     </section>
   );
 }

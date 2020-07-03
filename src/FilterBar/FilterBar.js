@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './FilterBar.module.css';
-import { MdFullscreenExit } from 'react-icons/md';
 
 //Pass in props for: LabelName, changeHandler, symbol, value range, inputName
 const FilterBar = ({ title, symbol, valueOptions, groupName }) => {
@@ -12,8 +11,15 @@ const FilterBar = ({ title, symbol, valueOptions, groupName }) => {
 
     //"The querySelectorAll() method on the document interfaces MUST return a Nodelist:[] containing all matches in document order". Easy to get our range by grabbing first and last indices.value
 
-    console.log(checkboxes[0].value);
-    console.log(checkboxes[checkboxes.length - 1].value);
+    //If we have checkboxes checked, then run a new query to update the page
+    //Otherwise clear it out and run the original query again;
+    if (checkboxes.length) {
+      console.log(checkboxes[0].value);
+      console.log(checkboxes[checkboxes.length - 1].value);
+    } else {
+      //This would clear the filter and refetch...
+      console.log('cleared');
+    }
   }
 
   function makeOptions() {
@@ -32,65 +38,43 @@ const FilterBar = ({ title, symbol, valueOptions, groupName }) => {
   }
 
   let displaySymbols = makeOptions();
-  console.log(displaySymbols);
   return (
-    <div style={{ width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
-      <form
-        style={{ width: '90%', margin: '0 auto' }}
-        id="filterTest"
-        onChange={getValue}
-      >
-        <fieldset
-          style={{
-            // width: '90%',
-            margin: '0 auto',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+    <form className={s.filterForm} id="filterTest" onChange={getValue}>
+      <fieldset className={s.filterFieldset}>
+        <legend>{title}</legend>
+        <div
+          className={s.checkButtonContainer}
+          // style={{
+          //   width: '100%',
+          //   display: 'flex',
+          //   margin: '0 auto',
+          //   justifyContent: 'center',
+          // }}
         >
-          <legend>{title}</legend>
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              margin: '0 auto',
-              justifyContent: 'center',
-            }}
-          >
-            {valueOptions.map((val, idx) => {
-              return (
+          {valueOptions.map((val, idx) => {
+            return (
+              <div className={s.checkButton} key={idx}>
+                <input
+                  type="checkbox"
+                  name={groupName}
+                  value={val}
+                  id={groupName + val}
+                />
                 <label
-                  style={{
-                    display: 'flex',
-                    border: '1px solid black',
-                    width: '50px',
-                    margin: '0',
-                    height: '25px',
-                    padding: '0 5px',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    textAlign: 'center',
-                    fontSize: '.8em',
-                  }}
+                  htmlFor={groupName + val}
+                  className={s.filterLabel}
                   key={idx}
                 >
-                  <input
-                    style={{ opacity: 0, position: 'absolute', left: '100vw' }}
-                    type="checkbox"
-                    name={groupName}
-                    value={val}
-                  />
                   {displaySymbols[idx].map((symbol, idx) => (
                     <span key={idx}>{symbol}</span>
                   ))}
                 </label>
-              );
-            })}
-          </div>
-        </fieldset>
-      </form>
-    </div>
+              </div>
+            );
+          })}
+        </div>
+      </fieldset>
+    </form>
   );
 };
 

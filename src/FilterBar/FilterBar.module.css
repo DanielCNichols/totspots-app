@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+.filterForm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.filterFieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.filterLabel {
+  display: flex;
+  border: 1px solid #afafaf;
+  width: 60px;
+  margin: 0;
+  height: 25px;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/* gets the two inner buttons */
+/* .checkButtonContainer div:nth-of-type(2) > label,
+div:nth-of-type(3) > label {
+  border-left-color: #afafaf;
+  border-right-color: #afafaf;
+} */
+
+.checkButtonContainer :nth-child(1) > label {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding-right: 0;
+  border-right-color: #e7e7e7;
+}
+
+.checkButtonContainer :nth-child(4) > label {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding-left: 0;
+  border-left-color: #e7e7e7;
+}
+
+.checkButtonContainer input:checked + label {
+  background-color: darkgray;
+}
+
+.checkButtonContainer input {
+  position: absolute;
+  right: 100vw;
+}
