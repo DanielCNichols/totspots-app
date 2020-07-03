@@ -10,7 +10,7 @@ import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Sizes from 'react-sizes';
 import displayRules from '../displayRules';
 import FilterBar from '../FilterBar/FilterBar';
-import { MdAttachMoney } from 'react-icons/md';
+import FilterChips from '../FilterChips/FilterChips';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -97,7 +97,9 @@ function ResultsPage(props) {
             valueOptions={[0, 1, 2, 3]}
           />
         </div>
-        <h3>Find Amenities</h3>
+        <div className={s.filterElement}>
+          <FilterChips />
+        </div>
       </div>
       <div className={s.resultsContainer}>
         {context.venues.map(venue => {
