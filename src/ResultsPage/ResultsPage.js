@@ -18,7 +18,8 @@ function ResultsPage(props) {
   const [loading, setLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [showMap, setShowMap] = useState(false);
-  const [showResults, setShowResults] = useState(false);
+  const [nextPage, setNextPage] = useState(null);
+  const [page, setPage] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   // const [venues, setVenues] = useState({});
 
@@ -30,19 +31,34 @@ function ResultsPage(props) {
 
   useEffect(() => {
     context.clearError();
+    if (nextPage) {
+      query.token = nextPage;
+    }
     ApiService.getVenues(query)
       .then(venues => {
-        context.setVenues(venues.results);
+        console.log('this is the incoming', venues.results);
+        if (context.venues.length) {
+          context.setVenues([...context.venues, ...venues.results]);
+        } else {
+          context.setVenues(venues.results);
+        }
+        setNextPage(venues.next_page_token);
         setLoading(false);
       })
       .catch(err => {
         setFetchError(err);
       });
-  }, []);
+  }, [page]);
 
   function mobileMapToggle() {
     setShowMap(!showMap);
     console.log(showMap);
+  }
+
+  function handleShowMore() {
+    if (nextPage) {
+      setPage(page + 1);
+    }
   }
 
   //The resultPageControls handles the hide/show buttons for the map and
@@ -105,7 +121,7 @@ function ResultsPage(props) {
         {context.venues.map(venue => {
           return <Result venue={venue} key={venue.id} />;
         })}
-        <button>See More</button>
+        <button onClick={() => handleShowMore(nextPage)}>See More</button>
       </div>
       <div className={s.mapContainer}>
         <MapContainer query={query} />

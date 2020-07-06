@@ -44,11 +44,13 @@ class Result extends React.Component {
         key={venue.id}
         onClick={() => this.handleExpanded(venue.id)}
       >
-        <img
-          src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${venue.photos[0].photo_reference}&key=${config.GKEY}
+        {venue.photos ? (
+          <img
+            src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${venue.photos[0].photo_reference}&key=${config.GKEY}
 `}
-          alt="google"
-        />
+            alt="google"
+          />
+        ) : null}
         <h4>{venue.name}</h4>
         <div className={s.ratings}>
           <Rating value={venue.rating} symbol="&#x2605;" />
