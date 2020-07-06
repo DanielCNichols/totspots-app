@@ -2,7 +2,14 @@ import React from 'react';
 import s from './FilterBar.module.css';
 
 //Pass in props for: LabelName, changeHandler, symbol, value range, inputName
-const FilterBar = ({ title, symbol, valueOptions, groupName }) => {
+const FilterBar = ({
+  title,
+  symbol,
+  valueOptions,
+  groupName,
+  handleFilter,
+  resetFilter,
+}) => {
   //On checkbox click, grab min/max for queryString to filter.
   function getValue() {
     let checkboxes = document.querySelectorAll(
@@ -13,12 +20,18 @@ const FilterBar = ({ title, symbol, valueOptions, groupName }) => {
 
     //If we have checkboxes checked, then run a new query to update the page
     //Otherwise clear it out and run the original query again;
+
+    // PER THE API, we must have a min/max for the rpic
     if (checkboxes.length) {
-      console.log(checkboxes[0].value);
-      console.log(checkboxes[checkboxes.length - 1].value);
+      console.log('running first if');
+      let options = {
+        min: checkboxes[0].value,
+        max: checkboxes[checkboxes.length - 1].value,
+      };
+      handleFilter(groupName, options);
     } else {
       //This would clear the filter and refetch...
-      console.log('cleared');
+      resetFilter(groupName);
     }
   }
 
@@ -42,15 +55,7 @@ const FilterBar = ({ title, symbol, valueOptions, groupName }) => {
     <form className={s.filterForm} id="filterTest" onChange={getValue}>
       <fieldset className={s.filterFieldset}>
         <legend>{title}</legend>
-        <div
-          className={s.checkButtonContainer}
-          // style={{
-          //   width: '100%',
-          //   display: 'flex',
-          //   margin: '0 auto',
-          //   justifyContent: 'center',
-          // }}
-        >
+        <div className={s.checkButtonContainer}>
           {valueOptions.map((val, idx) => {
             return (
               <div className={s.checkButton} key={idx}>

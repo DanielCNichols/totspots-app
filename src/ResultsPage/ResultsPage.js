@@ -21,6 +21,8 @@ function ResultsPage(props) {
   const [nextPage, setNextPage] = useState(null);
   const [page, setPage] = useState(null);
   const [fetchError, setFetchError] = useState(null);
+  const [featureFilter, setFeatureFilter] = useState({});
+
   // const [venues, setVenues] = useState({});
 
   let query = {};
@@ -61,6 +63,26 @@ function ResultsPage(props) {
     }
   }
 
+  // FILTERS WILL HAVE TO BE:
+  // MIN/MAX Price (can use an object, need to change the ui to a range bar)
+  //AMENITIES (can use an object for all of them )
+  //SORT BY RATINGS/TSRATING
+
+  //Pass in the groupname/key and an object representing the min/max/options
+  //Use the spread operator on objects to reassign the original values and set the state
+  function handleSetFilters(name, options) {
+    let newFilters = { ...featureFilter };
+    newFilters[name] = options;
+    setFeatureFilter(newFilters);
+  }
+
+  function handleResetFilter(name) {
+    console.log('clearing');
+    let newFilters = { ...featureFilter };
+    delete newFilters[name];
+    setFeatureFilter(newFilters);
+  }
+
   //The resultPageControls handles the hide/show buttons for the map and
   //filters in the mobile view. It should remain hidden until <450px
 
@@ -91,6 +113,8 @@ function ResultsPage(props) {
         <h3>Refine Search</h3>
         <div className={s.filterElement}>
           <FilterBar
+            handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
             title="Filter by price"
             symbol="$"
             groupName="priceOpt"
@@ -99,6 +123,8 @@ function ResultsPage(props) {
         </div>
         <div className={s.filterElement}>
           <FilterBar
+            handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
             title="Filter by Rating"
             symbol="$"
             groupName="ratingOpt"
@@ -107,6 +133,8 @@ function ResultsPage(props) {
         </div>
         <div className={s.filterElement}>
           <FilterBar
+            handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
             title="Filter by Totspots Rating"
             symbol="$"
             groupName="tsFilterOpt"
@@ -114,7 +142,10 @@ function ResultsPage(props) {
           />
         </div>
         <div className={s.filterElement}>
-          <FilterChips />
+          <FilterChips
+            handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
+          />
         </div>
       </div>
       <div className={s.resultsContainer}>
