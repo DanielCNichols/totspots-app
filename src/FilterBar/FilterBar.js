@@ -16,14 +16,7 @@ const FilterBar = ({
       `input[name=${groupName}]:checked`
     );
 
-    //"The querySelectorAll() method on the document interfaces MUST return a Nodelist:[] containing all matches in document order". Easy to get our range by grabbing first and last indices.value
-
-    //If we have checkboxes checked, then run a new query to update the page
-    //Otherwise clear it out and run the original query again;
-
-    // PER THE API, we must have a min/max for the rpic
     if (checkboxes.length) {
-      console.log('running first if');
       let options = {
         min: checkboxes[0].value,
         max: checkboxes[checkboxes.length - 1].value,

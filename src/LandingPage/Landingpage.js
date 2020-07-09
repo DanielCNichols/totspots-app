@@ -5,8 +5,6 @@ import { GiKnifeFork } from 'react-icons/gi';
 import Autocomplete from 'react-google-autocomplete';
 
 function NewLanding(props) {
-  console.log(props);
-
   const [type, setType] = useState('');
   const [loc, setLoc] = useState({
     lat: null,
@@ -14,7 +12,6 @@ function NewLanding(props) {
   });
 
   function handleSelect(place) {
-    console.log(place);
     setLoc({
       lat: place.geometry.location.lat(),
       lng: place.geometry.location.lng(),

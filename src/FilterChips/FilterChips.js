@@ -18,14 +18,12 @@ const FilterChips = ({ handleFilter, resetFilter }) => {
     );
 
     if (checkboxes.length) {
-      console.log('running first if');
       let options = [];
       checkboxes.forEach(box => {
         options.push(box.value);
       });
       handleFilter('features', options);
     } else {
-      console.log('clearing');
       resetFilter('features');
     }
   }

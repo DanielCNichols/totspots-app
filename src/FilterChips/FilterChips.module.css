@@ -1,5 +1,7 @@
 .filterChips {
-  width: 100%;
+  width: 400px;
+  padding: 0 20px;
+  text-align: center;
 }
 
 /* Need to figure out how to randomly lay out chips */
@@ -7,13 +9,19 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.filterChips legend {
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
 }
 
 .filterChips input {
   position: absolute;
-  right: 100vw;
+  right: 110vw;
 }
 
 .filterChips label {
@@ -24,7 +32,7 @@
   width: 170px;
   border: 1px solid black;
   border-radius: 25px;
-  margin: 10px auto;
+  margin: 10px;
 }
 
 .chipContainer input:checked + label {

@@ -14,6 +14,8 @@ const MapContainer = props => {
     height: '500px',
     width: '100%',
     margin: '0 auto',
+    border: '4px solid #eaeaea',
+    borderRadius: '5px',
   };
 
   const defaultCenter = {
@@ -21,7 +23,6 @@ const MapContainer = props => {
     lng: parseFloat(props.query.lng),
   };
 
-  console.log('map has been mounted');
   return (
     <GoogleMap mapContainerStyle={mapStyles} zoom={14} center={defaultCenter}>
       {context.venues.map(r => {

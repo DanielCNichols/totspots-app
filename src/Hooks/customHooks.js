@@ -20,7 +20,6 @@ const CustomFormHook = callback => {
   const handleSubmit = event => {
     if (event) {
       event.preventDefault();
-      console.log(inputs);
     }
     callback();
   };

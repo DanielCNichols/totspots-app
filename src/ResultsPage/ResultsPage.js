@@ -11,6 +11,9 @@ import Sizes from 'react-sizes';
 import displayRules from '../displayRules';
 import FilterBar from '../FilterBar/FilterBar';
 import FilterChips from '../FilterChips/FilterChips';
+import Slider from '@material-ui/core/slider';
+import Filter from '../Filter/Filter';
+import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -22,8 +25,13 @@ function ResultsPage(props) {
   const [page, setPage] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   const [featureFilter, setFeatureFilter] = useState({});
+  const [price, setPrice] = useState([0, 1]);
 
-  // const [venues, setVenues] = useState({});
+  //When would we need for the data to be refethed:
+  //When the min/max price changes
+  //When the lat/lng changes
+
+  //We will filter amenities and totspots rating on the client side for now in the interest of saving money.
 
   let query = {};
 
@@ -38,7 +46,6 @@ function ResultsPage(props) {
     }
     ApiService.getVenues(query)
       .then(venues => {
-        console.log('this is the incoming', venues.results);
         if (context.venues.length) {
           context.setVenues([...context.venues, ...venues.results]);
         } else {
@@ -54,7 +61,6 @@ function ResultsPage(props) {
 
   function mobileMapToggle() {
     setShowMap(!showMap);
-    console.log(showMap);
   }
 
   function handleShowMore() {
@@ -63,13 +69,10 @@ function ResultsPage(props) {
     }
   }
 
-  // FILTERS WILL HAVE TO BE:
-  // MIN/MAX Price (can use an object, need to change the ui to a range bar)
-  //AMENITIES (can use an object for all of them )
-  //SORT BY RATINGS/TSRATING
+  function handlePriceChange(event, newValue) {
+    setPrice(newValue);
+  }
 
-  //Pass in the groupname/key and an object representing the min/max/options
-  //Use the spread operator on objects to reassign the original values and set the state
   function handleSetFilters(name, options) {
     let newFilters = { ...featureFilter };
     newFilters[name] = options;
@@ -77,7 +80,6 @@ function ResultsPage(props) {
   }
 
   function handleResetFilter(name) {
-    console.log('clearing');
     let newFilters = { ...featureFilter };
     delete newFilters[name];
     setFeatureFilter(newFilters);
@@ -88,9 +90,9 @@ function ResultsPage(props) {
 
   return (
     <section className={s.resultsPage}>
+      <div></div>
       {props.isMobile ? (
         <div className={s.mobile}>
-          {console.log('components mounted')}
           <div className={s.mobileControls}>
             <button
               className={s.showButton}
@@ -111,34 +113,38 @@ function ResultsPage(props) {
 
       <div className={s.resultsControls}>
         <h3>Refine Search</h3>
+
         <div className={s.filterElement}>
-          <FilterBar
+          <Filter
             handleFilter={handleSetFilters}
             resetFilter={handleResetFilter}
-            title="Filter by price"
-            symbol="$"
+            title="Price Price"
+            symbol={FaDollarSign}
             groupName="priceOpt"
-            valueOptions={[0, 1, 2, 3]}
+            valueOptions={[0, 1, 2, 3, 4]}
+            iconClass="dollar"
           />
         </div>
         <div className={s.filterElement}>
-          <FilterBar
+          <Filter
             handleFilter={handleSetFilters}
             resetFilter={handleResetFilter}
-            title="Filter by Rating"
-            symbol="$"
+            title="Avg. Google Review"
+            symbol={FaStar}
             groupName="ratingOpt"
-            valueOptions={[0, 1, 2, 3]}
+            valueOptions={[0, 1, 2, 3, 4]}
+            iconClass="star"
           />
         </div>
         <div className={s.filterElement}>
-          <FilterBar
+          <Filter
             handleFilter={handleSetFilters}
             resetFilter={handleResetFilter}
-            title="Filter by Totspots Rating"
-            symbol="$"
+            title="Avg. Totspots Rating"
+            symbol={FaChild}
             groupName="tsFilterOpt"
-            valueOptions={[0, 1, 2, 3]}
+            valueOptions={[0, 1, 2, 3, 4]}
+            iconClass="totspots"
           />
         </div>
         <div className={s.filterElement}>
@@ -149,6 +155,7 @@ function ResultsPage(props) {
         </div>
       </div>
       <div className={s.resultsContainer}>
+        <h3>Showing some results</h3>
         {context.venues.map(venue => {
           return <Result venue={venue} key={venue.id} />;
         })}

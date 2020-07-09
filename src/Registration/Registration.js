@@ -22,8 +22,6 @@ export default function RegistrationForm() {
         last_name: inputs.last_name,
       };
       let res = await AuthService.postUser(user);
-
-      console.log(res);
     } catch (err) {
       setError(err);
     }

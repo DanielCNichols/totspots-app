@@ -45,11 +45,11 @@
 
   .resultsControls {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     grid-column: span 2;
     grid-row: 1;
-    width: 100%;
+    width: 300px;
     /* border-right: 1px solid black; */
     text-align: center;
   }
@@ -57,10 +57,14 @@
   .resultsContainer {
     grid-column-start: auto;
     grid-row-start: 2;
-    width: 100%;
     /* border-left: 1px solid black; */
     /* border-right: 1px solid black; */
     /* padding-top: 100px; */
+  }
+
+  .resultsControls h3 {
+    width: 300px;
+    text-align: left;
   }
 
   .mapContainer {
@@ -96,19 +100,22 @@
     display: block;
     grid-column: 1;
     top: 0;
-    width: 100%;
-    height: 100vh;
-    padding-top: 100px;
-    position: sticky;
-    /* border-right: 1px solid black; */
+    width: 400px;
+    height: 200vh;
+    padding-top: 125px;
+    padding-left: 20px;
+    position: absolute;
   }
 
   .resultsContainer {
     grid-column-start: 2;
     grid-row-start: 1;
     width: 100%;
-    /* border-left: 1px solid black;
-    border-right: 1px solid black; */
+    padding: 25px 50px 0 0;
+  }
+
+  .resultsContainer li:first-of-type {
+    border-top: none;
   }
 
   .mapContainer {
@@ -116,14 +123,62 @@
     grid-row-start: 1;
     width: 100%;
     min-width: 100%;
-    /* border-left: 1px solid black; */
     position: sticky;
-    padding: 100px 10px;
-
+    padding: 50px 10px;
     top: 0;
   }
 
   .filterElement {
     margin-bottom: 25px;
+  }
+
+  .filterForm {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .filterForm legend {
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .filterForm fieldset {
+    width: 100%;
+    display: flex;
+  }
+
+  .filterForm label,
+  input {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .filterForm label svg {
+    font-size: 0.8em;
+    padding: 0;
+  }
+
+  .filterForm input {
+    float: left;
+    margin-right: 10px;
+  }
+
+  .labelText {
+    margin-left: 5px;
+  }
+
+  .filterForm span {
+    padding: 0;
+  }
+
+  .filterForm label {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-end;
+    width: 150px;
   }
 }
