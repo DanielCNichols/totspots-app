@@ -7,16 +7,21 @@ const Filter = ({
   groupName,
   valueOptions,
   handleFilter,
-  resetFilter,
   iconClass,
 }) => {
+  function getValue() {
+    let checked = document.querySelector(`input[name=${groupName}]:checked`)
+      .value;
+    handleFilter(groupName, checked);
+  }
+
   function makeLabels() {
     let display = [];
 
     valueOptions.forEach((opt, idx) => {
-      let i = 5;
+      let i = 3;
       let optionVal = [];
-      while (i >= 5 - opt) {
+      while (i >= 3 - idx) {
         optionVal.push(symbol());
         i--;
       }
@@ -29,9 +34,9 @@ const Filter = ({
     let display = [];
 
     valueOptions.forEach((opt, idx) => {
-      let i = 1;
+      let i = 0;
       let optionVal = [];
-      while (i < 5 - opt) {
+      while (i < 3 - idx) {
         optionVal.push(symbol());
         i++;
       }
@@ -41,17 +46,18 @@ const Filter = ({
   }
 
   let labels = makeLabels();
+
   let empty = makeEmpty();
-  console.log(labels);
+
   return (
-    <form className={s.filterForm}>
+    <form className={s.filterForm} onChange={getValue}>
       <fieldset>
         <legend>{title}</legend>
-        {valueOptions.map((idx, opt) => {
+        {valueOptions.map((opt, idx) => {
           return (
             <div key={opt} className={s.formElement}>
               <input
-                type="checkbox"
+                type="radio"
                 name={groupName}
                 id={groupName + opt}
                 value={opt}
@@ -85,7 +91,6 @@ const Filter = ({
                     </div>
                   );
                 })}
-                {/* <span className={s.labelText}> & up</span> */}
               </label>
             </div>
           );

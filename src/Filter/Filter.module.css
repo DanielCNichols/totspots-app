@@ -29,6 +29,8 @@ input {
 .filterForm input {
   float: left;
   margin-right: 10px;
+  position: absolute;
+  right: 100vh;
 }
 
 .labelText {
@@ -46,4 +48,8 @@ input {
   /* justify-content: center; */
   align-items: flex-end;
   width: 150px;
+}
+
+.filterForm input:checked + label {
+  font-size: 1em;
 }

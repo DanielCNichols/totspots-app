@@ -2,15 +2,12 @@ import config from '../config';
 import TokenService from './TokenService';
 
 const ApiService = {
-  getVenues({ type, lat, lng, token = 0 }) {
-    return fetch(
-      `${config.API_ENDPOINT}/venues/${type}/${lat}/${lng}/${token}`,
-      {
-        headers: {
-          'content-type': 'application/json',
-        },
-      }
-    ).then(res =>
+  getVenues(queryString) {
+    return fetch(`${config.API_ENDPOINT}/venues/${queryString}`, {
+      headers: {
+        'content-type': 'application/json',
+      },
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },

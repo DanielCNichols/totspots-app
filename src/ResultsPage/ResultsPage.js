@@ -9,9 +9,7 @@ import MapContainer from '../Map/Map';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import Sizes from 'react-sizes';
 import displayRules from '../displayRules';
-import FilterBar from '../FilterBar/FilterBar';
 import FilterChips from '../FilterChips/FilterChips';
-import Slider from '@material-ui/core/slider';
 import Filter from '../Filter/Filter';
 import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
 
@@ -24,8 +22,7 @@ function ResultsPage(props) {
   const [nextPage, setNextPage] = useState(null);
   const [page, setPage] = useState(null);
   const [fetchError, setFetchError] = useState(null);
-  const [featureFilter, setFeatureFilter] = useState({});
-  const [price, setPrice] = useState([0, 1]);
+  const [filters, setFilters] = useState({});
 
   //When would we need for the data to be refethed:
   //When the min/max price changes
@@ -39,25 +36,43 @@ function ResultsPage(props) {
     ignoreQueryPrefix: true,
   });
 
+  function formatQueryString() {
+    let queryString = '?';
+    let query = qs.parse(props.location.search, {
+      ignoreQueryPrefix: true,
+    });
+
+    let queryParams = { ...query, ...filters };
+
+    let keys = Object.keys(queryParams);
+
+    keys.forEach(key => {
+      return key !== 'features'
+        ? (queryString += `${key}=${queryParams[key]}&`)
+        : (queryString += `${key}=${JSON.stringify(queryParams[key])}&`);
+    });
+    return queryString;
+  }
+
   useEffect(() => {
     context.clearError();
-    if (nextPage) {
-      query.token = nextPage;
-    }
-    ApiService.getVenues(query)
+    // if (nextPage) {
+    //   query.token = nextPage;
+    // }
+
+    let queryString = formatQueryString();
+
+    ApiService.getVenues(queryString)
       .then(venues => {
-        if (context.venues.length) {
-          context.setVenues([...context.venues, ...venues.results]);
-        } else {
-          context.setVenues(venues.results);
-        }
+        context.setVenues(venues.results);
+
         setNextPage(venues.next_page_token);
         setLoading(false);
       })
       .catch(err => {
         setFetchError(err);
       });
-  }, [page]);
+  }, [page, filters]);
 
   function mobileMapToggle() {
     setShowMap(!showMap);
@@ -69,20 +84,16 @@ function ResultsPage(props) {
     }
   }
 
-  function handlePriceChange(event, newValue) {
-    setPrice(newValue);
-  }
-
   function handleSetFilters(name, options) {
-    let newFilters = { ...featureFilter };
+    let newFilters = { ...filters };
     newFilters[name] = options;
-    setFeatureFilter(newFilters);
+    setFilters(newFilters);
   }
 
-  function handleResetFilter(name) {
-    let newFilters = { ...featureFilter };
+  function handleResetFeatures(name) {
+    let newFilters = { ...filters };
     delete newFilters[name];
-    setFeatureFilter(newFilters);
+    setFilters(newFilters);
   }
 
   //The resultPageControls handles the hide/show buttons for the map and
@@ -117,40 +128,37 @@ function ResultsPage(props) {
         <div className={s.filterElement}>
           <Filter
             handleFilter={handleSetFilters}
-            resetFilter={handleResetFilter}
             title="Price Price"
             symbol={FaDollarSign}
             groupName="priceOpt"
-            valueOptions={[0, 1, 2, 3, 4]}
+            valueOptions={[1, 2, 3, 4]}
             iconClass="dollar"
           />
         </div>
         <div className={s.filterElement}>
           <Filter
             handleFilter={handleSetFilters}
-            resetFilter={handleResetFilter}
             title="Avg. Google Review"
             symbol={FaStar}
             groupName="ratingOpt"
-            valueOptions={[0, 1, 2, 3, 4]}
+            valueOptions={[1, 2, 3, 4]}
             iconClass="star"
           />
         </div>
         <div className={s.filterElement}>
           <Filter
             handleFilter={handleSetFilters}
-            resetFilter={handleResetFilter}
             title="Avg. Totspots Rating"
             symbol={FaChild}
             groupName="tsFilterOpt"
-            valueOptions={[0, 1, 2, 3, 4]}
+            valueOptions={[1, 2, 3, 4]}
             iconClass="totspots"
           />
         </div>
         <div className={s.filterElement}>
           <FilterChips
             handleFilter={handleSetFilters}
-            resetFilter={handleResetFilter}
+            resetFilter={handleResetFeatures}
           />
         </div>
       </div>
@@ -159,13 +167,33 @@ function ResultsPage(props) {
         {context.venues.map(venue => {
           return <Result venue={venue} key={venue.id} />;
         })}
-        <button onClick={() => handleShowMore(nextPage)}>See More</button>
+        {nextPage && !fetchError ? (
+          <button onClick={() => handleShowMore(nextPage)}>See More</button>
+        ) : (
+          'end of results'
+        )}
       </div>
-      <div className={s.mapContainer}>
+      {/* <div className={s.mapContainer}>
         <MapContainer query={query} />
-      </div>
+      </div> */}
     </section>
   );
 }
 
 export default withRouter(Sizes(displayRules)(ResultsPage));
+
+//This works for the next page functionality, but throws dup key error with the filters. Can we do two different types of fetches? Read up.
+
+// ApiService.getVenues(queryString)
+// .then(venues => {
+//   if (context.venues.length) {
+//     context.setVenues([...context.venues, ...venues.results]);
+//   } else {
+//     context.setVenues(venues.results);
+//   }
+//   setNextPage(venues.next_page_token);
+//   setLoading(false);
+// })
+// .catch(err => {
+//   setFetchError(err);
+// });
