@@ -23,21 +23,16 @@ function ResultsPage(props) {
   const [page, setPage] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   const [filters, setFilters] = useState({});
+  const [query, setQuery] = useState('');
 
-  //When would we need for the data to be refethed:
-  //When the min/max price changes
-  //When the lat/lng changes
-
-  //We will filter amenities and totspots rating on the client side for now in the interest of saving money.
-
-  let query = {};
-
-  query = qs.parse(props.location.search, {
-    ignoreQueryPrefix: true,
-  });
-
-  function formatQueryString() {
+  function formatQueryString(token) {
     let queryString = '?';
+
+    if (token) {
+      queryString += `token=${token}`;
+      return queryString;
+    }
+
     let query = qs.parse(props.location.search, {
       ignoreQueryPrefix: true,
     });
@@ -54,25 +49,39 @@ function ResultsPage(props) {
     return queryString;
   }
 
+  //*Runs on the initial page load and filter update
   useEffect(() => {
+    console.log('initial load effect');
     context.clearError();
-    // if (nextPage) {
-    //   query.token = nextPage;
-    // }
-
     let queryString = formatQueryString();
-
     ApiService.getVenues(queryString)
       .then(venues => {
         context.setVenues(venues.results);
-
         setNextPage(venues.next_page_token);
         setLoading(false);
       })
       .catch(err => {
         setFetchError(err);
       });
-  }, [page, filters]);
+  }, [filters]);
+
+  //* runs on page update
+  useEffect(() => {
+    //* stops from triggering error
+    if (page) {
+      context.clearError();
+      let queryString = `?token=${nextPage}`;
+      ApiService.getVenues(queryString)
+        .then(venues => {
+          context.setVenues([...context.venues, ...venues.results]);
+          setNextPage(venues.next_page_token);
+          setLoading(false);
+        })
+        .catch(err => {
+          setFetchError(err);
+        });
+    }
+  }, [page]);
 
   function mobileMapToggle() {
     setShowMap(!showMap);
@@ -197,3 +206,7 @@ export default withRouter(Sizes(displayRules)(ResultsPage));
 // .catch(err => {
 //   setFetchError(err);
 // });
+
+// if (nextPage) {
+//   query.token = nextPage;
+// }
