@@ -99,7 +99,7 @@ function ResultsPage(props) {
     setFilters(newFilters);
   }
 
-  function handleResetFeatures(name) {
+  function handleResetFilter(name) {
     let newFilters = { ...filters };
     delete newFilters[name];
     setFilters(newFilters);
@@ -137,6 +137,7 @@ function ResultsPage(props) {
         <div className={s.filterElement}>
           <Filter
             handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
             title="Price Price"
             symbol={FaDollarSign}
             groupName="priceOpt"
@@ -147,6 +148,7 @@ function ResultsPage(props) {
         <div className={s.filterElement}>
           <Filter
             handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
             title="Avg. Google Review"
             symbol={FaStar}
             groupName="ratingOpt"
@@ -157,6 +159,7 @@ function ResultsPage(props) {
         <div className={s.filterElement}>
           <Filter
             handleFilter={handleSetFilters}
+            resetFilter={handleResetFilter}
             title="Avg. Totspots Rating"
             symbol={FaChild}
             groupName="tsFilterOpt"
@@ -167,7 +170,7 @@ function ResultsPage(props) {
         <div className={s.filterElement}>
           <FilterChips
             handleFilter={handleSetFilters}
-            resetFilter={handleResetFeatures}
+            resetFilter={handleResetFilter}
           />
         </div>
       </div>
@@ -190,23 +193,3 @@ function ResultsPage(props) {
 }
 
 export default withRouter(Sizes(displayRules)(ResultsPage));
-
-//This works for the next page functionality, but throws dup key error with the filters. Can we do two different types of fetches? Read up.
-
-// ApiService.getVenues(queryString)
-// .then(venues => {
-//   if (context.venues.length) {
-//     context.setVenues([...context.venues, ...venues.results]);
-//   } else {
-//     context.setVenues(venues.results);
-//   }
-//   setNextPage(venues.next_page_token);
-//   setLoading(false);
-// })
-// .catch(err => {
-//   setFetchError(err);
-// });
-
-// if (nextPage) {
-//   query.token = nextPage;
-// }
