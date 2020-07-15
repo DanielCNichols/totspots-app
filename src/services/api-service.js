@@ -3,7 +3,7 @@ import TokenService from './TokenService';
 
 const ApiService = {
   getVenues(queryString) {
-    return fetch(`${config.API_ENDPOINT}/venues/${queryString}`, {
+    return fetch(`${config.API_ENDPOINT}/venues/?${queryString}`, {
       headers: {
         'content-type': 'application/json',
       },

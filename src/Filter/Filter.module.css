@@ -53,3 +53,15 @@ input {
 .filterForm input:checked + label {
   font-size: 1em;
 }
+
+.clearFilter button {
+  background-color: transparent;
+  border: none;
+  clear: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-weight: 600;
+  padding-left: 15px;
+}

@@ -15,7 +15,6 @@ import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
-
   const [loading, setLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [showMap, setShowMap] = useState(false);
@@ -25,28 +24,18 @@ function ResultsPage(props) {
   const [filters, setFilters] = useState({});
   const [query, setQuery] = useState('');
 
+  //A cleaner way to set our query string up.
   function formatQueryString(token) {
-    let queryString = '?';
-
-    if (token) {
-      queryString += `token=${token}`;
-      return queryString;
-    }
-
     let query = qs.parse(props.location.search, {
       ignoreQueryPrefix: true,
     });
 
+    setQuery(query);
+
     let queryParams = { ...query, ...filters };
 
-    let keys = Object.keys(queryParams);
-
-    keys.forEach(key => {
-      return key !== 'features'
-        ? (queryString += `${key}=${queryParams[key]}&`)
-        : (queryString += `${key}=${JSON.stringify(queryParams[key])}&`);
-    });
-    return queryString;
+    let params = new URLSearchParams(queryParams);
+    return params;
   }
 
   //*Runs on the initial page load and filter update
@@ -65,12 +54,12 @@ function ResultsPage(props) {
       });
   }, [filters]);
 
-  //* runs on page update
+  // //* runs on page update
   useEffect(() => {
     //* stops from triggering error
     if (page) {
       context.clearError();
-      let queryString = `?token=${nextPage}`;
+      let queryString = `token=${nextPage}`;
       ApiService.getVenues(queryString)
         .then(venues => {
           context.setVenues([...context.venues, ...venues.results]);
@@ -138,7 +127,7 @@ function ResultsPage(props) {
           <Filter
             handleFilter={handleSetFilters}
             resetFilter={handleResetFilter}
-            title="Price Price"
+            title="Price"
             symbol={FaDollarSign}
             groupName="priceOpt"
             valueOptions={[1, 2, 3, 4]}
@@ -151,7 +140,7 @@ function ResultsPage(props) {
             resetFilter={handleResetFilter}
             title="Avg. Google Review"
             symbol={FaStar}
-            groupName="ratingOpt"
+            groupName="googleRatingOpt"
             valueOptions={[1, 2, 3, 4]}
             iconClass="star"
           />
@@ -162,7 +151,7 @@ function ResultsPage(props) {
             resetFilter={handleResetFilter}
             title="Avg. Totspots Rating"
             symbol={FaChild}
-            groupName="tsFilterOpt"
+            groupName="tsRatingOpt"
             valueOptions={[1, 2, 3, 4]}
             iconClass="totspots"
           />
@@ -185,9 +174,9 @@ function ResultsPage(props) {
           'end of results'
         )}
       </div>
-      {/* <div className={s.mapContainer}>
+      <div className={s.mapContainer}>
         <MapContainer query={query} />
-      </div> */}
+      </div>
     </section>
   );
 }

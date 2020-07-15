@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import s from './Filter.module.css';
+import { FiChevronLeft } from 'react-icons/fi';
 
 const Filter = ({
   title,
@@ -62,7 +63,14 @@ const Filter = ({
 
   return (
     <>
-      {checkedOpt && <button onClick={clearChecked}>Clear</button>}
+      {checkedOpt && (
+        <div className={s.clearFilter}>
+          <button onClick={clearChecked}>
+            <FiChevronLeft />
+            <span>Clear</span>
+          </button>
+        </div>
+      )}
       <form className={s.filterForm} onChange={getValue}>
         <fieldset>
           <legend>{title}</legend>
