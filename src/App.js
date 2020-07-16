@@ -72,15 +72,8 @@ export default class App extends Component {
                 path="/register"
                 component={RegistrationForm}
               />
-              <Route
-                // exact
-                // path="/reviews/:city/:queryState/:type"
-
-                exact
-                path="/results/:search?"
-                component={ResultsPage}
-              />
-              <Route exact path="/venues/:id" component={Login} />
+              <Route exact path="/results/:search?" component={ResultsPage} />
+              <Route exact path="/venues/:id" component={VenuesPage} />
               <PrivateRoute exact path="/account" component={ProfileView} />
               <PrivateRoute exact path="/account" component={FavoritesList} />
               <PrivateRoute exact path="/addVenue" component={AddVenue} />
