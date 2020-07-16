@@ -12,6 +12,7 @@ import displayRules from '../displayRules';
 import FilterChips from '../FilterChips/FilterChips';
 import Filter from '../Filter/Filter';
 import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
+import venuesData from '../reference';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);
@@ -54,7 +55,7 @@ function ResultsPage(props) {
       });
   }, [filters]);
 
-  // //* runs on page update
+  // // //* runs on page update
   useEffect(() => {
     //* stops from triggering error
     if (page) {
@@ -99,7 +100,7 @@ function ResultsPage(props) {
 
   return (
     <section className={s.resultsPage}>
-      <div></div>
+      {console.log(props.isMobile)}
       {props.isMobile ? (
         <div className={s.mobile}>
           <div className={s.mobileControls}>

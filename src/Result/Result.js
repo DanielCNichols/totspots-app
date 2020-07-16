@@ -4,24 +4,33 @@ import { withRouter } from 'react-router-dom';
 import s from './Result.module.css';
 import Rating from '../Rating/Rating';
 import config from '../config';
+import VenuesContext from '../VenuesContext';
+import { FaStar, FaDollarSign } from 'react-icons/fa';
 
 //TODO: refactor this into a functional component.
 //TODO: Get styles out of the component
 
 const Result = props => {
   let context = useContext(VenueContext);
-  const [expanded, setExpanded] = useState(false);
+  let { venue } = props;
 
+  function handleClick(id) {
+    props.history.push(`/venues/${id}`);
+  }
+
+  // ! Rethink this one...
   function renderTypes() {
-    let { types } = props.venue;
+    let { types } = venue;
     let formatted = types.map(t =>
       t !== 'establishment' && t !== 'point_of_interest'
         ? t.split('_').join(' ')
         : ''
     );
+
+    //! Make this an li and use that to add bullet points
     return formatted.map((t, idx) => {
-      return (
-        <span
+      return t.length ? (
+        <li
           style={{
             display: 'inline-block',
             textTransform: 'capitalize',
@@ -29,18 +38,16 @@ const Result = props => {
           key={idx}
         >
           {t}
-        </span>
-      );
+        </li>
+      ) : null;
     });
   }
-
-  let { venue } = props;
 
   return (
     <li
       className={s.result}
       key={venue.id}
-      // onClick={() => this.handleExpanded(venue.id)}
+      onClick={() => handleClick(venue.id)}
     >
       {venue.photos ? (
         <img
@@ -51,15 +58,31 @@ const Result = props => {
       ) : null}
       <h4>{venue.name}</h4>
       <div className={s.ratings}>
-        <Rating value={venue.rating} symbol="&#x2605;" />
+        <Rating value={venue.rating} iconClass="star" symbol={FaStar} />
+      </div>
+      <div className={s.priceRating}>
         <Rating
           className="price_span"
+          iconClass="dollar"
           value={venue.price_level}
-          symbol="&#36;"
+          symbol={FaDollarSign}
         />
       </div>
       <span className={s.address}>{venue.vicinity}</span>
-      <span className={s.types}>{renderTypes()}</span>
+      <ul className={s.types}>{renderTypes()}</ul>
+      {/* TODO: Get the top rated comment */}
+      <div className={s.featuresList}>
+        <ul className={s.features}>
+          {venue.tsData.tsAmenities.map(feature => {
+            return <li key={feature.id}>{feature.amenity_name}</li>;
+          })}
+        </ul>
+      </div>
+      <div className={s.review}>
+        {venue.tsData.tsReviews[0] && (
+          <p>"{venue.tsData.tsReviews[0].content}"</p>
+        )}
+      </div>
     </li>
   );
 };
