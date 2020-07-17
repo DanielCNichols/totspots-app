@@ -47,7 +47,7 @@ const Result = props => {
     <li
       className={s.result}
       key={venue.id}
-      onClick={() => handleClick(venue.id)}
+      onClick={() => handleClick(venue.place_id)}
     >
       {venue.photos ? (
         <img

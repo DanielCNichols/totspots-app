@@ -12,8 +12,8 @@ const ApiService = {
     );
   },
 
-  getVenueProfile(id) {
-    return fetch(`${config.API_ENDPOINT}/venues/profile/${id}`, {
+  getVenueDetails(id) {
+    return fetch(`${config.API_ENDPOINT}/venues/${id}`, {
       headers: {
         'content-type': 'application/json',
       },

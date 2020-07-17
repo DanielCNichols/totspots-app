@@ -4,22 +4,51 @@ import Review from '../Review/Review';
 import VenueProfile from '../VenueProfile/VenueProfile';
 import './VenuesPage.css';
 import ApiService from '../services/api-service';
-
-//TODO: Rework this into a funcitonal component.
-//TODO: We can probably get rid of setSeelcted venue in the context provider
-//* We will need to make a places request with the following fields:
-//fields: geometry, name, icon, photo, place_id, type, url, vicinity, formatted_phone_number, opening_hours, website(?), price_level, rating, review, user_ratings_total
-//Place details request returns up to 10 photo elements
+import { detail } from '../reference';
+import config from '../config';
+import Rating from '../Rating/Rating';
+import { FaStar } from 'react-icons/fa';
 
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
   const [error, setError] = useState(null);
-  useEffect(() => {
-    //API GET THING
-    //Set thing
-    //set error
-  });
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // ApiService.getVenueDetails(props.match.params.id)
+    //   .then(venue => {
+    //     setVenue(venue);
+    //     setLoading(false);
+    //   })
+    //   .catch(err => setError(err));
+
+    setVenue(detail);
+    setLoading(false);
+  }, []);
+
+  function renderTypes() {
+    let { types } = venue.result;
+    let formatted = types.map(t =>
+      t !== 'establishment' && t !== 'point_of_interest'
+        ? t.split('_').join(' ')
+        : ''
+    );
+
+    //! Make this an li and use that to add bullet points
+    return formatted.map((t, idx) => {
+      return t.length ? (
+        <li
+          style={{
+            display: 'inline-block',
+            textTransform: 'capitalize',
+          }}
+          key={idx}
+        >
+          {t}
+        </li>
+      ) : null;
+    });
+  }
   let heroStyle = {
     width: '100%',
     height: '300px',
@@ -79,66 +108,98 @@ const VenuesPage = props => {
 
   let photoHolder = {};
 
+  console.log(venue);
   return (
     <section style={sectionStyle}>
-      <div style={heroStyle}>
-        <p>This is the hero banner</p>
-      </div>
-      <div style={mainStyle}>
-        <div style={venueHeader}>
-          <h2 style={{ textAlign: 'left' }}>Cafe Vienna</h2>
-          <p>This is the rating</p>
-          <p>These are the types</p>
-          <div>
-            <button>Add Review</button>
-            <button>Add favorite</button>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <div style={heroStyle}>
+            {/* <img
+              src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=${venue.result.photos[0].photo_reference}&key=${config.GKEY}`}
+            /> */}
           </div>
-          <h4>Features</h4>
-          <ul>
-            <li>Thing</li>
-            <li>Thing</li>
-            <li>Thing</li>
-            <li>Thing</li>
-          </ul>
-        </div>
+          <div style={mainStyle}>
+            <div style={venueHeader}>
+              <h2 style={{ textAlign: 'left' }}>{venue.result.name}</h2>
+              <Rating
+                value={venue.result.rating}
+                symbol={FaStar}
+                iconClass="star"
+              />
+              <div className="types">{renderTypes()}</div>
+              <div>
+                <button>Add Review</button>
+                <button>Add favorite</button>
+              </div>
+              <h4>Features</h4>
+              <ul>
+                {venue.amenities.map(amenity => {
+                  return <li>{amenity.amenity_name}</li>;
+                })}
+              </ul>
+            </div>
+            {/* Keep this sticky */}
+            <div style={infoCard}>
+              <div className="info-element">
+                <p>Icon</p>
+                <span>{venue.result.formatted_address}</span>
+              </div>
+              <div className="info-element">
+                <p>Icon</p>
+                <span>{venue.result.formatted_phone_number}</span>
+              </div>
+              <div className="info-element">
+                <p>Icon visit</p>
+                <a href={venue.result.website}>Visit Page</a>
+              </div>
+              <div className="info-element">
+                <p>Icon directions</p>
+                <a href={venue.result.url}>Get Directions</a>
+              </div>
+            </div>
+            <div className="opening hours">
+              <ul>
+                Business Hours
+                {venue.result.opening_hours.weekday_text.map(text => {
+                  return <li>{text}</li>;
+                })}
+              </ul>
+            </div>
+            <div style={photos}>
+              <div>
+                <h3>Photos</h3>
+                <div style={photoHolder}>
+                  {venue.result.photos.map(photo => {
+                    return (
+                      <img
+                        src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${photo.photo_reference}&key=${config.GKEY}`}
+                        alt="yeet"
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
 
-        {/* Keep this sticky */}
-        <div style={infoCard}>
-          <p>ICON: INFO </p>
-          <p>ICON: INFO </p>
-          <p>ICON: INFO </p>
-          <p>ICON: INFO </p>
-        </div>
-
-        <div style={photos}>
-          <div>
-            <h3>Photos</h3>
-            <div style={photoHolder}>
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
-              <img src="" alt="yeet" />
+            {/* //! Make a "reviews component that takes the respective arrays of
+            //reviews. We will have a switch that toggles tsreview/googlereview" */}
+            <div style={reviews}>
+              {venue.result.reviews.map(review => {
+                return (
+                  <div style={{ margin: '25px auto' }}>
+                    <p>{review.author_name}</p>
+                    <p>{review.relative_time_description}</p>
+                    <p>{review.rating}</p>
+                    <p>{review.text}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </div>
-
-        <div style={reviews}>
-          <div>
-            <p>here's ar review</p>
-            <p>here's ar review</p>
-            <p>here's ar review</p>
-            <p>here's ar review</p>
-            <p>here's ar review</p>
-            <p>here's ar review</p>
-          </div>
-        </div>
-      </div>
+        </>
+      )}
     </section>
   );
 };
