@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import VenuesContext from './VenuesContext';
 import LandingPage from './LandingPage/Landingpage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
-import Sidebar from './Sidebar/Sidebar';
+// import Sidebar from './Sidebar/Sidebar';
 import Login from './Login/Login';
 import RegistrationForm from './Registration/Registration';
 import RefineSearch from './RefineSearch/RefineSearch';
@@ -50,16 +50,6 @@ export default class App extends Component {
       <div className="app">
         <ErrorBoundary>
           <Route path="/" component={Nav} />
-          <Sidebar>
-            <Switch>
-              <Route
-                exact
-                path="/reviews/:city/:queryState/:type"
-                component={RefineSearch}
-              />
-              <Route exact path="/venue/:venue_id" component={ReviewSort} />
-            </Switch>
-          </Sidebar>
           <Main className="app_main">
             <Switch>
               {this.state.showModal === true ? (

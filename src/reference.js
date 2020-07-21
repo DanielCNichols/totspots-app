@@ -421,6 +421,18 @@ let detail = {
       amenity_name: 'Fast Checkout',
       id: 5,
     },
+    {
+      amenity_name: 'Play Area',
+      id: 2,
+    },
+    {
+      amenity_name: 'Dogs Welcome',
+      id: 4,
+    },
+    {
+      amenity_name: 'Fast Checkout',
+      id: 5,
+    },
   ],
   tsReviews: [
     {
@@ -476,5 +488,9 @@ let detail = {
       count: '1',
     },
   ],
+  tsAverages: {
+    avgrating: '4',
+    avgvolume: '3',
+  },
 };
 export { venuesData, detail };
