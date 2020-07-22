@@ -15,8 +15,10 @@ import {
   MdOpenInNew,
 } from 'react-icons/md';
 
+import PhotoElement from '../PhotoElement/PhotoElement';
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
+  const [tsReviews, setTSReviews] = useState(true);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -31,6 +33,10 @@ const VenuesPage = props => {
     setVenue(detail);
     setLoading(false);
   }, []);
+
+  function handleToggleReviews() {
+    setTSReviews(!tsReviews);
+  }
 
   function renderTypes() {
     let { types } = venue.result;
@@ -65,13 +71,18 @@ const VenuesPage = props => {
         <>
           <div className={s.hero}>
             <img
-              src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${venue.result.photos[0].photo_reference}&key=${config.GKEY}`}
+              src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=${venue.result.photos[0].photo_reference}&key=${config.GKEY}`}
               alt="venue front"
             />
           </div>
           <div className={s.venueContainer}>
             <div className={s.venueInfo}>
               <h2>{venue.result.name}</h2>
+              <Rating
+                value={venue.result.rating}
+                symbol={FaStar}
+                iconClass="star"
+              />
               <div className={s.types}>{renderTypes()}</div>
               {/* <h4>Features</h4> */}
               <ul className={s.features}>
@@ -80,14 +91,14 @@ const VenuesPage = props => {
                 })}
               </ul>
               <div className={s.ratings}>
-                <div className={s.ratingElement}>
+                {/* <div className={s.ratingElement}>
                   <p>Avg. Google Rating:</p>
                   <Rating
                     value={venue.result.rating}
                     symbol={FaStar}
                     iconClass="star"
                   />
-                </div>
+                </div> */}
                 <div className={s.ratingElement}>
                   <p>Avg. Totspots Rating:</p>
                   <Rating
@@ -134,39 +145,45 @@ const VenuesPage = props => {
             <div className={s.photos}>
               <div>
                 <h3>Photos</h3>
-                <div className={s.photoContainer}>
-                  {venue.result.photos.map(photo => {
-                    return (
-                      <img
-                        src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photo.photo_reference}&key=${config.GKEY}`}
-                        alt="yeet"
-                      />
-                    );
-                  })}
-                </div>
+                <PhotoElement photos={venue.result.photos} />
               </div>
             </div>
 
             {/* //! Make a "reviews component that takes the respective arrays of
             //reviews. We will have a switch that toggles tsreview/googlereview" */}
-            <h3>Here's what people are saying: </h3>
             <div className={s.reviews}>
-              {venue.result.reviews.map(review => {
-                return (
-                  <div className={s.review}>
-                    <p style={{ fontWeight: 'bold' }}>{review.author_name}</p>
-                    <p>
-                      <Rating
-                        value={review.rating}
-                        iconClass="star"
-                        symbol={FaStar}
-                      />
-                    </p>
-                    <p>Reviewed {review.relative_time_description}</p>
-                    <p>{review.text}</p>
-                  </div>
-                );
-              })}
+              <button onClick={() => handleToggleReviews()}>Toggle</button>
+              <p>{tsReviews ? <p>Here</p> : null}</p>
+
+              <h3>Here's what people are saying: </h3>
+              {tsReviews && (
+                <>
+                  <p>Yeet</p>
+                </>
+              )}
+
+              {!tsReviews && (
+                <>
+                  {venue.result.reviews.map(review => {
+                    return (
+                      <div className={s.review}>
+                        <p style={{ fontWeight: 'bold' }}>
+                          {review.author_name}
+                        </p>
+                        <p>
+                          <Rating
+                            value={review.rating}
+                            iconClass="star"
+                            symbol={FaStar}
+                          />
+                        </p>
+                        <p>Reviewed {review.relative_time_description}</p>
+                        <p>{review.text}</p>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
         </>
