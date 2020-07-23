@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import VenuesContext from '../VenuesContext';
-import Review from '../Review/Review';
+import { TsReview, GoogleReview } from '../Review/Review';
 import VenueProfile from '../VenueProfile/VenueProfile';
 import s from './VenuesPage.module.css';
 import ApiService from '../services/api-service';
@@ -91,14 +91,6 @@ const VenuesPage = props => {
                 })}
               </ul>
               <div className={s.ratings}>
-                {/* <div className={s.ratingElement}>
-                  <p>Avg. Google Rating:</p>
-                  <Rating
-                    value={venue.result.rating}
-                    symbol={FaStar}
-                    iconClass="star"
-                  />
-                </div> */}
                 <div className={s.ratingElement}>
                   <p>Avg. Totspots Rating:</p>
                   <Rating
@@ -149,38 +141,26 @@ const VenuesPage = props => {
               </div>
             </div>
 
-            {/* //! Make a "reviews component that takes the respective arrays of
-            //reviews. We will have a switch that toggles tsreview/googlereview" */}
             <div className={s.reviews}>
               <button onClick={() => handleToggleReviews()}>Toggle</button>
-              <p>{tsReviews ? <p>Here</p> : null}</p>
 
               <h3>Here's what people are saying: </h3>
               {tsReviews && (
                 <>
-                  <p>Yeet</p>
+                  {venue.tsReviews ? (
+                    venue.tsReviews.map(review => {
+                      return <TsReview review={review} />;
+                    })
+                  ) : (
+                    <p>Looks like there are no reviews... yet!</p>
+                  )}
                 </>
               )}
 
               {!tsReviews && (
                 <>
                   {venue.result.reviews.map(review => {
-                    return (
-                      <div className={s.review}>
-                        <p style={{ fontWeight: 'bold' }}>
-                          {review.author_name}
-                        </p>
-                        <p>
-                          <Rating
-                            value={review.rating}
-                            iconClass="star"
-                            symbol={FaStar}
-                          />
-                        </p>
-                        <p>Reviewed {review.relative_time_description}</p>
-                        <p>{review.text}</p>
-                      </div>
-                    );
+                    return <GoogleReview review={review} />;
                   })}
                 </>
               )}

@@ -154,12 +154,6 @@
   object-position: center;
 }
 
-.review {
-  /* margin: 15px auto; */
-  padding: 15px 0;
-  border-bottom: 2px solid #e7e7e7;
-}
-
 .tabNav {
   position: relative;
   display: flex;
@@ -179,17 +173,22 @@
 /* Todo: Desktop */
 
 @media screen and (min-width: 800px) {
+  .venuePageContainer {
+    margin: 50px auto;
+  }
   .hero {
-    height: 400px;
-    /* position: absolute;
+    height: 300px;
+    /* /* position: absolute; */
     width: 100%;
-    height: 400px;
+    height: 350px;
     background-color: gray;
-    display: flex; */
+    display: flex;
   }
 
   .hero img {
     width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .venueContainer {
@@ -222,7 +221,7 @@
   .infoCard {
     width: 100%;
     border: 3px solid #e7e7e7;
-    padding: 20px;
+    padding: 10px;
     height: fit-content;
     border-radius: 5px;
     margin: 0 auto;
@@ -236,7 +235,7 @@
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    padding: 15px 10px;
+    padding: 10px 5px;
     border-bottom: 2px solid #e7e7e7;
   }
 
@@ -257,7 +256,7 @@
   }
 
   .openingHours li {
-    margin: 15px 0 15px 15px;
+    margin: 10px 0 10px 10px;
     text-align: left;
   }
 
