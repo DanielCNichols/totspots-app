@@ -421,18 +421,6 @@ let detail = {
       amenity_name: 'Fast Checkout',
       id: 5,
     },
-    {
-      amenity_name: 'Play Area',
-      id: 2,
-    },
-    {
-      amenity_name: 'Dogs Welcome',
-      id: 4,
-    },
-    {
-      amenity_name: 'Fast Checkout',
-      id: 5,
-    },
   ],
   tsReviews: [
     {

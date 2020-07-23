@@ -59,6 +59,7 @@ const PhotoElement = ({ photos }) => {
       {photos.map(photo => {
         return (
           <img
+            key={photo.photo_reference}
             onClick={() => showModal(photo)}
             src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photo.photo_reference}&key=${config.GKEY}`}
             alt="yeet"

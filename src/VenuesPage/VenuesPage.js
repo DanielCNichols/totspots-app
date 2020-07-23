@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import VenuesContext from '../VenuesContext';
 import { TsReview, GoogleReview } from '../Review/Review';
 import VenueProfile from '../VenueProfile/VenueProfile';
 import s from './VenuesPage.module.css';
+import InfoCard from '../InfoCard/InfoCard';
 import ApiService from '../services/api-service';
 import { detail } from '../reference';
 import config from '../config';
@@ -13,9 +13,12 @@ import {
   MdDirections,
   MdPhone,
   MdOpenInNew,
+  MdRateReview,
+  MdFavorite,
 } from 'react-icons/md';
 
 import PhotoElement from '../PhotoElement/PhotoElement';
+
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
   const [tsReviews, setTSReviews] = useState(true);
@@ -46,7 +49,6 @@ const VenuesPage = props => {
         : ''
     );
 
-    //! Make this an li and use that to add bullet points
     return formatted.map((t, idx) => {
       return t.length ? (
         <li
@@ -62,7 +64,6 @@ const VenuesPage = props => {
     });
   }
 
-  console.log(venue);
   return (
     <section className={s.venuePageContainer}>
       {loading ? (
@@ -84,10 +85,9 @@ const VenuesPage = props => {
                 iconClass="star"
               />
               <div className={s.types}>{renderTypes()}</div>
-              {/* <h4>Features</h4> */}
               <ul className={s.features}>
                 {venue.amenities.map(amenity => {
-                  return <li>{amenity.amenity_name}</li>;
+                  return <li key={amenity.id}>{amenity.amenity_name}</li>;
                 })}
               </ul>
               <div className={s.ratings}>
@@ -101,12 +101,20 @@ const VenuesPage = props => {
                 </div>
               </div>
               <div className={s.businessControls}>
-                <button>Add Review</button>
-                <button>Add favorite</button>
+                <button>
+                  <MdRateReview className={s.addReview} />
+                  <p>Add review</p>
+                </button>
+                <button>
+                  <MdFavorite className={s.addFavorite} />
+                  <p>Add to favorites</p>
+                </button>
               </div>
             </div>
 
-            <div className={s.infoCard}>
+            <InfoCard venue={venue.result} />
+
+            {/* <div className={s.infoCard}>
               <div className={s.infoElement}>
                 <MdLocationOn />
                 <span>{venue.result.vicinity}</span>
@@ -122,17 +130,17 @@ const VenuesPage = props => {
               <div className={s.infoElement}>
                 <MdDirections />
                 <a href={venue.result.url}>Get Directions</a>
-              </div>
+              </div> */}
 
-              <div className={s.openingHours}>
+            {/* <div className={s.openingHours}>
                 <ul>
                   <span>Business Hours</span>
-                  {venue.result.opening_hours.weekday_text.map(text => {
-                    return <li>{text}</li>;
+                  {venue.result.opening_hours.weekday_text.map((text, idx) => {
+                    return <li key={idx}>{text}</li>;
                   })}
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             <div className={s.photos}>
               <div>
@@ -149,7 +157,7 @@ const VenuesPage = props => {
                 <>
                   {venue.tsReviews ? (
                     venue.tsReviews.map(review => {
-                      return <TsReview review={review} />;
+                      return <TsReview key={review.id} review={review} />;
                     })
                   ) : (
                     <p>Looks like there are no reviews... yet!</p>
@@ -159,8 +167,8 @@ const VenuesPage = props => {
 
               {!tsReviews && (
                 <>
-                  {venue.result.reviews.map(review => {
-                    return <GoogleReview review={review} />;
+                  {venue.result.reviews.map((review, idx) => {
+                    return <GoogleReview key={idx} review={review} />;
                   })}
                 </>
               )}
