@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { TsReview, GoogleReview } from '../Review/Review';
-import VenueProfile from '../VenueProfile/VenueProfile';
 import s from './VenuesPage.module.css';
 import InfoCard from '../InfoCard/InfoCard';
 import ApiService from '../services/api-service';
@@ -8,16 +7,12 @@ import { detail } from '../reference';
 import config from '../config';
 import Rating from '../Rating/Rating';
 import { FaStar, FaChild } from 'react-icons/fa';
-import {
-  MdLocationOn,
-  MdDirections,
-  MdPhone,
-  MdOpenInNew,
-  MdRateReview,
-  MdFavorite,
-} from 'react-icons/md';
+import { MdRateReview, MdFavorite } from 'react-icons/md';
 
 import PhotoElement from '../PhotoElement/PhotoElement';
+
+//! If mobile, render the review form as an added div. Else, render it as a Modal.
+//Todo: Refactor and export modal from the other thing.
 
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
@@ -26,12 +21,12 @@ const VenuesPage = props => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // ApiService.getVenueDetails(props.match.params.id)
-    //   .then(venue => {
-    //     setVenue(venue);
-    //     setLoading(false);
-    //   })
-    //   .catch(err => setError(err));
+    ApiService.getVenueDetails(props.match.params.id)
+      .then(venue => {
+        setVenue(venue);
+        setLoading(false);
+      })
+      .catch(err => setError(err));
 
     setVenue(detail);
     setLoading(false);
@@ -101,7 +96,11 @@ const VenuesPage = props => {
                 </div>
               </div>
               <div className={s.businessControls}>
-                <button>
+                <button
+                  onClick={() =>
+                    props.history.push(`/addReview/${venue.result.place_id}`)
+                  }
+                >
                   <MdRateReview className={s.addReview} />
                   <p>Add review</p>
                 </button>
@@ -113,34 +112,6 @@ const VenuesPage = props => {
             </div>
 
             <InfoCard venue={venue.result} />
-
-            {/* <div className={s.infoCard}>
-              <div className={s.infoElement}>
-                <MdLocationOn />
-                <span>{venue.result.vicinity}</span>
-              </div>
-              <div className={s.infoElement}>
-                <MdPhone />
-                <span>{venue.result.formatted_phone_number}</span>
-              </div>
-              <div className={s.infoElement}>
-                <MdOpenInNew />
-                <a href={venue.result.website}>Visit Page</a>
-              </div>
-              <div className={s.infoElement}>
-                <MdDirections />
-                <a href={venue.result.url}>Get Directions</a>
-              </div> */}
-
-            {/* <div className={s.openingHours}>
-                <ul>
-                  <span>Business Hours</span>
-                  {venue.result.opening_hours.weekday_text.map((text, idx) => {
-                    return <li key={idx}>{text}</li>;
-                  })}
-                </ul>
-              </div>
-            </div> */}
 
             <div className={s.photos}>
               <div>

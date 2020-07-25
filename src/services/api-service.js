@@ -153,21 +153,14 @@ const ApiService = {
     );
   },
 
-  postReviews(venue_id, content, price, volume, starrating, aObj) {
-    return fetch(`${config.API_ENDPOINT}/reviews/${venue_id}`, {
+  postReviews(review) {
+    return fetch(`${config.API_ENDPOINT}/reviews/`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        venue_id: venue_id,
-        content,
-        price,
-        volume,
-        starrating,
-        amenities: aObj,
-      }),
+      body: JSON.stringify({ review }),
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );

@@ -1,257 +1,152 @@
-import React from 'react';
-import VenuesContext from '../VenuesContext';
+import React, { useState, useEffect } from 'react';
 import ApiService from '../services/api-service';
 import { withRouter } from 'react-router-dom';
-import './ReviewForm.css';
+import s from './ReviewForm.module.css';
 import FormSelect from '../Select/Select';
+import useReviewForm from '../Hooks/customHooks';
 
-class ReviewForm extends React.Component {
-  static contextType = VenuesContext;
-
-  state = {
-    stroller: false,
-    playarea: false,
-    changingtable: false,
-    dogs: false,
-    fastCheckout: false,
-    kidsNight: false,
-    outdoor: false,
-  };
-
-  getAmenities(stateCheck, stateValues) {
-    let amenities = [];
-    for (let i = 1; i < stateCheck.length; i++) {
-      if (stateValues[i] === true) {
-        amenities.push(i);
-      }
+const ReviewForm = ({
+  match: {
+    params: { venue_id },
+  },
+}) => {
+  let [error, setError] = useState(null);
+  const {
+    inputs,
+    handleInputChange,
+    handleSubmit,
+    touched,
+    handleTouched,
+  } = useReviewForm(async () => {
+    try {
+      let amenities = getAmenities();
+      let review = {
+        venueId: venue_id,
+        totspots_rating: inputs.tsRating,
+        volume_rating: inputs.volume,
+        content: inputs.content,
+        amenities: amenities,
+      };
+      let res = await ApiService.postReviews(review);
+      console.log('got it', res);
+    } catch (err) {
+      setError(err);
     }
+  });
+
+  function getAmenities() {
+    let checkboxes = document.querySelectorAll(`input[name="amenity"]:checked`);
+    let amenities = [];
+    checkboxes.forEach(a => {
+      return amenities.push(a.value);
+    });
     return amenities;
   }
 
-  handleSubmit = ev => {
-    ev.preventDefault();
-    let target = ev.target;
-    const venueId = this.props.match.params.venue_id;
-    const price = target.price.value;
-    const volume = target.volume.value;
-    const starrating = target.rating.value;
-    const content = target.content.value;
-    const stateCheck = Object.keys(this.state);
-    const stateValues = Object.values(this.state);
-    const amenities = this.getAmenities(stateCheck, stateValues);
-    const aObj = amenities.map(amenity => {
-      return {
-        amenity: amenity,
-        venue: this.context.selectedVenue.id,
-      };
-    });
-    ApiService.postReviews(venueId, content, price, volume, starrating, aObj)
-      .then(review => {
-      })
-      .catch(this.context.setError);
-    this.props.history.push(`/venue/${venueId}`);
-  };
+  function renderAmenities() {
+    let amenities = [
+      {
+        name: 'Stroller Accessible',
+        id: 1,
+      },
+      {
+        name: 'Play Area',
+        id: 2,
+      },
+      {
+        name: 'Changing Table',
+        id: 3,
+      },
+      {
+        name: 'Dogs Welcome',
+        id: 4,
+      },
+      {
+        name: 'Fast Checkout',
+        id: 5,
+      },
+      {
+        name: 'Kids Deals',
+        id: 6,
+      },
+      {
+        name: 'Outdoor Seating Available',
+        id: 7,
+      },
+    ];
 
-  handleCancel() {
-    this.props.history.goBack();
-  }
-
-  render() {
     return (
-      <section className='review_form_component'>
-        <header>
-          <h2>Add a review</h2>
-        </header>
-        <h3>{this.context.selectedVenue.venue_name}</h3>
-        <form className='review_form' onSubmit={this.handleSubmit}>
-          <fieldset>
-            <legend>
-              Your Review
-              <div className='review_form_selects'>
-                <label htmlFor='price'>
-                  Price
-                  <FormSelect
-                    aria-label='Price'
-                    aria-required='true'
-                    className='review_form_select'
-                    name='price'
-                    id='price'
-                    option='&#36;'
-                    value={5}
-                    required
-                  />
-                </label>
-                <label htmlFor='volume'>
-                  Describe the volume level
-                  <FormSelect
-                    aria-required='true'
-                    aria-label='Describe the volume level'
-                    className='review_form_select'
-                    name='volume'
-                    id='volume'
-                    option='&#128227;'
-                    value={5}
-                    required
-                  />
-                </label>
-                <label htmlFor='rating'>
-                  Overall rating
-                  <FormSelect
-                    aria-required='true'
-                    aria-label='Overall Rating'
-                    className='review_form_select'
-                    name='rating'
-                    id='rating'
-                    value={5}
-                    option='&#x2605;'
-                    required
-                  />
-                </label>
-              </div>
-            </legend>
-          </fieldset>
-          <fieldset>
-            <legend>
-              {' '}
-              Features
-              <div className='review_amenities'>
-                <div className='left'>
-                  <label htmlFor='StrollerAccessible'>
-                    Stroller Accessible
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({ stroller: !this.state.stroller });
-                      }}
-                      type='checkbox'
-                      name='amenities'
-                      value='1'
-                      aria-label='Stroller Accessible'
-                    />
-                  </label>
-                  <label htmlFor='PlayArea'>
-                    Play Area
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({ playarea: !this.state.playarea });
-                      }}
-                      type='checkbox'
-                      name='PlayArea'
-                      value='2'
-                      aria-label='Play area'
-                    />
-                  </label>
-                  <label htmlFor='Changingtable'>
-                    {' '}
-                    Changing Table
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({
-                          changingtable: !this.state.changingtable,
-                        });
-                      }}
-                      type='checkbox'
-                      name='amenities'
-                      value='3'
-                      aria-label='Changing table'
-                    />
-                  </label>
-                </div>
-                <div className='right'>
-                  <label htmlFor='Dogs'>
-                    Dogs Welcome
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({ dogs: !this.state.dogs });
-                      }}
-                      type='checkbox'
-                      name='amenities'
-                      value='4'
-                      aria-label='Dogs Welcome'
-                    />
-                  </label>
-                  <label htmlFor='Fastcheckout'>
-                    {' '}
-                    Fast Checkout
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({
-                          fastCheckout: !this.state.fastCheckout,
-                        });
-                      }}
-                      type='checkbox'
-                      name='amenities'
-                      value='5'
-                      aria-label='Fast Checkout'
-                    />
-                  </label>
-                  <label htmlFor='KidsNight'>
-                    {' '}
-                    Kids Night Deals
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({ KidsNight: !this.state.KidsNight });
-                      }}
-                      type='checkbox'
-                      name='amenities'
-                      value='6'
-                      aria-label='kids night deals'
-                    />
-                  </label>
-                  <label htmlFor='OutdoorSeating'>
-                    {' '}
-                    Outdoor Seating Available
-                    <input
-                      className='checkBox'
-                      onChange={() => {
-                        this.setState({ outdoor: !this.state.outdoor });
-                      }}
-                      type='checkbox'
-                      name='amenities'
-                      value='7'
-                      aria-label='outdoor seating'
-                    />
-                  </label>
-                </div>
-              </div>
-            </legend>
-          </fieldset>
-          <div className='review_form'>
-            <label htmlFor='review'>
-              Tell us about your visit
-              <textarea
-                aria-required='true'
-                aria-label='tell us about your visit'
-                className='review_form_textarea'
-                type='text'
-                name='content'
-                placeholder='Tell us about your visit'
+      <>
+        {amenities.map(amenity => {
+          return (
+            <div key={amenity.id} className={s.formElement}>
+              <label htmlFor={amenity.name}>{amenity.name}</label>
+              <input
+                type="checkbox"
+                name="amenity"
+                id={amenity.name}
+                value={amenity.id}
               />
-            </label>
-          </div>
-          <div className='review_form_controls'>
-            <button
-              onClick={() => {
-                this.handleCancel();
-              }}
-              type='button'
-              className='cancel'
-            >
-              Cancel
-            </button>
-            <button className='submit' type='submit'>
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
+            </div>
+          );
+        })}
+      </>
     );
   }
-}
 
-export default withRouter(ReviewForm);
+  return (
+    <form style={{ margin: '100px auto' }} onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Add a Review for NAME</legend>
+        <div className={s.formElement}>
+          <label htmlFor="tsRating">Rating</label>
+          <select
+            id="tsRating"
+            name="tsRating"
+            value={inputs.tsRating}
+            onChange={handleInputChange}
+          >
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">three</option>
+            <option value="4">Four</option>
+          </select>
+        </div>
+        <div className={s.formElement}>
+          <label htmlFor="volume">Volume Level</label>
+          <select
+            id="volume"
+            name="volume"
+            value={inputs.volume}
+            onChange={handleInputChange}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Features</legend>
+          {renderAmenities()}
+        </fieldset>
+
+        <div className={s.formElement}>
+          <label htmlFor="content">Write a review</label>
+          <textarea
+            onChange={handleInputChange}
+            value={inputs.content}
+            id="content"
+            name="content"
+            row="10"
+            column="10"
+          />
+        </div>
+      </fieldset>
+      <button>submit</button>
+    </form>
+  );
+};
+
+export default ReviewForm;
