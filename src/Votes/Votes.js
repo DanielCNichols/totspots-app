@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ApiService from '../services/api-service';
-import VenuesContext from '../VenuesContext';
+import React from 'react';
 import './Votes.css';
-import TokenService from '../services/TokenService';
 import { withRouter } from 'react-router-dom';
 import { TiArrowUpOutline, TiArrowDownOutline } from 'react-icons/ti';
 

@@ -8,7 +8,6 @@ import {
 } from 'react-icons/md';
 
 const InfoCard = ({ venue }) => {
-  console.log('this is the venue', venue);
   return (
     <div className={s.infoCard}>
       <div className={s.infoElement}>

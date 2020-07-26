@@ -1,17 +1,14 @@
-import React, { useState, useContext } from 'react';
-import VenueContext from '../VenuesContext';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import s from './Result.module.css';
 import Rating from '../Rating/Rating';
 import config from '../config';
-import VenuesContext from '../VenuesContext';
 import { FaStar, FaDollarSign } from 'react-icons/fa';
 
 //TODO: refactor this into a functional component.
 //TODO: Get styles out of the component
 
 const Result = props => {
-  let context = useContext(VenueContext);
   let { venue } = props;
 
   function handleClick(id) {

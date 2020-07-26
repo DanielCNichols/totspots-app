@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './LandingPage.module.scss';
+import styles from './LandingPage.module.css';
 import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
 import { GiKnifeFork } from 'react-icons/gi';
 import Autocomplete from 'react-google-autocomplete';

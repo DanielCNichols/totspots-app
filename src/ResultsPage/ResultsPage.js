@@ -12,7 +12,6 @@ import displayRules from '../displayRules';
 import FilterChips from '../FilterChips/FilterChips';
 import Filter from '../Filter/Filter';
 import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
-import venuesData from '../reference';
 
 function ResultsPage(props) {
   const context = useContext(VenueContext);

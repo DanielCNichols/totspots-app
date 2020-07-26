@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Votes from '../Votes/Votes';
-import VenueContext from '../VenuesContext';
+import React from 'react';
 import moment from 'moment';
 import s from './Review.module.css';
 import Rating from '../Rating/Rating';

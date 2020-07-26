@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ApiService from '../services/api-service';
-import { withRouter } from 'react-router-dom';
 import s from './ReviewForm.module.css';
 import FormSelect from '../Select/Select';
 import useReviewForm from '../Hooks/customHooks';
 
-const ReviewForm = ({
-  match: {
-    params: { venue_id },
-  },
-}) => {
+const ReviewForm = ({ venue_id, closeForm }) => {
   let [error, setError] = useState(null);
   const {
     inputs,
@@ -28,7 +23,7 @@ const ReviewForm = ({
         amenities: amenities,
       };
       let res = await ApiService.postReviews(review);
-      console.log('got it', res);
+      closeForm();
     } catch (err) {
       setError(err);
     }
@@ -79,14 +74,14 @@ const ReviewForm = ({
       <>
         {amenities.map(amenity => {
           return (
-            <div key={amenity.id} className={s.formElement}>
-              <label htmlFor={amenity.name}>{amenity.name}</label>
+            <div key={amenity.id} className={s.amenityElement}>
               <input
                 type="checkbox"
                 name="amenity"
                 id={amenity.name}
                 value={amenity.id}
               />
+              <label htmlFor={amenity.name}>{amenity.name}</label>
             </div>
           );
         })}
@@ -95,9 +90,10 @@ const ReviewForm = ({
   }
 
   return (
-    <form style={{ margin: '100px auto' }} onSubmit={handleSubmit}>
+    <form className={s.reviewForm} onSubmit={handleSubmit}>
       <fieldset>
-        <legend>Add a Review for NAME</legend>
+        <legend>Tell us about your visit!</legend>
+
         <div className={s.formElement}>
           <label htmlFor="tsRating">Rating</label>
           <select
@@ -129,7 +125,7 @@ const ReviewForm = ({
 
         <fieldset>
           <legend>Features</legend>
-          {renderAmenities()}
+          <div className={s.amenitiesContainer}>{renderAmenities()}</div>
         </fieldset>
 
         <div className={s.formElement}>
@@ -139,12 +135,18 @@ const ReviewForm = ({
             value={inputs.content}
             id="content"
             name="content"
-            row="10"
+            row="30"
             column="10"
           />
         </div>
       </fieldset>
-      <button>submit</button>
+      <div className="error">{error && <p>{error.error}</p>}</div>
+      <div className={s.reviewFormControls}>
+        <button type="submit">submit</button>
+        <button type="button" onClick={() => closeForm()}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };

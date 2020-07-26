@@ -6,6 +6,7 @@ import ApiService from '../services/api-service';
 import { detail } from '../reference';
 import config from '../config';
 import Rating from '../Rating/Rating';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import { FaStar, FaChild } from 'react-icons/fa';
 import { MdRateReview, MdFavorite } from 'react-icons/md';
 
@@ -17,20 +18,25 @@ import PhotoElement from '../PhotoElement/PhotoElement';
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
   const [tsReviews, setTSReviews] = useState(true);
+  const [showReviewForm, setShowReviewForm] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    ApiService.getVenueDetails(props.match.params.id)
-      .then(venue => {
-        setVenue(venue);
-        setLoading(false);
-      })
-      .catch(err => setError(err));
-
+    // ApiService.getVenueDetails(props.match.params.id)
+    //   .then(venue => {
     setVenue(detail);
     setLoading(false);
+    // })
+    //   .catch(err => setError(err));
+
+    // setVenue(detail);
+    // setLoading(false);
   }, []);
+
+  function handleToggleReviewForm() {
+    setShowReviewForm(!showReviewForm);
+  }
 
   function handleToggleReviews() {
     setTSReviews(!tsReviews);
@@ -96,14 +102,6 @@ const VenuesPage = props => {
                 </div>
               </div>
               <div className={s.businessControls}>
-                <button
-                  onClick={() =>
-                    props.history.push(`/addReview/${venue.result.place_id}`)
-                  }
-                >
-                  <MdRateReview className={s.addReview} />
-                  <p>Add review</p>
-                </button>
                 <button>
                   <MdFavorite className={s.addFavorite} />
                   <p>Add to favorites</p>
@@ -120,12 +118,27 @@ const VenuesPage = props => {
               </div>
             </div>
 
-            <div className={s.reviews}>
-              <button onClick={() => handleToggleReviews()}>Toggle</button>
+            <div clasName={s.reviewControls}>
+              <button onClick={() => handleToggleReviewForm()}>
+                <MdRateReview className={s.addReview} />
+                <p>Add a Review</p>
+              </button>
+              <button onClick={() => handleToggleReviews()}>Toggel</button>
+            </div>
 
-              <h3>Here's what people are saying: </h3>
-              {tsReviews && (
+            <div className={s.reviews}>
+              <div className={s.reviewFormContainer}>
+                {showReviewForm && (
+                  <ReviewForm
+                    venue_id={props.match.params.id}
+                    closeForm={handleToggleReviewForm}
+                  />
+                )}
+              </div>
+
+              {tsReviews && !showReviewForm && (
                 <>
+                  <h3>Here's what people are saying: </h3>
                   {venue.tsReviews ? (
                     venue.tsReviews.map(review => {
                       return <TsReview key={review.id} review={review} />;
@@ -136,13 +149,14 @@ const VenuesPage = props => {
                 </>
               )}
 
-              {!tsReviews && (
-                <>
-                  {venue.result.reviews.map((review, idx) => {
-                    return <GoogleReview key={idx} review={review} />;
-                  })}
-                </>
-              )}
+              {!tsReviews &&
+                !showReviewForm(
+                  <>
+                    {venue.result.reviews.map((review, idx) => {
+                      return <GoogleReview key={idx} review={review} />;
+                    })}
+                  </>
+                )}
             </div>
           </div>
         </>

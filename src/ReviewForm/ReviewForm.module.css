@@ -1,169 +1,74 @@
-.review_form_component {
-  text-align: center;
-  margin: 100px auto;
-}
-
-.review_form {
+.reviewForm {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
-}
-.review_form label {
-  text-align: center;
-  display: block;
-  margin: 1.5em;
-}
-
-.review_form_text {
-  display: block;
-  width: 80%;
-  margin: 5px auto;
-  padding: 5px 10px;
-  height: 2.5rem;
-  min-width: 125px;
-  border: 1px solid black;
-  border-left: 3px solid;
-  border-radius: 5px;
-  transition: border-color 0.5s ease-out;
-}
-
-.review_form_select {
-  display: block;
-  width: 100%;
-  padding: 5px 10px;
-  height: 2.5rem;
-  border-radius: 5px;
-  margin: 5px auto;
-  cursor: pointer;
-}
-
-legend {
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.review_amenities {
   display: flex;
   flex-direction: column;
+  margin-top: 1.2em;
 }
 
-.review_amenities label {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px, auto;
-}
-
-.review_amenities label > input {
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-fieldset {
+.reviewForm fieldset {
   border: none;
 }
 
-.review {
-  width: 80%;
-  margin: 0 auto;
+.reviewForm legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.8em;
 }
 
-.review label {
-  text-align: left;
-  margin: 1.5em;
+.formElement {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-textarea {
-  display: block;
-  margin: 5px auto;
-  padding: 5px 10px;
+.formElement label {
+  font-weight: bold;
+}
+
+.formElement select {
+  width: 50%;
+  height: 35px;
+  padding: 5px;
+  margin: 1em auto;
+}
+
+.amenitiesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   width: 100%;
-  height: 5rem;
-  min-width: 125px;
-  border: 1px solid black;
-  border-left: 3px solid;
-  border-radius: 5px;
-  transition: border-color 0.5s ease-out;
-}
-
-.review_form_controls {
-  width: 80%;
   margin: 0 auto;
 }
 
-.review_form_controls button {
-  display: block;
-  min-width: 180px;
-  height: 40px;
-  margin: 20px auto;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 1.1em;
+.amenityElement {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 10px 0;
+  word-wrap: break-word;
+  width: 100%;
 }
 
-.cancel {
-  border-color: #ed254e;
+.amenitiesContainer label {
+  margin-left: 10px;
+  word-wrap: break-word;
+  width: 70%;
 }
 
-.submit {
-  border-color: #064789;
+.formElement textarea {
+  width: 80%;
+  height: 60px;
+  margin: 10px auto;
 }
 
-@media screen and (min-width: 450px) {
-  .review_form {
-    width: 75%;
-    margin: auto;
-  }
-
-  .review_form_controls {
-    display: flex;
-    justify-content: center;
-  }
-
-  .review_form_controls button {
-    display: inline-block;
-  }
+.reviewFormControls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  width: 100%;
+  padding: 5px;
 }
 
-@media screen and (min-width: 800px) {
-  .review_form {
-    width: 80%;
-  }
-
-  .review_form_selects {
-    width: 40%;
-		margin: auto;
-  }
-
-  .review_amenities {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
-  .left {
-    width: 40%;
-    margin: 0 auto;
-  }
-
-  .right {
-    width: 40%;
-    margin: auto;
-  }
-
-  .review_form_textarea {
-    width: 40%;
-  }
-
-  .review_form_controls {
-    width: 50%;
-  }
-
-  .review_form_controls button {
-    min-width: 100px;
-  }
+.reviewFormControls button {
+  height: 2.5em;
 }
