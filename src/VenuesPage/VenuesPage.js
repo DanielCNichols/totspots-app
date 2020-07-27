@@ -8,6 +8,7 @@ import config from '../config';
 import Rating from '../Rating/Rating';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import { FaStar, FaChild } from 'react-icons/fa';
+import FormContainer from '../FormContainer/FormContainer';
 import { MdRateReview, MdFavorite } from 'react-icons/md';
 
 import PhotoElement from '../PhotoElement/PhotoElement';
@@ -118,7 +119,8 @@ const VenuesPage = props => {
               </div>
             </div>
 
-            <div clasName={s.reviewControls}>
+            <FormContainer />
+            <div className={s.reviewControls}>
               <button onClick={() => handleToggleReviewForm()}>
                 <MdRateReview className={s.addReview} />
                 <p>Add a Review</p>

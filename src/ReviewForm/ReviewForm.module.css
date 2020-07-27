@@ -1,5 +1,74 @@
-.reviewForm {
+* {
+  box-sizing: border-box;
+}
+
+.form {
+  padding-bottom: 100px;
+  /* overflow-y: auto; */
+}
+.controls {
   width: 100%;
+  height: 3em;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.formElement,
+.reviewField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+
+.formElement input,
+.reviewField textarea {
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px;
+}
+
+.formElement input:focus,
+.reviewField textarea:focus {
+  outline: none;
+}
+
+.formElement label,
+.reviewField label {
+  text-align: left;
+}
+
+.reviewField {
+  height: 100%;
+}
+.reviewField textarea {
+  /* border: 1px solid black; */
+  height: 100%;
+}
+.review {
+  width: 95%;
+  height: 200px;
+  text-align: left;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
+}
+.review:focus {
+  outline: none;
+}
+
+/* * {
+  box-sizing: border-box;
+}
+.reviewForm {
+  height: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 1.2em;
@@ -19,15 +88,28 @@
 .formElement {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 10px;
+}
+
+.formElement {
   text-align: center;
 }
 
 .formElement label {
   font-weight: bold;
+  text-align: center;
+  margin: 0 auto 10px auto;
 }
 
-.formElement select {
-  width: 50%;
+.rating select {
+  width: 60%;
   height: 35px;
   padding: 5px;
   margin: 1em auto;
@@ -71,4 +153,4 @@
 
 .reviewFormControls button {
   height: 2.5em;
-}
+} */
