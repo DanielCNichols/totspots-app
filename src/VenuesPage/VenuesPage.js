@@ -24,12 +24,10 @@ const VenuesPage = props => {
     ApiService.getVenueDetails(props.match.params.id)
       .then(venue => {
         setVenue(venue);
+        console.log('this is the venue', venue);
         setLoading(false);
       })
       .catch(err => setError(err));
-
-    setVenue(detail);
-    setLoading(false);
   }, []);
 
   function handleSubmitReview(review) {
@@ -65,6 +63,10 @@ const VenuesPage = props => {
     });
   }
 
+  const handleAddFavorite = () => {
+    setVenue({ ...venue, favorite: !venue.favorite });
+  };
+
   return (
     <section className={s.venuePageContainer}>
       {loading ? (
@@ -81,7 +83,8 @@ const VenuesPage = props => {
             <div className={s.venueInfo}>
               <div className={s.venueHeader}>
                 <h2>{venue.result.name}</h2>
-                <button>
+                {/* This button should be refactored into it's own component */}
+                <button onClick={() => handleAddFavorite()}>
                   {venue.favorite ? (
                     <MdFavorite className={s.addFavorite} />
                   ) : (
