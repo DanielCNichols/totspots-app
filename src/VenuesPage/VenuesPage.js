@@ -9,12 +9,9 @@ import Rating from '../Rating/Rating';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import { FaStar, FaChild } from 'react-icons/fa';
 import FormContainer from '../FormContainer/FormContainer';
-import { MdRateReview, MdFavorite } from 'react-icons/md';
+import { MdRateReview, MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 
 import PhotoElement from '../PhotoElement/PhotoElement';
-
-//! If mobile, render the review form as an added div. Else, render it as a Modal.
-//Todo: Refactor and export modal from the other thing.
 
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
@@ -24,19 +21,21 @@ const VenuesPage = props => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // ApiService.getVenueDetails(props.match.params.id)
-    //   .then(venue => {
+    ApiService.getVenueDetails(props.match.params.id)
+      .then(venue => {
+        setVenue(venue);
+        setLoading(false);
+      })
+      .catch(err => setError(err));
+
     setVenue(detail);
     setLoading(false);
-    // })
-    //   .catch(err => setError(err));
-
-    // setVenue(detail);
-    // setLoading(false);
   }, []);
 
-  function handleToggleReviewForm() {
-    setShowReviewForm(!showReviewForm);
+  function handleSubmitReview(review) {
+    let newReviews = [review, ...venue.tsReviews];
+    console.log(newReviews);
+    setVenue({ ...venue, tsReviews: newReviews });
   }
 
   function handleToggleReviews() {
@@ -80,7 +79,16 @@ const VenuesPage = props => {
           </div>
           <div className={s.venueContainer}>
             <div className={s.venueInfo}>
-              <h2>{venue.result.name}</h2>
+              <div className={s.venueHeader}>
+                <h2>{venue.result.name}</h2>
+                <button>
+                  {venue.favorite ? (
+                    <MdFavorite className={s.addFavorite} />
+                  ) : (
+                    <MdFavoriteBorder className={s.addFavorite} />
+                  )}
+                </button>
+              </div>
               <Rating
                 value={venue.result.rating}
                 symbol={FaStar}
@@ -102,12 +110,6 @@ const VenuesPage = props => {
                   />
                 </div>
               </div>
-              <div className={s.businessControls}>
-                <button>
-                  <MdFavorite className={s.addFavorite} />
-                  <p>Add to favorites</p>
-                </button>
-              </div>
             </div>
 
             <InfoCard venue={venue.result} />
@@ -119,28 +121,19 @@ const VenuesPage = props => {
               </div>
             </div>
 
-            <FormContainer />
             <div className={s.reviewControls}>
-              <button onClick={() => handleToggleReviewForm()}>
-                <MdRateReview className={s.addReview} />
-                <p>Add a Review</p>
-              </button>
+              <FormContainer
+                handleSubmit={handleSubmitReview}
+                id={props.match.params.id}
+              />
+
               <button onClick={() => handleToggleReviews()}>Toggel</button>
             </div>
 
             <div className={s.reviews}>
-              <div className={s.reviewFormContainer}>
-                {showReviewForm && (
-                  <ReviewForm
-                    venue_id={props.match.params.id}
-                    closeForm={handleToggleReviewForm}
-                  />
-                )}
-              </div>
-
-              {tsReviews && !showReviewForm && (
+              <h3>Here's what people are saying: </h3>
+              {tsReviews && (
                 <>
-                  <h3>Here's what people are saying: </h3>
                   {venue.tsReviews ? (
                     venue.tsReviews.map(review => {
                       return <TsReview key={review.id} review={review} />;
@@ -151,14 +144,13 @@ const VenuesPage = props => {
                 </>
               )}
 
-              {!tsReviews &&
-                !showReviewForm(
-                  <>
-                    {venue.result.reviews.map((review, idx) => {
-                      return <GoogleReview key={idx} review={review} />;
-                    })}
-                  </>
-                )}
+              {!tsReviews && (
+                <>
+                  {venue.result.reviews.map((review, idx) => {
+                    return <GoogleReview key={idx} review={review} />;
+                  })}
+                </>
+              )}
             </div>
           </div>
         </>

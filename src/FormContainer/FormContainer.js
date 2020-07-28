@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Modal from '../NewModal/Modal';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
-const FormContainer = () => {
+const FormContainer = ({ id, handleSubmit }) => {
+  console.log(id);
   let [display, setDisplay] = useState(false);
 
   function handleShow() {
@@ -37,7 +38,11 @@ const FormContainer = () => {
 
       {display && (
         <Modal>
-          <ReviewForm cancel={handleClose} />
+          <ReviewForm
+            venueId={id}
+            onSuccessSubmit={handleSubmit}
+            cancel={handleClose}
+          />
         </Modal>
       )}
     </div>
