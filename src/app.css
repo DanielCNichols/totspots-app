@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i|Oswald:400,500&display=swap');
 
-@import url("https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap');
 
 * {
   box-sizing: border-box;
@@ -8,16 +8,53 @@
   list-style: none;
 }
 
+.app {
+  width: 100%;
+}
+
 a:visited {
   color: white;
 }
 
-body {
-  margin: 0;
-  font-family: "Oswald", sans-serif;
-  /* background-color: #f8f7f7; */
-  background-color: #e9ebee;
+.dollar {
+  color: green;
+  background-color: rgb(191, 230, 191);
+  border: 1px solid #e7e7e7;
 }
+
+.star,
+.dollar,
+.totspots,
+.empty {
+  margin: 0 1px;
+  border-radius: 3px;
+  padding: 2px;
+  width: 20px;
+  text-align: center;
+  line-height: 0.8em;
+}
+
+.star {
+  background-color: rgb(253, 71, 71);
+  color: rgb(253, 223, 53);
+}
+
+.totspots {
+  color: rgb(66, 66, 241);
+  background-color: rgb(248, 209, 215);
+}
+
+.empty {
+  color: rgb(131, 129, 129);
+  border: 1px solid #b8b4b4;
+}
+
+/* body {
+  width: auto;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  /* background-color: #f8f7f7; */
+/* background-color: #e9ebee; */
 
 /* h1 {
   font-family: 'Love Ya Like A Sister', cursive;
@@ -36,6 +73,7 @@ nav {
   color: white;
 }
 /* 
+
 
 
 @media screen and (min-width: 450px) {

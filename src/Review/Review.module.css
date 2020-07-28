@@ -1,0 +1,22 @@
+.review {
+  padding: 15px 0;
+  border-bottom: 2px solid #e7e7e7;
+}
+
+.review p {
+  margin: 0 0 5px 0;
+}
+
+.review p:first-child {
+  font-weight: bold;
+}
+
+.review p:nth-child(3) {
+  font-style: italic;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.ratingSpan {
+  font-size: 0.8em;
+}

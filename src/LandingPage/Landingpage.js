@@ -1,11 +1,31 @@
-import React from 'react';
-import styles from './LandingPage.module.scss';
+import React, { useState } from 'react';
+import styles from './LandingPage.module.css';
 import { FaGlassMartini, FaCoffee } from 'react-icons/fa';
 import { GiKnifeFork } from 'react-icons/gi';
-import AutoCompleteInput from '../AutocompleteInput/AutocompleteInput';
-export default function newLanding() {
+import Autocomplete from 'react-google-autocomplete';
+
+function NewLanding(props) {
+  const [type, setType] = useState('');
+  const [loc, setLoc] = useState({
+    lat: null,
+    lng: null,
+  });
+
   function handleSelect(place) {
-    console.log(place);
+    setLoc({
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+    });
+  }
+
+  function handleSelectType(type) {
+    setType(type);
+  }
+
+  function handleSearch() {
+    props.history.push(
+      `/results/search?type=${type}&lat=${loc.lat}&lng=${loc.lng}`
+    );
   }
 
   return (
@@ -16,23 +36,26 @@ export default function newLanding() {
           <p>Find!</p>
         </div>
         <div className={styles.form}>
-          <select>
+          <select onChange={e => handleSelectType(e.target.value)}>
             <option value="">Find a...</option>
-            <option value="">restaurant</option>
-            <option value="">bar</option>
-            <option value="">coffee shop</option>
-            <option value="">museum</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="bar">Bar</option>
+            <option value="cafe">Coffee Shop</option>
+            <option value="museum">Museum</option>
+            <option value="park">Park</option>
+            <option value="shopping_mall">Mall</option>
+            <option value="point_of_interest">Attractions</option>
           </select>
-          {/* <input type="text" placeholder="in..." /> */}
-          <AutoCompleteInput onPlaceLoaded={handleSelect} />
-          <button type="submit">Go!</button>
+          {/* <AutoCompleteInput onPlaceLoaded={handleSelect} /> */}
+          <Autocomplete onPlaceSelected={place => handleSelect(place)} />
+          <button type="submit" onClick={handleSearch}>
+            Go!
+          </button>
         </div>
       </div>
       <div className={styles.onboarding}>
         <div className={styles.onboardingHeader}>
-          <h3 style={{ fontSize: '2.0em' }}>
-            SWEET! a review app for parents
-          </h3>
+          <h3 style={{ fontSize: '2.0em' }}>SWEET! a review app for parents</h3>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Necessitatibus maxime eveniet laudant.
@@ -79,3 +102,4 @@ export default function newLanding() {
     </div>
   );
 }
+export default NewLanding;

@@ -23,7 +23,7 @@ const VenuesContext = React.createContext({
   deleteReview: () => {},
   deleteFavorite: () => {},
   updateVote: () => {},
-  clearError: () => {}
+  clearError: () => {},
 });
 export default VenuesContext;
 
@@ -39,13 +39,12 @@ export class VenuesProvider extends Component {
     searchState: null,
     userReviews: [],
     profile: {},
-    error: null
+    error: null,
   };
 
   setVenues = venues => {
     this.setState({ venues });
   };
-
 
   setProfile = profile => {
     this.setState({ profile });
@@ -71,24 +70,23 @@ export class VenuesProvider extends Component {
 
   updateVote = reviewId => {
     this.setState({
-      reviews: this.state.reviews.map(review => (
-        review.id !== reviewId) ? review : review.count +1
-      )
-    })
-  }
+      reviews: this.state.reviews.map(review =>
+        review.id !== reviewId ? review : review.count + 1
+      ),
+    });
+  };
 
   setFavorites = favorites => {
     this.setState({ favorites });
   };
 
   setSelectedVenue = venue => {
-    this.setState({selectedVenue: venue})
+    this.setState({ selectedVenue: venue });
   };
 
   clearSelectedVenue = () => {
     this.setSelectedVenue(null);
   };
-
 
   setAmenities = amenities => {
     this.setState({ amenities });
@@ -132,7 +130,7 @@ export class VenuesProvider extends Component {
       deleteFavorite: this.deleteFavorite,
       setSelectedVenue: this.setSelectedVenue,
       setAmenities: this.setAmenities,
-      setReviews: this.setReviews
+      setReviews: this.setReviews,
     };
     return (
       <VenuesContext.Provider value={value}>

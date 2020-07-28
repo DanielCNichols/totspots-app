@@ -1,0 +1,67 @@
+.filterForm {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.filterForm legend {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.filterForm fieldset {
+  width: 100%;
+  display: flex;
+}
+
+.filterForm label,
+input {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+}
+
+.filterForm label svg {
+  font-size: 0.8em;
+  padding: 0;
+}
+
+.filterForm input {
+  float: left;
+  margin-right: 10px;
+  position: absolute;
+  right: 135vh;
+}
+
+.labelText {
+  margin-left: 5px;
+}
+
+.filterForm span {
+  padding: 0;
+}
+
+.filterForm label {
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  display: flex;
+  /* justify-content: center; */
+  align-items: flex-end;
+  width: 150px;
+}
+
+.filterForm input:checked + label {
+  font-size: 1em;
+}
+
+.clearFilter button {
+  background-color: transparent;
+  border: none;
+  clear: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-weight: 600;
+  padding-left: 15px;
+}

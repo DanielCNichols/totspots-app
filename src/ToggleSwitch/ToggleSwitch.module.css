@@ -1,0 +1,70 @@
+.toggleSwitch {
+  position: relative;
+  width: 75px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.toggleSwitchInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.toggleSwitchLabel {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #999999;
+  border-radius: 5px;
+}
+.toggleSwitchInner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.toggleSwitchInner:before,
+.toggleSwitchInner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.toggleSwitchInner:before {
+  content: 'List';
+  padding-left: 10px;
+  background-color: #34a7c1;
+  color: #ffffff;
+}
+.toggleSwitchInner:after {
+  content: 'Map';
+  padding-right: 10px;
+  background-color: #eeeeee;
+  color: #999999;
+  text-align: right;
+}
+.toggleSwitchSwitch {
+  display: block;
+  width: 22px;
+  margin: 4px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 43px;
+  border: 2px solid #999999;
+  border-radius: 5px;
+  transition: all 0.3s ease-in 0s;
+}
+.toggleSwitchInput:checked + .toggleSwitchLabel .toggleSwitchInner {
+  margin-left: 0;
+}
+.toggleSwitchInput:checked + .toggleSwitchLabel .toggleSwitchSwitch {
+  right: 0px;
+}

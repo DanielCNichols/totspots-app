@@ -1,0 +1,81 @@
+.infoCard {
+  padding: 5px 10px;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.infoElement {
+  margin: 10px 0;
+  padding: 5px;
+  border-bottom: 2px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+}
+
+.infoElement a,
+.infoElement a:visited {
+  color: inherit;
+}
+
+.infoElement svg {
+  font-size: 1.5em;
+  margin-right: 5px;
+}
+
+.openingHours ul {
+  text-align: center;
+}
+.openingHours ul > span {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.openingHours li {
+  text-align: left;
+  padding: 5px 15px;
+}
+
+@media screen and (min-width: 800px) {
+  .infoCard {
+    width: 100%;
+    border: 3px solid #e7e7e7;
+    padding: 10px;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .infoElement {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 2px solid #e7e7e7;
+  }
+
+  .infoElement svg {
+    margin-right: 10px;
+    font-size: 1.8em;
+    color: #3f3f3f;
+  }
+
+  .openingHours {
+    margin: 40px 0 10px 0;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .openingHours span {
+    font-size: 1.3em;
+  }
+
+  .openingHours li {
+    margin: 10px 0 10px 10px;
+    text-align: left;
+  }
+}

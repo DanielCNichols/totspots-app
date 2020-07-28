@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+}
+/* Todo: Mobile Styles */
+.hero {
+  width: 100%;
+  background-color: gray;
+  display: flex;
+  height: 200px;
+  margin-bottom: 25px;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.venuePageContainer {
+  width: 100%;
+  margin: 60px auto;
+}
+
+.venueContainer {
+  width: 100%;
+  padding: 0 5px;
+}
+
+.venueInfo {
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.venueHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.venueInfo h2 {
+  margin: 10px 0;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.types {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.types li {
+  margin-right: 3px;
+}
+
+.types li::before {
+  content: '|';
+  margin: 0 3px;
+}
+
+.types li:first-of-type::before {
+  content: none;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  justify-content: space-between;
+  flex: 1 1 160px;
+}
+
+.features li {
+  margin: 0 5px 5px 0;
+}
+
+.features li::before {
+  content: '+';
+}
+
+.ratings {
+  margin: 15px 0;
+}
+.ratingElement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0 10px 0 0;
+}
+
+.venueHeader button {
+  height: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  color: #f31212;
+  outline: none;
+}
+
+.addReview {
+  color: #1f2464;
+}
+
+.businessControls svg {
+  font-size: 2em;
+}
+
+.businessControls button p {
+  width: 50%;
+  word-wrap: break-word;
+}
+
+.photos {
+  width: 100%;
+}
+
+.photos h3 {
+  margin-bottom: 10px;
+}
+
+.photoContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.photoContainer img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tabNav {
+  position: relative;
+  display: flex;
+  right: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  width: 105%;
+  background-color: white;
+  border-top: 2px solid #e7e7e7;
+  border-bottom: 2px solid #e7e7e7;
+  height: 40px;
+}
+
+/* Todo: Tablet Display */
+
+/* Todo: Desktop */
+
+@media screen and (min-width: 800px) {
+  .venuePageContainer {
+    margin: 50px auto;
+  }
+  .hero {
+    height: 300px;
+    /* /* position: absolute; */
+    width: 100%;
+    height: 350px;
+    background-color: gray;
+    display: flex;
+  }
+
+  .hero img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .venueContainer {
+    width: 70%;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 20%;
+    padding: 20px;
+  }
+
+  .venueInfo {
+    width: 100%;
+    margin: 0;
+    padding: 20px 20px 20px 0;
+  }
+
+  .venueHeader h2 {
+    font-size: 2em;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 20px;
+  }
+
+  .reviews {
+    grid-column-start: 1;
+    grid-row-start: 3;
+  }
+}
