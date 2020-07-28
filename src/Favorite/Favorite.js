@@ -1,15 +1,21 @@
 import React from 'react';
+import ApiService from '../services/api-service';
+import VenuesContext from '../VenuesContext';
+import s from './Favorite.module.css';
 import { withRouter } from 'react-router-dom';
-import s from './UserReview.module.css';
-import Rating from '../Rating/Rating';
-import { TsReview } from '../Review/Review';
 
-//! This is similar to the favorite, but will render a review below it.
-const UserReview = props => {
+const Favorite = props => {
+  function handleRemoveFavorite() {
+    console.log('removed');
+  }
+
   return (
-    <li>
+    <li className={s.favorite}>
       <div className={s.venueHeader}>
         <h3>Name</h3>
+        <button onClick={() => props.deleteFavorite(props.favorite.venueid)}>
+          Remove
+        </button>
       </div>
 
       <div className={s.ratingsContainer}>
@@ -26,13 +32,8 @@ const UserReview = props => {
         <p>Website</p>
         <p>Go to venue page</p>
       </div>
-
-      <ul className={s.reviewContainer}>
-        You said:
-        <TsReview review={props.review} />
-      </ul>
     </li>
   );
 };
 
-export default UserReview;
+export default withRouter(Favorite);

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ApiService from '../services/api-service';
 import s from './ProfilePage.module.css';
+import Favorite from '../Favorite/Favorite';
+import UserReview from '../UserReview/UserReview';
 
 //TODO: Update reviews so that only one review can be made per user (then, conditionally render edit button on venue page instead of "write review"
 //Todo: Refactor the page:
@@ -33,6 +35,19 @@ const ProfilePage = props => {
       });
   }, []);
 
+  function handleRemoveFavorite(id) {
+    let newFavorites = favorites.filter(favorite => {
+      return favorite.venueid !== id;
+    });
+    setFavorites(newFavorites);
+  }
+
+  function handleDeleteReview(id) {
+    let newReviews = reviews.filter(review => {
+      return review.id !== id;
+    });
+  }
+
   return (
     <section style={{ marginTop: '100px' }} className={s.profilePage}>
       <div className={s.profileCard}>
@@ -56,67 +71,27 @@ const ProfilePage = props => {
       </div>
 
       {!showReviews && (
-        <div className={s.favorites}>
-          <ul>
-            <li>
-              FullSteam
-              <button>remove favorites</button>
-            </li>
-            <li>
-              Beer Study
-              <button>remove favorites</button>
-            </li>
-
-            <li>
-              Early Bird
-              <button>remove favorites</button>
-            </li>
-            <li>
-              GugleHupf
-              <button>remove favorites</button>
-            </li>
-            <li>
-              Museaum of Life and science
-              <button>remove favorites</button>
-            </li>
-          </ul>
-        </div>
+        <ul className={s.favorites}>
+          {favorites.map(favorite => {
+            return (
+              <Favorite
+                key={favorite.venueid}
+                deleteFavorite={handleRemoveFavorite}
+                favorite={favorite}
+              />
+            );
+          })}
+        </ul>
       )}
 
       {showReviews && (
-        <div className={s.reviews}>
-          <div className={s.reviewComponent}>
-            <div className={s.venueInfo}>
-              <h3>Bull McCabe's</h3>
-              <p>Price Level: 1/5</p>
-              <p>Google Rating: 1/5</p>
-              <p>1 800 yeet</p>
-              <p>Bar | Restaurant</p>
-              <p>106 main St</p>
-              <p>Directions</p>
-              <p>Website</p>
-            </div>
-
-            <div className={s.review}>
-              <div>
-                <p>Rating: 1/5</p>
-                <p>Volume: 1/5</p>
-              </div>
-              <div className={s.content}>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id
-                  excepturi odio aperiam blanditiis pariatur, numquam
-                  dignissimos maxime doloribus perferendis architecto iste
-                  quaerat soluta velit libero fugit quibusdam neque
-                  exercitationem minus?
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul className={s.reviews}>
+          {reviews.map(review => {
+            console.log(review);
+            return <UserReview key={review.id} review={review} />;
+          })}
+        </ul>
       )}
-
-      <div className={s.userReviews}></div>
     </section>
   );
 };

@@ -32,6 +32,7 @@ const FormContainer = ({ id, handleSubmit }) => {
     );
   });
 
+  //Can this be refactored to handle props.children and pass the handle close() down? Would save some prop drilling.
   return (
     <div>
       <button onClick={() => handleShow()}>Show Modal</button>
