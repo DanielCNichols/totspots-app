@@ -3,20 +3,17 @@ import { TsReview, GoogleReview } from '../Review/Review';
 import s from './VenuesPage.module.css';
 import InfoCard from '../InfoCard/InfoCard';
 import ApiService from '../services/api-service';
-import { detail } from '../reference';
 import config from '../config';
 import Rating from '../Rating/Rating';
-import ReviewForm from '../ReviewForm/ReviewForm';
 import { FaStar, FaChild } from 'react-icons/fa';
 import FormContainer from '../FormContainer/FormContainer';
-import { MdRateReview, MdFavorite, MdFavoriteBorder } from 'react-icons/md';
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 
 import PhotoElement from '../PhotoElement/PhotoElement';
 
 const VenuesPage = props => {
   const [venue, setVenue] = useState({});
   const [tsReviews, setTSReviews] = useState(true);
-  const [showReviewForm, setShowReviewForm] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,6 +25,7 @@ const VenuesPage = props => {
         setLoading(false);
       })
       .catch(err => setError(err));
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleSubmitReview(review) {

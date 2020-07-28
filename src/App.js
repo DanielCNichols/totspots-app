@@ -9,7 +9,7 @@ import RegistrationForm from './Registration/Registration';
 import ResultsPage from './ResultsPage/ResultsPage';
 import Nav from './Nav/Nav';
 import Main from './Main/Main';
-import ProfileView from './Profileview/Profileview';
+import ProfilePage from './ProfilePage/ProfilePage';
 import VenuesPage from './VenuesPage/VenuesPage';
 import PublicRoute from './utils/PublicRoute';
 import PrivateRoute from './utils/PrivateRoute';
@@ -57,7 +57,7 @@ export default class App extends Component {
               />
               <Route exact path="/results/:search?" component={ResultsPage} />
               <Route exact path="/venues/:id" component={VenuesPage} />
-              <PrivateRoute exact path="/account" component={ProfileView} />
+              <PrivateRoute exact path="/account" component={ProfilePage} />
             </Switch>
           </Main>
         </ErrorBoundary>

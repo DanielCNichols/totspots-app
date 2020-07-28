@@ -52,7 +52,10 @@ function ResultsPage(props) {
       .catch(err => {
         setFetchError(err);
       });
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
+
+  console.log(loading);
 
   // // //* runs on page update
   useEffect(() => {
@@ -70,6 +73,7 @@ function ResultsPage(props) {
           setFetchError(err);
         });
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   function mobileMapToggle() {

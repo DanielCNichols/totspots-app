@@ -102,58 +102,6 @@ const ApiService = {
     });
   },
 
-  getUserReviews() {
-    return fetch(`${config.API_ENDPOINT}/reviews/userReviews`, {
-      headers: {
-        'content-type': 'application/json',
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
-      },
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
-  },
-
-  addVenue(
-    venue_name,
-    address,
-    city,
-    state,
-    venue_type,
-    zipcode,
-    price,
-    volume,
-    starrating,
-    content,
-    phone,
-    url,
-    aObj
-  ) {
-    return fetch(`${config.API_ENDPOINT}/venues/addVenue`, {
-      method: 'Post',
-      headers: {
-        'content-type': 'application/json',
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
-      },
-      body: JSON.stringify({
-        venue_name,
-        address,
-        city,
-        state,
-        venue_type,
-        zipcode,
-        price,
-        volume,
-        starrating,
-        content,
-        phone,
-        url,
-        amenities: aObj,
-      }),
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
-  },
-
   postReviews(review) {
     return fetch(`${config.API_ENDPOINT}/reviews/`, {
       method: 'POST',
@@ -231,7 +179,7 @@ const ApiService = {
   },
 
   getProfile() {
-    return fetch(`${config.API_ENDPOINT}/users/account`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/userReviews`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
