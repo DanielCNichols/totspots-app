@@ -1,26 +1,69 @@
-.profileview {
-  width: 90%;
-  margin: 100px auto;
+.profilePage {
+  margin-top: 75px;
+  width: 100%;
+  padding: 0 10px;
 }
 
-.profileview h3 {
-	 font-size: 1.5em;
+.profilePage header > h2 {
+  text-align: left;
+  margin: 10px 0;
 }
 
-.profile_info {
-	 width: 70%;
-	 margin: 20px auto 50px auto;
-	 font-size: 1.3em;
+.profileCard {
+  border: 2px solid #e7e7e7;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
-@media screen and (min-width: 450px) {
-  .profileview {
-    width: 70%;
-  }
+.profileHeader {
+  width: 100%;
+  margin-bottom: 5px;
 }
 
-@media screen and (min-width: 800px) {
-  .profileview {
-    width: 35%;
-  }
+.profileHeader button {
+  position: absolute;
+  right: 15px;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.profileHeader button > svg {
+  font-size: 1.3em;
+}
+
+.profileHeader button > span {
+  font-size: 0.7em;
+}
+
+.tabNav {
+  position: relative;
+  height: auto;
+  padding: 0;
+  background-color: transparent;
+  border-top: 2px solid #e7e7e7;
+  border-bottom: 2px solid #e7e7e7;
+  margin-bottom: 10px;
+}
+
+.tabNav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.tabNav li {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.activityList h3 {
+  margin-bottom: 10px;
 }
