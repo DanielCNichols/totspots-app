@@ -5,6 +5,7 @@ import Rating from '../Rating/Rating';
 import { TsReview } from '../Review/Review';
 import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
 import { FiVolume } from 'react-icons/fi';
+import { MdEdit, MdDelete } from 'react-icons/md';
 import moment from 'moment';
 
 //! This is similar to the favorite, but will render a review below it.
@@ -43,6 +44,16 @@ const UserReview = ({ review, review: { result } }) => {
             </div>
           </>
         )}
+      </div>
+      <div className={s.userReviewControls}>
+        <button>
+          <MdEdit id={s.edit} />
+          <span>Edit Review</span>
+        </button>
+        <button>
+          <MdDelete id={s.delete} />
+          <span>Delete Review</span>
+        </button>
       </div>
     </li>
   );
