@@ -16,7 +16,7 @@ import { MdEdit } from 'react-icons/md';
 const ProfilePage = props => {
   let [loading, setLoading] = useState(true);
   let [error, setError] = useState(null);
-  let [showReviews, setShowReviews] = useState(false);
+  let [showReviews, setShowReviews] = useState(true);
   let [reviews, setReviews] = useState([]);
   let [favorites, setFavorites] = useState([]);
   let [user, setUser] = useState({});

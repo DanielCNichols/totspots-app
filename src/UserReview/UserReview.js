@@ -3,34 +3,47 @@ import { withRouter } from 'react-router-dom';
 import s from './UserReview.module.css';
 import Rating from '../Rating/Rating';
 import { TsReview } from '../Review/Review';
+import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
+import { FiVolume } from 'react-icons/fi';
+import moment from 'moment';
 
 //! This is similar to the favorite, but will render a review below it.
-const UserReview = props => {
+const UserReview = ({ review, review: { result } }) => {
   return (
-    <li>
+    <li className={s.userReview}>
       <div className={s.venueHeader}>
-        <h3>Name</h3>
+        <h3>{result.name}</h3>
+        <p>Visited {moment(review.date_created).format('MMMM, do, YYYY')}</p>
       </div>
-
       <div className={s.ratingsContainer}>
-        <p>Price</p>
-        <p>Google Rating</p>
-      </div>
-      <div className={s.about}>
-        <p>Types | types | types</p>
-        <p>108 Main St. Durham | 919-698-0847</p>
-      </div>
+        <div className={s.ratingElement}>
+          <p>Totspots rating:</p>
+          <div>
+            <Rating
+              value={review.totspots_rating}
+              symbol={FaChild}
+              iconClass="totspots"
+            />
+          </div>
+        </div>
+        <div className={s.ratingElement}>
+          <p>Volume level:</p>
+          <Rating
+            value={review.volume_rating}
+            symbol={FiVolume}
+            iconClass="star"
+          />
+        </div>
 
-      <div className={s.buttons}>
-        <p>Directions</p>
-        <p>Website</p>
-        <p>Go to venue page</p>
+        {/* on click truncate/expand somehow using css classes? */}
+        {review.content && (
+          <>
+            <div className={s.content}>
+              <p>{review.content}</p>
+            </div>
+          </>
+        )}
       </div>
-
-      <ul className={s.reviewContainer}>
-        You said:
-        <TsReview review={props.review} />
-      </ul>
     </li>
   );
 };
