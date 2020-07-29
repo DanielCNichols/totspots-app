@@ -1,79 +1,79 @@
-.state {
-  text-transform: uppercase;
-}
-
-.link > a {
-  color: black;
-}
-
-.link > a:visited {
-  color: black;
-}
-
-.city {
-  text-transform: capitalize;
-}
-
-.type {
-  text-transform: capitalize;
-}
-
 .favorite {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  border: 2px solid #064789;
+  width: 100%;
+  border: 2px solid #e7e7e7;
+  /* padding: 5px; */
 }
 
-.favorite h3 {
-	 margin: 0;
-	 padding: 5%;
-  text-align: center;
-	background-color: #F14038;
-	font-size: 1.2em;
+.venueHeader {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
 }
 
-.favorite_info {
-	 width: 80%;
-	 margin: auto;
+.venueHeader,
+.ratingsContainer,
+.about {
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
-.favorite button {
-  display: block;
-  margin: 30px auto;
-  border-radius: 5px;
-  background-color: transparent;
-  min-width: 200px;
-  height: 40px;
-  font-size: 1.3em;
+.ratingsContainer {
+  margin-bottom: 5px;
 }
 
-.delete_favorite {
-  border-color: #ed254e;
+.venueHeader,
+.about,
+.about p,
+.types {
+  margin-bottom: 3px;
 }
 
-.visit {
-  border-color: #064789;
+.venueHeader h3 {
+  margin: 0;
+  word-wrap: break-word;
 }
 
-@media screen and (min-width: 450px) {
-  .favorite button {
-    width: 100px;
-    font-size: 1.3em;
-  }
-
-  .favorite_info {
-    font-size: 1.3em;
-  }
-
-  .delete_favorite button:hover {
-    color: white;
-    background-color: #ed254e;
-    cursor: pointer;
-  }
-
-  .visit button:hover {
-    color: white;
-    background-color: #064789;
-    cursor: pointer;
-  }
+.types p:first-of-type::before {
+  content: none;
+  margin: 0;
 }
 
+.types p::before {
+  content: '|';
+  margin: 0 3px;
+}
+
+.favoriteControls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  border-top: 2px solid #e7e7e7;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.icon svg {
+  font-size: 1.8em;
+  color: rgb(39, 37, 37);
+}
+
+.icon a,
+span {
+  color: black;
+  font-size: 0.7em;
+}
+
+#delete {
+  color: rgb(175, 21, 21);
+}

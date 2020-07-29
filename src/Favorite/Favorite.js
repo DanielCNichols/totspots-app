@@ -1,36 +1,84 @@
 import React from 'react';
 import ApiService from '../services/api-service';
 import VenuesContext from '../VenuesContext';
+import { Link } from 'react-router-dom';
 import s from './Favorite.module.css';
 import { withRouter } from 'react-router-dom';
+import Rating from '../Rating/Rating';
+import { FaDollarSign, FaStar, FaComments } from 'react-icons/fa';
+import { MdDirections, MdOpenInNew, MdRemoveCircle } from 'react-icons/md';
 
-const Favorite = props => {
+const Favorite = ({ favorite: { venueid, result, deleteFavorite } }) => {
+  console.log(result);
   function handleRemoveFavorite() {
     console.log('removed');
+  }
+
+  function renderTypes() {
+    let { types } = result;
+    let formatted = types.map(t =>
+      t !== 'establishment' && t !== 'point_of_interest'
+        ? t.split('_').join(' ')
+        : ''
+    );
+
+    //! Make this an li and use that to add bullet points
+    return formatted.map((t, idx) => {
+      return t.length ? (
+        <p
+          style={{
+            display: 'inline-block',
+            textTransform: 'capitalize',
+          }}
+          key={idx}
+        >
+          {t}
+        </p>
+      ) : null;
+    });
   }
 
   return (
     <li className={s.favorite}>
       <div className={s.venueHeader}>
-        <h3>Name</h3>
-        <button onClick={() => props.deleteFavorite(props.favorite.venueid)}>
-          Remove
-        </button>
+        <h3>{result.name}</h3>
+        <Rating
+          className={s.price}
+          value={result.price_level}
+          symbol={FaDollarSign}
+          iconClass="dollar"
+        />
       </div>
 
       <div className={s.ratingsContainer}>
-        <p>Price</p>
-        <p>Google Rating</p>
+        <Rating value={result.rating} symbol={FaStar} iconClass="star" />
       </div>
       <div className={s.about}>
-        <p>Types | types | types</p>
-        <p>108 Main St. Durham | 919-698-0847</p>
+        <div className={s.types}>{renderTypes()}</div>
+        <p>{result.vicinity}</p>
+        <p>{result.formatted_phone_number}</p>
       </div>
 
-      <div className={s.buttons}>
-        <p>Directions</p>
-        <p>Website</p>
-        <p>Go to venue page</p>
+      <div className={s.favoriteControls}>
+        <div className={s.icon}>
+          <MdOpenInNew />
+          <a href={result.website}>Visit Page</a>
+        </div>
+
+        <div className={s.icon}>
+          <MdDirections className={s.directions} />
+          <a href={result.url}>Directions</a>
+        </div>
+
+        <div className={s.icon}>
+          <FaComments className={s.comments} />
+          <Link to={`venues/${venueid}`}>See Reviews</Link>
+        </div>
+
+        <div className={s.icon}>
+          <MdRemoveCircle id={s.delete} />
+          <span>Remove</span>
+        </div>
       </div>
     </li>
   );

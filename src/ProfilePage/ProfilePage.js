@@ -79,7 +79,7 @@ const ProfilePage = props => {
 
         {!showReviews && (
           <ul className={s.favorites}>
-            <h3>Saved Spots</h3>
+            <h3>Favorite Spots</h3>
 
             {favorites.map(favorite => {
               return (
