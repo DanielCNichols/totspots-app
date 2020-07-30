@@ -45,6 +45,16 @@ const ProfilePage = props => {
     let newReviews = reviews.filter(review => {
       return review.id !== id;
     });
+    setReviews(newReviews);
+  }
+
+  function handleEditReview(updated) {
+    // let index = reviews.findIndex(review => review.id === updated.id);
+    // let thing = [
+    //   ...reviews,
+    //   (reviews[index] = { ...reviews[index].result, ...updated }),
+    // ];
+    // console.log('this is the new', thing);
   }
 
   return (
@@ -100,6 +110,7 @@ const ProfilePage = props => {
                 <UserReview
                   key={review.id}
                   deleteReview={handleDeleteReview}
+                  editReview={handleEditReview}
                   review={review}
                 />
               );

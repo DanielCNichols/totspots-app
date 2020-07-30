@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import s from './UserReview.module.css';
 import Rating from '../Rating/Rating';
-import { TsReview } from '../Review/Review';
 import { FaDollarSign, FaStar, FaChild } from 'react-icons/fa';
 import { FiVolume } from 'react-icons/fi';
 import { MdEdit, MdDelete } from 'react-icons/md';
 import moment from 'moment';
+import ApiService from '../services/api-service';
+import Modal from '../NewModal/Modal';
+import EditReview from '../EditReview/EditReview';
 
 //! This is similar to the favorite, but will render a review below it.
-const UserReview = ({ review, review: { result } }) => {
+const UserReview = ({
+  deleteReview,
+  editReview,
+  review,
+  review: { result },
+}) => {
+  let [error, setError] = useState(null);
+  let [edit, setEdit] = useState(false);
+
+  async function handleDeleteReview(id) {
+    try {
+      await ApiService.deleteReview(id);
+      deleteReview(id);
+    } catch (err) {
+      setError(err);
+    }
+  }
+
   return (
     <li className={s.userReview}>
       <div className={s.venueHeader}>
@@ -46,15 +65,26 @@ const UserReview = ({ review, review: { result } }) => {
         )}
       </div>
       <div className={s.userReviewControls}>
-        <button>
+        <button onClick={() => setEdit(!edit)}>
           <MdEdit id={s.edit} />
           <span>Edit Review</span>
         </button>
-        <button>
+        <button onClick={() => handleDeleteReview(review.id)}>
           <MdDelete id={s.delete} />
           <span>Delete Review</span>
         </button>
       </div>
+
+      {/* pass down the edit review callbacks and the cancel handler */}
+      {edit && (
+        <Modal>
+          <EditReview
+            editReview={editReview}
+            cancel={setEdit}
+            review={review}
+          />
+        </Modal>
+      )}
     </li>
   );
 };

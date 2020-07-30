@@ -116,7 +116,7 @@ const ApiService = {
   },
 
   deleteReview(reviewId) {
-    return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -165,17 +165,17 @@ const ApiService = {
     });
   },
 
-  editReview(reviewId, newReview) {
-    return fetch(`${config.API_ENDPOINT}/reviews/users/venues/${reviewId}`, {
+  editReview(reviewId, updated) {
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
       method: 'PATCH',
-      body: JSON.stringify(newReview),
       headers: {
         'content-type': 'application/json',
         Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-    }).then(res => {
-      if (!res.ok) return res.json().then(error => Promise.reject(error));
-    });
+      body: JSON.stringify({ updated }),
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   },
 
   getProfile() {
