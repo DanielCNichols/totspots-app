@@ -5,7 +5,6 @@ import useReviewForm from '../Hooks/customHooks';
 import { MdClose } from 'react-icons/md';
 
 const ReviewForm = ({ cancel, onSuccessSubmit, venueId }) => {
-  console.log('this is the venueID', venueId);
   let [error, setError] = useState(null);
   const {
     inputs,
@@ -25,7 +24,6 @@ const ReviewForm = ({ cancel, onSuccessSubmit, venueId }) => {
         amenities: amenities,
       };
       let res = await ApiService.postReviews(review);
-      console.log(res);
       onSuccessSubmit(res);
       cancel();
     } catch (err) {

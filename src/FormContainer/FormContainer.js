@@ -3,7 +3,6 @@ import Modal from '../NewModal/Modal';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
 const FormContainer = ({ id, handleSubmit }) => {
-  console.log(id);
   let [display, setDisplay] = useState(false);
 
   function handleShow() {

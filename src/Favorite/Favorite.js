@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import s from './Favorite.module.css';
 import { withRouter } from 'react-router-dom';
 import Rating from '../Rating/Rating';
-import { FaDollarSign, FaStar, FaComments } from 'react-icons/fa';
+import { FaDollarSign, FaStar, FaComments, FaChild } from 'react-icons/fa';
 import { MdDirections, MdOpenInNew, MdRemoveCircle } from 'react-icons/md';
 
-const Favorite = ({ favorite: { venueid, result, deleteFavorite } }) => {
-  console.log(result);
-  function handleRemoveFavorite() {
-    console.log('removed');
-  }
+const Favorite = ({
+  favorite,
+  favorite: { venueid, result, deleteFavorite },
+}) => {
+  function handleRemoveFavorite() {}
 
   function renderTypes() {
     let { types } = result;
@@ -52,6 +52,16 @@ const Favorite = ({ favorite: { venueid, result, deleteFavorite } }) => {
 
       <div className={s.ratingsContainer}>
         <Rating value={result.rating} symbol={FaStar} iconClass="star" />
+        <Rating
+          value={favorite.avgrating}
+          symbol={FaChild}
+          iconClass="totspots"
+        />
+        <Rating
+          value={favorite.avgvolume}
+          symbol={FaStar}
+          iconClass="totspots"
+        />
       </div>
       <div className={s.about}>
         <div className={s.types}>{renderTypes()}</div>

@@ -21,7 +21,6 @@ const VenuesPage = props => {
     ApiService.getVenueDetails(props.match.params.id)
       .then(venue => {
         setVenue(venue);
-        console.log('this is the venue', venue);
         setLoading(false);
       })
       .catch(err => setError(err));
@@ -30,7 +29,6 @@ const VenuesPage = props => {
 
   function handleSubmitReview(review) {
     let newReviews = [review, ...venue.tsReviews];
-    console.log(newReviews);
     setVenue({ ...venue, tsReviews: newReviews });
   }
 

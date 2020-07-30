@@ -24,7 +24,6 @@ const ProfilePage = props => {
   useEffect(() => {
     ApiService.getProfile()
       .then(res => {
-        console.log(res);
         setReviews(res.reviews);
         setFavorites(res.favorites);
         setUser(res.user);
@@ -97,8 +96,13 @@ const ProfilePage = props => {
           <ul className={s.reviews}>
             <h3>Review History</h3>
             {reviews.map(review => {
-              console.log(review);
-              return <UserReview key={review.id} review={review} />;
+              return (
+                <UserReview
+                  key={review.id}
+                  deleteReview={handleDeleteReview}
+                  review={review}
+                />
+              );
             })}
           </ul>
         )}

@@ -40,7 +40,6 @@ function ResultsPage(props) {
 
   //*Runs on the initial page load and filter update
   useEffect(() => {
-    console.log('initial load effect');
     context.clearError();
     let queryString = formatQueryString();
     ApiService.getVenues(queryString)
@@ -54,8 +53,6 @@ function ResultsPage(props) {
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
-
-  console.log(loading);
 
   // // //* runs on page update
   useEffect(() => {
@@ -103,7 +100,6 @@ function ResultsPage(props) {
 
   return (
     <section className={s.resultsPage}>
-      {console.log(props.isMobile)}
       {props.isMobile ? (
         <div className={s.mobile}>
           <div className={s.mobileControls}>
