@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-const useRegistrationForm = callback => {
+export const useRegistrationForm = callback => {
   const [inputs, setInputs] = useState({
-    email: '',
     username: '',
     password: '',
+    confirmPass: '',
     first_name: '',
     last_name: '',
-    city: '',
-    state: '',
   });
 
   const [touched, setTouched] = useState({
@@ -49,7 +47,7 @@ const useRegistrationForm = callback => {
   };
 };
 
-const useReviewForm = callback => {
+export const useReviewForm = callback => {
   const [inputs, setInputs] = useState({
     tsRating: '',
     volume: '',
@@ -93,5 +91,3 @@ const useReviewForm = callback => {
     touched,
   };
 };
-
-export default useReviewForm;
