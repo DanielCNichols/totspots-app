@@ -1,0 +1,25 @@
+.hero {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.hero header {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.hero header h1 {
+  margin: 20px auto;
+  font-size: 3em;
+}
+
+.hero header p {
+  font-size: 1.5em;
+}

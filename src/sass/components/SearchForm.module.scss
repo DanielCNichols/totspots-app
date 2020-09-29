@@ -1,0 +1,34 @@
+.searchForm {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.searchForm fieldset {
+  width: 100%;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchForm .formElement {
+  margin: 0;
+}
+
+.searchForm input {
+  width: 400px;
+}
+
+.searchForm button {
+  align-self: flex-end;
+}

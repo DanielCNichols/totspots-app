@@ -1,0 +1,22 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+.navbar {
+  position: absolute;
+  height: 3em;
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $base-color;
+  color: white;
+  z-index: 1;
+}
+
+.navLinks {
+  @include centerDiv;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
