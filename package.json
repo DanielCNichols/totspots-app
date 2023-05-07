@@ -15,7 +15,7 @@
     "libphonenumber-js": "^1.7.26",
     "moment": "^2.24.0",
     "node-sass": "^4.14.1",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-google-autocomplete": "^1.2.6",
